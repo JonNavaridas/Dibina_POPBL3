@@ -56,14 +56,14 @@ public class ControladorPedidos {
 		}
 	}
 	
-	private Tipo getTipo(String nombre) {
+	public Tipo getTipo(String nombre) {
 		for (Tipo t : listaTipos) {
 			if (t.getNombre().equals(nombre)) return t;
 		}
 		return null;
 	}
 	
-	private Procedencia getProcedencia(String nombre) {
+	public Procedencia getProcedencia(String nombre) {
 		for (Procedencia t : listaProcedencias) {
 			if (t.getNombre().equals(nombre)) return t;
 		}

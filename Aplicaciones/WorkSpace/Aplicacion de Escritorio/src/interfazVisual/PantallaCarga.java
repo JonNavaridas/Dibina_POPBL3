@@ -85,6 +85,8 @@ public class PantallaCarga extends JDialog {
 		listaProductos = gestor.leerProductos();
 		listaProcedencias = gestor.leerProcedencias();
 		
+		//Inicializar timer para pantalla de carga
+		
 		PantallaCarga.this.dispose();
 	}
 	
