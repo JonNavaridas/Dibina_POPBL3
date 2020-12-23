@@ -3,11 +3,8 @@ package paneles;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.SystemColor;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -18,8 +15,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnit;
-import org.jfree.chart.axis.TickUnits;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
@@ -33,7 +28,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
 import org.jfree.ui.TextAnchor;
 
-import elementos.Pedido;
 import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
@@ -42,8 +36,10 @@ import gestionPaquetes.ControladorPedidos;
 
 public class PanelStockDisponible extends JPanel implements ItemListener{
 
+	private static final long serialVersionUID = 1L;
 	final static int ALTO = 1000;
 	final static int ANCHO  = 270;
+	
 	private CategoryDataset dataset;
 	private JFreeChart chart;
 	private ChartPanel chartPanel;
@@ -242,30 +238,30 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		Color color = new Color(223, 20, 20 , 255);
 		renderer.setSeriesPaint(0, color);		
 	}
-	  @Override
-		public void itemStateChanged(ItemEvent arg0) {
-			CategoryDataset dataset;
-			if(tipo.isSelected()) {
-				dataset = createDatasetTipo();
-				chart = createChart(dataset, false, "Tipo"); 
-				chart.removeLegend();
-				setChartColor();
-			}
-			else if(procedencia.isSelected()){
-				dataset = createDatasetProcedencia();
-				chart = createChart(dataset, false, "Procedencia"); 
-				chart.removeLegend();
-				setChartColor();
-			}
-			else {
-				dataset = createDataset();
-				chart = createChart(dataset, true, "Tipo y procedencia"); 
-			}			
-			chartPanel.setChart(chart);
-			setMinimumTickUnits();
-			crearRenderer();
-			
-			this.repaint();
+	
+	@Override
+	public void itemStateChanged(ItemEvent arg0) {
+		CategoryDataset dataset;
+		if(tipo.isSelected()) {
+			dataset = createDatasetTipo();
+			chart = createChart(dataset, false, "Tipo"); 
+			chart.removeLegend();
+			setChartColor();
 		}
-
+		else if(procedencia.isSelected()){
+			dataset = createDatasetProcedencia();
+			chart = createChart(dataset, false, "Procedencia"); 
+			chart.removeLegend();
+			setChartColor();
+		}
+		else {
+			dataset = createDataset();
+			chart = createChart(dataset, true, "Tipo y procedencia"); 
+		}			
+		chartPanel.setChart(chart);
+		setMinimumTickUnits();
+		crearRenderer();
+		
+		this.repaint();
+  	}
 }

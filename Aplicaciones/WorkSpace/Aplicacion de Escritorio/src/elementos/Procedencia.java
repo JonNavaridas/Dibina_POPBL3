@@ -1,9 +1,12 @@
 package elementos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Procedencia {
+public class Procedencia implements Serializable {
+
+	private static final long serialVersionUID = -8495386230097032575L;
 
 	String nombre;
 	String abreviatura;

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Box;
@@ -28,7 +27,7 @@ import elementos.Tipo;
 import gestionElementosVisuales.ImageFactory;
 import gestionPaquetes.ControladorPedidos;
 import paneles.PanelBuscar;
-import paneles.PanelHP;
+import paneles.PanelHacerPedido;
 import paneles.PanelHistorial;
 import paneles.PanelPrincipal;
 import paneles.PanelStockDisponible;
@@ -45,6 +44,8 @@ public class Dibina extends JFrame {
 	private List<Producto> listaProductos;
 	private List<Pedido> listaPedidos;
 	private List<Tipo> listaTipos;
+	private String[] destinos;
+	
 	private JScrollPane pDisplay;
 	
 	ControladorPedidos controlador;
@@ -53,21 +54,20 @@ public class Dibina extends JFrame {
 
 	public Dibina() {
 		super("Dibina Stock Manager");
-		
 		pDisplay = new JScrollPane();
-		listaTipos = new ArrayList<>();
-		listaPedidos = new ArrayList<>();
-		listaProductos = new ArrayList<>();
-		listaProcedencias = new ArrayList<>();
-
+		
 		PantallaCarga carga = new PantallaCarga(this, null, true);
 		listaTipos = carga.getTipos();
+		destinos = carga.getDestinos();
 		listaPedidos = carga.getPedidos();
 		listaProductos = carga.getProductos();
 		listaProcedencias = carga.getProcedencias();
 		
-		controlador = new ControladorPedidos(listaProcedencias, listaTipos);
+		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
+		modelo = new ModeloTabla(listaProductos);
 		
+		pDisplay.setBorder(null);
+		pDisplay.setViewportView(new PanelPrincipal());
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
@@ -80,20 +80,21 @@ public class Dibina extends JFrame {
 		JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
 		pVentana.setDividerLocation(width/15);
 		pVentana.setBorder(null);
-		pDisplay.setBorder(null);
-		
+
 		this.setContentPane(pVentana);
 		this.setJMenuBar(crearBarraMenu());
-		pDisplay.setViewportView(new PanelPrincipal()); 
-		
 		
 		this.setBackground(Color.white);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+		
 		DialogoLogin login = new DialogoLogin(this, "Dibina Login", true);
 		user = login.getUserLoged();
-		if(user == null)this.dispose();
+		
+		if (user == null)
+			this.dispose();
+		else
+			this.setVisible(true);
 	}
 	
 	private JMenuBar crearBarraMenu() {
@@ -117,9 +118,11 @@ public class Dibina extends JFrame {
 		
 		estado = menuPaquetes.add("Historial del almacén");
 		estado.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_HISTORIAL));
-		estado.addActionListener((e)->System.out.println("Historial"));
+		estado.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHistorial(modelo));
 			this.repaint();
+		});
+		
 		return menuPaquetes;
 	}
 
@@ -139,14 +142,14 @@ public class Dibina extends JFrame {
 		pedido = menuPaquetes.add("Hacer pedido");
 		pedido.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDO));
 		pedido.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHP(listaPedidos, controlador));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador));
 			this.repaint();
 		});
 		
 		buscar = menuPaquetes.add("Buscar elementos");
 		buscar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_BUSQUEDA));
 		buscar.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelBuscar(modelo));
+			pDisplay.setViewportView(new PanelBuscar(modelo, listaProductos));
 			this.repaint();
 		});
 		
@@ -219,7 +222,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDO));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHP(listaPedidos, controlador));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);
@@ -228,7 +231,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_BUSQUEDA));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelBuscar(modelo));
+			pDisplay.setViewportView(new PanelBuscar(modelo, listaProductos));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);
@@ -255,14 +258,13 @@ public class Dibina extends JFrame {
 		return panel;
 	}
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-			
-		@SuppressWarnings("unused")
 		Dibina app = new Dibina();
 	}
 }

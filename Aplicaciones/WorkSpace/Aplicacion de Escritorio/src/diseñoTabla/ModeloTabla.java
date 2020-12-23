@@ -17,6 +17,10 @@ public class ModeloTabla  extends AbstractTableModel {
 		this.listaProductos = listaProductos;
 	}
 	
+	public void setLista(List<Producto> listaProductos) {
+		this.listaProductos = listaProductos;
+	}
+	
 	@Override
 	public String getColumnName(int column) {
 		return NOMBRE_COLUMNAS[column];

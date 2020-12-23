@@ -1,6 +1,10 @@
 package elementos;
 
-public class Tipo {
+import java.io.Serializable;
+
+public class Tipo implements Serializable {
+
+	private static final long serialVersionUID = 5559020248449778815L;
 
 	Integer ID;
 	String nombre;
@@ -20,7 +24,6 @@ public class Tipo {
 
 	@Override
 	public String toString() {
-		//return nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
-		return nombre;
+		return nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
 	}
 }

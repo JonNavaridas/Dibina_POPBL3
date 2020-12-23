@@ -2,13 +2,13 @@ package diseñoLista;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import gestionElementosVisuales.FontFactory;
 import gestionPantallas.RoundedBorder;
 
 public class ListTipoRenderer implements ListCellRenderer<String> {
@@ -18,9 +18,10 @@ public class ListTipoRenderer implements ListCellRenderer<String> {
 		JLabel label = new JLabel(tipo);
 		label.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 0, 0, 0), new RoundedBorder(5)));
 		
-		label.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
+		label.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
+		
 		if (isSelected) {
-			label.setBackground(Color.orange);
+			label.setBackground(new Color(255, 200, 120));
 			label.setOpaque(true);
 		}
 		

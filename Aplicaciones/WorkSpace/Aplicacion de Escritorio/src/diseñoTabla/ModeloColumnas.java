@@ -19,8 +19,10 @@ public class ModeloColumnas extends DefaultTableColumnModel {
 
 	private TableColumn crearColumna(String string, int i, int j) {
 		TableColumn columna = new TableColumn(i, j);
+		
 		columna.setHeaderValue(string);
 		columna.setCellRenderer(renderer);
+		
 		return columna;
 	}
 }

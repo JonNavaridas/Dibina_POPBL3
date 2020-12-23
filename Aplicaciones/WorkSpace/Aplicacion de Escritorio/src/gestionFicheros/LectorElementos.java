@@ -21,17 +21,21 @@ public class LectorElementos {
 
 	public static final String FICHERO_TIPOS = "Files/Tipos.txt";
 	public static final String FICHERO_PEDIDOS = "Files/Pedidos.dat";
+	public static final String FICHERO_DESTINOS = "Files/Destinos.txt";
 	public static final String FICHERO_PRODUCTOS = "Files/Productos.dat";
 	public static final String FICHERO_PROCEDENCIAS = "Files/Procedencias.txt";
 	
+	List<String> destinos;
 	List<Tipo> listaTipos;
 	List<Pedido> listaPedidos;
 	List<Producto> listaProductos;
 	List<Procedencia> listaProcedencias;
 	
 	public LectorElementos() {
+		destinos = new ArrayList<>();
 		listaTipos = new ArrayList<>();
 		listaPedidos = new ArrayList<>();
+		listaProductos = new ArrayList<>();
 		listaProcedencias = new ArrayList<>();
 	}
 	
@@ -117,12 +121,15 @@ public class LectorElementos {
 			} while(listaPedidos != null);
 			
 		} catch (FileNotFoundException e) {
+			e.getStackTrace();
 			return null;
 		}catch (EOFException e){
 			return listaProductos;
 		}catch (IOException e) {
+			e.getStackTrace();
 			return null;
 		} catch (ClassNotFoundException e) {
+			e.getStackTrace();
 			return null;
 		}
 		return listaProductos;
@@ -136,6 +143,29 @@ public class LectorElementos {
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public String[] leerDestinos() {
+		try {
+			BufferedReader in = new BufferedReader(new FileReader(FICHERO_DESTINOS));
+			
+			String linea;
+			while ((linea = in.readLine()) != null) {
+				destinos.add(linea);
+			}
+			in.close();
+			
+			String[] destinoArray = new String[destinos.size()];
+			for (int i = 0; i < destinos.size(); i++) {
+				destinoArray[i] = destinos.get(i);
+			}
+			
+			return destinoArray;
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

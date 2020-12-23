@@ -6,7 +6,6 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -30,6 +29,7 @@ public class PantallaCarga extends JDialog {
 	JProgressBar barraCarga;
 	ImageIcon imagenCarga;
 	
+	String[] destinos;
 	List<Tipo> listaTipos;
 	List<Pedido> listaPedidos;
 	List<Producto> listaProductos;
@@ -37,7 +37,6 @@ public class PantallaCarga extends JDialog {
 	
 	public PantallaCarga(JFrame ventana, String titulo, boolean modo) {
 		super(ventana, titulo, modo);
-		listaTipos = new ArrayList<>();
 		imagenCarga = ImageFactory.createImageIcon(ImageFactory.IMAGEN_CARGA);
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -81,11 +80,10 @@ public class PantallaCarga extends JDialog {
 		LectorElementos gestor = new LectorElementos();
 		
 		listaTipos = gestor.leerTipos();
+		destinos = gestor.leerDestinos();
 		listaPedidos = gestor.leerPedidos();
 		listaProductos = gestor.leerProductos();
 		listaProcedencias = gestor.leerProcedencias();
-		
-		//Inicializar timer para pantalla de carga
 		
 		PantallaCarga.this.dispose();
 	}
@@ -104,5 +102,9 @@ public class PantallaCarga extends JDialog {
 
 	public List<Producto> getProductos() {
 		return listaProductos;
+	}
+
+	public String[] getDestinos() {
+		return destinos;
 	}
 }

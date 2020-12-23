@@ -26,8 +26,10 @@ import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 public class PanelHistorial extends JPanel implements ActionListener, ChangeListener{
 	
+	private static final long serialVersionUID = 1L;
 	final static int ALTO = 300;
 	final static int ANCHO  = 500;
+	
 	UtilDateModel dateModel;
 	JDatePanelImpl datePanel;
 	JDatePickerImpl datePicker;
@@ -82,7 +84,9 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 		panel.add(labelFecha);		
 		return panel;
 	}
+
 	@Override
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent arg0) {
 		try {
 			Date selectedDate = (Date) datePanel.getModel().getValue();

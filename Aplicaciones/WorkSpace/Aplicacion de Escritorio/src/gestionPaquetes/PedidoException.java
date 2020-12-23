@@ -1,10 +1,10 @@
 package gestionPaquetes;
 
-public class PaqueteException extends Exception {
+public class PedidoException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public PaqueteException(String msg) {
+	public PedidoException(String msg) {
 		super(msg);
 	}
 }

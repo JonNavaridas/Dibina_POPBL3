@@ -8,6 +8,7 @@ public class ImageFactory {
 
 	public static final String IMAGEN_CARGA = "Images/carga.png";
 	public static final String IMAGEN_INICIO = "Images/inicio.png";
+	public static final String IMAGEN_USER = "Images/user.png";
 
 	public static final String IMAGEN_HOME = "Images/home.png";
 	public static final String IMAGEN_STOCK = "Images/stock.png";
@@ -18,6 +19,9 @@ public class ImageFactory {
 	
 	public static final String ICONO = "Icons/icon.png";
 	public static final String ICONO_LOGO = "Icons/logo.png";
+
+	public static final String ICONO_SHOW = "Icons/showPassword.png";
+	public static final String ICONO_HIDE = "Icons/hidePassword.png";
 
 	public static final String ICONO_STOCK = "Icons/stock.png";
 	public static final String ICONO_PEDIDO = "Icons/pedido.png";

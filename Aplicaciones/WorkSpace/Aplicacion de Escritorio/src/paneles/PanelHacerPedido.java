@@ -4,15 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -21,32 +24,42 @@ import javax.swing.border.TitledBorder;
 
 import diseñoLista.ListTipoRenderer;
 import elementos.Pedido;
+import elementos.Producto;
+import gestionElementosVisuales.FontFactory;
 import gestionPantallas.RoundedBorder;
 import gestionPaquetes.ControladorPedidos;
+import gestionPaquetes.PedidoException;
 
-public class PanelHP extends JScrollPane {
+public class PanelHacerPedido extends JScrollPane {
 
 	private static final long serialVersionUID = 1L;
 
 	List<Pedido> listaPedidos;
 	ControladorPedidos controlador;
+	Map<String, Integer> displayPedido;
 	
-	DefaultListModel<String> modelo;
+	Pedido pedido;
+	JList<String> elementosPedido;
+	DefaultListModel<String> modeloPedido;
+	
+	DefaultListModel<String> modeloTipos;
 	JComboBox<String> destino;
 	JList<String> tipos;
 	JTextField cantidad;
 
-	public PanelHP(List<Pedido> listaPedidos, ControladorPedidos controlador) {
+	public PanelHacerPedido(List<Pedido> listaPedidos, String[] destinos, ControladorPedidos controlador) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
 		
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		
+		this.displayPedido = new HashMap<>();
 		this.listaPedidos = listaPedidos;
 		this.controlador = controlador;
+		this.pedido = new Pedido();
 
-		destino = new JComboBox<>(controlador.getTipoArray());
+		destino = new JComboBox<>(destinos);
 		destino.setSelectedIndex(0);
 		
 		this.setViewportView(crearPanelVentana());
@@ -95,8 +108,8 @@ public class PanelHP extends JScrollPane {
 		cantidad.setPreferredSize(new Dimension(300, 50));
 		destino.setPreferredSize(new Dimension(300, 50));
 
-		cantidad.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
-		destino.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
+		cantidad.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
+		destino.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		
 		panel.add(pCantidad);
 		panel.add(pDestino);
@@ -118,20 +131,20 @@ public class PanelHP extends JScrollPane {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		panel.setBorder(BorderFactory.createCompoundBorder(
 						BorderFactory.createTitledBorder(new RoundedBorder(5), " Lista de Elementos ", TitledBorder.LEFT,
-														 TitledBorder.CENTER, new Font("Times new roman", Font.TRUETYPE_FONT, 14)),
+														 TitledBorder.CENTER, FontFactory.createFont(FontFactory.BASE_FONT, 14)),
 						BorderFactory.createEmptyBorder(5, 5, 5, 5))
 				);
 		panel.setBackground(Color.white);
 		panel.setPreferredSize(new Dimension(200, 500));
 
-		modelo = new DefaultListModel<>();
+		modeloTipos = new DefaultListModel<>();
 		tipos = new JList<>();
 		
-		tipos.setModel(modelo);
-		controlador.getListaTipos().stream().forEach((p)->modelo.addElement(p.getNombre()));
+		tipos.setModel(modeloTipos);
+		controlador.getListaProductos().stream().forEach((p)->modeloTipos.addElement(p.toString()));
 		
 		tipos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		tipos.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 14));
+		tipos.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		tipos.setCellRenderer(new ListTipoRenderer());
 		
 		panel.setViewportView(tipos);
@@ -140,11 +153,18 @@ public class PanelHP extends JScrollPane {
 	}
 
 	private Component panelEspecificaciones() {
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50), new RoundedBorder(5)));
+		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50), new RoundedBorder(10)));
 		panel.setBackground(Color.white);
 		
+		elementosPedido = new JList<>();
+		modeloPedido = new DefaultListModel<>();
 		
+		elementosPedido.setModel(modeloPedido);
+		elementosPedido.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		elementosPedido.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
+		
+		panel.setViewportView(elementosPedido);
 		
 		return panel;
 	}
@@ -159,9 +179,35 @@ public class PanelHP extends JScrollPane {
 		pBoton.setBackground(Color.white);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
-		boton.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 14));
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.addActionListener((l)->{
-			
+			try { 
+				if (Integer.parseInt(cantidad.getText()) <= 0) throw new IllegalArgumentException();
+				
+				String[] valores = tipos.getSelectedValue().split("[ ]");
+				int unidades = Integer.parseInt(cantidad.getText());
+				
+				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null,
+								  (unidades <= 1000 && unidades > 0) ? unidades : null, controlador.getProcedencia(valores[1])));
+				
+				if (displayPedido.get(tipos.getSelectedValue()) != null) {
+					modeloPedido.removeAllElements();
+					displayPedido.put(
+							tipos.getSelectedValue(), displayPedido.get(tipos.getSelectedValue()) + Integer.parseInt(cantidad.getText())
+					);
+					displayPedido.entrySet().stream().forEach((e)->{
+						modeloPedido.addElement("Elemento: " + e.getKey() + ". Cantidad: " + e.getValue());
+					});
+				}
+				else {
+					displayPedido.put(tipos.getSelectedValue(), Integer.parseInt(cantidad.getText()));
+					modeloPedido.addElement("Elemento: " + tipos.getSelectedValue() + ". Cantidad: " + cantidad.getText());
+				}
+					
+			} 
+			catch (IllegalArgumentException | NullPointerException e) {
+				JOptionPane.showMessageDialog(this, "Los datos proporcionados no son correctos", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		});
 		pBoton.add(boton);
 		panel.add(pBoton);
@@ -171,9 +217,15 @@ public class PanelHP extends JScrollPane {
 		pBoton.setBackground(Color.white);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
-		boton.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 14));
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.addActionListener((l)->{
-			
+			if (pedido.getListaProductos().size() > 0) {
+				pedido.setId(controlador.generarID());
+				pedido.setFecha(Calendar.getInstance().getTime());
+				pedido.setDestino((String)destino.getSelectedItem());
+				listaPedidos.add(pedido);
+				modeloPedido.removeAllElements();
+			}
 		});
 		pBoton.add(boton);
 		panel.add(pBoton);
@@ -183,9 +235,20 @@ public class PanelHP extends JScrollPane {
 		pBoton.setBackground(Color.white);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
-		boton.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 14));
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.addActionListener((l)->{
-			
+			if (!elementosPedido.isSelectionEmpty()) {
+				try {
+					String[] valores = elementosPedido.getSelectedValue().split("[.]");
+					String[] parametros = valores[0].split("[ ]");
+
+					modeloPedido.remove(elementosPedido.getSelectedIndex());
+					pedido.removeProducto(controlador.getTipo(parametros[1]), controlador.getProcedencia(parametros[2]),
+							Integer.parseInt(valores[1].split(": ")[1]));
+				} catch (PedidoException e) {
+					JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
 		});
 		pBoton.add(boton);
 		panel.add(pBoton);

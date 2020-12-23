@@ -29,12 +29,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import gestionElementosVisuales.ImageFactory;
 
 public class DialogoLogin extends JDialog{
 	
+	private static final long serialVersionUID = 1L;
 	public static Color COLORFONDO = new Color(255,119,0);
+	
 	public final static int DEFAULT_WIDTH = 500;
 	public final static int DEFAULT_HEIGHT = 700;
+	
 	Identificador iden;
 	JTextField usuario; 
 	JPasswordField password;
@@ -48,6 +52,7 @@ public class DialogoLogin extends JDialog{
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
 		int height = (int) toolkit.getScreenSize().getHeight();
+		
 		this.setLocation(width/2 - DEFAULT_WIDTH/2, height/2 - DEFAULT_HEIGHT/2);
 		this.setSize(new Dimension(DEFAULT_WIDTH, 700));
 
@@ -57,10 +62,12 @@ public class DialogoLogin extends JDialog{
 
 	private Container crearPanel() {
 		JPanel panel  = new JPanel();
+		
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.add(crearImagenUser());
 		panel.add(crearPanelRellenoFormulario());
 		panel.add(crearBotonConfirmar());
+		
 		return panel;
 	}
 
@@ -104,8 +111,8 @@ public class DialogoLogin extends JDialog{
 			JPanel panel2 = new JPanel();
 			panel2.setBackground(Color.white);
 			JCheckBox mostrar = new JCheckBox();
-			mostrar.setIcon(new ImageIcon(escalarFotoFondoBlancoPng("Icons/hidePassword.png",200,200,25,25)));
-			mostrar.setSelectedIcon(new ImageIcon(escalarFotoFondoBlancoPng("Icons/showPassword.png",200,200,25,25)));
+			mostrar.setIcon(new ImageIcon(escalarFotoFondoBlancoPng(ImageFactory.ICONO_HIDE,200,200,25,25)));
+			mostrar.setSelectedIcon(new ImageIcon(escalarFotoFondoBlancoPng(ImageFactory.ICONO_SHOW,200,200,25,25)));
 			mostrar.setBackground(Color.white);
 			mostrar.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(0, 3, 0, 3)));
 			mostrar.addActionListener((l)->{
@@ -155,7 +162,7 @@ public class DialogoLogin extends JDialog{
 
 	private Container crearImagenUser() {
 		JPanel panel = new JPanel();		
-		JLabel lbimagen  = new JLabel(new ImageIcon(makeRoundedCorner(escalarFotoFondoBlancoPng("Images/user.png", 750, 750, 200, 200), 220)));
+		JLabel lbimagen  = new JLabel(new ImageIcon(makeRoundedCorner(escalarFotoFondoBlancoPng(ImageFactory.IMAGEN_USER, 750, 750, 200, 200), 220)));
 		lbimagen.setPreferredSize(new Dimension(200,200));
 		panel.add(lbimagen);
 		lbimagen.setBackground(COLORFONDO);

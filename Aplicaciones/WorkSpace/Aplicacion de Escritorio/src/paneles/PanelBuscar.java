@@ -4,9 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -20,13 +24,13 @@ import diseñoTabla.ModeloColumnas;
 import diseñoTabla.ModeloTabla;
 import diseñoTabla.RendererTabla;
 import elementos.Producto;
+import gestionElementosVisuales.FontFactory;
 
 public class PanelBuscar extends JScrollPane {
 
 	private static final long serialVersionUID = 1L;
-	private static final String[] tipos = { "Todo", "Mascarillas", "Vacunas", "Guantes", "Hidrogel", "Epi" };
-	private static final String[] cantidades = { "Todo", "0-100", "100-200", "200-300", "300-400", "400-500" };
 	
+	List<Integer> listaCantidades;
 	JComboBox<String> tipo, procedencia, cantidad;
 	String[] listaTipo, listaProcedencia, listaCantidad;
 	
@@ -35,21 +39,27 @@ public class PanelBuscar extends JScrollPane {
 	ModeloTabla modeloTabla;
 	JTable tabla;
 
-	public PanelBuscar(ModeloTabla controlador) {
+	public PanelBuscar(ModeloTabla modelo, List<Producto> listaProductos) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
 		
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		
-		this.modeloTabla = controlador;
+		this.modeloTabla = modelo;
+		this.listaProductos = listaProductos;
+		this.listaDisplay = listaProductos;
+		this.modeloTabla.setLista(listaDisplay);
 		
-		listaProcedencia = new String[1];
-		listaProcedencia[0] = "Todo";
+		listaTipo = this.transformToArray(listaProductos.stream().map(Producto::getTipo).distinct().collect(Collectors.toList()));
+		listaProcedencia = this.transformToArray(listaProductos.stream().map(Producto::getProcedencia).distinct().collect(Collectors.toList()));
+		listaCantidades = listaProductos.stream().map(Producto::getCantidad).distinct().collect(Collectors.toList());
 		
-		tipo = new JComboBox<>(tipos);
+		setCantidades();
+		
+		tipo = new JComboBox<>(listaTipo);
 		procedencia = new JComboBox<>(listaProcedencia);
-		cantidad = new JComboBox<>(cantidades);
+		cantidad = new JComboBox<>(listaCantidad);
 		
 		tipo.setSelectedIndex(0);
 		procedencia.setSelectedIndex(0);
@@ -65,26 +75,24 @@ public class PanelBuscar extends JScrollPane {
 		
 		JButton boton = new JButton("Filtrar");
 		boton.addActionListener((e)->{
-			listaDisplay = listaProductos;/*
+			listaDisplay = listaProductos;
 			if (!((String)tipo.getSelectedItem()).equals("Todo")) {
-				listaDisplay = listaDisplay.stream().filter((p)->p.getTipo().equals(
-									((Tipo)tipo.getSelectedItem()))).collect(Collectors.toList());
+				listaDisplay = listaDisplay.stream().filter((p)->p.getTipo().toString().equals(
+									((String)tipo.getSelectedItem()))).collect(Collectors.toList());
 			}
 			if (!((String)procedencia.getSelectedItem()).equals("Todo")) {
-				listaDisplay = listaDisplay.stream().filter((p)->p.getProcedenciaDestino().equals(
-						((String)tipo.getSelectedItem()))).collect(Collectors.toList());
+				listaDisplay = listaDisplay.stream().filter((p)->p.getProcedencia().toString().equals(
+						((String)procedencia.getSelectedItem()))).collect(Collectors.toList());
 			}
 			if (!((String)cantidad.getSelectedItem()).equals("Todo")) {
-				String[] valores = ((String)cantidad.getSelectedItem()).split("[-]");
-				
 				listaDisplay = listaDisplay.stream().filter((p)->{
-					return p.getCantidad() >= Integer.parseInt(valores[0]) && p.getCantidad() <= Integer.parseInt(valores[1]);
+					return p.getCantidad() >= Integer.parseInt(((String)cantidad.getSelectedItem()).substring(1));
 				}).collect(Collectors.toList());
 			}
-			controlador.setListaPaquetes(listaDisplay);*/
+			modeloTabla.setLista(listaDisplay);
 			this.repaint();
 		});
-		boton.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		boton.setPreferredSize(new Dimension(150, 30));
 		
 		JPanel pBoton = new JPanel();
@@ -101,9 +109,9 @@ public class PanelBuscar extends JScrollPane {
 	private Component crearPanelFiltros() {
 		JPanel panel = new JPanel(new GridLayout(1, 3));
 		
-		tipo.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
-		procedencia.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
-		cantidad.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 16));
+		tipo.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
+		procedencia.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
+		cantidad.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		
 		panel.add(tipo);
 		panel.add(procedencia);
@@ -118,8 +126,57 @@ public class PanelBuscar extends JScrollPane {
 		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla()));
 		tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 		
+		tabla.getTableHeader().addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				switch(tabla.columnAtPoint(e.getPoint())) {
+				case 0: 
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getNombreTipo)).collect(Collectors.toList());
+					break;
+				case 1:
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getCantidad)).collect(Collectors.toList());
+					break;
+				case 2:
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getNombreProcedencia)).collect(Collectors.toList());
+					break;
+				case 3:
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getFechaExacta)).collect(Collectors.toList());
+					break;
+				}
+				modeloTabla.setLista(listaDisplay);
+				PanelBuscar.this.repaint();
+			}
+		});
+		
 		panel.setViewportView(tabla);
 		
 		return panel;
+	}
+	
+	private <T> String[] transformToArray(List<T> elementos) {
+		String[] array = new String[elementos.size() + 1];
+		
+		array[0] = "";
+		for (int i = 0; i < elementos.size(); i++) {
+			array[i + 1] = elementos.get(i).toString();
+		}
+		Arrays.sort(array);
+		array[0] = "Todo";
+		
+		return array;
+	}
+	
+	
+	private void setCantidades() {
+		Integer max = listaCantidades.stream().reduce((a, b)->(a > b) ? a : b).get();
+		Integer divisor = (max >= 900) ? 100 : (max >= 500) ? 50 : (max >= 200) ? 20 : 10;
+		Integer length = (max/divisor) + 1;
+		
+		listaCantidad = new String[length + 1];
+		listaCantidad[0] = "Todo";
+		
+		for (int i = 0; i < length; i++)
+			listaCantidad[i + 1] = "+" + String.valueOf((i) * divisor);	
 	}
 }

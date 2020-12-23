@@ -1,10 +1,8 @@
 package usuarios;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -38,10 +36,6 @@ public class Identificador {
 		return usuario;
 	}
 	
-	private void saveUsuarios() {
-		
-	}
-	
 	private void readUsuarios() {
 		try {
 			int i = 0;
@@ -51,10 +45,10 @@ public class Identificador {
 			
 			String linea;
 			linea = inSinHash.readLine();
-			String[] contraseñas = linea.split("[$]");		//contraseñas originales
+			String[] contraseñas = linea.split("[$]"); // contraseñas originales
 			
 			while ((linea = in.readLine()) != null) {
-				String[] valores = linea.split("[$]");		//leer id, nombre
+				String[] valores = linea.split("[$]"); // leer id, nombre
 
 				destino.write(valores[0]+"$"+valores[1]+"$"+contraseñas[i].hashCode());
 				destino.write('\n');

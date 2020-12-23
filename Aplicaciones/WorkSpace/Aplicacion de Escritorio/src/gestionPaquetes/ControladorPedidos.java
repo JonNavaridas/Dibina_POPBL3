@@ -1,5 +1,6 @@
 package gestionPaquetes;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -18,8 +19,9 @@ public class ControladorPedidos {
 	Set<Integer> setID;
 	Random generador;
 	
-	public ControladorPedidos(List<Procedencia> listaProcedencias, List<Tipo> listaTipos) {
+	public ControladorPedidos(List<Procedencia> listaProcedencias, List<Tipo> listaTipos, List<Producto> listaProductos) {
 		this.listaProcedencias = listaProcedencias;
+		this.listaProductos = listaProductos;
 		this.listaTipos = listaTipos;
 		
 		generador = new Random();
@@ -33,6 +35,26 @@ public class ControladorPedidos {
 	public List<Procedencia> getListaProcedencias() {
 		return listaProcedencias;
 	}
+	
+	public List<Producto> getListaProductos() {
+		return listaProductos;
+	}
+	
+	public Long generarID() {
+		String[] valores = Calendar.getInstance().getTime().toString().split("[ ]");
+		
+		if (valores.length == 6) {
+			String[] hora = valores[3].split("[:]");
+			return Long.parseLong(valores[5] + getMonth() + valores[2] + hora[0] + hora[1] + hora[2]);
+		}
+		
+		return null;
+	}
+	
+	@SuppressWarnings("deprecation")
+	private String getMonth() {
+		return String.valueOf(Calendar.getInstance().getTime().getMonth() + 1);
+	}
 
 	public String[] getTipoArray() {
 		String[] tipoArray = new String[listaTipos.size()];
@@ -42,18 +64,6 @@ public class ControladorPedidos {
 		}
 		
 		return tipoArray;
-	}
-
-	public void crearPaquete(String procedencia, String cantidad, String tipo) throws PaqueteException {
-		try {
-			if (Integer.parseInt(cantidad) >= 1000) 
-				throw new PaqueteException("No esta permitida esa cantidad");
-			//Producto paquete = new Producto();
-			//listaProductos.add(paquete);
-		}
-		catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public Tipo getTipo(String nombre) {
@@ -65,7 +75,7 @@ public class ControladorPedidos {
 	
 	public Procedencia getProcedencia(String nombre) {
 		for (Procedencia t : listaProcedencias) {
-			if (t.getNombre().equals(nombre)) return t;
+			if (t.getAbreviatura().equals(nombre)) return t;
 		}
 		return null;
 	}

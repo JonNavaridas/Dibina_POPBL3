@@ -1,8 +1,13 @@
 package elementos;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Producto {
+import gestionPaquetes.PedidoException;
+
+public class Producto implements Serializable {
+
+	private static final long serialVersionUID = 2299343732612703163L;
 
 	Tipo tipo;
 	Date fecha;
@@ -31,7 +36,16 @@ public class Producto {
 	public Procedencia getProcedencia() {
 		return procedencia;
 	}
+	
+	public void addElements(int cantidad) {
+		this.cantidad += cantidad;
+	}
 
+	public void removeElements(int cantidad) throws PedidoException {
+		if (cantidad > this.cantidad) throw new PedidoException("No hay suficiente stock.");
+		this.cantidad -= cantidad;
+	}
+	
 	public Object getFieldAt(int column) {
 		switch(column) {
 		case 0: return new String(tipo.getNombre());
@@ -40,5 +54,32 @@ public class Producto {
 		case 3: return fecha;
 		default: return null;
 		}
+	}
+	
+	// Conocer los nombres de los tipos para facilitar su ordenación
+	public String getNombreTipo() {
+		return tipo.getNombre().toLowerCase();
+	}
+	
+	// Conocer las procedencias para facilitar la ordenación
+	public String getNombreProcedencia() {
+		return (procedencia.getNombre() + " " + procedencia.getAbreviatura()).toLowerCase();
+	}
+	
+	@SuppressWarnings("deprecation")
+	public String getFechaExacta() {
+		return fecha.getYear() + " " + fecha.getMonth() + " " + fecha.getDay() + " " +
+			   fecha.getHours() + " " + fecha.getMinutes() + " " + fecha.getSeconds();
+	}
+
+	@Override
+	public String toString() {
+		return tipo + " " + procedencia;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Producto p = (Producto) obj;
+		return (this.tipo.equals(p.getTipo()) && this.procedencia.equals(p.getProcedencia())) ? true : false;
 	}
 }

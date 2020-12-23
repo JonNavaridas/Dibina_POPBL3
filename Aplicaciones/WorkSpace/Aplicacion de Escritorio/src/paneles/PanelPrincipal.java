@@ -4,10 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+
+import gestionElementosVisuales.FontFactory;
 
 public class PanelPrincipal extends JScrollPane {
 
@@ -28,9 +29,9 @@ public class PanelPrincipal extends JScrollPane {
 		PanelImagen panel = new PanelImagen();
 		panel.setBackground(Color.white);
 		
-		JLabel label = new JLabel("Dibina.eus©");
+		JLabel label = new JLabel("Dibina.eus®");
 		
-		label.setFont(new Font("Times new roman", Font.TRUETYPE_FONT, 18));
+		label.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 18));
 		label.setPreferredSize(new Dimension(200, 40));
 		label.setForeground(new Color(255, 118, 0));
 		label.setHorizontalAlignment(JLabel.CENTER);
