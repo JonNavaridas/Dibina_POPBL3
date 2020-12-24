@@ -40,7 +40,7 @@ public class ControladorPedidos {
 		return listaProductos;
 	}
 	
-	public Long generarID() {
+	public Long generarID() { // Crear un identificador a partir de la fecha en la que le pedido se ha realizado
 		String[] valores = Calendar.getInstance().getTime().toString().split("[ ]");
 		
 		if (valores.length == 6) {
@@ -56,7 +56,7 @@ public class ControladorPedidos {
 		return String.valueOf(Calendar.getInstance().getTime().getMonth() + 1);
 	}
 
-	public String[] getTipoArray() {
+	public String[] getTipoArray() { // Pasar el list de tipos a array
 		String[] tipoArray = new String[listaTipos.size()];
 		
 		for (int i = 0; i < listaTipos.size(); i++) {
@@ -66,6 +66,7 @@ public class ControladorPedidos {
 		return tipoArray;
 	}
 	
+	// Obtener el tipo utilizando el nombre
 	public Tipo getTipo(String nombre) {
 		for (Tipo t : listaTipos) {
 			if (t.getNombre().equals(nombre)) return t;
@@ -73,6 +74,7 @@ public class ControladorPedidos {
 		return null;
 	}
 	
+	// Obtener la procedencia utilizando la abreviatura
 	public Procedencia getProcedencia(String nombre) {
 		for (Procedencia t : listaProcedencias) {
 			if (t.getAbreviatura().equals(nombre)) return t;

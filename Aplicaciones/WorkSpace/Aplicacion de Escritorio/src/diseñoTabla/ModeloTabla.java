@@ -17,6 +17,7 @@ public class ModeloTabla  extends AbstractTableModel {
 		this.listaProductos = listaProductos;
 	}
 	
+	// Cambiar la lista de elementos que mostramos en caso de haber cambios en estos.
 	public void setLista(List<Producto> listaProductos) {
 		this.listaProductos = listaProductos;
 	}

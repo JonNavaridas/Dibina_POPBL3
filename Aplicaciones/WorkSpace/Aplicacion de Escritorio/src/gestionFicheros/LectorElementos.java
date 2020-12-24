@@ -39,7 +39,7 @@ public class LectorElementos {
 		listaProcedencias = new ArrayList<>();
 	}
 	
-	public List<Tipo> leerTipos() {
+	public List<Tipo> leerTipos() { // Leer via texto los distintos tipos disponibles.
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_TIPOS));
 			
@@ -57,7 +57,7 @@ public class LectorElementos {
 		}
 	}
 
-	public List<Procedencia> leerProcedencias() {
+	public List<Procedencia> leerProcedencias() { // Leer via texto las distintas empresas que proporcionan productos
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_PROCEDENCIAS));
 			
@@ -84,7 +84,7 @@ public class LectorElementos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Pedido> leerPedidos() {
+	public List<Pedido> leerPedidos() { // Leer todo los pedidos sin resolver
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			do {
 				listaPedidos = (List<Pedido>) in.readObject();
@@ -102,8 +102,7 @@ public class LectorElementos {
 		return listaPedidos;
 	}
 	
-	public void escribirPedidos(List<Pedido> pedidos) {
-		
+	public void escribirPedidos(List<Pedido> pedidos) { // Guardar los pedidos sin resolver en el fichero
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS))) {
 			out.writeObject(pedidos);
 			out.close();
@@ -114,7 +113,7 @@ public class LectorElementos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Producto> leerProductos() {
+	public List<Producto> leerProductos() { // Leer el stock que se encuentra en el almacen
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
 			do {
 				listaProductos = (List<Producto>) in.readObject();
@@ -135,8 +134,7 @@ public class LectorElementos {
 		return listaProductos;
 	}
 	
-	public void escribirProductos(List<Producto> productos) {
-		
+	public void escribirProductos(List<Producto> productos) { // Guardar los productos.
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PRODUCTOS))) {
 			out.writeObject(productos);
 			out.close();
@@ -146,7 +144,7 @@ public class LectorElementos {
 		}
 	}
 
-	public String[] leerDestinos() {
+	public String[] leerDestinos() { // Obtener la información sobre los diferentes lugares donde pueden recogerse los pedidos.
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_DESTINOS));
 			

@@ -181,7 +181,7 @@ public class PanelHacerPedido extends JScrollPane {
 		boton.setPreferredSize(new Dimension(200, 40));
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.addActionListener((l)->{
-			try { 
+			try { // WORK IN PROGRESS
 				if (Integer.parseInt(cantidad.getText()) <= 0) throw new IllegalArgumentException();
 				
 				String[] valores = tipos.getSelectedValue().split("[ ]");

@@ -51,6 +51,7 @@ public class PanelBuscar extends JScrollPane {
 		this.listaDisplay = listaProductos;
 		this.modeloTabla.setLista(listaDisplay);
 		
+		// Pasar los datos a arrays para poder añadirlos a los combo boxes.
 		listaTipo = this.transformToArray(listaProductos.stream().map(Producto::getTipo).distinct().collect(Collectors.toList()));
 		listaProcedencia = this.transformToArray(listaProductos.stream().map(Producto::getProcedencia).distinct().collect(Collectors.toList()));
 		listaCantidades = listaProductos.stream().map(Producto::getCantidad).distinct().collect(Collectors.toList());
@@ -76,20 +77,20 @@ public class PanelBuscar extends JScrollPane {
 		JButton boton = new JButton("Filtrar");
 		boton.addActionListener((e)->{
 			listaDisplay = listaProductos;
-			if (!((String)tipo.getSelectedItem()).equals("Todo")) {
+			if (!((String)tipo.getSelectedItem()).equals("Todo")) { // Aplicar filtro tipos
 				listaDisplay = listaDisplay.stream().filter((p)->p.getTipo().toString().equals(
 									((String)tipo.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)procedencia.getSelectedItem()).equals("Todo")) {
+			if (!((String)procedencia.getSelectedItem()).equals("Todo")) { // Aplicar filtro procedencia
 				listaDisplay = listaDisplay.stream().filter((p)->p.getProcedencia().toString().equals(
 						((String)procedencia.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)cantidad.getSelectedItem()).equals("Todo")) {
+			if (!((String)cantidad.getSelectedItem()).equals("Todo")) { // Aplicar filtro cantidad
 				listaDisplay = listaDisplay.stream().filter((p)->{
 					return p.getCantidad() >= Integer.parseInt(((String)cantidad.getSelectedItem()).substring(1));
 				}).collect(Collectors.toList());
 			}
-			modeloTabla.setLista(listaDisplay);
+			modeloTabla.setLista(listaDisplay); // Mostrar la nueva lista con los filtros aplicados
 			this.repaint();
 		});
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
@@ -129,18 +130,18 @@ public class PanelBuscar extends JScrollPane {
 		tabla.getTableHeader().addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				switch(tabla.columnAtPoint(e.getPoint())) {
-				case 0: 
+			public void mouseClicked(MouseEvent e) { // Detectar si el usuario a clickado en el titulo de la lista
+				switch(tabla.columnAtPoint(e.getPoint())) { // Comprobar en que columna a clickado
+				case 0:  // Ordenar alfabeticamente teniendo en cuenta el tipo
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getNombreTipo)).collect(Collectors.toList());
 					break;
-				case 1:
+				case 1: // Ordenar por valor (de menor a mayor)
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getCantidad)).collect(Collectors.toList());
 					break;
-				case 2:
+				case 2: // Ordenar alfabeticamente teniendo en cuenta la procedencia
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getNombreProcedencia)).collect(Collectors.toList());
 					break;
-				case 3:
+				case 3: // Ordenar por fecha
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getFechaExacta)).collect(Collectors.toList());
 					break;
 				}
@@ -154,6 +155,7 @@ public class PanelBuscar extends JScrollPane {
 		return panel;
 	}
 	
+	// Transformar cualquier lista en un array de String teniendo en cuenta su toString()
 	private <T> String[] transformToArray(List<T> elementos) {
 		String[] array = new String[elementos.size() + 1];
 		
@@ -166,8 +168,8 @@ public class PanelBuscar extends JScrollPane {
 		
 		return array;
 	}
-	
-	
+
+	//  Determinar el filtro de cantidad que va a ser determinado, dependiendo de la cantidad más alta
 	private void setCantidades() {
 		Integer max = listaCantidades.stream().reduce((a, b)->(a > b) ? a : b).get();
 		Integer divisor = (max >= 900) ? 100 : (max >= 500) ? 50 : (max >= 200) ? 20 : 10;

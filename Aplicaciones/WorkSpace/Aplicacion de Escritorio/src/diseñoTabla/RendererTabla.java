@@ -21,18 +21,18 @@ public class RendererTabla extends DefaultTableCellRenderer {
 		componente.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		
 		switch(column) {
-		case 0: 
+		case 0: // Estilo de la columna Tipo.
 			componente.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
 			componente.setHorizontalAlignment(JLabel.LEFT);
 			break;
-		case 1:
+		case 1: // Estilo de la columna Cantidad.
 			componente.setHorizontalAlignment(JLabel.CENTER);
 			break;
-		case 2:
+		case 2: // Estilo de la columna Procedencia.
 			componente.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
 			componente.setHorizontalAlignment(JLabel.LEFT);
 			break;
-		case 3:
+		case 3: // Estilo de la columna Fecha.
 			componente.setHorizontalAlignment(JLabel.CENTER);
 			break;
 		default: break;

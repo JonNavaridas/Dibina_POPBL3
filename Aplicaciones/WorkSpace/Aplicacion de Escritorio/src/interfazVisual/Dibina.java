@@ -40,22 +40,23 @@ public class Dibina extends JFrame {
 	public final static int DEFAULT_WIDTH = 1000;
 	public final static int DEFAULT_HEIGHT = 600;
 	
-	private List<Procedencia> listaProcedencias;
-	private List<Producto> listaProductos;
-	private List<Pedido> listaPedidos;
-	private List<Tipo> listaTipos;
-	private String[] destinos;
+	private List<Procedencia> listaProcedencias; // Empresas proveedoras.
+	private List<Producto> listaProductos; // Productos en almacén.
+	private List<Pedido> listaPedidos; // Pedidos por gestionar.
+	private List<Tipo> listaTipos; // Tipos de productos posibles.
+	private String[] destinos; // Lugares donde los productos pueden ser entregados.
 	
-	private JScrollPane pDisplay;
+	private JScrollPane pDisplay; // Panel cambiante.
 	
 	ControladorPedidos controlador;
 	ModeloTabla modelo;
-	User user;
+	User user; // Usuario que ha iniciado sesión.
 
 	public Dibina() {
 		super("Dibina Stock Manager");
 		pDisplay = new JScrollPane();
 		
+		// Pantalla que se mostrara mientras los elementos cargan.
 		PantallaCarga carga = new PantallaCarga(this, null, true);
 		listaTipos = carga.getTipos();
 		destinos = carga.getDestinos();
@@ -69,25 +70,29 @@ public class Dibina extends JFrame {
 		pDisplay.setBorder(null);
 		pDisplay.setViewportView(new PanelPrincipal());
 		
+		// Determinar el tamaño de la pantalla.
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
 		int height = (int) toolkit.getScreenSize().getHeight();
 
+		// Colocar pantalla en el centro
 		this.setIconImage(ImageFactory.createImage(ImageFactory.ICONO));
 		this.setLocation(width/2 - DEFAULT_WIDTH/2, height/2 - DEFAULT_HEIGHT/2);
 		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
+		// Crear panel principal de la ventana
 		JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
-		pVentana.setDividerLocation(width/15);
+		pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
 		pVentana.setBorder(null);
 
 		this.setContentPane(pVentana);
 		this.setJMenuBar(crearBarraMenu());
 		
 		this.setBackground(Color.white);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); // La pantalla ocupa toda la ventana
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		// Determinar el usuario
 		DialogoLogin login = new DialogoLogin(this, "Dibina Login", true);
 		user = login.getUserLoged();
 		
@@ -114,7 +119,11 @@ public class Dibina extends JFrame {
 		
 		ver = menuPaquetes.add("Ver lista pedidos");
 		ver.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDOS));
-		ver.addActionListener((e)->System.out.println("Ver lista"));
+		ver.addActionListener((e)->{
+			System.out.println("Ver lista");
+		});
+		ver.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		ver.setAccelerator(KeyStroke.getKeyStroke("control 4")); // Poner una hotkey
 		
 		estado = menuPaquetes.add("Historial del almacén");
 		estado.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_HISTORIAL));
@@ -122,6 +131,8 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelHistorial(modelo));
 			this.repaint();
 		});
+		estado.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		estado.setAccelerator(KeyStroke.getKeyStroke("control 5")); // Poner una hotkey
 		
 		return menuPaquetes;
 	}
@@ -136,8 +147,8 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelStockDisponible(controlador, listaProductos));
 			this.repaint();
 		});
-		ver.setToolTipText("");
-		ver.setAccelerator(KeyStroke.getKeyStroke("control Z"));
+		ver.setToolTipText("Ver elementos disponibles en el almacen."); // Aplicar una descripción
+		ver.setAccelerator(KeyStroke.getKeyStroke("control 1")); // Poner una hotkey
 		
 		pedido = menuPaquetes.add("Hacer pedido");
 		pedido.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDO));
@@ -145,6 +156,8 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador));
 			this.repaint();
 		});
+		pedido.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		pedido.setAccelerator(KeyStroke.getKeyStroke("control 2")); // Poner una hotkey
 		
 		buscar = menuPaquetes.add("Buscar elementos");
 		buscar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_BUSQUEDA));
@@ -152,6 +165,8 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelBuscar(modelo, listaProductos));
 			this.repaint();
 		});
+		buscar.setToolTipText("Buscar diversos elementos en el almacén, con la posibilidad de aplicar filtros."); // Aplicar una descripción
+		buscar.setAccelerator(KeyStroke.getKeyStroke("control 3")); // Poner una hotkey
 		
 		return menuPaquetes;
 	}

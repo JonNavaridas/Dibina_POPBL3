@@ -50,7 +50,7 @@ public class PantallaCarga extends JDialog {
 		this.setContentPane(crearPanelVentana());
 		this.pack();
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		this.cargar();
+		this.cargar(); // Inicializar elementos
 	}
 
 	private Container crearPanelVentana() {

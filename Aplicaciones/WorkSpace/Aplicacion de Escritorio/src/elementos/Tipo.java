@@ -6,8 +6,8 @@ public class Tipo implements Serializable {
 
 	private static final long serialVersionUID = 5559020248449778815L;
 
-	Integer ID;
-	String nombre;
+	Integer ID; // Numero identificador del elemento
+	String nombre; // Nombre
 	
 	public Tipo(int id, String nombre) {
 		this.ID = id;

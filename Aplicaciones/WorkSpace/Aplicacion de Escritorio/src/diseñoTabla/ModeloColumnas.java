@@ -8,6 +8,7 @@ public class ModeloColumnas extends DefaultTableColumnModel {
 	private static final long serialVersionUID = 1L;
 	RendererTabla renderer;
 
+	// Dividimos la tabla en cuatro columnas: Tipo, Cantidad, Procedencia y Fecha.
 	public ModeloColumnas(RendererTabla renderer) {
 		super();
 		this.renderer = renderer;
@@ -17,10 +18,10 @@ public class ModeloColumnas extends DefaultTableColumnModel {
 		this.addColumn(crearColumna("Fecha", 3, 250));
 	}
 
-	private TableColumn crearColumna(String string, int i, int j) {
+	private TableColumn crearColumna(String title, int i, int j) {
 		TableColumn columna = new TableColumn(i, j);
 		
-		columna.setHeaderValue(string);
+		columna.setHeaderValue(title);
 		columna.setCellRenderer(renderer);
 		
 		return columna;

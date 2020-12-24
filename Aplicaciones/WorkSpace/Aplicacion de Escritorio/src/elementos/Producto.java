@@ -1,6 +1,7 @@
 package elementos;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import gestionPaquetes.PedidoException;
@@ -9,10 +10,10 @@ public class Producto implements Serializable {
 
 	private static final long serialVersionUID = 2299343732612703163L;
 
-	Tipo tipo;
-	Date fecha;
-	int cantidad;
-	Procedencia procedencia;
+	Tipo tipo; // Que clase de producto es.
+	Date fecha; // Fecha en la que entro el ultimo producto de este tipo.
+	int cantidad; // Numero de unidades.
+	Procedencia procedencia; // Enpresa que proporciono el producto.
 	
 	public Producto(Tipo tipo, Date fecha, int cantidad, Procedencia procedencia) {
 		this.tipo = tipo;
@@ -37,15 +38,19 @@ public class Producto implements Serializable {
 		return procedencia;
 	}
 	
+	// Añadimos elementos y actualizamos la fecha de entrada.
 	public void addElements(int cantidad) {
 		this.cantidad += cantidad;
+		this.fecha = Calendar.getInstance().getTime();
 	}
 
+	// Reducimos la cantidad de elementos disponibles. Si no hay suficientes elementos disponibles lanza una excepción.
 	public void removeElements(int cantidad) throws PedidoException {
 		if (cantidad > this.cantidad) throw new PedidoException("No hay suficiente stock.");
 		this.cantidad -= cantidad;
 	}
 	
+	// Obtener los parametros para mostrar en la tabla.
 	public Object getFieldAt(int column) {
 		switch(column) {
 		case 0: return new String(tipo.getNombre());
@@ -79,7 +84,7 @@ public class Producto implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		Producto p = (Producto) obj;
+		Producto p = (Producto) obj; // Si el tipo y la procedencia es el mismo significa que el producto ees el mismo.
 		return (this.tipo.equals(p.getTipo()) && this.procedencia.equals(p.getProcedencia())) ? true : false;
 	}
 }

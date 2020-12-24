@@ -36,10 +36,12 @@ public class ImageFactory {
 	public static final String ICONO_EUSKERA = "Icons/euskera.png";
 	public static final String ICONO_INGLES = "Icons/ingles.png";
 	
+	// Generar una ImageIcon.
 	public static ImageIcon createImageIcon(String route) {
 		return new ImageIcon(route);
 	}
 	
+	// Generar una imagen.
 	public static Image createImage(String route) {
 		return new ImageIcon(route).getImage();
 	}
