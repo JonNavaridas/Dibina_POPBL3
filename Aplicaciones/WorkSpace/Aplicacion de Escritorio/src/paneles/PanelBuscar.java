@@ -19,12 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import diseñoTabla.HeaderRenderer;
-import diseñoTabla.ModeloColumnas;
-import diseñoTabla.ModeloTabla;
-import diseñoTabla.RendererTabla;
 import elementos.Producto;
 import gestionElementosVisuales.FontFactory;
+import renderizadoTablaTipos.HeaderRenderer;
+import renderizadoTablaTipos.ModeloColumnas;
+import renderizadoTablaTipos.ModeloTablaTipos;
+import renderizadoTablaTipos.RendererTabla;
 
 public class PanelBuscar extends JScrollPane {
 
@@ -36,10 +36,10 @@ public class PanelBuscar extends JScrollPane {
 	
 	List<Producto> listaProductos;
 	List<Producto> listaDisplay;
-	ModeloTabla modeloTabla;
+	ModeloTablaTipos modeloTabla;
 	JTable tabla;
 
-	public PanelBuscar(ModeloTabla modelo, List<Producto> listaProductos) {
+	public PanelBuscar(ModeloTablaTipos modelo, List<Producto> listaProductos) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -142,14 +142,13 @@ public class PanelBuscar extends JScrollPane {
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getNombreProcedencia)).collect(Collectors.toList());
 					break;
 				case 3: // Ordenar por fecha
-					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getFechaExacta)).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Producto::getFecha).reversed()).collect(Collectors.toList());
 					break;
 				}
 				modeloTabla.setLista(listaDisplay);
 				PanelBuscar.this.repaint();
 			}
 		});
-		
 		panel.setViewportView(tabla);
 		
 		return panel;
@@ -169,10 +168,10 @@ public class PanelBuscar extends JScrollPane {
 		return array;
 	}
 
-	//  Determinar el filtro de cantidad que va a ser determinado, dependiendo de la cantidad más alta
+	//  Determinar el filtro de cantidad dependiendo de la cantidad más alta
 	private void setCantidades() {
 		Integer max = listaCantidades.stream().reduce((a, b)->(a > b) ? a : b).get();
-		Integer divisor = (max >= 900) ? 100 : (max >= 500) ? 50 : (max >= 200) ? 20 : 10;
+		Integer divisor = (max >= 900) ? 100 : (max >= 500) ? 50 : (max >= 200) ? 20 : (max >= 20) ? 10 : 1;
 		Integer length = (max/divisor) + 1;
 		
 		listaCantidad = new String[length + 1];

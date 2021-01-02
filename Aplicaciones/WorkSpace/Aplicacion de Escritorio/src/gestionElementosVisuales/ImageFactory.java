@@ -19,6 +19,7 @@ public class ImageFactory {
 	
 	public static final String ICONO = "Icons/icon.png";
 	public static final String ICONO_LOGO = "Icons/logo.png";
+	public static final String ICONO_LOGO_NARANJA = "Icons/logo_naranja.png";
 
 	public static final String ICONO_SHOW = "Icons/showPassword.png";
 	public static final String ICONO_HIDE = "Icons/hidePassword.png";
@@ -35,6 +36,17 @@ public class ImageFactory {
 	public static final String ICONO_CASTELLANO = "Icons/castellano.png";
 	public static final String ICONO_EUSKERA = "Icons/euskera.png";
 	public static final String ICONO_INGLES = "Icons/ingles.png";
+
+	public static final String ICONO_CONFIRMAR = "Icons/confirmacion.png";
+	public static final String ICONO_DENEGAR = "Icons/denegar.png";
+	public static final String ICONO_ENTREGADO = "Icons/entregado.png";
+	public static final String ICONO_LIMPIAR = "Icons/papelera.png";
+	
+	public static final String ICONO_FILTRAR = "Icons/filtrar.png";
+	public static final String ICONO_CANCELAR = "Icons/cancelar.png";
+	public static final String ICONO_AJUSTES = "Icons/ajustes.png";
+	public static final String ICONO_CAMBIAR_CONTRASEÑA = "Icons/cambiarContraseña.png";
+	public static final String ICONO_VER = "Icons/ver.png";
 	
 	// Generar una ImageIcon.
 	public static ImageIcon createImageIcon(String route) {

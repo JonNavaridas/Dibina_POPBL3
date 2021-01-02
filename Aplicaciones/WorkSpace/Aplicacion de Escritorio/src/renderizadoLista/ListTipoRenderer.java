@@ -1,4 +1,4 @@
-package diseñoLista;
+package renderizadoLista;
 
 import java.awt.Color;
 import java.awt.Component;

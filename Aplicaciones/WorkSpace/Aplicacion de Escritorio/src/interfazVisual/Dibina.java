@@ -19,7 +19,6 @@ import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import diseñoTabla.ModeloTabla;
 import elementos.Pedido;
 import elementos.Procedencia;
 import elementos.Producto;
@@ -29,14 +28,20 @@ import gestionPaquetes.ControladorPedidos;
 import paneles.PanelBuscar;
 import paneles.PanelHacerPedido;
 import paneles.PanelHistorial;
+import paneles.PanelListaPedidos;
 import paneles.PanelPrincipal;
 import paneles.PanelStockDisponible;
+import renderizadoTablaPedidos.ModeloTablaPedidos;
+import renderizadoTablaTipos.ModeloTablaTipos;
 import usuarios.DialogoLogin;
+import usuarios.PanelUsuario;
 import usuarios.User;
 
 public class Dibina extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String[] IDIOMAS = { "Casellano", "Euskera", "Ingles" };
 	public final static int DEFAULT_WIDTH = 1000;
 	public final static int DEFAULT_HEIGHT = 600;
 	
@@ -49,7 +54,8 @@ public class Dibina extends JFrame {
 	private JScrollPane pDisplay; // Panel cambiante.
 	
 	ControladorPedidos controlador;
-	ModeloTabla modelo;
+	ModeloTablaPedidos modeloPedidos;
+	ModeloTablaTipos modeloTipos;
 	User user; // Usuario que ha iniciado sesión.
 
 	public Dibina() {
@@ -65,7 +71,8 @@ public class Dibina extends JFrame {
 		listaProcedencias = carga.getProcedencias();
 		
 		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
-		modelo = new ModeloTabla(listaProductos);
+		modeloPedidos = new ModeloTablaPedidos(listaPedidos);
+		modeloTipos = new ModeloTablaTipos(listaProductos);
 		
 		pDisplay.setBorder(null);
 		pDisplay.setViewportView(new PanelPrincipal());
@@ -120,7 +127,8 @@ public class Dibina extends JFrame {
 		ver = menuPaquetes.add("Ver lista pedidos");
 		ver.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDOS));
 		ver.addActionListener((e)->{
-			System.out.println("Ver lista");
+			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
+			this.repaint();
 		});
 		ver.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
 		ver.setAccelerator(KeyStroke.getKeyStroke("control 4")); // Poner una hotkey
@@ -128,7 +136,7 @@ public class Dibina extends JFrame {
 		estado = menuPaquetes.add("Historial del almacén");
 		estado.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_HISTORIAL));
 		estado.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHistorial(modelo));
+			pDisplay.setViewportView(new PanelHistorial(modeloTipos));
 			this.repaint();
 		});
 		estado.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
@@ -153,7 +161,7 @@ public class Dibina extends JFrame {
 		pedido = menuPaquetes.add("Hacer pedido");
 		pedido.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDO));
 		pedido.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador, user));
 			this.repaint();
 		});
 		pedido.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
@@ -162,7 +170,7 @@ public class Dibina extends JFrame {
 		buscar = menuPaquetes.add("Buscar elementos");
 		buscar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_BUSQUEDA));
 		buscar.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelBuscar(modelo, listaProductos));
+			pDisplay.setViewportView(new PanelBuscar(modeloTipos, listaProductos));
 			this.repaint();
 		});
 		buscar.setToolTipText("Buscar diversos elementos en el almacén, con la posibilidad de aplicar filtros."); // Aplicar una descripción
@@ -173,17 +181,31 @@ public class Dibina extends JFrame {
 
 	private JMenu crearMenuSalir() {
 		JMenu menuPersonal = new JMenu("Area Personal");
-		JMenuItem usuario, salir;
+		JMenuItem item;
 		
-		usuario = menuPersonal.add("Mi usuario");
-		usuario.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
-		usuario.addActionListener((e)->System.out.println("Usuario"));
+		item = menuPersonal.add("Mi usuario");
+		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
+		item.addActionListener((e)->{
+			pDisplay.setViewportView(new PanelUsuario(modeloPedidos, user));
+			this.repaint();
+		});
+		item.setToolTipText("Ver distintos parametros sobre mi usuario."); // Aplicar una descripción
+		item.setAccelerator(KeyStroke.getKeyStroke("control U")); // Poner una hotkey
 		
 		menuPersonal.add(crearSubmenuIdioma());
 		
-		salir = menuPersonal.add("Salir");
-		salir.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_SALIR));
-		salir.addActionListener((e)->Dibina.this.dispose());
+		item = menuPersonal.add("Crear usuario");
+		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
+		item.addActionListener((e)->{
+			System.out.println("Nuevo usuario.");
+		});
+		item.setToolTipText("Crear un nuevo usuario."); // Aplicar una descripción
+		item.setAccelerator(KeyStroke.getKeyStroke("control N")); // Poner una hotkey
+		
+		item = menuPersonal.add("Salir");
+		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_SALIR));
+		item.addActionListener((e)->Dibina.this.dispose());
+		item.setAccelerator(KeyStroke.getKeyStroke("control S")); // Poner una hotkey
 		
 		return menuPersonal;
 	}
@@ -194,19 +216,31 @@ public class Dibina extends JFrame {
 		
 		submenu.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_IDIOMA));
 		
-		item = new JMenuItem("Castellano");
+		item = new JMenuItem(Dibina.IDIOMAS[0]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_CASTELLANO));
-		item.addActionListener((e)->System.out.println("Idioma 1"));
+		item.addActionListener((e)->{
+			System.out.println("Idioma 1");
+		});
+		item.setToolTipText("Castellano."); // Aplicar una descripción
+		item.setAccelerator(KeyStroke.getKeyStroke("control C")); // Poner una hotkey
 		submenu.add(item);
 
-		item = new JMenuItem("Euskera");
+		item = new JMenuItem(Dibina.IDIOMAS[1]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_EUSKERA));
-		item.addActionListener((e)->System.out.println("Idioma 2"));
+		item.addActionListener((e)->{
+			System.out.println("Idioma 2");
+		});
+		item.setToolTipText("Euskara."); // Aplicar una descripción
+		item.setAccelerator(KeyStroke.getKeyStroke("control E")); // Poner una hotkey
 		submenu.add(item);
 
-		item = new JMenuItem("Ingles");
+		item = new JMenuItem(Dibina.IDIOMAS[2]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_INGLES));
-		item.addActionListener((e)->System.out.println("Idioma 3"));
+		item.addActionListener((e)->{
+			System.out.println("Idioma 3");
+		});
+		item.setToolTipText("English."); // Aplicar una descripción
+		item.setAccelerator(KeyStroke.getKeyStroke("control I")); // Poner una hotkey
 		submenu.add(item);
 		
 		return submenu;
@@ -237,7 +271,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDO));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador, user));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);
@@ -246,7 +280,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_BUSQUEDA));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelBuscar(modelo, listaProductos));
+			pDisplay.setViewportView(new PanelBuscar(modeloTipos, listaProductos));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);
@@ -255,7 +289,8 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDOS));
 		boton.addActionListener((e)->{
-			
+			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
+			this.repaint();
 		});
 		boton.setBackground(Color.white);
 		boton.setBorder(null);
@@ -263,7 +298,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HISTORIAL));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHistorial(modelo));
+			pDisplay.setViewportView(new PanelHistorial(modeloTipos));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);

@@ -26,13 +26,13 @@ public class Identificador {
 	
 	public User getUser(String id) {
 		listaUsuarios.stream().filter((u)->u.getID().equals(id)).findAny().ifPresent((u)->usuario = u);
-		System.out.println((usuario != null)? usuario: "No encontrado");
+		if (usuario == null) System.out.println("No encontrado");
 		return usuario;
 	}
 	
 	public User getUser(String nombre, Integer contraseña) {
 		listaUsuarios.stream().filter((u)->u.getName().equals(nombre) && u.getContraseña() == contraseña).findAny().ifPresent((u)->usuario = u);
-		System.out.println((usuario != null)? usuario: "No encontrado");
+		if (usuario == null) System.out.println("No encontrado");
 		return usuario;
 	}
 	

@@ -15,13 +15,13 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import diseñoTabla.HeaderRenderer;
-import diseñoTabla.ModeloColumnas;
-import diseñoTabla.ModeloTabla;
-import diseñoTabla.RendererTabla;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
+import renderizadoTablaTipos.HeaderRenderer;
+import renderizadoTablaTipos.ModeloColumnas;
+import renderizadoTablaTipos.ModeloTablaTipos;
+import renderizadoTablaTipos.RendererTabla;
 
 
 public class PanelHistorial extends JPanel implements ActionListener, ChangeListener{
@@ -38,10 +38,10 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 	Integer previousMonth;
 	JLabel labelFecha;
 	
-	ModeloTabla modeloTabla;
+	ModeloTablaTipos modeloTabla;
 	JTable tabla;
 	
-	public PanelHistorial(ModeloTabla controlador) {
+	public PanelHistorial(ModeloTablaTipos controlador) {
 		this.modeloTabla = controlador;
 		inicializarCalendario();			
 		JPanel panel = new JPanel();

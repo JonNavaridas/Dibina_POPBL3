@@ -70,12 +70,6 @@ public class Producto implements Serializable {
 	public String getNombreProcedencia() {
 		return (procedencia.getNombre() + " " + procedencia.getAbreviatura()).toLowerCase();
 	}
-	
-	@SuppressWarnings("deprecation")
-	public String getFechaExacta() {
-		return fecha.getYear() + " " + fecha.getMonth() + " " + fecha.getDay() + " " +
-			   fecha.getHours() + " " + fecha.getMinutes() + " " + fecha.getSeconds();
-	}
 
 	@Override
 	public String toString() {

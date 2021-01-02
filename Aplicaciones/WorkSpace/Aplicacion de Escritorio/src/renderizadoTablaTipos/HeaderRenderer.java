@@ -1,4 +1,4 @@
-package diseñoTabla;
+package renderizadoTablaTipos;
 
 import java.awt.Component;
 
