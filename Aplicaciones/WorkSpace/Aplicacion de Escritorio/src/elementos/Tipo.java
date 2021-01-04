@@ -1,8 +1,9 @@
 package elementos;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
-public class Tipo implements Serializable {
+public class Tipo implements Serializable, Comparator<Tipo>{
 
 	private static final long serialVersionUID = 5559020248449778815L;
 
@@ -25,5 +26,10 @@ public class Tipo implements Serializable {
 	@Override
 	public String toString() {
 		return nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
+	}
+
+	@Override
+	public int compare(Tipo o1, Tipo o2) {
+		return o1.getNombre().compareTo(o2.getNombre());
 	}
 }

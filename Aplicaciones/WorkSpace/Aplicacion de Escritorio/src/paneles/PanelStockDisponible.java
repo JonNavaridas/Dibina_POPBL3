@@ -5,7 +5,15 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.NavigableMap;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -45,33 +53,24 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 	private ChartPanel chartPanel;
 	
 	private JRadioButton tipo, procedencia, ambos;
+
 	
-	String[] paises = {"RUSIA", "USA", "CHINA","ITALIA","JAPON","FRANCIA","AUSTRIA","FINLANDIA","ALEMANIA",
-			  "CANADA","SUIZA","INGLATERRA","SUECIA","1", "2","3","4","5","6","7","8","9","10",
-			  "11", "12","13","14","15","16","17","18","19","20"};
-	String[] tipos = {"Mascarillas", "Vacunas", "Guantes", "Hidrogeles"};
-	//ESTOS DOS DEBEN BORRARSE Y CAMBIAR EL THIS. AL CREAR LOS GRAFICOS
-	
-	private List<Procedencia> listaProcedencias;
 	private List<Producto> listaProductos;
-	private List<Tipo> listaTipos;
 	ControladorPedidos controlador;
 	
 	public PanelStockDisponible(ControladorPedidos controlador, List<Producto> listaProductos) {
 		this.controlador = controlador;
 		this.listaProductos = listaProductos;
-		this.listaProcedencias = controlador.getListaProcedencias();
-		this.listaTipos = controlador.getListaTipos();
 		
 		dataset = createDataset();
 		chart = createChart(dataset, true, "Tipo y Procedencia");
 		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new java.awt.Dimension(ALTO, ANCHO));
-		chartPanel.setMaximumDrawWidth( 3500 );
+		chartPanel.setMaximumDrawWidth( 2000 );
 		
 		setMinimumTickUnits();
 		crearRenderer();	  
-
+		
 		this.setLayout(new BorderLayout(0,20));
 		this.add(chartPanel, BorderLayout.CENTER);
 		this.add(crearBotones(), BorderLayout.SOUTH);
@@ -120,67 +119,57 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 
 	private CategoryDataset createDatasetProcedencia() {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		//String[] paises = (String[]) listaProcedencias.toArray();
-    	dataset.setValue(45, "PROCEDENCIA", this.paises[0]);
-        dataset.setValue(80, "PROCEDENCIA", this.paises[1]);
-        dataset.setValue(150, "PROCEDENCIA", this.paises[2]);
-        dataset.setValue(400, "PROCEDENCIA", this.paises[3]);
+		Map<Procedencia, List<Producto>> mapaProcedencia;
+		mapaProcedencia = listaProductos.stream().collect(Collectors.groupingBy(Producto::getProcedencia));
+		mapaProcedencia.entrySet().stream().forEach(p->{
+			dataset.setValue(p.getValue().stream().mapToInt(Producto::getCantidad).sum(), "PROCEDENCIA", p.getKey().getNombre());
+		});
 
         return dataset;
 	}
 	
 	private CategoryDataset createDatasetTipo() {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		//String[] tipos = (String[]) listaTipos.toArray();
-    	dataset.setValue(45, "CANTIDAD", this.tipos[0]);
-        dataset.setValue(80, "CANTIDAD", this.tipos[1]);
-        dataset.setValue(150, "CANTIDAD", this.tipos[2]);
-        dataset.setValue(400, "CANTIDAD", this.tipos[3]);
+		Map<Tipo, List<Producto>> mapaTipo;
+		mapaTipo = listaProductos.stream().collect(Collectors.groupingBy(Producto::getTipo));
+		mapaTipo.entrySet().stream().forEach(p->{
+			dataset.setValue(p.getValue().stream().mapToInt(Producto::getCantidad).sum(), "CANTIDAD", p.getKey().getNombre());
+		});
 
         return dataset;
 	}
 
 	private CategoryDataset createDataset() {
-		//String[] paises = (String[]) listaProcedencias.toArray();
-		//String[] tipos = (String[]) listaTipos.toArray();
-		  double[][] data = new double[][]{
-		  {0, 0, 0, 400},
-		  {0, 0, 0, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 210, 300, 210},
-		  {200, 304, 201, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  {210, 300, 320, 210},
-		  };
-		  return DatasetUtilities.createCategoryDataset(
-				  this.paises, this.tipos, data);
+		Set<String> procedencias = new TreeSet<>(listaProductos.stream().map(Producto::getProcedencia).distinct().collect(Collectors.toList())
+				.stream().map(Procedencia::getNombre).distinct().collect(Collectors.toSet()));
+		Set<String> tipos =  new TreeSet<>(listaProductos.stream().map(Producto::getTipo).distinct().collect(Collectors.toList())
+				.stream().map(Tipo::getNombre).distinct().collect(Collectors.toSet()));
+		
+		double[][] data = new double[procedencias.size()][tipos.size()];
+		
+		Map<String, List<Producto>> mapaHash = listaProductos.stream().collect(Collectors.groupingBy(Producto::getNombreTipo));
+		Map<String, List<Producto>> mapaTipo = convertToTreeMap(mapaHash);
+		int i=0,j=0;
+		for (Entry<String, List<Producto>> entry : mapaTipo.entrySet()) {
+			List<Producto> productos = entry.getValue();
+			for(String proc : procedencias.stream().collect(Collectors.toList())) {
+				Producto pro = productos.stream().filter(x->proc.equals(x.getProcedencia().getNombre())).findFirst().orElse(null);
+				if(pro != null) data[i][j] = pro.getCantidad();
+				else  data[i][j] = 0;
+				i++;
+			}
+			j++;
+			i=0;
+		}
+		  return DatasetUtilities.createCategoryDataset(procedencias.stream().toArray(String[]::new), tipos.stream().toArray(String[]::new), data);
 	  }
+	
+	public static <K, V> Map<K, V> convertToTreeMap(Map<K, V> hashMap){ 
+        Map<K, V> treeMap = hashMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue,newValue)-> newValue,TreeMap::new)); 
+  
+        return treeMap; 
+    } 
+	
 	
 	private JFreeChart createChart(final CategoryDataset dataset, boolean stacked, String filtro) {
 		  final JFreeChart chart;
@@ -254,14 +243,13 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 			chart.removeLegend();
 			setChartColor();
 		}
-		else {
+		else if(ambos.isSelected()){
 			dataset = createDataset();
 			chart = createChart(dataset, true, "Tipo y procedencia"); 
-		}			
+		}
+		else return;
 		chartPanel.setChart(chart);
 		setMinimumTickUnits();
 		crearRenderer();
-		
-		this.repaint();
   	}
 }
