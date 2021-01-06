@@ -1,4 +1,4 @@
-package usuarios;
+package gestionUsuarios;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import gestionElementosVisuales.ImageFactory;
+import usuarios.User;
 
 public class DialogoLogin extends JDialog{
 	
@@ -42,11 +43,14 @@ public class DialogoLogin extends JDialog{
 	Identificador iden;
 	JTextField usuario; 
 	JPasswordField password;
+	JFrame ventana;
 	User user;
 	
 	public DialogoLogin(JFrame ventana, String titulo, boolean modo) {
 		super(ventana,titulo,modo);
 		iden = new Identificador();
+		this.ventana = ventana;
+		
 		this.setContentPane(crearPanel());
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -55,7 +59,7 @@ public class DialogoLogin extends JDialog{
 		
 		this.setLocation(width/2 - DEFAULT_WIDTH/2, height/2 - DEFAULT_HEIGHT/2);
 		this.setSize(new Dimension(DEFAULT_WIDTH, 700));
-
+		
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 	}
@@ -72,7 +76,9 @@ public class DialogoLogin extends JDialog{
 	}
 
 	private Container crearBotonConfirmar() {
-		JPanel panel  = new JPanel();
+		JPanel panel  = new JPanel(new GridLayout(6, 1, 0, 0));
+		panel.setBackground(COLORFONDO);
+		
 		JButton boton = new JButton("Confirmar");
 		boton.addActionListener((l)->{
 			user = iden.getUser(usuario.getText(), new String(password.getPassword()).hashCode());
@@ -84,8 +90,29 @@ public class DialogoLogin extends JDialog{
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE);
 				password.setText("");
 			}});
-		panel.add(boton);
-		panel.setBackground(COLORFONDO);
+		boton.setPreferredSize(new Dimension(100, 20));
+		
+		JPanel pBoton = new JPanel();
+		pBoton.setBackground(COLORFONDO);
+		pBoton.add(boton);
+		panel.add(pBoton);
+		
+		boton = new JButton("Usar tarjeta");
+		boton.addActionListener((l)->{
+			DialogoIdentificar dlg = new DialogoIdentificar(ventana, "Identificar tarjeta", true);
+			user = dlg.getUser();
+			
+			if (user != null) {
+				this.dispose();
+			}
+		});
+		boton.setPreferredSize(new Dimension(100, 20));
+		
+		pBoton = new JPanel();
+		pBoton.setBackground(COLORFONDO);
+		pBoton.add(boton);
+		panel.add(pBoton);
+		
 		return panel;
 	}
 

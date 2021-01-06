@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -50,7 +51,10 @@ public class PantallaCarga extends JDialog {
 		this.setContentPane(crearPanelVentana());
 		this.pack();
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		this.cargar(); // Inicializar elementos
+		
+		Carga carga = new Carga();
+		carga.start(); // Inicializar elementos
+		this.setVisible(true);
 	}
 
 	private Container crearPanelVentana() {
@@ -64,28 +68,53 @@ public class PantallaCarga extends JDialog {
 
 	private Component crearPanelCarga() {
 		JPanel panel = new JPanel(new GridLayout(1, 1));
+		panel.setBackground(new Color(255, 119, 0));
 		
 		barraCarga = new JProgressBar(0, 100);
-		barraCarga.setValue(0);
+		barraCarga.setBorder(BorderFactory.createLineBorder(Color.black));
 		barraCarga.setSize(imagenCarga.getIconWidth(), 50);
+		barraCarga.setForeground(new Color(255, 119, 0));
 		barraCarga.setStringPainted(true);
-		barraCarga.setForeground(Color.black);
-		barraCarga.setBorder(null);
+		barraCarga.setValue(0);
+		
 		panel.add(barraCarga);
 		
 		return panel;
 	}
 	
-	private void cargar() {
-		LectorElementos gestor = new LectorElementos();
-		
-		listaTipos = gestor.leerTipos();
-		destinos = gestor.leerDestinos();
-		listaPedidos = gestor.leerPedidos();
-		listaProductos = gestor.leerProductos();
-		listaProcedencias = gestor.leerProcedencias();
-		
-		PantallaCarga.this.dispose();
+	private class Carga extends Thread {
+
+		@Override
+		public void run() { // Caragr los distintos elementos del programa.
+			LectorElementos gestor = new LectorElementos();
+			
+			try {
+				listaTipos = gestor.leerTipos();
+				Thread.sleep(50);
+				barraCarga.setValue(20);
+				
+				destinos = gestor.leerDestinos();
+				Thread.sleep(50);
+				barraCarga.setValue(40);
+				
+				listaPedidos = gestor.leerPedidos();
+				Thread.sleep(50);
+				barraCarga.setValue(60);
+				
+				listaProductos = gestor.leerProductos();
+				Thread.sleep(50);
+				barraCarga.setValue(80);
+				
+				listaProcedencias = gestor.leerProcedencias();
+				Thread.sleep(50);
+				barraCarga.setValue(100);
+				
+				PantallaCarga.this.dispose();
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public List<Tipo> getTipos() {

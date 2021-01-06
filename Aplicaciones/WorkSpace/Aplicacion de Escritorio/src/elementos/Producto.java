@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-import gestionPaquetes.PedidoException;
+import gestionPedidos.PedidoException;
 
-public class Producto implements Serializable{
+public class Producto implements Serializable {
 
 	private static final long serialVersionUID = 2299343732612703163L;
 
@@ -81,5 +81,4 @@ public class Producto implements Serializable{
 		Producto p = (Producto) obj; // Si el tipo y la procedencia es el mismo significa que el producto ees el mismo.
 		return (this.tipo.equals(p.getTipo()) && this.procedencia.equals(p.getProcedencia())) ? true : false;
 	}
-
 }

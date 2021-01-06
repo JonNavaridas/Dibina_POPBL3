@@ -1,4 +1,4 @@
-package gestionPaquetes;
+package gestionPedidos;
 
 public class PedidoException extends Exception {
 

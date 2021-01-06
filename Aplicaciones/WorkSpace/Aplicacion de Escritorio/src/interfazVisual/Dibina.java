@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.Box;
@@ -24,7 +25,10 @@ import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
 import gestionElementosVisuales.ImageFactory;
-import gestionPaquetes.ControladorPedidos;
+import gestionFicheros.EscritorDeElementos;
+import gestionPedidos.ControladorPedidos;
+import gestionUsuarios.DialogoCrearUsuario;
+import gestionUsuarios.DialogoLogin;
 import paneles.PanelBuscar;
 import paneles.PanelHacerPedido;
 import paneles.PanelHistorial;
@@ -33,8 +37,8 @@ import paneles.PanelPrincipal;
 import paneles.PanelStockDisponible;
 import renderizadoTablaPedidos.ModeloTablaPedidos;
 import renderizadoTablaTipos.ModeloTablaTipos;
-import usuarios.DialogoLogin;
 import usuarios.PanelUsuario;
+import usuarios.Permisos;
 import usuarios.User;
 
 public class Dibina extends JFrame {
@@ -87,35 +91,36 @@ public class Dibina extends JFrame {
 		this.setLocation(width/2 - DEFAULT_WIDTH/2, height/2 - DEFAULT_HEIGHT/2);
 		this.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
-		// Crear panel principal de la ventana
-		JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
-		pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
-		pVentana.setBorder(null);
-
-		this.setContentPane(pVentana);
-		this.setJMenuBar(crearBarraMenu());
-		
-		this.setBackground(Color.white);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); // La pantalla ocupa toda la ventana
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		// Determinar el usuario
 		DialogoLogin login = new DialogoLogin(this, "Dibina Login", true);
 		user = login.getUserLoged();
 		
 		if (user == null)
 			this.dispose();
-		else
+		else {
+			// Crear panel principal de la ventana
+			JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
+			pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
+			pVentana.setBorder(null);
+	
+			this.setContentPane(pVentana);
+			this.setJMenuBar(crearBarraMenu());
+
 			this.setVisible(true);
+			this.setBackground(Color.white);
+			this.setExtendedState(JFrame.MAXIMIZED_BOTH); // La pantalla ocupa toda la ventana
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
 	}
 	
 	private JMenuBar crearBarraMenu() {
 		JMenuBar barra = new JMenuBar();
 		
 		barra.add(crearMenuStock());
-		barra.add(crearMenuGestion());
+		if (!user.getPermisos().equals(Permisos.BASICO)) barra.add(crearMenuGestion());
+		barra.add(crearMenuActualizar());
 		barra.add(Box.createHorizontalGlue());
-		barra.add(crearMenuSalir());
+		barra.add(crearMenuUsuarios());
 		
 		return barra;
 	}
@@ -178,15 +183,41 @@ public class Dibina extends JFrame {
 		
 		return menuPaquetes;
 	}
+	
+	private JMenu crearMenuActualizar() {
+		JMenu menuPaquetes = new JMenu("Actualizar");
+		JMenuItem actualizar;
+		
+		actualizar = menuPaquetes.add("Actualizar");
+		actualizar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_REFRESCAR));
+		actualizar.addActionListener((e)->{
+			PantallaCarga carga = new PantallaCarga(this, null, true);
+			listaTipos = carga.getTipos();
+			destinos = carga.getDestinos();
+			listaPedidos = carga.getPedidos();
+			listaProductos = carga.getProductos();
+			listaProcedencias = carga.getProcedencias();
+			
+			controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
+			modeloPedidos = new ModeloTablaPedidos(listaPedidos);
+			modeloTipos = new ModeloTablaTipos(listaProductos);
 
-	private JMenu crearMenuSalir() {
+			pDisplay.setViewportView(new PanelPrincipal());
+		});
+		actualizar.setToolTipText("Actualizar todos los elementos utilizando los datos mas recientes."); // Aplicar una descripción
+		actualizar.setAccelerator(KeyStroke.getKeyStroke("control R")); // Poner una hotkey
+		
+		return menuPaquetes;
+	}
+
+	private JMenu crearMenuUsuarios() {
 		JMenu menuPersonal = new JMenu("Area Personal");
 		JMenuItem item;
 		
 		item = menuPersonal.add("Mi usuario");
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 		item.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelUsuario(modeloPedidos, user));
+			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user));
 			this.repaint();
 		});
 		item.setToolTipText("Ver distintos parametros sobre mi usuario."); // Aplicar una descripción
@@ -194,13 +225,24 @@ public class Dibina extends JFrame {
 		
 		menuPersonal.add(crearSubmenuIdioma());
 		
-		item = menuPersonal.add("Crear usuario");
-		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
-		item.addActionListener((e)->{
-			System.out.println("Nuevo usuario.");
-		});
-		item.setToolTipText("Crear un nuevo usuario."); // Aplicar una descripción
-		item.setAccelerator(KeyStroke.getKeyStroke("control N")); // Poner una hotkey
+		if (user.getPermisos().equals(Permisos.TOTAL)) {
+			item = menuPersonal.add("Crear usuario");
+			item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
+			item.addActionListener((l)->{
+				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, "Crear usuario", true);
+				EscritorDeElementos escritor = new EscritorDeElementos();
+				
+				try {
+					User user = dlg.getNewUsuario();
+					if (user != null) escritor.añadirUsuario(user);
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+			});
+			item.setToolTipText("Crear un nuevo usuario."); // Aplicar una descripción
+			item.setAccelerator(KeyStroke.getKeyStroke("control N")); // Poner una hotkey
+		}
 		
 		item = menuPersonal.add("Salir");
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_SALIR));
@@ -222,7 +264,7 @@ public class Dibina extends JFrame {
 			System.out.println("Idioma 1");
 		});
 		item.setToolTipText("Castellano."); // Aplicar una descripción
-		item.setAccelerator(KeyStroke.getKeyStroke("control C")); // Poner una hotkey
+		item.setAccelerator(KeyStroke.getKeyStroke("alt C")); // Poner una hotkey
 		submenu.add(item);
 
 		item = new JMenuItem(Dibina.IDIOMAS[1]);
@@ -231,7 +273,7 @@ public class Dibina extends JFrame {
 			System.out.println("Idioma 2");
 		});
 		item.setToolTipText("Euskara."); // Aplicar una descripción
-		item.setAccelerator(KeyStroke.getKeyStroke("control E")); // Poner una hotkey
+		item.setAccelerator(KeyStroke.getKeyStroke("alt E")); // Poner una hotkey
 		submenu.add(item);
 
 		item = new JMenuItem(Dibina.IDIOMAS[2]);
@@ -240,7 +282,7 @@ public class Dibina extends JFrame {
 			System.out.println("Idioma 3");
 		});
 		item.setToolTipText("English."); // Aplicar una descripción
-		item.setAccelerator(KeyStroke.getKeyStroke("control I")); // Poner una hotkey
+		item.setAccelerator(KeyStroke.getKeyStroke("alt I")); // Poner una hotkey
 		submenu.add(item);
 		
 		return submenu;
@@ -292,6 +334,7 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
 			this.repaint();
 		});
+		if (user.getPermisos().equals(Permisos.BASICO)) boton.setEnabled(false);
 		boton.setBackground(Color.white);
 		boton.setBorder(null);
 		panel.add(boton);
@@ -301,6 +344,7 @@ public class Dibina extends JFrame {
 			pDisplay.setViewportView(new PanelHistorial(modeloTipos));
 			this.repaint();
 		});
+		if (user.getPermisos().equals(Permisos.BASICO)) boton.setEnabled(false);
 		boton.setBackground(Color.white);
 		boton.setBorder(null);
 		panel.add(boton);

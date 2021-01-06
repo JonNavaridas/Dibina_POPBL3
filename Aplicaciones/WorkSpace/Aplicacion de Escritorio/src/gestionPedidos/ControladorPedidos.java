@@ -1,4 +1,4 @@
-package gestionPaquetes;
+package gestionPedidos;
 
 import java.util.Calendar;
 import java.util.HashSet;

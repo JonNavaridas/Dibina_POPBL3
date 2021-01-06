@@ -54,8 +54,10 @@ public class PanelListaPedidos extends JScrollPane {
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		
 		this.modeloTabla = modelo;
-		this.listaPedidos = listaPedidos;
-		this.listaDisplay = listaPedidos;
+		this.listaPedidos = listaPedidos.stream().filter((p)->{
+				return p.getEstado().equals(Estado.PROCESANDO) || p.getEstado().equals(Estado.ACEPTADO);
+			}).collect(Collectors.toList());
+		this.listaDisplay = this.listaPedidos;
 		this.modeloTabla.setLista(listaDisplay);
 		
 		// Pasar los datos a arrays para poder añadirlos a los combo boxes.
@@ -100,43 +102,55 @@ public class PanelListaPedidos extends JScrollPane {
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CONFIRMAR));
 		boton.addActionListener((l)->{
 			try {
-				int[] seleccionados = tabla.getSelectedRows();
-				for (int i = 0; i < seleccionados.length; i++) listaDisplay.get(seleccionados[i]).setEstado(Estado.aceptar());
-				this.repaint();
+				if (JOptionPane.showConfirmDialog(this, "Una vez se acepte un pedido no podra denegarlo. ¿Esta seguro de que quiere continuar?")
+					== JOptionPane.YES_OPTION) {
+					
+					int[] seleccionados = tabla.getSelectedRows();
+					for (int i = 0; i < seleccionados.length; i++) {
+						listaDisplay.get(seleccionados[i]).setEstado(Estado.aceptar());
+					}
+					this.repaint();
+				}
 			}
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Confirmar pedido."); // Aplicar una descripción
+		boton.setToolTipText("Confirmar un pedido que se está procesando."); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_DENEGAR));
 		boton.addActionListener((l)->{
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
-				for (int i = 0; i < seleccionados.length; i++) listaDisplay.get(seleccionados[i]).setEstado(Estado.denegar());
+				for (int i = 0; i < seleccionados.length; i++) {
+					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.PROCESANDO))
+						listaDisplay.get(seleccionados[i]).setEstado(Estado.denegar());
+				}
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Denegar pedido."); // Aplicar una descripción
+		boton.setToolTipText("Denegar un pedido que se está procesando."); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_ENTREGADO));
 		boton.addActionListener((l)->{
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
-				for (int i = 0; i < seleccionados.length; i++) listaDisplay.get(seleccionados[i]).setEstado(Estado.marcarRecogido());
+				for (int i = 0; i < seleccionados.length; i++) {
+					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.ACEPTADO))
+						listaDisplay.get(seleccionados[i]).setEstado(Estado.marcarRecogido());
+				}
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Marcar pedido como entregado."); // Aplicar una descripción
+		boton.setToolTipText("Marcar un pedido aceptado como entregado."); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		toolBar.add(Box.createHorizontalGlue());

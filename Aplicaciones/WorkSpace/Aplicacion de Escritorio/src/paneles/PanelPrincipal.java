@@ -3,7 +3,14 @@ package paneles;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -29,12 +36,40 @@ public class PanelPrincipal extends JScrollPane {
 		PanelImagen panel = new PanelImagen();
 		panel.setBackground(Color.white);
 		
-		JLabel label = new JLabel("Dibina.eus®");
-		
+		JLabel label = new JLabel("Dibina.eus®");		
 		label.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 18));
 		label.setPreferredSize(new Dimension(200, 40));
 		label.setForeground(new Color(255, 118, 0));
 		label.setHorizontalAlignment(JLabel.CENTER);
+		
+		label.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Desktop.getDesktop().browse(new URI("https://mudle.mondragon.edu/mgep/login/"));
+			    } catch (IOException | URISyntaxException e) {
+			        e.printStackTrace();
+			    }
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				label.setForeground(Color.blue);
+				label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				label.setForeground(new Color(255, 118, 0));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {}
+		});
 		
 		panel.add(label, BorderLayout.SOUTH);
 		

@@ -27,8 +27,8 @@ import elementos.Pedido;
 import elementos.Producto;
 import gestionElementosVisuales.FontFactory;
 import gestionPantallas.RoundedBorder;
-import gestionPaquetes.ControladorPedidos;
-import gestionPaquetes.PedidoException;
+import gestionPedidos.ControladorPedidos;
+import gestionPedidos.PedidoException;
 import renderizadoLista.ListTipoRenderer;
 import usuarios.User;
 
@@ -174,7 +174,7 @@ public class PanelHacerPedido extends JScrollPane {
 	}
 
 	private Component panelBotones() {
-		JPanel panel = new JPanel(new GridLayout(1, 3));
+		JPanel panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
 		panel.setBackground(Color.white);
 		
@@ -213,9 +213,7 @@ public class PanelHacerPedido extends JScrollPane {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		pBoton = new JPanel();
 		boton = new JButton("Hacer pedido");
-		pBoton.setBackground(Color.white);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
@@ -239,9 +237,7 @@ public class PanelHacerPedido extends JScrollPane {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		pBoton = new JPanel();
 		boton = new JButton("Eliminar");
-		pBoton.setBackground(Color.white);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));

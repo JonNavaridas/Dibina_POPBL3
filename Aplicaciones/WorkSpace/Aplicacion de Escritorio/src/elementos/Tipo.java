@@ -3,7 +3,7 @@ package elementos;
 import java.io.Serializable;
 import java.util.Comparator;
 
-public class Tipo implements Serializable, Comparator<Tipo>{
+public class Tipo implements Serializable, Comparator<Tipo> {
 
 	private static final long serialVersionUID = 5559020248449778815L;
 

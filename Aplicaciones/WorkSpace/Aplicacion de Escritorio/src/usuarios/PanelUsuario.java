@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -18,6 +19,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,8 +31,10 @@ import elementos.Estado;
 import elementos.Pedido;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
+import gestionFicheros.EscritorDeElementos;
 import gestionPantallas.RoundedBorder;
-import gestionPaquetes.PedidoException;
+import gestionPedidos.PedidoException;
+import gestionUsuarios.DialogoContraseña;
 import paneles.PanelResumenPedido;
 import renderizadoTablaPedidos.HeaderRenderer;
 import renderizadoTablaPedidos.ModeloColumnas;
@@ -45,6 +49,7 @@ public class PanelUsuario extends JScrollPane {
 	JComboBox<String> fecha, destino, cantidad;
 	String[] listaCantidad, listaFecha, listaDestino;
 	
+	JFrame pPrincipal;
 	List<Pedido> listaPedidos;
 	List<Pedido> listaDisplay;
 	
@@ -52,12 +57,13 @@ public class PanelUsuario extends JScrollPane {
 	JTable tabla;
 	User user;
 
-	public PanelUsuario(ModeloTablaPedidos modelo, User user) {
+	public PanelUsuario(JFrame pPrincipal, ModeloTablaPedidos modelo, User user) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
 		this.setBackground(Color.white);
 		
 		this.getVerticalScrollBar().setUnitIncrement(20);
+		this.pPrincipal = pPrincipal;
 		
 		this.user = user;
 		this.modeloTabla = modelo;
@@ -106,7 +112,7 @@ public class PanelUsuario extends JScrollPane {
 		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 14);
 		Dimension dimension = new Dimension(300, 40);
 		
-		JLabel label = new JLabel("Usuario: " + user.getName() + " " + user.getID());
+		JLabel label = new JLabel("Usuario: " + user.getFullName() + " " + user.getID());
 		label.setBorder(BorderFactory.createCompoundBorder(new RoundedBorder(5), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		label.setPreferredSize(dimension);
 		label.setFont(font);
@@ -184,6 +190,32 @@ public class PanelUsuario extends JScrollPane {
 		boton.setToolTipText("Filtrar pedidos."); // Aplicar una descripción
 		toolBar.add(boton);
 		
+		// Volver a realizar un pedido.
+		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_REHACER));
+		boton.addActionListener((l)->{
+			try {
+				int[] seleccionados = tabla.getSelectedRows();
+				for (int i = 0; i < seleccionados.length; i++) {
+					Pedido p = user.getListaPedidos().get(seleccionados[i]);
+					
+					if (p.getEstado().equals(Estado.DENEGADO)) p.setEstado(Estado.PROCESANDO);
+					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede cancelar. Pongase en contacto con el administrador"
+							+ "para mas información.");
+				}
+			}
+			catch (PedidoException e) {
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Error en pedido", JOptionPane.WARNING_MESSAGE);
+			}
+			catch (IndexOutOfBoundsException e) {
+				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+			}
+			finally {
+				this.repaint();
+			}
+		});
+		boton.setToolTipText("Rehacer pedido."); // Aplicar una descripción
+		toolBar.add(boton);
+		
 		// Cancelar los pedidos seleccionados.
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CANCELAR));
 		boton.addActionListener((l)->{
@@ -212,7 +244,19 @@ public class PanelUsuario extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CAMBIAR_CONTRASEÑA));
 		boton.addActionListener((l)->{
-			
+			DialogoContraseña dlg = new DialogoContraseña(pPrincipal, "Cambiar contraseña", true, user);
+			try {
+				int newPassword = dlg.getNewPassword();
+				if (newPassword != -1) {
+					EscritorDeElementos escritor = new EscritorDeElementos();
+					escritor.cambiarContraseña(user, newPassword);
+					user.setContraseña(newPassword);
+				}
+			} catch (UserException e) {
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		});
 		boton.setToolTipText("Cambiar contraseña."); // Aplicar una descripción
 		toolBar.add(boton);

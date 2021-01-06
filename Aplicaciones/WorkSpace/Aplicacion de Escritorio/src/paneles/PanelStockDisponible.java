@@ -5,11 +5,9 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.NavigableMap;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -39,7 +37,7 @@ import org.jfree.ui.TextAnchor;
 import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
-import gestionPaquetes.ControladorPedidos;
+import gestionPedidos.ControladorPedidos;
 
 
 public class PanelStockDisponible extends JPanel implements ItemListener{

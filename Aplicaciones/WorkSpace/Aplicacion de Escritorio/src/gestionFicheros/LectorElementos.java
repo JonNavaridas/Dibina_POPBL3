@@ -4,11 +4,9 @@ import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,16 +99,6 @@ public class LectorElementos {
 		}
 		return listaPedidos;
 	}
-	
-	public void escribirPedidos(List<Pedido> pedidos) { // Guardar los pedidos sin resolver en el fichero
-		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS))) {
-			out.writeObject(pedidos);
-			out.close();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	@SuppressWarnings("unchecked")
 	public List<Producto> leerProductos() { // Leer el stock que se encuentra en el almacen
@@ -132,16 +120,6 @@ public class LectorElementos {
 			return null;
 		}
 		return listaProductos;
-	}
-	
-	public void escribirProductos(List<Producto> productos) { // Guardar los productos.
-		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PRODUCTOS))) {
-			out.writeObject(productos);
-			out.close();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public String[] leerDestinos() { // Obtener la información sobre los diferentes lugares donde pueden recogerse los pedidos.

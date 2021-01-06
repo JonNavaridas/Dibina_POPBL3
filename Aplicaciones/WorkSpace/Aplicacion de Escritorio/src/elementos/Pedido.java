@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
-import gestionPaquetes.PedidoException;
+import gestionPedidos.PedidoException;
 import usuarios.User;
 
 public class Pedido {
