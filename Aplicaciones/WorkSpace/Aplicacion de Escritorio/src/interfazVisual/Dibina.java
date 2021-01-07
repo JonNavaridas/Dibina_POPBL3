@@ -141,7 +141,7 @@ public class Dibina extends JFrame {
 		estado = menuPaquetes.add("Historial del almacén");
 		estado.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_HISTORIAL));
 		estado.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHistorial(modeloTipos));
+			pDisplay.setViewportView(new PanelHistorial(listaProductos));
 			this.repaint();
 		});
 		estado.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
@@ -341,7 +341,7 @@ public class Dibina extends JFrame {
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HISTORIAL));
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHistorial(modeloTipos));
+			pDisplay.setViewportView(new PanelHistorial(listaProductos));
 			this.repaint();
 		});
 		if (user.getPermisos().equals(Permisos.BASICO)) boton.setEnabled(false);

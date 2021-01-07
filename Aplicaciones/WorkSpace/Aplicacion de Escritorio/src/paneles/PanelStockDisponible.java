@@ -39,7 +39,6 @@ import elementos.Producto;
 import elementos.Tipo;
 import gestionPedidos.ControladorPedidos;
 
-
 public class PanelStockDisponible extends JPanel implements ItemListener{
 
 	private static final long serialVersionUID = 1L;
@@ -81,6 +80,7 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 	
 	  private void crearRenderer() {
 		  CategoryItemRenderer renderer = ((CategoryPlot)chart.getPlot()).getRenderer();
+		
 	      renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
 	      renderer.setBaseItemLabelsVisible(true);
 	      ItemLabelPosition position = new ItemLabelPosition(ItemLabelAnchor.CENTER, 
@@ -188,32 +188,32 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 			
 		  CategoryPlot plot = chart.getCategoryPlot();
 		  int filas = dataset.getRowCount();
-		  int r = 0,g = 0,b = 255;
+		  int r = 204,g = 255,b = 0;
 		  for(int i = 0; i < filas; i++) {
 			  plot.getRenderer().setSeriesPaint(i, new Color(r, g, b));
-			  if(b == 255 && r < 255 && g == 0) {
-				  r += 40;
-				  if(r>255)r = 255;
+			  if(r < 255 && g == 255 && b == 0) {
+				  r += 51;
+				  if(r>255)r= 255;
 			  }
-			  else if(r == 255 && b > 0) {
-				  b -= 40;
-				  if(b<0)b= 0;
+			  else if(r == 255 && g > 0) {
+				  g -= 51;
+				  if(g<0)g = 0;
 			  }
-			  else if(r == 255 && g < 255) {
-				  g += 40;
+			  else if(r == 255 && b < 255) {
+				  b += 51;
+				  if(b>255)b= 255;
+			  }
+			  else if(b == 255 && r > 0) {
+				  r -= 51;
+				  if(r<0)r = 0;
+			  }
+			  else if(b == 255 && g < 255) {
+				  g += 51;
 				  if(g>255)g = 255;
 			  }
-			  else if(r > 0 && g == 255) {
-				  r -= 40;
-				  if(r<0)r= 0;
-			  }
-			  else if(g == 255 && b < 255) {
-				  b += 40;
-				  if(b>255)b = 255;
-			  }
-			  else if(b == 255 && g > 0) {
-				  g -= 40;
-				  if(g<0)g= 0;
+			  else if(g == 255 && b > 0) {
+				  b -= 51;
+				  if(b<0)b = 0;
 			  }
 		  }
 	}
@@ -222,7 +222,7 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		CategoryPlot plot = chart.getCategoryPlot();
 		BarRenderer renderer = (BarRenderer) plot.getRenderer();
 		
-		Color color = new Color(223, 20, 20 , 255);
+		Color color = new Color(255, 118, 0 , 255);
 		renderer.setSeriesPaint(0, color);		
 	}
 	
@@ -244,6 +244,7 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		else if(ambos.isSelected()){
 			dataset = createDataset();
 			chart = createChart(dataset, true, "Tipo y procedencia"); 
+			
 		}
 		else return;
 		chartPanel.setChart(chart);
