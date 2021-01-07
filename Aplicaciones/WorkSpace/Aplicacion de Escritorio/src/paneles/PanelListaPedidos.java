@@ -290,6 +290,7 @@ public class PanelListaPedidos extends JScrollPane {
 			}
 		});
 		panel.setViewportView(tabla);
+		panel.getViewport().setBackground(Color.white);
 		
 		return panel;
 	}
