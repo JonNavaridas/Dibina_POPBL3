@@ -279,7 +279,7 @@ public class PanelListaPedidos extends JScrollPane {
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getDestino)).collect(Collectors.toList());
 					break;
 				case 3: // Ordenar por fecha
-					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getDia)).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getFecha)).collect(Collectors.toList());
 					break;
 				case 4:
 					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getEstado)).collect(Collectors.toList());

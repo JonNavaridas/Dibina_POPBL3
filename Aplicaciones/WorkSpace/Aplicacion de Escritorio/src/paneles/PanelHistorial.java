@@ -15,21 +15,24 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import elementos.Producto;
+import elementos.Pedido;
+import gestionElementosVisuales.FontFactory;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
-import renderizadoTablaTipos.HeaderRenderer;
-import renderizadoTablaTipos.ModeloColumnas;
-import renderizadoTablaTipos.ModeloTablaTipos;
-import renderizadoTablaTipos.RendererTabla;
+import renderizadoTablaPedidos.HeaderRenderer;
+import renderizadoTablaPedidos.ModeloColumnas;
+import renderizadoTablaPedidos.ModeloTablaPedidos;
+import renderizadoTablaPedidos.RendererTabla;
 
 
 public class PanelHistorial extends JPanel implements ActionListener, ChangeListener{
@@ -45,25 +48,59 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 	Calendar fechaSeleccionada;
 	Integer previousMonth;
 	
-	ModeloTablaTipos modeloTabla;
+	ModeloTablaPedidos modeloTabla;
 	JTable tabla;
-	List<Producto> listaDisplay;
-	List<Producto> listaProductos;
+	List<Pedido> listaDisplay;
+	List<Pedido> listaPedidos;
 	
-	public PanelHistorial(List<Producto> listaProductos) {
-		this.modeloTabla = new ModeloTablaTipos(listaProductos);
-		this.listaDisplay = listaProductos;
-		this.listaProductos = listaProductos;
-		inicializarCalendario();			
-		JPanel panel = new JPanel();
-		panel.add(datePicker);
+	public PanelHistorial(List<Pedido> listaPedidos) {
+		this.modeloTabla = new ModeloTablaPedidos(listaPedidos);
+		this.listaDisplay = listaPedidos;
+		this.listaPedidos = listaPedidos;	
 		
-		this.setLayout(new BorderLayout(0,40));
-		this.add(panel, BorderLayout.NORTH);
+		this.setLayout(new BorderLayout());
+		this.add(crearCalendario(), BorderLayout.NORTH);
 		this.add(crearTabla(), BorderLayout.CENTER);
+		this.add(crearBotones(), BorderLayout.SOUTH);
 		
 		this.setPreferredSize(new Dimension(ANCHO, ALTO));
 		this.setVisible(true);
+	}
+
+	private Component crearCalendario() {
+		previousMonth = null;
+		fechaSeleccionada = Calendar.getInstance();
+		
+		dateModel = new UtilDateModel();
+		dateModel.addChangeListener(this);
+		datePanel = new JDatePanelImpl(dateModel);
+		datePanel.addActionListener(this);
+		datePicker = new JDatePickerImpl(datePanel);
+		datePicker.setTextEditable(true);
+		
+		JPanel panel = new JPanel();
+		panel.add(datePicker);
+		panel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+		return panel;
+	}
+
+	private Component crearBotones() {
+		JPanel panel = new JPanel();
+		JButton boton = new JButton("Ver pedido");
+		boton.addActionListener((l)->{
+			try {
+				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()));
+				resumen.setVisible(true);
+			}
+			catch (IndexOutOfBoundsException e) {
+				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+			}
+		});
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
+		boton.setPreferredSize(new Dimension(150, 30));
+		panel.add(boton);
+		panel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+		return panel;
 	}
 
 	private Component crearTabla() {
@@ -78,16 +115,19 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 			public void mouseClicked(MouseEvent e) { // Detectar si el usuario a clickado en el titulo de la lista
 				switch(tabla.columnAtPoint(e.getPoint())) { // Comprobar en que columna a clickado
 				case 0:  // Ordenar alfabeticamente teniendo en cuenta el tipo
-					listaDisplay = listaProductos.stream().sorted(Comparator.comparing(Producto::getNombreTipo)).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getUserString)).collect(Collectors.toList());
 					break;
 				case 1: // Ordenar por valor (de menor a mayor)
-					listaDisplay = listaProductos.stream().sorted(Comparator.comparing(Producto::getCantidad)).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getNumElements)).collect(Collectors.toList());
 					break;
 				case 2: // Ordenar alfabeticamente teniendo en cuenta la procedencia
-					listaDisplay = listaProductos.stream().sorted(Comparator.comparing(Producto::getNombreProcedencia)).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getDestino)).collect(Collectors.toList());
 					break;
 				case 3: // Ordenar por fecha
-					listaDisplay = listaProductos.stream().sorted(Comparator.comparing(Producto::getFecha).reversed()).collect(Collectors.toList());
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getFecha)).collect(Collectors.toList());
+					break;
+				case 4:
+					listaDisplay = listaDisplay.stream().sorted(Comparator.comparing(Pedido::getEstado)).collect(Collectors.toList());
 					break;
 				}
 				modeloTabla.setLista(listaDisplay);
@@ -97,18 +137,6 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 		panel.setViewportView(tabla);
 		panel.getViewport().setBackground(Color.white);
 		return panel;
-	}
-
-	private void inicializarCalendario() {
-		previousMonth = null;
-		fechaSeleccionada = Calendar.getInstance();
-		
-		dateModel = new UtilDateModel();
-		dateModel.addChangeListener(this);
-		datePanel = new JDatePanelImpl(dateModel);
-		datePanel.addActionListener(this);
-		datePicker = new JDatePickerImpl(datePanel);
-		datePicker.setTextEditable(true);
 	}
 
 	@Override
@@ -121,19 +149,19 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 			else previousMonth = selectedValue.get(Calendar.MONTH);
 			
 			listaDisplay = new ArrayList<>();
-			for(Producto producto: listaProductos){
+			for(Pedido pedido: listaPedidos){
 				Calendar cal = Calendar.getInstance();
-				cal.setTime(producto.getFecha());
+				cal.setTime(pedido.getFecha());
 				if(cal.get(Calendar.YEAR) == selectedValue.get(Calendar.YEAR) && 
 						cal.get(Calendar.MONTH) == selectedValue.get(Calendar.MONTH) && 
 						cal.get(Calendar.DAY_OF_MONTH) == selectedValue.get(Calendar.DAY_OF_MONTH)) 
-					listaDisplay.add(producto);
+					listaDisplay.add(pedido);
 			};
 			modeloTabla.setLista(listaDisplay); // Mostrar la nueva lista con filtro de fecha
 			this.repaint();
 		
 		}catch(Exception e) {
-			modeloTabla.setLista(listaProductos);
+			modeloTabla.setLista(listaPedidos);
 			this.repaint();
 		}
 	}
