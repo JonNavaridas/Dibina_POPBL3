@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
+import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
 import elementos.Producto;
@@ -37,6 +38,7 @@ public class PanelHacerPedido extends JScrollPane {
 	private static final long serialVersionUID = 1L;
 
 	List<Pedido> listaPedidos;
+	List<Producto> listaProductos;
 	ControladorPedidos controlador;
 	Map<String, Integer> displayPedido;
 	
@@ -50,7 +52,7 @@ public class PanelHacerPedido extends JScrollPane {
 	JList<String> tipos;
 	JTextField cantidad;
 
-	public PanelHacerPedido(List<Pedido> listaPedidos, String[] destinos, ControladorPedidos controlador, User user) {
+	public PanelHacerPedido(List<Pedido> listaPedidos, List<Producto> listaProductos, String[] destinos, ControladorPedidos controlador, User user) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -58,6 +60,7 @@ public class PanelHacerPedido extends JScrollPane {
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		
 		this.displayPedido = new TreeMap<>();
+		this.listaProductos = listaProductos;
 		this.listaPedidos = listaPedidos;
 		this.controlador = controlador;
 		this.pedido = new Pedido();
@@ -189,10 +192,19 @@ public class PanelHacerPedido extends JScrollPane {
 				if (Integer.parseInt(cantidad.getText()) <= 0) throw new IllegalArgumentException();
 				
 				String[] valores = tipos.getSelectedValue().split("[ ]");
-				int unidades = Integer.parseInt(cantidad.getText());
+				int unidades = Integer.parseInt(cantidad.getText());				
+				int cantidadEnAlmacen = 0;
 				
-				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null,
-								  (unidades <= 1000 && unidades > 0) ? unidades : null, controlador.getProcedencia(valores[1])));
+				for (Producto p : listaProductos) {
+					if (p.toString().toLowerCase().equals(tipos.getSelectedValue().toLowerCase())) {
+						cantidadEnAlmacen = p.getCantidad();
+						if (unidades > cantidadEnAlmacen || unidades <= 0)
+							throw new PedidoException("Esa cantidad de elementos no esta disponible en el almacen.");
+						else break;
+					}
+				}
+				
+				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, cantidadEnAlmacen, controlador.getProcedencia(valores[1])));
 				
 				if (displayPedido.get(tipos.getSelectedValue()) != null)
 					displayPedido.put(tipos.getSelectedValue(), displayPedido.get(tipos.getSelectedValue()) + Integer.parseInt(cantidad.getText()));
@@ -202,6 +214,9 @@ public class PanelHacerPedido extends JScrollPane {
 				modeloPedido.removeAllElements();
 				displayPedido.entrySet().stream().forEach((e)->modeloPedido.addElement("Elemento: " + e.getKey() + ". Cantidad: " + e.getValue()));
 			} 
+			catch (PedidoException e) {
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			}
 			catch (IllegalArgumentException | NullPointerException e) {
 				JOptionPane.showMessageDialog(this, "Los datos proporcionados no son correctos", "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -224,6 +239,9 @@ public class PanelHacerPedido extends JScrollPane {
 				pedido.setFecha(Calendar.getInstance().getTime());
 				pedido.setDestino((String)destino.getSelectedItem());
 				pedido.setEstado(Estado.PROCESANDO);
+				
+				Cliente cliente = new Cliente(pedido);
+				cliente.start();
 				
 				listaPedidos.add(pedido);
 				user.addPedido(pedido);

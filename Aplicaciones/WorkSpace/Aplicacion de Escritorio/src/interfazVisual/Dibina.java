@@ -166,7 +166,7 @@ public class Dibina extends JFrame {
 		pedido = menuPaquetes.add("Hacer pedido");
 		pedido.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDO));
 		pedido.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador, user));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, listaProductos, destinos, controlador, user));
 			this.repaint();
 		});
 		pedido.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
@@ -316,7 +316,7 @@ public class Dibina extends JFrame {
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDO));
 		boton.setToolTipText("Hacer un pedido"); 
 		boton.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador, user));
+			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, listaProductos, destinos, controlador, user));
 			this.repaint();
 		});
 		boton.setBackground(Color.white);
