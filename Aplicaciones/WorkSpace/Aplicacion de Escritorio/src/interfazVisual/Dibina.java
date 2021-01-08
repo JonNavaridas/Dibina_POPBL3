@@ -294,6 +294,7 @@ public class Dibina extends JFrame {
 		JButton boton;
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HOME));
+		boton.setToolTipText("Pantalla inicio");
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelPrincipal());
 			this.repaint();
@@ -303,6 +304,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_STOCK));
+		boton.setToolTipText("Stock disponible"); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelStockDisponible(controlador, listaProductos));
 			this.repaint();
@@ -312,6 +314,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDO));
+		boton.setToolTipText("Hacer un pedido"); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, destinos, controlador, user));
 			this.repaint();
@@ -321,6 +324,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_BUSQUEDA));
+		boton.setToolTipText("Buscar un pedido"); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelBuscar(modeloTipos, listaProductos));
 			this.repaint();
@@ -330,6 +334,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDOS));
+		boton.setToolTipText("Lista de pedidos"); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
 			this.repaint();
@@ -340,6 +345,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HISTORIAL));
+		boton.setToolTipText("Historial de pedidos"); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHistorial(listaPedidos));
 			this.repaint();
