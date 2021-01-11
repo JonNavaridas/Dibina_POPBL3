@@ -1,0 +1,8 @@
+package comunicacion;
+
+public class Comunicador {
+
+	public static void main(String[] args) {
+		
+	}
+}

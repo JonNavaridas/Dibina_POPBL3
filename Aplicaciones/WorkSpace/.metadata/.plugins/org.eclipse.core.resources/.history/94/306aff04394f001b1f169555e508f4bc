@@ -1,0 +1,214 @@
+package gestionUsuarios;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.util.InputMismatchException;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+import gestionElementosVisuales.FontFactory;
+import gestionElementosVisuales.ImageFactory;
+import gestionPantallas.RoundedBorder;
+import usuarios.Permisos;
+import usuarios.User;
+
+public class DialogoCrearUsuario extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	public final static int DEFAULT_WIDTH = 400;
+	public final static int DEFAULT_HEIGHT = 320;
+	
+	private final static String[] PERMISOS = { "Basico", "Avanzado", "Total" };
+	
+	JRadioButton basico, avanzado, total;
+	ButtonGroup permisos;
+	
+	boolean crearUsuario;
+	JPasswordField contraseña;
+	JTextField nombre, apellido, id;
+	
+	public DialogoCrearUsuario(JFrame ventana, String titulo, boolean modo) {
+		super(ventana,titulo,modo);
+		
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		int width = (int) toolkit.getScreenSize().getWidth();
+		int height = (int) toolkit.getScreenSize().getHeight();
+		
+		this.setLocation(width/2 - DEFAULT_WIDTH/2, height/2 - DEFAULT_HEIGHT/2);
+		this.setSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
+
+		this.setContentPane(crearPanelVentana());
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	}
+	
+	private Container crearPanelVentana() {
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBackground(Color.white);
+		
+		panel.add(crearPanelUsuario(), BorderLayout.CENTER);
+		panel.add(crearPanelBotones(), BorderLayout.SOUTH);
+		
+		return panel;
+	}
+
+	private Component crearPanelUsuario() {
+		JPanel panel = new JPanel(new GridLayout(4, 1, 0, 10));
+		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 14);
+		panel.setBackground(Color.white);
+		
+		id = new JTextField();
+		id.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
+					 BorderFactory.createTitledBorder(new RoundedBorder(5), "ID del usuario")));
+		id.setFont(font);
+		panel.add(id);
+		
+		nombre = new JTextField();
+		nombre.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
+					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), "Nombre")));
+		nombre.setFont(font);
+		
+		apellido = new JTextField();
+		apellido.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
+					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), "Apellido")));
+		apellido.setFont(font);
+		
+		JPanel pNombre = new JPanel(new GridLayout(1, 2, 10, 0));
+		pNombre.setBackground(Color.white);
+		pNombre.add(nombre);
+		pNombre.add(apellido);
+		panel.add(pNombre);
+		
+		contraseña = new JPasswordField();
+		contraseña.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
+				 			 BorderFactory.createTitledBorder(new RoundedBorder(5), "Contraseña")));
+		contraseña.setEchoChar('*');
+		contraseña.setFont(font);
+		
+		JPanel pContraseña = new JPanel(new BorderLayout());
+		JCheckBox mostrar = new JCheckBox();
+		pContraseña.setBackground(Color.white);
+
+		mostrar.setOpaque(true);
+		mostrar.setBackground(Color.white);
+		mostrar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		mostrar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_OCULTAR_CONTRASEÑA));
+		mostrar.setSelectedIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_VER_CONTRASEÑA));
+		mostrar.addActionListener((e)->{
+			if (mostrar.isSelected()) contraseña.setEchoChar((char)0);
+			else contraseña.setEchoChar('*');
+		});
+		
+		pContraseña.add(contraseña, BorderLayout.CENTER);
+		pContraseña.add(mostrar, BorderLayout.EAST);
+		panel.add(pContraseña);
+		
+		JPanel pPermisos = new JPanel();
+		pPermisos.setBackground(Color.white);
+		pPermisos.add(crearPanelPermisos());
+		panel.add(pPermisos);
+		
+		return panel;
+	}
+
+	private Component crearPanelPermisos() {
+		JPanel panel = new JPanel(new GridLayout(1, 3));
+		panel.setBackground(Color.white);
+		
+		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 16);
+		
+		basico = new JRadioButton(PERMISOS[0]);
+		basico.setBackground(Color.white);
+		basico.setSelected(true);
+		basico.setFont(font);
+		
+		avanzado = new JRadioButton(PERMISOS[1]);
+		avanzado.setBackground(Color.white);
+		avanzado.setSelected(false);
+		avanzado.setFont(font);
+		
+		total = new JRadioButton(PERMISOS[2]);
+		total.setBackground(Color.white);
+		total.setSelected(false);
+		total.setFont(font);
+
+		permisos = new ButtonGroup();
+		permisos.add(basico);
+		permisos.add(avanzado);
+		permisos.add(total);
+		
+		panel.add(basico);
+		panel.add(avanzado);
+		panel.add(total);
+		
+		return panel;
+	}
+
+	private Component crearPanelBotones() {
+		JPanel panel = new JPanel(new GridLayout(1, 20));
+		
+		panel.setBackground(Color.white);
+		
+		JButton boton = new JButton("Crear");
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
+		boton.setPreferredSize(new Dimension(170, 30));
+		boton.addActionListener((e)->{
+			crearUsuario = true;
+			this.dispose();
+		});
+		
+		JPanel pBoton = new JPanel();
+		pBoton.setBackground(Color.white);
+		pBoton.add(boton);
+		panel.add(pBoton);
+		
+		boton = new JButton("Cancelar");
+		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
+		boton.setPreferredSize(new Dimension(170, 30));
+		boton.addActionListener((e)->{
+			crearUsuario = false;
+			this.dispose();
+		});
+		
+		pBoton = new JPanel();
+		pBoton.setBackground(Color.white);
+		pBoton.add(boton);
+		panel.add(pBoton);
+		
+		return panel;
+	}
+
+	public User getNewUsuario() throws InputMismatchException {
+		this.setVisible(true);
+		
+		String id = this.id.getText();
+		String nombre = this.nombre.getText().substring(0, 1).toLowerCase() + this.apellido.getText().substring(0, 1).toUpperCase()
+						 + this.apellido.getText().substring(1);
+		String contraseña = "";
+		String permisos;
+		
+		for (int i = 0; i < this.contraseña.getPassword().length; i++) contraseña += this.contraseña.getPassword()[i];
+		
+		if (this.basico.isSelected()) permisos = "basico";
+		else if (this.avanzado.isSelected()) permisos = "avanzado";
+		else permisos = "total";
+		
+		if (id.equals("") || nombre.equals("") || contraseña.equals("")) return null;
+		return new User(id, nombre, contraseña.hashCode(), Permisos.getPermiso(permisos));
+	}
+}

@@ -1,0 +1,48 @@
+1607942251480	Delete element
+1608028868766	Rename field 'elementos'
+1608036069728	Move compilation unit
+1608052424931	Delete element
+1608136742816	Delete element
+1608137149950	Delete element
+1608137781534	Move compilation unit
+1608215037883	Delete element
+1608215042259	Delete element
+1608217287604	Copy compilation unit
+1608221524888	Copy folder
+1608223693136	Delete element
+1608223701532	Rename type 'GestorElementosFijos'
+1608223706316	Move compilation unit
+1608223710246	Move compilation unit
+1608223712858	Move compilation unit
+1608223715955	Delete element
+1608224937946	Rename type 'GestorElementos'
+1608224947132	Rename type 'LectorElementso'
+1608224958542	Move compilation unit
+1608282056970	Rename method 'leerElementos'
+1608282193844	Delete element
+1608284481304	Delete element
+1608284839164	Rename type 'PanelRP'
+1608284855672	Rename type 'PanelAdmin'
+1608295009124	Delete element
+1608301824377	Copy compilation unit
+1608301885534	Rename method 'panel'
+1608302892758	Rename method 'crearMenuStock'
+1608302901785	Rename method 'crearMenuPaquetes'
+1608307689114	Delete element
+1608307874038	Rename field 'listaPaquetes'
+1608456827123	Delete elements
+1608456915872	Delete element
+1608457482541	Rename field 'controlador'
+1608458065154	Rename local variable 'enviar'
+1608458079699	Rename local variable 'buscar'
+1608458086236	Rename local variable 'administrar'
+1608458118594	Copy compilation unit
+1608461206277	Rename field 'imagen'
+1608462352373	Rename resource 'procedencias.txt'
+1608462360412	Rename resource 'tipos.txt'
+1608463417407	Rename method 'getImageIcon'
+1608463429575	Rename method 'getImage'
+1608480118186	Copy package
+1608480140610	Copy packages
+1608480176451	Copy package
+1608480193026	Copy folders
