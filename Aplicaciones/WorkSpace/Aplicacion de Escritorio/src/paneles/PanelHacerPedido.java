@@ -41,6 +41,7 @@ public class PanelHacerPedido extends JScrollPane {
 	List<Producto> listaProductos;
 	ControladorPedidos controlador;
 	Map<String, Integer> displayPedido;
+	String[] words;
 	
 	User user;
 	Pedido pedido;
@@ -52,7 +53,7 @@ public class PanelHacerPedido extends JScrollPane {
 	JList<String> tipos;
 	JTextField cantidad;
 
-	public PanelHacerPedido(List<Pedido> listaPedidos, List<Producto> listaProductos, String[] destinos, ControladorPedidos controlador, User user) {
+	public PanelHacerPedido(List<Pedido> listaPedidos, List<Producto> listaProductos, String[] destinos, ControladorPedidos controlador, User user, String[] words) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -65,7 +66,8 @@ public class PanelHacerPedido extends JScrollPane {
 		this.controlador = controlador;
 		this.pedido = new Pedido();
 		this.user = user;
-
+		this.words = words;
+		
 		destino = new JComboBox<>(destinos);
 		destino.setSelectedIndex(0);
 		
@@ -107,7 +109,7 @@ public class PanelHacerPedido extends JScrollPane {
 		pCantidad.add(cantidad);
 		pDestino.add(destino);
 
-		cantidad.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(new RoundedBorder(5), "Cantidad"),
+		cantidad.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(new RoundedBorder(5), words[1]),
 															  BorderFactory.createEmptyBorder(0, 5, 0, 0)));
 		destino.setBorder(new RoundedBorder(5));
 		destino.setBackground(Color.white);
@@ -137,7 +139,7 @@ public class PanelHacerPedido extends JScrollPane {
 	private Component panelTipos() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		panel.setBorder(BorderFactory.createCompoundBorder(
-						BorderFactory.createTitledBorder(new RoundedBorder(5), " Lista de Elementos ", TitledBorder.LEFT,
+						BorderFactory.createTitledBorder(new RoundedBorder(5), " "+words[0]+" ", TitledBorder.LEFT,
 														 TitledBorder.CENTER, FontFactory.createFont(FontFactory.BASE_FONT, 14)),
 						BorderFactory.createEmptyBorder(5, 5, 5, 5))
 				);
@@ -182,7 +184,7 @@ public class PanelHacerPedido extends JScrollPane {
 		panel.setBackground(Color.white);
 		
 		JPanel pBoton = new JPanel();
-		JButton boton = new JButton("Insertar");
+		JButton boton = new JButton(words[2]);
 		pBoton.setBackground(Color.white);
 
 		boton.setPreferredSize(new Dimension(200, 40));
@@ -199,7 +201,7 @@ public class PanelHacerPedido extends JScrollPane {
 					if (p.toString().toLowerCase().equals(tipos.getSelectedValue().toLowerCase())) {
 						cantidadEnAlmacen = p.getCantidad();
 						if (unidades > cantidadEnAlmacen || unidades <= 0)
-							throw new PedidoException("Esa cantidad de elementos no esta disponible en el almacen.");
+							throw new PedidoException(words[5]);
 						else break;
 					}
 				}
@@ -212,13 +214,13 @@ public class PanelHacerPedido extends JScrollPane {
 					displayPedido.put(tipos.getSelectedValue(), Integer.parseInt(cantidad.getText()));
 
 				modeloPedido.removeAllElements();
-				displayPedido.entrySet().stream().forEach((e)->modeloPedido.addElement("Elemento: " + e.getKey() + ". Cantidad: " + e.getValue()));
+				displayPedido.entrySet().stream().forEach((e)->modeloPedido.addElement(words[6]+": " + e.getKey() + ". "+words[1]+": " + e.getValue()));
 			} 
 			catch (PedidoException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(), words[7], JOptionPane.ERROR_MESSAGE);
 			}
 			catch (IllegalArgumentException | NullPointerException e) {
-				JOptionPane.showMessageDialog(this, "Los datos proporcionados no son correctos", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[8], words[7], JOptionPane.ERROR_MESSAGE);
 			}
 			finally {
 				cantidad.setText("");
@@ -228,7 +230,7 @@ public class PanelHacerPedido extends JScrollPane {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Hacer pedido");
+		boton = new JButton(words[3]);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
@@ -240,8 +242,8 @@ public class PanelHacerPedido extends JScrollPane {
 				pedido.setDestino((String)destino.getSelectedItem());
 				pedido.setEstado(Estado.PROCESANDO);
 				
-				Cliente cliente = new Cliente(pedido);
-				cliente.start();
+				//Cliente cliente = new Cliente(pedido);
+				//cliente.start();
 				
 				listaPedidos.add(pedido);
 				user.addPedido(pedido);
@@ -255,7 +257,7 @@ public class PanelHacerPedido extends JScrollPane {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Eliminar");
+		boton = new JButton(words[4]);
 		
 		boton.setPreferredSize(new Dimension(200, 40));
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));

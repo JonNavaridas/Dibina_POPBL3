@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 import elementos.Pedido;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
+import gestionFicheros.LectorElementos;
 import impresora.Imprimir;
 
 public class PanelResumenPedido extends JFrame {
@@ -29,11 +31,13 @@ public class PanelResumenPedido extends JFrame {
 	
 	Pedido pedido;
 	JLabel label;
+	String[] words;
 
-	public PanelResumenPedido(Pedido pedido) {
-		super("Visualizar Pedido");
+	public PanelResumenPedido(Pedido pedido, String[] words) {
+		super(words[0]);
 		this.pedido = pedido;
 		label = new JLabel();
+		this.words = words;
 		
 		// Determinar el tamaño de la pantalla.
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -73,7 +77,7 @@ public class PanelResumenPedido extends JFrame {
 		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		
-		label.setText(pedido.setDisplayElementsHTML());
+		label.setText(pedido.setDisplayElementsHTML(Arrays.copyOfRange(words, 1, 7)));
 		panel.setViewportView(label);
 		
 		return panel;
@@ -83,7 +87,7 @@ public class PanelResumenPedido extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.white);
 		
-		JButton boton = new JButton("Imprimir");
+		JButton boton = new JButton(words[1]);
 		boton.addActionListener((l)->{
 			PrinterJob job = PrinterJob.getPrinterJob();
 			job.setPrintable(new Imprimir(pedido));

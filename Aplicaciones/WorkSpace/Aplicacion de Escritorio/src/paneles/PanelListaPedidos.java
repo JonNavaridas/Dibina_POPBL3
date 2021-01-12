@@ -39,14 +39,14 @@ public class PanelListaPedidos extends JScrollPane {
 	
 	List<Integer> listaCantidades;
 	JComboBox<String> fecha, destino, cantidad;
-	String[] listaCantidad, listaFecha, listaDestino;
+	String[] listaCantidad, listaFecha, listaDestino, words, wordsResumen;
 	
 	List<Pedido> listaPedidos;
 	List<Pedido> listaDisplay;
 	ModeloTablaPedidos modeloTabla;
 	JTable tabla;
 
-	public PanelListaPedidos(ModeloTablaPedidos modelo, List<Pedido> listaPedidos) {
+	public PanelListaPedidos(ModeloTablaPedidos modelo, List<Pedido> listaPedidos, String[] words, String[] wordsResumen) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -59,6 +59,8 @@ public class PanelListaPedidos extends JScrollPane {
 			}).collect(Collectors.toList());
 		this.listaDisplay = this.listaPedidos;
 		this.modeloTabla.setLista(listaDisplay);
+		this.words = words;
+		this.wordsResumen = wordsResumen;
 		
 		// Pasar los datos a arrays para poder añadirlos a los combo boxes.
 		listaDestino = this.transformToArray(listaPedidos.stream().map(Pedido::getDestino).distinct().collect(Collectors.toList()));
@@ -68,7 +70,7 @@ public class PanelListaPedidos extends JScrollPane {
 		if (listaCantidades.size() > 0) setCantidades();
 		else {
 			listaCantidad = new String[1];
-			listaCantidad[0] = "Todo";
+			listaCantidad[0] = words[0];
 		}
 		
 		fecha = new JComboBox<>(listaFecha);
@@ -113,10 +115,10 @@ public class PanelListaPedidos extends JScrollPane {
 				}
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[2], words[3], JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Confirmar un pedido que se está procesando."); // Aplicar una descripción
+		boton.setToolTipText(words[6]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_DENEGAR));
@@ -130,10 +132,10 @@ public class PanelListaPedidos extends JScrollPane {
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[2], words[3], JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Denegar un pedido que se está procesando."); // Aplicar una descripción
+		boton.setToolTipText(words[7]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_ENTREGADO));
@@ -147,10 +149,10 @@ public class PanelListaPedidos extends JScrollPane {
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[2], words[3], JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Marcar un pedido aceptado como entregado."); // Aplicar una descripción
+		boton.setToolTipText(words[4]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		toolBar.add(Box.createHorizontalGlue());
@@ -167,7 +169,7 @@ public class PanelListaPedidos extends JScrollPane {
 			
 			this.repaint();
 		});
-		boton.setToolTipText("Quitar pedidos entregados y denegados de la lista."); // Aplicar una descripción
+		boton.setToolTipText(words[5]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		return toolBar;
@@ -177,7 +179,7 @@ public class PanelListaPedidos extends JScrollPane {
 		JPanel panel = new JPanel(new FlowLayout());
 		panel.setBackground(Color.white);
 		
-		JButton boton = new JButton("Filtrar");
+		JButton boton = new JButton(words[1]);
 		boton.addActionListener((e)->{
 			listaDisplay = listaPedidos;
 			if (!((String)fecha.getSelectedItem()).equals("Todo")) { // Aplicar filtro fecha
@@ -204,14 +206,14 @@ public class PanelListaPedidos extends JScrollPane {
 		
 		panel.add(pBoton);
 		
-		boton = new JButton("Ver");
+		boton = new JButton(words[8]);
 		boton.addActionListener((l)->{
 			try {
-				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()));
+				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()),wordsResumen);
 				resumen.setVisible(true);
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[2], words[3], JOptionPane.WARNING_MESSAGE);
 			}
 		});
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));

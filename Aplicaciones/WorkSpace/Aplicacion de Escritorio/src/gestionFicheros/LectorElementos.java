@@ -25,6 +25,9 @@ public class LectorElementos {
 	public static final String FICHERO_DIBINA_ESP = "Files/Language/ESP_Dibina.txt";
 	public static final String FICHERO_DIBINA_EUS = "Files/Language/EUS_Dibina.txt";
 	public static final String FICHERO_DIBINA_ENG = "Files/Language/ENG_Dibina.txt";
+	public static final String FICHERO_PANELES_ESP = "Files/Language/ESP_Paneles.txt";
+	public static final String FICHERO_PANELES_EUS = "Files/Language/EUS_Paneles.txt";
+	public static final String FICHERO_PANELES_ENG = "Files/Language/ENG_Paneles.txt";
 	public static final String FICHERO_PEDIDOS = "Files/Pedidos.dat";
 	public static final String FICHERO_DESTINOS = "Files/Destinos.txt";
 	public static final String FICHERO_PRODUCTOS = "Files/Productos.dat";
@@ -163,7 +166,7 @@ public class LectorElementos {
 		}
 	}
 
-	public static String[] leerDibinaMenus(int language) {
+	public static String[] leerDibinaMenus(int language) { // Obtener palablas usadas en el menu y pantalla inicial
 		try {
 			List<String> login = new ArrayList<>();
 			BufferedReader in;
@@ -187,4 +190,30 @@ public class LectorElementos {
 			return null;
 		}
 	}
+
+	public static String[] leerPaneles(int language) { // Obtener palablas usadas en los paneles que no son el inicial
+		try {
+			List<String> login = new ArrayList<>();
+			BufferedReader in;
+			switch(language) {
+			case 1: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_PANELES_EUS), "utf-8")); break;
+			case 2: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_PANELES_ENG), "utf-8")); break;
+			case 0:
+			default: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_PANELES_ESP), "utf-8")); break;
+			}
+			
+			String linea;
+			while ((linea = in.readLine()) != null) {
+				login.add(linea);
+			}
+			in.close();
+			
+			return login.toArray(new String[0]);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

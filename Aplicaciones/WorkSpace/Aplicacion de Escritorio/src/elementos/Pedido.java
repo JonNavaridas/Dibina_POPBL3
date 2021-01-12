@@ -135,21 +135,21 @@ public class Pedido {
 		// No estoy seguro de si va a tener que ser utilizada, de momento aqui se queda.
 	}
 	
-	public String setDisplayElementsHTML() {
+	public String setDisplayElementsHTML(String[] words) {
 		String texto = "";
 		
 		texto += "<html>"
 				+ "<div  style=\"font-size:12px;\">"
-				+ "<h2><center>Pedido " + this.id + "</center></h2>\r\n"
+				+ "<h2><center>" + words[0]  + this.id + "</center></h2>\r\n"
 				+ "	\r\n"
 				+ "	<p style=\"font-family:arial;margin:auto;\">\r\n"
-				+ "		<u>Usuario</u>: " + this.user.getName() + " (" + this.user.getID() + ")<br>\r\n"
-				+ "		<u>Fecha</u>: " + this.getDia() + "\r\n"
+				+ "		<u>"+words[1]+"</u>: " + this.user.getName() + " (" + this.user.getID() + ")<br>\r\n"
+				+ "		<u>"+words[2]+"</u>: " + this.getDia() + "\r\n"
 				+ "		<hr>\r\n"
 				+ "		<table style=\"float:rigth;border-collapse:collapse;\">\r\n"
 				+ "		  <tr>\r\n"
-				+ "			<th style=\"padding:5px;\">Elemento</th>\r\n"
-				+ "			<th style=\"padding:5px;\">Cantidad</th> \r\n"
+				+ "			<th style=\"padding:5px;\">"+words[4]+"</th>\r\n"
+				+ "			<th style=\"padding:5px;\">"+words[5]+"</th> \r\n"
 				+ "		  </tr>\r\n"
 				+ "		  \r\n"
 				+ 		  getProductosHTML()
@@ -159,7 +159,7 @@ public class Pedido {
 				+ "		  </tr>\r\n"
 				+ "		</table>\r\n"
 				+ "		<hr>\r\n"
-				+ "		<div style=\"font-family:arial;\"><u>Punto de entrega</u>: " + this.destino + "."
+				+ "		<div style=\"font-family:arial;\"><u>"+words[3]+"</u>: " + this.destino + "."
 				+ "</div>" + "</div></html>";
 		
 		return texto;

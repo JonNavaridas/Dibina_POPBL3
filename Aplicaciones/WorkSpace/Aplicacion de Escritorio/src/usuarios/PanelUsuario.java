@@ -47,7 +47,7 @@ public class PanelUsuario extends JScrollPane {
 	
 	List<Integer> listaCantidades;
 	JComboBox<String> fecha, destino, cantidad;
-	String[] listaCantidad, listaFecha, listaDestino;
+	String[] listaCantidad, listaFecha, listaDestino, words, wordsResumen;
 	
 	JFrame pPrincipal;
 	List<Pedido> listaPedidos;
@@ -57,13 +57,15 @@ public class PanelUsuario extends JScrollPane {
 	JTable tabla;
 	User user;
 
-	public PanelUsuario(JFrame pPrincipal, ModeloTablaPedidos modelo, User user) {
+	public PanelUsuario(JFrame pPrincipal, ModeloTablaPedidos modelo, User user, String[] words, String[] wordsResumen) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
 		this.setBackground(Color.white);
 		
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		this.pPrincipal = pPrincipal;
+		this.words = words;
+		this.wordsResumen = wordsResumen;
 		
 		this.user = user;
 		this.modeloTabla = modelo;
@@ -112,7 +114,7 @@ public class PanelUsuario extends JScrollPane {
 		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 14);
 		Dimension dimension = new Dimension(300, 40);
 		
-		JLabel label = new JLabel("Usuario: " + user.getFullName() + " " + user.getID());
+		JLabel label = new JLabel(words[3]+": " + user.getFullName() + " " + user.getID());
 		label.setBorder(BorderFactory.createCompoundBorder(new RoundedBorder(5), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		label.setPreferredSize(dimension);
 		label.setFont(font);
@@ -158,14 +160,14 @@ public class PanelUsuario extends JScrollPane {
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_VER));
 		boton.addActionListener((l)->{
 			try {
-				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()));
+				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()), wordsResumen);
 				resumen.setVisible(true);
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[1], words[2], JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		boton.setToolTipText("Ver pedido."); // Aplicar una descripción
+		boton.setToolTipText(words[0]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		// Filtrar aplicando los filtros seleccionados en los ComboBoxes.
@@ -187,7 +189,7 @@ public class PanelUsuario extends JScrollPane {
 			modeloTabla.setLista(listaDisplay); // Mostrar la nueva lista con los filtros aplicados
 			this.repaint();
 		});
-		boton.setToolTipText("Filtrar pedidos."); // Aplicar una descripción
+		boton.setToolTipText("Filtrar"); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		// Volver a realizar un pedido.
@@ -199,21 +201,20 @@ public class PanelUsuario extends JScrollPane {
 					Pedido p = user.getListaPedidos().get(seleccionados[i]);
 					
 					if (p.getEstado().equals(Estado.DENEGADO)) p.setEstado(Estado.PROCESANDO);
-					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede cancelar. Pongase en contacto con el administrador"
-							+ "para mas información.");
+					else throw new PedidoException(words[5] + (i+1) + words[6]);
 				}
 			}
 			catch (PedidoException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Error en pedido", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(), words[7], JOptionPane.WARNING_MESSAGE);
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[1], words[2], JOptionPane.WARNING_MESSAGE);
 			}
 			finally {
 				this.repaint();
 			}
 		});
-		boton.setToolTipText("Rehacer pedido."); // Aplicar una descripción
+		boton.setToolTipText(words[8]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		// Cancelar los pedidos seleccionados.
@@ -225,26 +226,25 @@ public class PanelUsuario extends JScrollPane {
 					Pedido p = user.getListaPedidos().get(seleccionados[i]);
 					
 					if (!p.getEstado().equals(Estado.RECOGIDO) || !p.getEstado().equals(Estado.ACEPTADO)) p.setEstado(Estado.DENEGADO);
-					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede cancelar. Pongase en contacto con el administrador"
-							+ "para mas información.");
+					else throw new PedidoException(words[5] + (i+1) + words[6]);
 				}
 			}
 			catch (PedidoException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Error en pedido", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(), words[7], JOptionPane.WARNING_MESSAGE);
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[1], words[2], JOptionPane.WARNING_MESSAGE);
 			}
 			finally {
 				this.repaint();
 			}
 		});
-		boton.setToolTipText("Cancelar pedido."); // Aplicar una descripción
+		boton.setToolTipText(words[9]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CAMBIAR_CONTRASEÑA));
 		boton.addActionListener((l)->{
-			DialogoContraseña dlg = new DialogoContraseña(pPrincipal, "Cambiar contraseña", true, user);
+			DialogoContraseña dlg = new DialogoContraseña(pPrincipal, words[10], true, user);
 			try {
 				int newPassword = dlg.getNewPassword();
 				if (newPassword != -1) {
@@ -253,12 +253,12 @@ public class PanelUsuario extends JScrollPane {
 					user.setContraseña(newPassword);
 				}
 			} catch (UserException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(), words[11], JOptionPane.ERROR_MESSAGE);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		});
-		boton.setToolTipText("Cambiar contraseña."); // Aplicar una descripción
+		boton.setToolTipText(words[10]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		toolBar.add(Box.createVerticalGlue());
@@ -267,7 +267,7 @@ public class PanelUsuario extends JScrollPane {
 		boton.addActionListener((l)->{
 			
 		});
-		boton.setToolTipText("Cambiar idioma."); // Aplicar una descripción
+		boton.setToolTipText(words[12]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_LIMPIAR));
@@ -282,7 +282,7 @@ public class PanelUsuario extends JScrollPane {
 			
 			this.repaint();
 		});
-		boton.setToolTipText("Quitar pedidos entregados y denegados de la lista."); // Aplicar una descripción
+		boton.setToolTipText(words[13]); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		return toolBar;

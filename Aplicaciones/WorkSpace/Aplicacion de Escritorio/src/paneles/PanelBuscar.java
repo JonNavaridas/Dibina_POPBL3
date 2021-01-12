@@ -32,14 +32,14 @@ public class PanelBuscar extends JScrollPane {
 	
 	List<Integer> listaCantidades;
 	JComboBox<String> tipo, procedencia, cantidad;
-	String[] listaTipo, listaProcedencia, listaCantidad;
+	String[] listaTipo, listaProcedencia, listaCantidad, words;
 	
 	List<Producto> listaProductos;
 	List<Producto> listaDisplay;
 	ModeloTablaTipos modeloTabla;
 	JTable tabla;
 
-	public PanelBuscar(ModeloTablaTipos modelo, List<Producto> listaProductos) {
+	public PanelBuscar(ModeloTablaTipos modelo, List<Producto> listaProductos, String[] words) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -50,6 +50,7 @@ public class PanelBuscar extends JScrollPane {
 		this.listaProductos = listaProductos;
 		this.listaDisplay = listaProductos;
 		this.modeloTabla.setLista(listaDisplay);
+		this.words = words;
 		
 		// Pasar los datos a arrays para poder añadirlos a los combo boxes.
 		listaTipo = this.transformToArray(listaProductos.stream().map(Producto::getTipo).distinct().collect(Collectors.toList()));
@@ -74,7 +75,7 @@ public class PanelBuscar extends JScrollPane {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBackground(Color.white);
 		
-		JButton boton = new JButton("Filtrar");
+		JButton boton = new JButton(words[1]);
 		boton.addActionListener((e)->{
 			listaDisplay = listaProductos;
 			if (!((String)tipo.getSelectedItem()).equals("Todo")) { // Aplicar filtro tipos
@@ -149,6 +150,7 @@ public class PanelBuscar extends JScrollPane {
 				PanelBuscar.this.repaint();
 			}
 		});
+		panel.getViewport().setBackground(Color.white);
 		panel.setViewportView(tabla);
 		
 		return panel;

@@ -54,13 +54,15 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 	
 	private List<Producto> listaProductos;
 	ControladorPedidos controlador;
+	String[] words;
 	
-	public PanelStockDisponible(ControladorPedidos controlador, List<Producto> listaProductos) {
+	public PanelStockDisponible(ControladorPedidos controlador, List<Producto> listaProductos, String[] words) {
 		this.controlador = controlador;
 		this.listaProductos = listaProductos;
+		this.words = words;
 		
 		dataset = createDataset();
-		chart = createChart(dataset, true, "Tipo y Procedencia");
+		chart = createChart(dataset, true, words[2]+", "+words[3]);
 		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new java.awt.Dimension(ALTO, ANCHO));
 		chartPanel.setMaximumDrawWidth( 2000 );
@@ -93,15 +95,15 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		JPanel filtroGrafico = new JPanel();
 		
 		ButtonGroup tipos = new ButtonGroup();
-		tipo = new JRadioButton ("Tipo");
+		tipo = new JRadioButton (words[2]);
 		tipo.setSelected(false);
 		tipo.addItemListener(this);
 		
-		procedencia = new JRadioButton ("Procedencia");
+		procedencia = new JRadioButton (words[3]);
 		procedencia.setSelected(false);
 		procedencia.addItemListener (this);
 		
-		ambos = new JRadioButton ("Ambos");
+		ambos = new JRadioButton (words[4]);
 		ambos.setSelected(true);
 		ambos.addItemListener (this);
 		
@@ -172,12 +174,12 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 	private JFreeChart createChart(final CategoryDataset dataset, boolean stacked, String filtro) {
 		  final JFreeChart chart;
 		  if(stacked) {
-			  chart = ChartFactory.createStackedBarChart3D("Stock disponible", filtro, "Cantidad",
+			  chart = ChartFactory.createStackedBarChart3D(words[0], filtro, words[1],
 					  								dataset, PlotOrientation.HORIZONTAL, true, true, false);
 			  generarColores(chart);
 		  }
 		  else {
-			  chart = ChartFactory.createBarChart3D("Stock disponible", filtro, "Cantidad",
+			  chart = ChartFactory.createBarChart3D(words[0], filtro, words[1],
 					  								dataset, PlotOrientation.HORIZONTAL, true, true, false);
 		  }
 		  return chart;
@@ -230,19 +232,19 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		CategoryDataset dataset;
 		if(tipo.isSelected()) {
 			dataset = createDatasetTipo();
-			chart = createChart(dataset, false, "Tipo"); 
+			chart = createChart(dataset, false, words[2]); 
 			chart.removeLegend();
 			setChartColor();
 		}
 		else if(procedencia.isSelected()){
 			dataset = createDatasetProcedencia();
-			chart = createChart(dataset, false, "Procedencia"); 
+			chart = createChart(dataset, false, words[3]); 
 			chart.removeLegend();
 			setChartColor();
 		}
 		else if(ambos.isSelected()){
 			dataset = createDataset();
-			chart = createChart(dataset, true, "Tipo y procedencia"); 
+			chart = createChart(dataset, true, words[2]+", "+words[3]); 
 			
 		}
 		else return;

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
@@ -35,7 +36,7 @@ import renderizadoTablaPedidos.ModeloTablaPedidos;
 import renderizadoTablaPedidos.RendererTabla;
 
 
-public class PanelHistorial extends JPanel implements ActionListener, ChangeListener{
+public class PanelHistorial extends JScrollPane implements ActionListener, ChangeListener{
 	
 	private static final long serialVersionUID = 1L;
 	final static int ALTO = 300;
@@ -52,19 +53,27 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 	JTable tabla;
 	List<Pedido> listaDisplay;
 	List<Pedido> listaPedidos;
+	String[] words, wordsResumen;
 	
-	public PanelHistorial(List<Pedido> listaPedidos) {
+	public PanelHistorial(List<Pedido> listaPedidos, String[] words, String[] wordsResumen) {
 		this.modeloTabla = new ModeloTablaPedidos(listaPedidos);
 		this.listaDisplay = listaPedidos;
 		this.listaPedidos = listaPedidos;	
+		this.words = words;
+		this.wordsResumen = wordsResumen;
 		
-		this.setLayout(new BorderLayout());
-		this.add(crearCalendario(), BorderLayout.NORTH);
-		this.add(crearTabla(), BorderLayout.CENTER);
-		this.add(crearBotones(), BorderLayout.SOUTH);
-		
-		this.setPreferredSize(new Dimension(ANCHO, ALTO));
+		this.setViewportView(crearPanel());
 		this.setVisible(true);
+	}
+
+	private Component crearPanel() {
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(crearCalendario(), BorderLayout.NORTH);
+		panel.add(crearTabla(), BorderLayout.CENTER);
+		panel.add(crearBotones(), BorderLayout.SOUTH);
+		
+		panel.setPreferredSize(new Dimension(ANCHO, ALTO));
+		return panel;
 	}
 
 	private Component crearCalendario() {
@@ -86,14 +95,14 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 
 	private Component crearBotones() {
 		JPanel panel = new JPanel();
-		JButton boton = new JButton("Ver pedido");
+		JButton boton = new JButton(words[0]);
 		boton.addActionListener((l)->{
 			try {
-				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()));
+				PanelResumenPedido resumen = new PanelResumenPedido(listaDisplay.get(tabla.getSelectedRow()), wordsResumen);
 				resumen.setVisible(true);
 			}
 			catch (IndexOutOfBoundsException e) {
-				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(this, words[1], words[2], JOptionPane.WARNING_MESSAGE);
 			}
 		});
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
