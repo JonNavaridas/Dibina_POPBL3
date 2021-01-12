@@ -1,0 +1,26 @@
+package comunicacionServer;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class Administrador extends Thread {
+
+	int id;
+	String mensaje;
+	PropertyChangeSupport conector;
+	
+	public Administrador(int id, String mensaje, PropertyChangeListener listener) {
+		this.id = id;
+		this.mensaje = mensaje;
+		conector.addPropertyChangeListener(listener);
+		
+		this.start();
+	}
+	
+	
+	
+	@Override
+	public void run() {
+		conector.firePropertyChange("end", null, id);
+	}
+}

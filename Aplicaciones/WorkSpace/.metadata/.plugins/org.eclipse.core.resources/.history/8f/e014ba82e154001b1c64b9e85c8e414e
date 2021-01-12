@@ -1,0 +1,43 @@
+package comunicacionServer;
+
+public class Administrador extends Thread {
+
+	String mensaje;
+	
+	public Administrador(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	
+	public int confirmarOperacion(String operacion) {
+		int numeroOperacion;
+		
+		switch(operacion) {
+		case "add pedido": numeroOperacion = 1; break;
+		case "remove productos": numeroOperacion = 2; break;
+		case "new user": numeroOperacion = 3; break;
+		default: numeroOperacion = 0; break; // Sino devolvemos false.
+		}
+		
+		return numeroOperacion;
+	}
+	
+	public void aplicarOperacion(int operacion, String elemento) {
+		
+		switch(operacion) {
+		case 1: 
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default: System.out.println("Operacion no conocida.");
+			break;
+		}
+		
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+}

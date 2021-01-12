@@ -1,0 +1,15 @@
+package comunicacionServer;
+
+public class Administrador extends Thread {
+
+	String mensaje;
+	
+	public Administrador(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+}
