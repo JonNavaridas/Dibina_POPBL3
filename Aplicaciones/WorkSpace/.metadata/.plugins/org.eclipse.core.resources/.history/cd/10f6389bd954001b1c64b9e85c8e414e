@@ -191,8 +191,8 @@ public class PanelHacerPedido extends JScrollPane {
 			try {
 				if (Integer.parseInt(cantidad.getText()) <= 0) throw new IllegalArgumentException();
 				
-				int unidades = Integer.parseInt(cantidad.getText());
-				Producto productoSeleccionado = null;				
+				String[] valores = tipos.getSelectedValue().split("[ ]");
+				int unidades = Integer.parseInt(cantidad.getText());				
 				int cantidadEnAlmacen = 0;
 				
 				for (Producto p : listaProductos) {
@@ -200,17 +200,11 @@ public class PanelHacerPedido extends JScrollPane {
 						cantidadEnAlmacen = p.getCantidad();
 						if (unidades > cantidadEnAlmacen || unidades <= 0)
 							throw new PedidoException("Esa cantidad de elementos no esta disponible en el almacen.");
-						else {
-							productoSeleccionado = p.getCopy();
-							break;
-						}
+						else break;
 					}
 				}
-				
-				if (productoSeleccionado != null) {
-					productoSeleccionado.setCantidad(unidades);
-					pedido.addProducto(productoSeleccionado);
-				}
+				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
+				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, unidades, controlador.getProcedencia(valores[1])));
 				
 				if (displayPedido.get(tipos.getSelectedValue()) != null)
 					displayPedido.put(tipos.getSelectedValue(), displayPedido.get(tipos.getSelectedValue()) + Integer.parseInt(cantidad.getText()));

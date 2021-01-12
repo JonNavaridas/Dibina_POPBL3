@@ -191,6 +191,7 @@ public class PanelHacerPedido extends JScrollPane {
 			try {
 				if (Integer.parseInt(cantidad.getText()) <= 0) throw new IllegalArgumentException();
 				
+				String[] valores = tipos.getSelectedValue().split("[ ]");
 				int unidades = Integer.parseInt(cantidad.getText());
 				Producto productoSeleccionado = null;				
 				int cantidadEnAlmacen = 0;
@@ -206,7 +207,7 @@ public class PanelHacerPedido extends JScrollPane {
 						}
 					}
 				}
-				
+				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
 				if (productoSeleccionado != null) {
 					productoSeleccionado.setCantidad(unidades);
 					pedido.addProducto(productoSeleccionado);

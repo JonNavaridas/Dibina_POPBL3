@@ -20,6 +20,10 @@ public class Producto implements Serializable {
 		this.fecha = fecha;
 		this.cantidad = cantidad;
 		this.procedencia = procedencia;
+		
+		// T E M P O R A L
+		// Una vez se haga el fichero final de productos eliminar esta linea
+		this.fecha = Calendar.getInstance().getTime();
 	}
 	
 	public Tipo getTipo() {
@@ -36,10 +40,6 @@ public class Producto implements Serializable {
 
 	public Procedencia getProcedencia() {
 		return procedencia;
-	}
-	
-	public Producto getCopy() {
-		return new Producto(tipo, fecha, cantidad, procedencia);
 	}
 	
 	// Añadimos elementos y actualizamos la fecha de entrada.
@@ -95,9 +95,5 @@ public class Producto implements Serializable {
 		output += procedencia.transformToString();
 		
 		return output;
-	}
-
-	public void setCantidad(int unidades) {
-		this.cantidad = unidades;		
 	}
 }

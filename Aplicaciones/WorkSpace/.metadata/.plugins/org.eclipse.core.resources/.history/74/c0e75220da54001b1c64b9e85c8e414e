@@ -206,7 +206,6 @@ public class PanelHacerPedido extends JScrollPane {
 						}
 					}
 				}
-				
 				if (productoSeleccionado != null) {
 					productoSeleccionado.setCantidad(unidades);
 					pedido.addProducto(productoSeleccionado);

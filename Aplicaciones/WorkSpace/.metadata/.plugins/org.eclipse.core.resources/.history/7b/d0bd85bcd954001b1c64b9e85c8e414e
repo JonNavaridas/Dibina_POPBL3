@@ -39,7 +39,7 @@ public class Producto implements Serializable {
 	}
 	
 	public Producto getCopy() {
-		return new Producto(tipo, fecha, cantidad, procedencia);
+		return new Producto()
 	}
 	
 	// Añadimos elementos y actualizamos la fecha de entrada.
@@ -95,9 +95,5 @@ public class Producto implements Serializable {
 		output += procedencia.transformToString();
 		
 		return output;
-	}
-
-	public void setCantidad(int unidades) {
-		this.cantidad = unidades;		
 	}
 }

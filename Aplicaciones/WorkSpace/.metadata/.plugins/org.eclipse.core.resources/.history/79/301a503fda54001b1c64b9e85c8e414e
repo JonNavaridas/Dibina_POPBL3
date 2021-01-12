@@ -30,6 +30,7 @@ public class Cliente extends Thread {
 
 		if(args.length < 2) {
 			System.out.println("Sintaxis de llamada: java EcoCliente <host> <puerto>");
+			System.exit(-1);
 		}
 		port=Integer.valueOf(args[1]).intValue();
 		
@@ -40,9 +41,11 @@ public class Cliente extends Thread {
 		}
 		catch (UnknownHostException e) {
 			System.err.println("No se nada del host "+args[0]);
+			System.exit(1);
 		}
 		catch (IOException e) {
 			System.err.println("No pude conectarme a "+args[0]+":8000");
+			System.exit(1);
 		}
 		
 		try {

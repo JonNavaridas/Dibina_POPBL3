@@ -206,7 +206,7 @@ public class PanelHacerPedido extends JScrollPane {
 						}
 					}
 				}
-				
+				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
 				if (productoSeleccionado != null) {
 					productoSeleccionado.setCantidad(unidades);
 					pedido.addProducto(productoSeleccionado);

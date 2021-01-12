@@ -96,8 +96,4 @@ public class Producto implements Serializable {
 		
 		return output;
 	}
-
-	public void setCantidad(int unidades) {
-		this.cantidad = unidades;		
-	}
 }
