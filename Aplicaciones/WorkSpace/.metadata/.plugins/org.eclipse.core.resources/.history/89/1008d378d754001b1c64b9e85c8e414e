@@ -203,8 +203,8 @@ public class PanelHacerPedido extends JScrollPane {
 						else break;
 					}
 				}
-				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
-				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, unidades, controlador.getProcedencia(valores[1])));
+				
+				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, cantidadEnAlmacen, controlador.getProcedencia(valores[1])));
 				
 				if (displayPedido.get(tipos.getSelectedValue()) != null)
 					displayPedido.put(tipos.getSelectedValue(), displayPedido.get(tipos.getSelectedValue()) + Integer.parseInt(cantidad.getText()));
@@ -240,8 +240,8 @@ public class PanelHacerPedido extends JScrollPane {
 				pedido.setDestino((String)destino.getSelectedItem());
 				pedido.setEstado(Estado.PROCESANDO);
 				
-				Cliente cliente = new Cliente(pedido.transformToString(), "add pedido");
-				cliente.start();
+				// Cliente cliente = new Cliente(pedido.transformToString(), "add pedido");
+				// cliente.start();
 				
 				listaPedidos.add(pedido);
 				user.addPedido(pedido);

@@ -22,7 +22,6 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
-import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
 import elementos.Producto;
@@ -203,7 +202,6 @@ public class PanelHacerPedido extends JScrollPane {
 						else break;
 					}
 				}
-				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
 				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, unidades, controlador.getProcedencia(valores[1])));
 				
 				if (displayPedido.get(tipos.getSelectedValue()) != null)
@@ -240,8 +238,8 @@ public class PanelHacerPedido extends JScrollPane {
 				pedido.setDestino((String)destino.getSelectedItem());
 				pedido.setEstado(Estado.PROCESANDO);
 				
-				Cliente cliente = new Cliente(pedido.transformToString(), "add pedido");
-				cliente.start();
+				// Cliente cliente = new Cliente(pedido.transformToString(), "add pedido");
+				// cliente.start();
 				
 				listaPedidos.add(pedido);
 				user.addPedido(pedido);

@@ -203,7 +203,6 @@ public class PanelHacerPedido extends JScrollPane {
 						else break;
 					}
 				}
-				// QUITAR ESTE NULL CUANDO TE ACLARES, DE JON PARA JON.
 				pedido.addProducto(new Producto(controlador.getTipo(valores[0]), null, unidades, controlador.getProcedencia(valores[1])));
 				
 				if (displayPedido.get(tipos.getSelectedValue()) != null)

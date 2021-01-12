@@ -23,7 +23,7 @@ public class Producto implements Serializable {
 		
 		// T E M P O R A L
 		// Una vez se haga el fichero final de productos eliminar esta linea
-		this.fecha = Calendar.getInstance().getTime();
+		fecha = Calendar.getInstance().getTime();
 	}
 	
 	public Tipo getTipo() {
