@@ -81,4 +81,15 @@ public class Producto implements Serializable {
 		Producto p = (Producto) obj; // Si el tipo y la procedencia es el mismo significa que el producto ees el mismo.
 		return (this.tipo.equals(p.getTipo()) && this.procedencia.equals(p.getProcedencia())) ? true : false;
 	}
+
+	public String transformToString() {
+		String output = "";
+		
+		output += tipo.transformToString() + "$";
+		output += fecha.toString() + "$";
+		output += cantidad + "$";
+		output += procedencia.transformToString();
+		
+		return output;
+	}
 }

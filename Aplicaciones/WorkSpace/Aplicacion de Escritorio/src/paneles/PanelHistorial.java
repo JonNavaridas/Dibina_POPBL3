@@ -139,6 +139,7 @@ public class PanelHistorial extends JPanel implements ActionListener, ChangeList
 		return panel;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {

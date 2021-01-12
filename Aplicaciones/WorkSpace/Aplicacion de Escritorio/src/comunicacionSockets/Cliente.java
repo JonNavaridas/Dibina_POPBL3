@@ -7,25 +7,25 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import elementos.Pedido;
-
 public class Cliente extends Thread {
 
 	public String[] args;
-	public Pedido mensaje;
+	public String mensaje;
+	public String operacion;
 	
-	public Cliente(Pedido mensaje) {
+	public Cliente(String mensaje, String operacion) {
 		args = new String[2];
-		args[0] = "169.254.247.245";
+		args[0] = "10.0.2.5";
 		args[1] = "8888";
 		this.mensaje = mensaje;
+		this.operacion = operacion;
 	}
 	
 	@Override
 	public void run() {
 		Socket sock = null;
 		PrintWriter out = null;
-		BufferedReader in=null;
+		BufferedReader in = null;
 		int port;
 
 		if(args.length < 2) {
@@ -49,11 +49,15 @@ public class Cliente extends Thread {
 		}
 		
 		try {
-			//out.println(mensaje);
-			System.out.println("Estoy aqui");
-			out.println("Hola");
-			out.print(mensaje);
-			System.out.println("eco: " + in.readLine());
+			operacion = "add pedido";
+			mensaje = "pedido nuevo";
+			
+			out.println(operacion);
+			if (in.readLine().equals("Confirmar operacion")) {
+				out.println(mensaje);
+				System.out.println("eco: " + in.readLine());
+				
+			}
 			out.close();
 			in.close();
 			sock.close();

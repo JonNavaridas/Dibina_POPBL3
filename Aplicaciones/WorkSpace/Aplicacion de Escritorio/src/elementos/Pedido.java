@@ -130,9 +130,20 @@ public class Pedido {
 		throw new PedidoException("No se ha podido encontrar ese producto.");
 	}
 	
-	// Reducimos el stock que ha pedido el usuario, descontandolo del stock total. Si no hay suficiente stock lanza una excepción.
-	public void removeStock(List<Producto> stock) throws PedidoException {
-		// No estoy seguro de si va a tener que ser utilizada, de momento aqui se queda.
+	public String transformToString() {
+		String output = "";
+		
+		output += id + "#";
+		output += user.transformToString() + "#";
+		output += fecha.toString() + "#";
+		output += estado.toString().toLowerCase() + "#";
+		output += destino + "#";
+		
+		for (Producto p : listaProductos) {
+			output += p.transformToString() + "%";
+		}
+		
+		return output.substring(0, output.length() - 1);
 	}
 	
 	public String setDisplayElementsHTML() {
