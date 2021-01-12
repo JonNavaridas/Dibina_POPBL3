@@ -56,14 +56,8 @@ public class ControladorPedidos {
 		return String.valueOf(Calendar.getInstance().getTime().getMonth() + 1);
 	}
 
-	public String[] getTipoArray() { // Pasar el list de tipos a array
-		String[] tipoArray = new String[listaTipos.size()];
-		
-		for (int i = 0; i < listaTipos.size(); i++) {
-			tipoArray[i] = listaTipos.get(i).toString();
-		}
-		
-		return tipoArray;
+	public String[] getTipoArray() { // Pasar el list de tipos a array		
+		return listaTipos.toArray(new String[0]);
 	}
 	
 	// Obtener el tipo utilizando el nombre

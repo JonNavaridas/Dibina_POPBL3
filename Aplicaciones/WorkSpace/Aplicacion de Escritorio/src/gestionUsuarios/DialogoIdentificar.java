@@ -25,12 +25,14 @@ public class DialogoIdentificar extends JDialog {
 	public final static int DEFAULT_WIDTH = 350;
 	public final static int DEFAULT_HEIGHT = 140;
 	
+	String[] words;
 	JTextField id;
 	boolean escaneado;
 
-	public DialogoIdentificar(JFrame ventana, String titulo, boolean modo) {
-		super(ventana,titulo,modo);
+	public DialogoIdentificar(JFrame ventana, String[] words, boolean modo) {
+		super(ventana,words[0],modo);
 		escaneado = false;
+		this.words = words;
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
@@ -57,7 +59,7 @@ public class DialogoIdentificar extends JDialog {
 		
 		id = new JTextField();
 		id.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
-														BorderFactory.createTitledBorder(new RoundedBorder(5), "Tu tarjeta")));
+														BorderFactory.createTitledBorder(new RoundedBorder(5), words[1])));
 		id.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		id.setPreferredSize(new Dimension(250, 60));
 		id.setHorizontalAlignment(JLabel.CENTER);
@@ -69,7 +71,7 @@ public class DialogoIdentificar extends JDialog {
 	private Container crearPanelBotones() {
 		JPanel panel = new JPanel();
 		
-		JButton boton = new JButton("Aceptar");
+		JButton boton = new JButton(words[2]);
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 12));
 		boton.addActionListener((l)->{
 			escaneado = true;
@@ -81,7 +83,7 @@ public class DialogoIdentificar extends JDialog {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Cancelar");
+		boton = new JButton(words[3]);
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 12));
 		boton.addActionListener((l)->this.dispose());
 		

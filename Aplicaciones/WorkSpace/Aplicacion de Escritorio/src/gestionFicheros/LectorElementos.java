@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,27 +19,20 @@ import elementos.Tipo;
 public class LectorElementos {
 
 	public static final String FICHERO_TIPOS = "Files/Tipos.txt";
+	public static final String FICHERO_LOGIN_ESP = "Files/Language/ESP_Login.txt";
+	public static final String FICHERO_LOGIN_EUS = "Files/Language/EUS_Login.txt";
+	public static final String FICHERO_LOGIN_ENG = "Files/Language/ENG_Login.txt";
+	public static final String FICHERO_DIBINA_ESP = "Files/Language/ESP_Dibina.txt";
+	public static final String FICHERO_DIBINA_EUS = "Files/Language/EUS_Dibina.txt";
+	public static final String FICHERO_DIBINA_ENG = "Files/Language/ENG_Dibina.txt";
 	public static final String FICHERO_PEDIDOS = "Files/Pedidos.dat";
 	public static final String FICHERO_DESTINOS = "Files/Destinos.txt";
 	public static final String FICHERO_PRODUCTOS = "Files/Productos.dat";
 	public static final String FICHERO_PROCEDENCIAS = "Files/Procedencias.txt";
 	
-	List<String> destinos;
-	List<Tipo> listaTipos;
-	List<Pedido> listaPedidos;
-	List<Producto> listaProductos;
-	List<Procedencia> listaProcedencias;
-	
-	public LectorElementos() {
-		destinos = new ArrayList<>();
-		listaTipos = new ArrayList<>();
-		listaPedidos = new ArrayList<>();
-		listaProductos = new ArrayList<>();
-		listaProcedencias = new ArrayList<>();
-	}
-	
-	public List<Tipo> leerTipos() { // Leer via texto los distintos tipos disponibles.
+	public static List<Tipo> leerTipos(int language) { // Leer via texto los distintos tipos disponibles.
 		try {
+			List<Tipo> listaTipos = new ArrayList<>();
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_TIPOS));
 			
 			String linea;
@@ -55,8 +49,9 @@ public class LectorElementos {
 		}
 	}
 
-	public List<Procedencia> leerProcedencias() { // Leer via texto las distintas empresas que proporcionan productos
+	public static List<Procedencia> leerProcedencias() { // Leer via texto las distintas empresas que proporcionan productos
 		try {
+			List<Procedencia> listaProcedencias = new ArrayList<>();
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_PROCEDENCIAS));
 			
 			String linea;
@@ -82,7 +77,8 @@ public class LectorElementos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Pedido> leerPedidos() { // Leer todo los pedidos sin resolver
+	public static List<Pedido> leerPedidos() { // Leer todo los pedidos sin resolver
+		List<Pedido> listaPedidos = new ArrayList<>();
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			do {
 				listaPedidos = (List<Pedido>) in.readObject();
@@ -101,11 +97,12 @@ public class LectorElementos {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Producto> leerProductos() { // Leer el stock que se encuentra en el almacen
+	public static List<Producto> leerProductos() { // Leer el stock que se encuentra en el almacen
+		List<Producto> listaProductos = new ArrayList<>();
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
 			do {
 				listaProductos = (List<Producto>) in.readObject();
-			} while(listaPedidos != null);
+			} while(listaProductos != null);
 			
 		} catch (FileNotFoundException e) {
 			e.getStackTrace();
@@ -122,8 +119,9 @@ public class LectorElementos {
 		return listaProductos;
 	}
 
-	public String[] leerDestinos() { // Obtener la información sobre los diferentes lugares donde pueden recogerse los pedidos.
+	public static String[] leerDestinos() { // Obtener la información sobre los diferentes lugares donde pueden recogerse los pedidos.
 		try {
+			List<String> destinos = new ArrayList<>();
 			BufferedReader in = new BufferedReader(new FileReader(FICHERO_DESTINOS));
 			
 			String linea;
@@ -132,12 +130,57 @@ public class LectorElementos {
 			}
 			in.close();
 			
-			String[] destinoArray = new String[destinos.size()];
-			for (int i = 0; i < destinos.size(); i++) {
-				destinoArray[i] = destinos.get(i);
+			return destinos.toArray(new String[0]);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static String[] leerLogin(int language) { // Obtener palablas usadas en el dialogo de login
+		try {
+			List<String> login = new ArrayList<>();
+			BufferedReader in;
+			switch(language) {
+			case 1: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_LOGIN_EUS), "utf-8")); break;
+			case 2: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_LOGIN_ENG), "utf-8")); break;
+			case 0:
+			default: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_LOGIN_ESP), "utf-8")); break;
 			}
 			
-			return destinoArray;
+			String linea;
+			while ((linea = in.readLine()) != null) {
+				login.add(linea);
+			}
+			in.close();
+			
+			return login.toArray(new String[0]);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static String[] leerDibinaMenus(int language) {
+		try {
+			List<String> login = new ArrayList<>();
+			BufferedReader in;
+			switch(language) {
+			case 1: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_DIBINA_EUS), "utf-8")); break;
+			case 2: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_DIBINA_ENG), "utf-8")); break;
+			case 0:
+			default: in = new BufferedReader(new InputStreamReader(new FileInputStream(FICHERO_DIBINA_ESP), "utf-8")); break;
+			}
+			
+			String linea;
+			while ((linea = in.readLine()) != null) {
+				login.add(linea);
+			}
+			in.close();
+			
+			return login.toArray(new String[0]);
 		} 
 		catch (IOException e) {
 			e.printStackTrace();

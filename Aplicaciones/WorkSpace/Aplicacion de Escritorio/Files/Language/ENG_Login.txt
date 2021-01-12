@@ -1,0 +1,11 @@
+ENG
+User
+Password
+Confirm
+Use card
+The user or the password are not correct
+Invalid user
+Identify card
+Your card
+Accept
+Cancel

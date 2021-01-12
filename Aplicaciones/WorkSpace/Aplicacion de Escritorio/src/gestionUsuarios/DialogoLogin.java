@@ -9,14 +9,19 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -26,20 +31,22 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import gestionElementosVisuales.ImageFactory;
+import gestionFicheros.LectorElementos;
 import usuarios.User;
 
-public class DialogoLogin extends JDialog{
+public class DialogoLogin extends JDialog implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
-	public static Color COLORFONDO = new Color(255,119,0);
-	
+	public static Color COLORFONDO = new Color(255,119,0);	
 	public final static int DEFAULT_WIDTH = 500;
 	public final static int DEFAULT_HEIGHT = 700;
 	
+	String[] words;
 	Identificador iden;
 	JTextField usuario; 
 	JPasswordField password;
@@ -48,6 +55,7 @@ public class DialogoLogin extends JDialog{
 	
 	public DialogoLogin(JFrame ventana, String titulo, boolean modo) {
 		super(ventana,titulo,modo);
+		words = LectorElementos.leerLogin(0);
 		iden = new Identificador();
 		this.ventana = ventana;
 		
@@ -76,17 +84,17 @@ public class DialogoLogin extends JDialog{
 	}
 
 	private Container crearBotonConfirmar() {
-		JPanel panel  = new JPanel(new GridLayout(6, 1, 0, 0));
+		JPanel panel  = new JPanel(new GridLayout(7, 1, 0, 0));
 		panel.setBackground(COLORFONDO);
 		
-		JButton boton = new JButton("Confirmar");
+		JButton boton = new JButton(words[3]);
 		boton.addActionListener((l)->{
 			user = iden.getUser(usuario.getText(), new String(password.getPassword()).hashCode());
 			if(user != null) {
 				this.dispose();
 			}
 			else {
-				JOptionPane.showConfirmDialog(this, "El usuario o la contraseña no son correctos", "Usuario no correcto",
+				JOptionPane.showConfirmDialog(this, words[5], words[6],
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.ERROR_MESSAGE);
 				password.setText("");
 			}});
@@ -97,21 +105,53 @@ public class DialogoLogin extends JDialog{
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Usar tarjeta");
+		boton = new JButton(words[4]);
 		boton.addActionListener((l)->{
-			DialogoIdentificar dlg = new DialogoIdentificar(ventana, "Identificar tarjeta", true);
+			DialogoIdentificar dlg = new DialogoIdentificar(ventana, Arrays.copyOfRange(words, 7, 11), true);
 			user = dlg.getUser();
 			
 			if (user != null) {
 				this.dispose();
 			}
 		});
+		if(words[0].equals("EUS"))boton.setBorder(null);
 		boton.setPreferredSize(new Dimension(100, 20));
-		
+			
 		pBoton = new JPanel();
 		pBoton.setBackground(COLORFONDO);
 		pBoton.add(boton);
 		panel.add(pBoton);
+		
+		JPanel pIdiomas = new JPanel();
+		pIdiomas.setBackground(COLORFONDO);
+		ButtonGroup group = new ButtonGroup();
+	    JRadioButton radioButton = new JRadioButton("ESP");
+	    radioButton.setMnemonic(KeyEvent.VK_B);
+	    radioButton.setActionCommand("ESP");
+	    if(words[0].equals("ESP"))radioButton.setSelected(true);
+	    pIdiomas.add(radioButton);
+	    group.add(radioButton);
+	    radioButton.addActionListener(this);
+	    radioButton.setBackground(COLORFONDO);
+
+	    radioButton = new JRadioButton("EUS");
+	    radioButton.setMnemonic(KeyEvent.VK_C);
+	    radioButton.setActionCommand("EUS");
+	    if(words[0].equals("EUS"))radioButton.setSelected(true);
+	    pIdiomas.add(radioButton);
+	    group.add(radioButton);
+	    radioButton.addActionListener(this);
+	    radioButton.setBackground(COLORFONDO);
+	    
+	    radioButton = new JRadioButton("ENG");
+	    radioButton.setMnemonic(KeyEvent.VK_D);
+	    radioButton.setActionCommand("ENG");
+	    if(words[0].equals("ENG"))radioButton.setSelected(true);
+	    pIdiomas.add(radioButton);
+	    group.add(radioButton);
+	    radioButton.addActionListener(this);
+	    radioButton.setBackground(COLORFONDO);
+	    panel.add(pIdiomas);
 		
 		return panel;
 	}
@@ -124,8 +164,8 @@ public class DialogoLogin extends JDialog{
 		JPanel panelGrid = new JPanel(new GridLayout(2,1,0,0));
 		panelGrid.setBorder(new LineBorder(Color.white, 15, true));
 		panelGrid.setBackground(COLORFONDO);
-		panelGrid.add(crearTextField(usuario,"Usuario"));
-		panelGrid.add(crearTextField(password,"Contraseña"));
+		panelGrid.add(crearTextField(usuario,words[1]));
+		panelGrid.add(crearTextField(password,words[2]));
 		panel.add(panelGrid);
 		panel.setBackground(COLORFONDO);
 		return panel;
@@ -168,7 +208,6 @@ public class DialogoLogin extends JDialog{
 		}
 		return panel;
 	}
-
 	
 	private BufferedImage escalarFotoFondoBlancoPng(String path, int width, int height, int newWidth, int newHeight) {
 		File imgFile = new File(path);
@@ -227,5 +266,26 @@ public class DialogoLogin extends JDialog{
 	
 	public User getUserLoged() {
 		return user;
+	}
+	
+	public String getLanguage() {
+		return words[0];
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		String command = arg0.getActionCommand();
+		switch(command) {
+		case "EUS": words = LectorElementos.leerLogin(1); break;
+		case "ENG": words = LectorElementos.leerLogin(2); break;
+		case "ESP":
+		default: words = LectorElementos.leerLogin(0); break;
+		}
+		
+		JPanel contentPane = (JPanel) this.getContentPane();
+		contentPane.removeAll();
+		contentPane.add(crearPanel());
+		contentPane.revalidate(); 
+		contentPane.repaint();
 	}
 }

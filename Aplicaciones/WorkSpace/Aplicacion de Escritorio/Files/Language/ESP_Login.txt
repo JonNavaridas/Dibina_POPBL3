@@ -1,0 +1,11 @@
+ESP
+Usuario
+Contraseña
+Confirmar
+Usar tarjeta
+El usuario o la contraseña no son correctos
+Usuario invalido
+Identificar tarjeta
+Tu tarjeta
+Aceptar
+Cancelar

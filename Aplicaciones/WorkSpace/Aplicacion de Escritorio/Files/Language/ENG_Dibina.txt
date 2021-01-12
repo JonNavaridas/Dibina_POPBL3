@@ -1,0 +1,27 @@
+Stock
+See stock
+See available stock in the store
+New order
+Create a new order to the store
+Search elements
+Search for different elements in the store, with the posibility to aply filters
+Process
+Order list
+Show all the orders made, with the posibility to aply filters
+Store history
+Look for all the orders made, turned away... picking a date
+Refresh
+Refresh all elements using the latest data available
+Personal area
+My user
+Show my user's different parameters
+Change language
+Create user
+Create new user
+Close
+Home
+Available stock
+New order
+Search in stock
+Order List
+Order history

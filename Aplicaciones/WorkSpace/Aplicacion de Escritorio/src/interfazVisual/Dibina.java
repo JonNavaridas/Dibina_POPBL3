@@ -26,6 +26,7 @@ import elementos.Producto;
 import elementos.Tipo;
 import gestionElementosVisuales.ImageFactory;
 import gestionFicheros.EscritorDeElementos;
+import gestionFicheros.LectorElementos;
 import gestionPedidos.ControladorPedidos;
 import gestionUsuarios.DialogoCrearUsuario;
 import gestionUsuarios.DialogoLogin;
@@ -54,7 +55,7 @@ public class Dibina extends JFrame {
 	private List<Pedido> listaPedidos; // Pedidos por gestionar.
 	private List<Tipo> listaTipos; // Tipos de productos posibles.
 	private String[] destinos; // Lugares donde los productos pueden ser entregados.
-	
+	private String[] menus;
 	private JScrollPane pDisplay; // Panel cambiante.
 	
 	ControladorPedidos controlador;
@@ -72,8 +73,8 @@ public class Dibina extends JFrame {
 		destinos = carga.getDestinos();
 		listaPedidos = carga.getPedidos();
 		listaProductos = carga.getProductos();
-		listaProcedencias = carga.getProcedencias();
-		
+		listaProcedencias = carga.getProcedencias();		
+
 		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
 		modeloPedidos = new ModeloTablaPedidos(listaPedidos);
 		modeloTipos = new ModeloTablaTipos(listaProductos);
@@ -94,6 +95,12 @@ public class Dibina extends JFrame {
 		// Determinar el usuario
 		DialogoLogin login = new DialogoLogin(this, "Dibina Login", true);
 		user = login.getUserLoged();
+		switch(login.getLanguage()) {
+		case "EUS": menus = LectorElementos.leerDibinaMenus(1); break;
+		case "ENG": menus = LectorElementos.leerDibinaMenus(2); break;
+		case "ESP":
+		default: menus = LectorElementos.leerDibinaMenus(0); break;
+		}
 		
 		if (user == null)
 			this.dispose();
@@ -113,6 +120,28 @@ public class Dibina extends JFrame {
 		}
 	}
 	
+	private void actualizarPanelIdioma() {
+		int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+		JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
+		pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
+		pVentana.setBorder(null);
+
+		JSplitPane contentPane = (JSplitPane) this.getContentPane();
+		contentPane.removeAll();
+		contentPane.add(pVentana);
+		contentPane.revalidate(); 
+		contentPane.repaint();
+		JMenuBar barra = this.getJMenuBar();
+		barra.removeAll();
+		barra.add(crearMenuStock());
+		if (!user.getPermisos().equals(Permisos.BASICO)) barra.add(crearMenuGestion());
+		barra.add(crearMenuActualizar());
+		barra.add(Box.createHorizontalGlue());
+		barra.add(crearMenuUsuarios());
+		barra.revalidate();
+        barra.repaint();
+	}
+	
 	private JMenuBar crearBarraMenu() {
 		JMenuBar barra = new JMenuBar();
 		
@@ -126,69 +155,69 @@ public class Dibina extends JFrame {
 	}
 	
 	private JMenu crearMenuGestion() {
-		JMenu menuPaquetes = new JMenu("Gestion");
+		JMenu menuPaquetes = new JMenu(menus[7]);
 		JMenuItem ver, estado;
 		
-		ver = menuPaquetes.add("Ver lista pedidos");
+		ver = menuPaquetes.add(menus[8]);
 		ver.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDOS));
 		ver.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
 			this.repaint();
 		});
-		ver.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		ver.setToolTipText(menus[9]); // Aplicar una descripción
 		ver.setAccelerator(KeyStroke.getKeyStroke("control 4")); // Poner una hotkey
 		
-		estado = menuPaquetes.add("Historial del almacén");
+		estado = menuPaquetes.add(menus[10]);
 		estado.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_HISTORIAL));
 		estado.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHistorial(listaPedidos));
 			this.repaint();
 		});
-		estado.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		estado.setToolTipText(menus[11]); // Aplicar una descripción
 		estado.setAccelerator(KeyStroke.getKeyStroke("control 5")); // Poner una hotkey
 		
 		return menuPaquetes;
 	}
 
 	private JMenu crearMenuStock() {
-		JMenu menuPaquetes = new JMenu("Stock");
+		JMenu menuPaquetes = new JMenu(menus[0]);
 		JMenuItem ver, pedido, buscar;
 		
-		ver = menuPaquetes.add("Ver stock");
+		ver = menuPaquetes.add(menus[1]);
 		ver.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_STOCK));
 		ver.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelStockDisponible(controlador, listaProductos));
 			this.repaint();
 		});
-		ver.setToolTipText("Ver elementos disponibles en el almacen."); // Aplicar una descripción
+		ver.setToolTipText(menus[2]); // Aplicar una descripción
 		ver.setAccelerator(KeyStroke.getKeyStroke("control 1")); // Poner una hotkey
 		
-		pedido = menuPaquetes.add("Hacer pedido");
+		pedido = menuPaquetes.add(menus[3]);
 		pedido.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_PEDIDO));
 		pedido.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, listaProductos, destinos, controlador, user));
 			this.repaint();
 		});
-		pedido.setToolTipText("Realizar un pedido a los almacenes."); // Aplicar una descripción
+		pedido.setToolTipText(menus[4]); // Aplicar una descripción
 		pedido.setAccelerator(KeyStroke.getKeyStroke("control 2")); // Poner una hotkey
 		
-		buscar = menuPaquetes.add("Buscar elementos");
+		buscar = menuPaquetes.add(menus[5]);
 		buscar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_BUSQUEDA));
 		buscar.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelBuscar(modeloTipos, listaProductos));
 			this.repaint();
 		});
-		buscar.setToolTipText("Buscar diversos elementos en el almacén, con la posibilidad de aplicar filtros."); // Aplicar una descripción
+		buscar.setToolTipText(menus[6]); // Aplicar una descripción
 		buscar.setAccelerator(KeyStroke.getKeyStroke("control 3")); // Poner una hotkey
 		
 		return menuPaquetes;
 	}
 	
 	private JMenu crearMenuActualizar() {
-		JMenu menuPaquetes = new JMenu("Actualizar");
+		JMenu menuPaquetes = new JMenu(menus[12]);
 		JMenuItem actualizar;
 		
-		actualizar = menuPaquetes.add("Actualizar");
+		actualizar = menuPaquetes.add(menus[12]);
 		actualizar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_REFRESCAR));
 		actualizar.addActionListener((e)->{
 			PantallaCarga carga = new PantallaCarga(this, null, true);
@@ -204,32 +233,32 @@ public class Dibina extends JFrame {
 
 			pDisplay.setViewportView(new PanelPrincipal());
 		});
-		actualizar.setToolTipText("Actualizar todos los elementos utilizando los datos mas recientes."); // Aplicar una descripción
+		actualizar.setToolTipText(menus[13]); // Aplicar una descripción
 		actualizar.setAccelerator(KeyStroke.getKeyStroke("control R")); // Poner una hotkey
 		
 		return menuPaquetes;
 	}
 
 	private JMenu crearMenuUsuarios() {
-		JMenu menuPersonal = new JMenu("Area Personal");
+		JMenu menuPersonal = new JMenu(menus[14]);
 		JMenuItem item;
 		
-		item = menuPersonal.add("Mi usuario");
+		item = menuPersonal.add(menus[15]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 		item.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user));
 			this.repaint();
 		});
-		item.setToolTipText("Ver distintos parametros sobre mi usuario."); // Aplicar una descripción
+		item.setToolTipText(menus[16]); // Aplicar una descripción
 		item.setAccelerator(KeyStroke.getKeyStroke("control U")); // Poner una hotkey
 		
 		menuPersonal.add(crearSubmenuIdioma());
 		
 		if (user.getPermisos().equals(Permisos.TOTAL)) {
-			item = menuPersonal.add("Crear usuario");
+			item = menuPersonal.add(menus[18]);
 			item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 			item.addActionListener((l)->{
-				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, "Crear usuario", true);
+				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, menus[18], true);
 				EscritorDeElementos escritor = new EscritorDeElementos();
 				
 				try {
@@ -240,11 +269,11 @@ public class Dibina extends JFrame {
 					e.printStackTrace();
 				}
 			});
-			item.setToolTipText("Crear un nuevo usuario."); // Aplicar una descripción
+			item.setToolTipText(menus[19]); // Aplicar una descripción
 			item.setAccelerator(KeyStroke.getKeyStroke("control N")); // Poner una hotkey
 		}
 		
-		item = menuPersonal.add("Salir");
+		item = menuPersonal.add(menus[20]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_SALIR));
 		item.addActionListener((e)->Dibina.this.dispose());
 		item.setAccelerator(KeyStroke.getKeyStroke("control S")); // Poner una hotkey
@@ -253,7 +282,7 @@ public class Dibina extends JFrame {
 	}
 	
 	private JMenuItem crearSubmenuIdioma() {
-		JMenu submenu = new JMenu("Cambiar Idioma");
+		JMenu submenu = new JMenu(menus[17]);
 		JMenuItem item;
 		
 		submenu.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_IDIOMA));
@@ -261,27 +290,27 @@ public class Dibina extends JFrame {
 		item = new JMenuItem(Dibina.IDIOMAS[0]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_CASTELLANO));
 		item.addActionListener((e)->{
-			System.out.println("Idioma 1");
+			menus = LectorElementos.leerDibinaMenus(0);
+			actualizarPanelIdioma();
 		});
-		item.setToolTipText("Castellano."); // Aplicar una descripción
 		item.setAccelerator(KeyStroke.getKeyStroke("alt C")); // Poner una hotkey
 		submenu.add(item);
 
 		item = new JMenuItem(Dibina.IDIOMAS[1]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_EUSKERA));
 		item.addActionListener((e)->{
-			System.out.println("Idioma 2");
+			menus = LectorElementos.leerDibinaMenus(1);
+			actualizarPanelIdioma();
 		});
-		item.setToolTipText("Euskara."); // Aplicar una descripción
 		item.setAccelerator(KeyStroke.getKeyStroke("alt E")); // Poner una hotkey
 		submenu.add(item);
 
 		item = new JMenuItem(Dibina.IDIOMAS[2]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_INGLES));
 		item.addActionListener((e)->{
-			System.out.println("Idioma 3");
+			menus = LectorElementos.leerDibinaMenus(2);
+			actualizarPanelIdioma();
 		});
-		item.setToolTipText("English."); // Aplicar una descripción
 		item.setAccelerator(KeyStroke.getKeyStroke("alt I")); // Poner una hotkey
 		submenu.add(item);
 		
@@ -294,7 +323,7 @@ public class Dibina extends JFrame {
 		JButton boton;
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HOME));
-		boton.setToolTipText("Pantalla inicio");
+		boton.setToolTipText(menus[21]);
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelPrincipal());
 			this.repaint();
@@ -304,7 +333,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_STOCK));
-		boton.setToolTipText("Stock disponible"); 
+		boton.setToolTipText(menus[22]); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelStockDisponible(controlador, listaProductos));
 			this.repaint();
@@ -314,7 +343,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDO));
-		boton.setToolTipText("Hacer un pedido"); 
+		boton.setToolTipText(menus[23]); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHacerPedido(listaPedidos, listaProductos, destinos, controlador, user));
 			this.repaint();
@@ -324,7 +353,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_BUSQUEDA));
-		boton.setToolTipText("Buscar un pedido"); 
+		boton.setToolTipText(menus[24]); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelBuscar(modeloTipos, listaProductos));
 			this.repaint();
@@ -334,7 +363,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_PEDIDOS));
-		boton.setToolTipText("Lista de pedidos"); 
+		boton.setToolTipText(menus[25]); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelListaPedidos(modeloPedidos, listaPedidos));
 			this.repaint();
@@ -345,7 +374,7 @@ public class Dibina extends JFrame {
 		panel.add(boton);
 
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HISTORIAL));
-		boton.setToolTipText("Historial de pedidos"); 
+		boton.setToolTipText(menus[26]); 
 		boton.addActionListener((e)->{
 			pDisplay.setViewportView(new PanelHistorial(listaPedidos));
 			this.repaint();

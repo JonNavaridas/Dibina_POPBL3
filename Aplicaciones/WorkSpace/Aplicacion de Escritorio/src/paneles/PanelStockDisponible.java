@@ -180,7 +180,6 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 			  chart = ChartFactory.createBarChart3D("Stock disponible", filtro, "Cantidad",
 					  								dataset, PlotOrientation.HORIZONTAL, true, true, false);
 		  }
-		  chart.setBackgroundPaint(new Color(249, 231, 236));
 		  return chart;
 	  }
 	

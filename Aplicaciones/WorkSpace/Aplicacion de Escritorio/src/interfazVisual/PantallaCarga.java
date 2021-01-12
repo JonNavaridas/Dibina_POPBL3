@@ -85,27 +85,25 @@ public class PantallaCarga extends JDialog {
 	private class Carga extends Thread {
 
 		@Override
-		public void run() { // Caragr los distintos elementos del programa.
-			LectorElementos gestor = new LectorElementos();
-			
+		public void run() { // Caragr los distintos elementos del programa.			
 			try {
-				listaTipos = gestor.leerTipos();
+				listaTipos = LectorElementos.leerTipos(0);
 				Thread.sleep(50);
 				barraCarga.setValue(20);
 				
-				destinos = gestor.leerDestinos();
+				destinos = LectorElementos.leerDestinos();
 				Thread.sleep(50);
 				barraCarga.setValue(40);
 				
-				listaPedidos = gestor.leerPedidos();
+				listaPedidos = LectorElementos.leerPedidos();
 				Thread.sleep(50);
 				barraCarga.setValue(60);
 				
-				listaProductos = gestor.leerProductos();
+				listaProductos = LectorElementos.leerProductos();
 				Thread.sleep(50);
 				barraCarga.setValue(80);
 				
-				listaProcedencias = gestor.leerProcedencias();
+				listaProcedencias = LectorElementos.leerProcedencias();
 				Thread.sleep(50);
 				barraCarga.setValue(100);
 				
