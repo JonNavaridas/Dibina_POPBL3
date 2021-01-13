@@ -58,7 +58,7 @@ public class Dibina extends JFrame {
 	private String[] destinos; // Lugares donde los productos pueden ser entregados.
 	private String[] menus;
 	private String[] paneles;
-	private String[] imprimir;
+	private String[] passwordUser;
 	private JScrollPane pDisplay; // Panel cambiante.
 	
 	ControladorPedidos controlador;
@@ -98,17 +98,12 @@ public class Dibina extends JFrame {
 		// Determinar el usuario
 		DialogoLogin login = new DialogoLogin(this, "Dibina Login", true);
 		user = login.getUserLoged();
+		
 		switch(login.getLanguage()) {
-		case "EUS":
-			menus = LectorElementos.leerDibinaMenus(1); 
-			paneles = LectorElementos.leerPaneles(1); break;
-		case "ENG": 
-			menus = LectorElementos.leerDibinaMenus(2); 
-			paneles = LectorElementos.leerPaneles(2); break;
+		case "EUS": actualizarIdioma(1);break;
+		case "ENG": actualizarIdioma(2);break;
 		case "ESP":
-		default: 
-			menus = LectorElementos.leerDibinaMenus(0);
-			paneles = LectorElementos.leerPaneles(0); break;
+		default: actualizarIdioma(0);break;
 		}
 		
 		if (user == null)
@@ -129,7 +124,7 @@ public class Dibina extends JFrame {
 		}
 	}
 	
-	private void actualizarPanelIdioma() {
+	public void actualizarPanelIdioma() {
 		int width = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		JSplitPane pVentana  = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, crearPanelElementos(), pDisplay);
 		pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
@@ -229,23 +224,27 @@ public class Dibina extends JFrame {
 		actualizar = menuPaquetes.add(menus[12]);
 		actualizar.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_REFRESCAR));
 		actualizar.addActionListener((e)->{
-			PantallaCarga carga = new PantallaCarga(this, null, true);
-			listaTipos = carga.getTipos();
-			destinos = carga.getDestinos();
-			listaPedidos = carga.getPedidos();
-			listaProductos = carga.getProductos();
-			listaProcedencias = carga.getProcedencias();
-			
-			controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
-			modeloPedidos = new ModeloTablaPedidos(listaPedidos);
-			modeloTipos = new ModeloTablaTipos(listaProductos);
-
-			pDisplay.setViewportView(new PanelPrincipal());
+			actualizarDatosAplicacion();
 		});
 		actualizar.setToolTipText(menus[13]); // Aplicar una descripción
 		actualizar.setAccelerator(KeyStroke.getKeyStroke("control R")); // Poner una hotkey
 		
 		return menuPaquetes;
+	}
+
+	public void actualizarDatosAplicacion() {
+		PantallaCarga carga = new PantallaCarga(this, null, true);
+		listaTipos = carga.getTipos();
+		destinos = carga.getDestinos();
+		listaPedidos = carga.getPedidos();
+		listaProductos = carga.getProductos();
+		listaProcedencias = carga.getProcedencias();
+		
+		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
+		modeloPedidos = new ModeloTablaPedidos(listaPedidos);
+		modeloTipos = new ModeloTablaTipos(listaProductos);
+
+		pDisplay.setViewportView(new PanelPrincipal());
 	}
 
 	private JMenu crearMenuUsuarios() {
@@ -255,7 +254,7 @@ public class Dibina extends JFrame {
 		item = menuPersonal.add(menus[15]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 		item.addActionListener((e)->{
-			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user, Arrays.copyOfRange(paneles, 22, 36), Arrays.copyOfRange(paneles, 36, 43)));
+			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user, Arrays.copyOfRange(paneles, 22, 36), Arrays.copyOfRange(paneles, 36, 43), Arrays.copyOfRange(passwordUser,0,5)));
 			this.repaint();
 		});
 		item.setToolTipText(menus[16]); // Aplicar una descripción
@@ -267,7 +266,7 @@ public class Dibina extends JFrame {
 			item = menuPersonal.add(menus[18]);
 			item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 			item.addActionListener((l)->{
-				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, menus[18], true);
+				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, menus[18], true, Arrays.copyOfRange(passwordUser,4,13));
 				EscritorDeElementos escritor = new EscritorDeElementos();
 				
 				try {
@@ -299,9 +298,9 @@ public class Dibina extends JFrame {
 		item = new JMenuItem(Dibina.IDIOMAS[0]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_CASTELLANO));
 		item.addActionListener((e)->{
-			menus = LectorElementos.leerDibinaMenus(0);
-			paneles = LectorElementos.leerPaneles(0);
+			actualizarIdioma(0);
 			actualizarPanelIdioma();
+			actualizarDatosAplicacion();
 		});
 		item.setAccelerator(KeyStroke.getKeyStroke("alt C")); // Poner una hotkey
 		submenu.add(item);
@@ -309,9 +308,9 @@ public class Dibina extends JFrame {
 		item = new JMenuItem(Dibina.IDIOMAS[1]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_EUSKERA));
 		item.addActionListener((e)->{
-			menus = LectorElementos.leerDibinaMenus(1);
-			paneles = LectorElementos.leerPaneles(1);
+			actualizarIdioma(1);
 			actualizarPanelIdioma();
+			actualizarDatosAplicacion();
 		});
 		item.setAccelerator(KeyStroke.getKeyStroke("alt E")); // Poner una hotkey
 		submenu.add(item);
@@ -319,14 +318,20 @@ public class Dibina extends JFrame {
 		item = new JMenuItem(Dibina.IDIOMAS[2]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_INGLES));
 		item.addActionListener((e)->{
-			menus = LectorElementos.leerDibinaMenus(2);
-			paneles = LectorElementos.leerPaneles(2);
+			actualizarIdioma(2);
 			actualizarPanelIdioma();
+			actualizarDatosAplicacion();
 		});
 		item.setAccelerator(KeyStroke.getKeyStroke("alt I")); // Poner una hotkey
 		submenu.add(item);
 		
 		return submenu;
+	}
+
+	public void actualizarIdioma(int language) {
+		menus = LectorElementos.leerDibinaMenus(language);
+		paneles = LectorElementos.leerPaneles(language);
+		passwordUser = LectorElementos.leerPasswordUser(language);		
 	}
 
 	private Container crearPanelElementos() {

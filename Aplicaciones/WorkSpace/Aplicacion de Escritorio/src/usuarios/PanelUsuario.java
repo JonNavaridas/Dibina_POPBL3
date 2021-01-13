@@ -35,6 +35,7 @@ import gestionFicheros.EscritorDeElementos;
 import gestionPantallas.RoundedBorder;
 import gestionPedidos.PedidoException;
 import gestionUsuarios.DialogoContraseña;
+import interfazVisual.Dibina;
 import paneles.PanelResumenPedido;
 import renderizadoTablaPedidos.HeaderRenderer;
 import renderizadoTablaPedidos.ModeloColumnas;
@@ -47,9 +48,9 @@ public class PanelUsuario extends JScrollPane {
 	
 	List<Integer> listaCantidades;
 	JComboBox<String> fecha, destino, cantidad;
-	String[] listaCantidad, listaFecha, listaDestino, words, wordsResumen;
+	String[] listaCantidad, listaFecha, listaDestino, words, wordsResumen, wordsPassword;
 	
-	JFrame pPrincipal;
+	Dibina pPrincipal;
 	List<Pedido> listaPedidos;
 	List<Pedido> listaDisplay;
 	
@@ -57,7 +58,7 @@ public class PanelUsuario extends JScrollPane {
 	JTable tabla;
 	User user;
 
-	public PanelUsuario(JFrame pPrincipal, ModeloTablaPedidos modelo, User user, String[] words, String[] wordsResumen) {
+	public PanelUsuario(Dibina pPrincipal, ModeloTablaPedidos modelo, User user, String[] words, String[] wordsResumen, String[] wordsPassword) {
 		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.setBorder(BorderFactory.createEmptyBorder(0, 20, 20, 20));
 		this.setBackground(Color.white);
@@ -66,6 +67,7 @@ public class PanelUsuario extends JScrollPane {
 		this.pPrincipal = pPrincipal;
 		this.words = words;
 		this.wordsResumen = wordsResumen;
+		this.wordsPassword = wordsPassword;
 		
 		this.user = user;
 		this.modeloTabla = modelo;
@@ -81,7 +83,7 @@ public class PanelUsuario extends JScrollPane {
 		if (listaCantidades.size() > 0) setCantidades();
 		else {
 			listaCantidad = new String[1];
-			listaCantidad[0] = "Todo";
+			listaCantidad[0] = words[3];
 		}
 		
 		fecha = new JComboBox<>(listaFecha);
@@ -174,14 +176,14 @@ public class PanelUsuario extends JScrollPane {
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_FILTRAR));
 		boton.addActionListener((l)->{
 			listaDisplay = listaPedidos;
-			if (!((String)fecha.getSelectedItem()).equals("Todo")) { // Aplicar filtro fecha
+			if (!((String)fecha.getSelectedItem()).equals(words[3])) { // Aplicar filtro fecha
 				listaDisplay = listaDisplay.stream().filter((p)->p.getDia().equals(((String)fecha.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)destino.getSelectedItem()).equals("Todo")) { // Aplicar filtro destino
+			if (!((String)destino.getSelectedItem()).equals(words[3])) { // Aplicar filtro destino
 				listaDisplay = listaDisplay.stream().filter((p)->p.getDestino().equals(
 						((String)destino.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)cantidad.getSelectedItem()).equals("Todo")) { // Aplicar filtro cantidad
+			if (!((String)cantidad.getSelectedItem()).equals(words[3])) { // Aplicar filtro cantidad
 				listaDisplay = listaDisplay.stream().filter((p)->{
 					return p.getNumElements() >= Integer.parseInt(((String)cantidad.getSelectedItem()).substring(1));
 				}).collect(Collectors.toList());
@@ -244,7 +246,7 @@ public class PanelUsuario extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CAMBIAR_CONTRASEÑA));
 		boton.addActionListener((l)->{
-			DialogoContraseña dlg = new DialogoContraseña(pPrincipal, words[10], true, user);
+			DialogoContraseña dlg = new DialogoContraseña(pPrincipal, words[10], true, user, wordsPassword);
 			try {
 				int newPassword = dlg.getNewPassword();
 				if (newPassword != -1) {
@@ -265,6 +267,11 @@ public class PanelUsuario extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_AJUSTES));
 		boton.addActionListener((l)->{
+			String[] opciones = {"ESP","EUS","ENG"};
+			int language = JOptionPane.showOptionDialog(this, words[12], words[12], 
+					JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+			pPrincipal.actualizarIdioma(language);
+			pPrincipal.actualizarPanelIdioma();
 			
 		});
 		boton.setToolTipText(words[12]); // Aplicar una descripción
@@ -290,8 +297,14 @@ public class PanelUsuario extends JScrollPane {
 
 	private Component crearPanelTabla() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
-		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla()));
+		int language;
+		switch(words[0]) {
+		case "Eskaria ikusi": language = 1; break;
+		case "See order": language  = 2; break;
+		case "Ver Pedido": 
+		default: language = 0; break;
+		}
+		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla(), language));
 		tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 		
 		tabla.getTableHeader().addMouseListener(new MouseAdapter() {
@@ -334,7 +347,7 @@ public class PanelUsuario extends JScrollPane {
 			array[i + 1] = elementos.get(i).toString();
 		}
 		Arrays.sort(array);
-		array[0] = "Todo";
+		array[0] = words[3];
 		
 		return array;
 	}
@@ -346,7 +359,7 @@ public class PanelUsuario extends JScrollPane {
 		Integer length = (max/divisor) + 1;
 		
 		listaCantidad = new String[length];
-		listaCantidad[0] = "Todo";
+		listaCantidad[0] = words[3];
 		
 		for (int i = 0; i < length - 1; i++)
 			listaCantidad[i + 1] = "+" + String.valueOf((i + 1) * divisor);	

@@ -1,0 +1,7 @@
+User
+Delivery point
+Status
+Amount
+Date
+Type
+Origin

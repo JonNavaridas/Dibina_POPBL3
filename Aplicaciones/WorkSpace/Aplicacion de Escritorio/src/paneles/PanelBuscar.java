@@ -78,15 +78,15 @@ public class PanelBuscar extends JScrollPane {
 		JButton boton = new JButton(words[1]);
 		boton.addActionListener((e)->{
 			listaDisplay = listaProductos;
-			if (!((String)tipo.getSelectedItem()).equals("Todo")) { // Aplicar filtro tipos
+			if (!((String)tipo.getSelectedItem()).equals(words[0])) { // Aplicar filtro tipos
 				listaDisplay = listaDisplay.stream().filter((p)->p.getTipo().toString().equals(
 									((String)tipo.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)procedencia.getSelectedItem()).equals("Todo")) { // Aplicar filtro procedencia
+			if (!((String)procedencia.getSelectedItem()).equals(words[0])) { // Aplicar filtro procedencia
 				listaDisplay = listaDisplay.stream().filter((p)->p.getProcedencia().toString().equals(
 						((String)procedencia.getSelectedItem()))).collect(Collectors.toList());
 			}
-			if (!((String)cantidad.getSelectedItem()).equals("Todo")) { // Aplicar filtro cantidad
+			if (!((String)cantidad.getSelectedItem()).equals(words[0])) { // Aplicar filtro cantidad
 				listaDisplay = listaDisplay.stream().filter((p)->{
 					return p.getCantidad() >= Integer.parseInt(((String)cantidad.getSelectedItem()).substring(1));
 				}).collect(Collectors.toList());
@@ -124,8 +124,14 @@ public class PanelBuscar extends JScrollPane {
 
 	private Component crearPanelTabla() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
-		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla()));
+		int language;
+		switch(words[0]) {
+		case "Guztia":language = 1; break;
+		case "All": language = 2; break;
+		case "Todo":
+			default:language = 0; break;
+		}
+		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla(), language));
 		tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 		
 		tabla.getTableHeader().addMouseListener(new MouseAdapter() {
@@ -165,7 +171,7 @@ public class PanelBuscar extends JScrollPane {
 			array[i + 1] = elementos.get(i).toString();
 		}
 		Arrays.sort(array);
-		array[0] = "Todo";
+		array[0] = words[0];
 		
 		return array;
 	}
@@ -177,7 +183,7 @@ public class PanelBuscar extends JScrollPane {
 		Integer length = (max/divisor) + 1;
 		
 		listaCantidad = new String[length + 1];
-		listaCantidad[0] = "Todo";
+		listaCantidad[0] = words[0];
 		
 		for (int i = 0; i < length; i++)
 			listaCantidad[i + 1] = "+" + String.valueOf((i) * divisor);	

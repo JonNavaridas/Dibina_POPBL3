@@ -33,10 +33,12 @@ public class DialogoContraseña extends JDialog {
 	JPasswordField oldPassword, newPassword;
 	boolean cambiarContraseña;
 	User user;
+	String[] words;
 	
-	public DialogoContraseña(JFrame ventana, String titulo, boolean modo, User user) {
+	public DialogoContraseña(JFrame ventana, String titulo, boolean modo, User user, String[] words) {
 		super(ventana,titulo,modo);
 		this.user = user;
+		this.words = words;
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
@@ -66,14 +68,14 @@ public class DialogoContraseña extends JDialog {
 		panel.setBackground(Color.white);
 		
 		JPanel pOld = new JPanel(new BorderLayout(10, 0));
-		oldPassword = crearJPasswordField(font, "Contraseña actual");
+		oldPassword = crearJPasswordField(font, words[0]);	//Contraseña actual
 
 		pOld.setBackground(Color.white);
 		pOld.add(oldPassword, BorderLayout.CENTER);
 		pOld.add(crearJCheckBox(oldPassword), BorderLayout.EAST);
 
 		JPanel pNew = new JPanel(new BorderLayout(10, 0));
-		newPassword = crearJPasswordField(font, "Nueva contraseña");
+		newPassword = crearJPasswordField(font, words[1]);	//Nueva contraseña
 
 		pNew.setBackground(Color.white);
 		pNew.add(newPassword, BorderLayout.CENTER);
@@ -116,7 +118,7 @@ public class DialogoContraseña extends JDialog {
 		JPanel panel = new JPanel(new GridLayout(1, 2, 20, 0));
 		panel.setBackground(Color.white);
 		
-		JButton boton = new JButton("Cambiar");
+		JButton boton = new JButton(words[2]);	//Cambiar
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.setPreferredSize(new Dimension(170, 30));
 		boton.addActionListener((e)->{
@@ -129,7 +131,7 @@ public class DialogoContraseña extends JDialog {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Cancelar");
+		boton = new JButton(words[4]);	//Cancelar
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.setPreferredSize(new Dimension(170, 30));
 		boton.addActionListener((e)->{
@@ -158,7 +160,7 @@ public class DialogoContraseña extends JDialog {
 					password += newPassword.getPassword()[i];
 				return password.hashCode();
 			}
-			else throw new UserException("La contraseña introducida no es correcta.");
+			else throw new UserException(words[3]);	//La contraseña introducida no es correcta
 		}
 		else return -1;
 	}

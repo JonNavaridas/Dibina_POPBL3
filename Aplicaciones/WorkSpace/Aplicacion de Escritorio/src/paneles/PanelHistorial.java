@@ -63,7 +63,8 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		this.wordsResumen = wordsResumen;
 		
 		this.setViewportView(crearPanel());
-		this.setVisible(true);
+		this.setBorder(BorderFactory.createEmptyBorder(0,20,0,20));
+		this.setBackground(Color.white);
 	}
 
 	private Component crearPanel() {
@@ -71,8 +72,7 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		panel.add(crearCalendario(), BorderLayout.NORTH);
 		panel.add(crearTabla(), BorderLayout.CENTER);
 		panel.add(crearBotones(), BorderLayout.SOUTH);
-		
-		panel.setPreferredSize(new Dimension(ANCHO, ALTO));
+		panel.setBackground(Color.white);
 		return panel;
 	}
 
@@ -90,6 +90,7 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		JPanel panel = new JPanel();
 		panel.add(datePicker);
 		panel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+		panel.setBackground(Color.white);
 		return panel;
 	}
 
@@ -108,14 +109,21 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 16));
 		boton.setPreferredSize(new Dimension(150, 30));
 		panel.add(boton);
-		panel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+		panel.setBorder(BorderFactory.createEmptyBorder(5, 0, 20, 0));
+		panel.setBackground(Color.white);
 		return panel;
 	}
 
 	private Component crearTabla() {
 		JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
-		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla()));
+		int language;
+		switch(words[0]) {
+		case "Eskaria ikusi": language = 1; break;
+		case "See order": language  = 2; break;
+		case "Ver Pedido": 
+		default: language = 0; break;
+		}
+		tabla = new JTable(modeloTabla, new ModeloColumnas(new RendererTabla(), language));
 		tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 		
 		tabla.getTableHeader().addMouseListener(new MouseAdapter() {

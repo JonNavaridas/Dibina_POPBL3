@@ -35,6 +35,7 @@ public class DialogoCrearUsuario extends JDialog {
 	public final static int DEFAULT_HEIGHT = 320;
 	
 	private final static String[] PERMISOS = { "Basico", "Avanzado", "Total" };
+	String[] words;
 	
 	JRadioButton basico, avanzado, total;
 	ButtonGroup permisos;
@@ -43,8 +44,9 @@ public class DialogoCrearUsuario extends JDialog {
 	JPasswordField contraseña;
 	JTextField nombre, apellido, id;
 	
-	public DialogoCrearUsuario(JFrame ventana, String titulo, boolean modo) {
+	public DialogoCrearUsuario(JFrame ventana, String titulo, boolean modo, String[] words) {
 		super(ventana,titulo,modo);
+		this.words = words;
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		int width = (int) toolkit.getScreenSize().getWidth();
@@ -74,18 +76,18 @@ public class DialogoCrearUsuario extends JDialog {
 		
 		id = new JTextField();
 		id.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
-					 BorderFactory.createTitledBorder(new RoundedBorder(5), "ID del usuario")));
+					 BorderFactory.createTitledBorder(new RoundedBorder(5), words[1])));	//ID usuario
 		id.setFont(font);
 		panel.add(id);
 		
 		nombre = new JTextField();
 		nombre.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
-					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), "Nombre")));
+					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), words[2])));	//Nombre
 		nombre.setFont(font);
 		
 		apellido = new JTextField();
 		apellido.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
-					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), "Apellido")));
+					 	 BorderFactory.createTitledBorder(new RoundedBorder(5), words[3])));	//Apellido
 		apellido.setFont(font);
 		
 		JPanel pNombre = new JPanel(new GridLayout(1, 2, 10, 0));
@@ -96,7 +98,7 @@ public class DialogoCrearUsuario extends JDialog {
 		
 		contraseña = new JPasswordField();
 		contraseña.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
-				 			 BorderFactory.createTitledBorder(new RoundedBorder(5), "Contraseña")));
+				 			 BorderFactory.createTitledBorder(new RoundedBorder(5), words[4])));	//Contraseña
 		contraseña.setEchoChar('*');
 		contraseña.setFont(font);
 		
@@ -127,22 +129,22 @@ public class DialogoCrearUsuario extends JDialog {
 	}
 
 	private Component crearPanelPermisos() {
-		JPanel panel = new JPanel(new GridLayout(1, 3));
+		JPanel panel = new JPanel();
 		panel.setBackground(Color.white);
 		
 		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 16);
 		
-		basico = new JRadioButton(PERMISOS[0]);
+		basico = new JRadioButton(words[6]);
 		basico.setBackground(Color.white);
 		basico.setSelected(true);
 		basico.setFont(font);
 		
-		avanzado = new JRadioButton(PERMISOS[1]);
+		avanzado = new JRadioButton(words[7]);
 		avanzado.setBackground(Color.white);
 		avanzado.setSelected(false);
 		avanzado.setFont(font);
 		
-		total = new JRadioButton(PERMISOS[2]);
+		total = new JRadioButton(words[8]);
 		total.setBackground(Color.white);
 		total.setSelected(false);
 		total.setFont(font);
@@ -164,7 +166,7 @@ public class DialogoCrearUsuario extends JDialog {
 		
 		panel.setBackground(Color.white);
 		
-		JButton boton = new JButton("Crear");
+		JButton boton = new JButton(words[5]);	//Crear
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.setPreferredSize(new Dimension(170, 30));
 		boton.addActionListener((e)->{
@@ -177,7 +179,7 @@ public class DialogoCrearUsuario extends JDialog {
 		pBoton.add(boton);
 		panel.add(pBoton);
 		
-		boton = new JButton("Cancelar");
+		boton = new JButton(words[0]);	//Cancelar
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 14));
 		boton.setPreferredSize(new Dimension(170, 30));
 		boton.addActionListener((e)->{
