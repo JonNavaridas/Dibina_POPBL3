@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="elementosFijos.Tipo"/>
-    <fullyQualifiedTypeName name="javax.swing.JProgressBar"/>
     <fullyQualifiedTypeName name="elementos.Paquete"/>
     <fullyQualifiedTypeName name="elementos.Paquete.Tipo"/>
     <fullyQualifiedTypeName name="elementos.Tipo"/>
@@ -56,8 +54,10 @@
     <fullyQualifiedTypeName name="java.net.UnknownHostException"/>
     <fullyQualifiedTypeName name="sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.awt.Component"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="java.util.Locale"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>

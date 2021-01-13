@@ -1,9 +1,11 @@
 package comunicacionServer;
 
+import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,6 +19,7 @@ import elementos.Pedido;
 
 public class GestorElementos extends Thread {
 
+	private static final String FICHERO_LOG = "Files/log.txt";
 	private static final String FICHERO_USUARIOS = "Files/users.csv";
 	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
 	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
@@ -52,6 +55,7 @@ public class GestorElementos extends Thread {
 			return;
 		}
 		if (listaDeEspera.size() == 0) running = false;
+		writeLog(elemento);
 	}
 
 	@Override
@@ -86,6 +90,30 @@ public class GestorElementos extends Thread {
 		}catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void writeLog(ElementoEnCola elemento) {
+		String[] valores = elemento.getElemento().split("[#]");
+		String tipo = "";
+		
+		switch(valores.length) {
+		case 6: tipo = "Pedido"; break;
+		default: tipo = "error"; break;
+		}
+		
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
+			try {
+				out.write(elemento.getOperacion() + ": " + tipo + " " + valores[0] + "\n");
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			out.close();
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

@@ -1,12 +1,15 @@
 package usuarios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import elementos.Pedido;
 
-public class User {
+public class User implements Serializable {
 
+	private static final long serialVersionUID = -6662751635722310099L;
+	
 	String id;
 	String name;
 	String fullName;

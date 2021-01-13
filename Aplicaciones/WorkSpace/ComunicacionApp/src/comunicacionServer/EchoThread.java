@@ -55,8 +55,6 @@ public class EchoThread extends Thread {
                 		gestor.addElementoACola(numeroOperacion, line);
                 		out.write("Operacion realizada\n");
                 	}
-                	
-                    out.write(line + "\n\r");
                     out.flush();
                 }
             } catch (IOException e) {

@@ -18,7 +18,7 @@ import elementos.User;
 
 public class ElementoEnCola {
 
-	private static final SimpleDateFormat SDF = new SimpleDateFormat("dow mon dd hh:mm:ss zzz yyyy", Locale.ENGLISH);
+	private static final SimpleDateFormat SDF = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
 	
 	int operacion;
 	String elemento;
