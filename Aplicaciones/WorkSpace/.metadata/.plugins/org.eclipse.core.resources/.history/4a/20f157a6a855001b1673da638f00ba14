@@ -82,7 +82,7 @@ public class ElementoEnCola {
 	}
 
 	private Producto transformProducto(String elemento) throws ParseException {	
-		String[] valores = elemento.split("[$]");
+		String[] valores = elemento.split("[%]");
 		
 		Tipo tipo = transformToTipo(valores[0]);
 		
