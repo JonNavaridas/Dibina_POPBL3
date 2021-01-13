@@ -102,8 +102,8 @@ public class PanelListaPedidos extends JScrollPane {
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CONFIRMAR));
 		boton.addActionListener((l)->{
 			try {
-				if (JOptionPane.showConfirmDialog(this, "Una vez se acepte un pedido no podra denegarlo. ¿Esta seguro de que quiere continuar?")
-					== JOptionPane.YES_OPTION) {
+				if (tabla.getSelectedRows().length > 0 && JOptionPane.showConfirmDialog(this,
+						"Una vez se acepte un pedido no podra denegarlo. ¿Esta seguro de que quiere continuar?") == JOptionPane.YES_OPTION) {
 					
 					int[] seleccionados = tabla.getSelectedRows();
 					for (int i = 0; i < seleccionados.length; i++) {

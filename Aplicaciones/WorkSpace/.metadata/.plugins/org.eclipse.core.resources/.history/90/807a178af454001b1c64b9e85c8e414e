@@ -1,0 +1,40 @@
+package comunicacionServer;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+import elementos.Pedido;
+import elementos.Producto;
+import elementos.User;
+
+public class GestorElementos<T> {
+
+	private static final String FICHERO_USUARIOS = "Files/users.csv";
+	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
+	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
+	
+	Stack<User> pilaUsuarios;
+	Stack<Pedido> pilaPedidos;
+	Stack<Producto> pilaProductos;
+	
+	public GestorElementos() {
+		pila = new Stack<T>();
+	}
+	
+	public void addUsuario(User u) {
+		listaUsuarios.add(u);
+	}
+	
+	public void addPedido(Pedido p) {
+		listaPedidos.add(p);
+	}
+	
+	public void addProducto(Producto p) {
+		listaProductos.add(p);
+	}
+	
+	public void añadirElementoCola() {
+		
+	}
+}

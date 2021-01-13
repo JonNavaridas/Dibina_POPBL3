@@ -1,0 +1,33 @@
+package comunicacionServer;
+
+import java.util.Date;
+import java.util.List;
+
+import elementos.Estado;
+import elementos.Pedido;
+import elementos.Producto;
+import elementos.User;
+
+public class ElementoEnCola {
+
+	int operacion;
+	String elemento;
+	
+	public ElementoEnCola(int operacion, String line) {
+		this.operacion = operacion;
+		this.elemento = line;
+	}
+	
+	public Pedido transformToPedido() {
+		String[] alores = elemento.split("[]");
+		
+		Long id;
+		User user;
+		Date fecha;
+		Estado estado;
+		String destino;
+		List<Producto> listaProductos;
+		
+		return new Pedido(id, user, fecha, estado, destino, listaProductos);
+	}
+}

@@ -12,4 +12,12 @@ public class Pedido {
 	String destino; // Lugar donde se va a recoger el pedido
 	List<Producto> listaProductos; // Productos que se lleva el usuario en el pedido
 	
+	public Pedido(Long id, User user, Date fecha, Estado estado, String destino, List<Producto> listaProductos) {
+		this.id = id;
+		this.user = user;
+		this.fecha = fecha;
+		this.estado = estado;
+		this.destino = destino;
+		this.listaProductos = listaProductos;
+	}
 }

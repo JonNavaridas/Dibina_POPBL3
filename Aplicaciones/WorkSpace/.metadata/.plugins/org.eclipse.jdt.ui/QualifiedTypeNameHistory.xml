@@ -25,7 +25,6 @@
     <fullyQualifiedTypeName name="paneles.PanelHistorial"/>
     <fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
     <fullyQualifiedTypeName name="org.jfree.data.category.CategoryDataset"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="usuarios.User"/>
     <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
@@ -37,7 +36,6 @@
     <fullyQualifiedTypeName name="usuarios.PanelUsuario"/>
     <fullyQualifiedTypeName name="gestionPantallas.RoundedBorder"/>
     <fullyQualifiedTypeName name="javax.swing.Box"/>
-    <fullyQualifiedTypeName name="java.awt.Component"/>
     <fullyQualifiedTypeName name="gestionElementosVisuales.ImageFactory"/>
     <fullyQualifiedTypeName name="interfazVisual.Dibina"/>
     <fullyQualifiedTypeName name="elementos.Estado"/>
@@ -45,7 +43,6 @@
     <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="usuarios.UserException"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
     <fullyQualifiedTypeName name="gestionElementosVisuales.FontFactory"/>
@@ -59,5 +56,8 @@
     <fullyQualifiedTypeName name="java.net.UnknownHostException"/>
     <fullyQualifiedTypeName name="sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.awt.Component"/>
 </qualifiedTypeNameHistroy>

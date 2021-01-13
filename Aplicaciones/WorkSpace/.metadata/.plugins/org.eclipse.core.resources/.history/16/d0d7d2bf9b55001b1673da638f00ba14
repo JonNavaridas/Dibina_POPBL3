@@ -1,0 +1,12 @@
+package comunicacionServer;
+
+public class ElementoEnCola {
+
+	int operacion;
+	String elemento;
+	
+	public ElementoEnCola(int operacion, String line) {
+		this.operacion = operacion;
+		this.elemento = line;
+	}
+}

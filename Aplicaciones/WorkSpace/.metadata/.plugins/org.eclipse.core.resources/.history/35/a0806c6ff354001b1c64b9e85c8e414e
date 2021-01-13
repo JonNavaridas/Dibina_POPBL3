@@ -1,0 +1,42 @@
+package buffer;
+
+public class BufferLimitado<T> {
+
+	Buffer<T> head;
+	int capacidad;
+	int numBuffer;
+	
+	public BufferLimitado(int capacidad) {
+		head = null;
+		this.capacidad = capacidad;
+		numBuffer = 0;
+	}
+	
+	public T push(T valor) throws BufferException {
+		Buffer<T> newNodo = new Buffer<>(valor);
+		
+		if (numBuffer < capacidad) {
+			if (head != null)
+				newNodo.setSgg(head);
+			head = newNodo;
+			numBuffer++;
+			
+			return newNodo.getValor();
+		}
+		else
+			throw new BufferException("No se ha podido guardar " + valor + " porque el Buffer está lleno.");
+	}
+	
+	public T pop() throws BufferException {
+		T valor = null;
+		
+		if (head != null) {
+			valor = head.getValor();
+			head = head.getSgg();
+			
+			return valor;
+		}
+		else
+			throw new BufferException("No se ha podido sacar el valor porque el Buffer está vacio");
+	}
+}

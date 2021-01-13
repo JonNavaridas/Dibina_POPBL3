@@ -6,23 +6,32 @@ import java.net.Socket;
 
 public class Server {
 	
-	public static void main(String[] args) throws IOException {
+	GestorElementos gestor;
+	
+	@SuppressWarnings("resource")
+	public void administrarConecsiones(String puerto) throws IOException {
 		ServerSocket server;
 		Socket socket;
 		int port;
 		
+		port = Integer.valueOf(puerto).intValue();
+		gestor = new GestorElementos();
+		server = new ServerSocket(port);
+		
+		while (true) {
+			socket = server.accept();
+			new EchoThread(socket, gestor).start();
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {		
 		if (args.length < 1) {
 			System.out.println("Sintaxis de llamada: java EcoServ <puerto>");
 			System.exit(-1);
 		}
 		else {
-			port = Integer.valueOf(args[0]).intValue();
-			server = new ServerSocket(port);
-			
-			while (true) {
-				socket = server.accept();
-				new EchoThread(socket).start();
-			}
+			Server server = new Server();
+			server.administrarConecsiones(args[0]);
 		}
 	}
 }

@@ -1,0 +1,47 @@
+package comunicacionServer;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class GestorElementos extends Thread {
+
+	private static final String FICHERO_USUARIOS = "Files/users.csv";
+	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
+	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
+
+	Queue<ElementoEnCola> listaDeEspera;
+	private boolean running;
+	
+	public GestorElementos() {
+		listaDeEspera = new LinkedList<>();
+		running = false;
+	}
+	
+	public void addElementoACola(int operacion, String line) {
+		listaDeEspera.add(new ElementoEnCola(operacion, line));
+		if (!running) {
+			running = true;
+			this.start();
+		}
+	}
+	
+	public void removeElementoEnCola(ElementoEnCola elemento) {
+		listaDeEspera.remove(elemento);
+		if (listaDeEspera.size() == 0) {
+			running = false;
+		}
+	}
+	
+	private void realizarAccion() {
+		ElementoEnCola elemento = listaDeEspera.remove();
+		
+		switch(elemento.getOperacion())
+	}
+
+	@Override
+	public void run() {
+		do {
+			realizarAccion();
+		} while (running);
+	}
+}

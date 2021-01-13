@@ -38,17 +38,13 @@ public class Cliente extends Thread {
 			in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 		}
 		catch (UnknownHostException e) {
-			System.err.println("No se nada del host " + IP);
+			JOptionPane.showMessageDialog(panel, "No se nada del host " + IP, "Error de conexion", JOptionPane.ERROR_MESSAGE);
 		}
 		catch (IOException e) {
-			System.err.println("No pude conectarme a " + IP + ":8000");
+			JOptionPane.showMessageDialog(panel, "No pude conectarme a " + IP, "Error de conexion", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		try {
-			// Place holders
-			operacion = "add pedido";
-			mensaje = "pedido nuevo";
-			
 			out.println(operacion);
 			String respuesta = in.readLine();
 			

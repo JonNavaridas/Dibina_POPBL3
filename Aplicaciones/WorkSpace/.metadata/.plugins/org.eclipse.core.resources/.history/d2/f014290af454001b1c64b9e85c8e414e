@@ -1,0 +1,9 @@
+package buffer;
+
+@SuppressWarnings("serial")
+public class BufferException extends Exception {
+
+	public BufferException (String msg) {
+		super(msg);
+	}
+}

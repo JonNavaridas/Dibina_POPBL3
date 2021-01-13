@@ -1,0 +1,27 @@
+package comunicacionServer;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class GestorElementos {
+
+	private static final String FICHERO_USUARIOS = "Files/users.csv";
+	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
+	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
+
+	Queue<ElementoEnCola> listaDeEspera;
+	
+	public GestorElementos() {
+		listaDeEspera = new LinkedList<>();
+	}
+	
+	public void addElementoACola(int operacion, String line) {
+		listaDeEspera.add(new ElementoEnCola(operacion, line));
+	}
+	
+	public void removeElementoEnCola(ElementoEnCola elemento) {
+		listaDeEspera.remove(elemento);
+	}
+	
+	
+}

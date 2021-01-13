@@ -10,9 +10,11 @@ import java.net.Socket;
 public class EchoThread extends Thread {
 	
     protected Socket socket;
+    GestorElementos gestor;
 
-    public EchoThread(Socket clientSocket) {
+    public EchoThread(Socket clientSocket, GestorElementos gestor) {
         this.socket = clientSocket;
+        this.gestor = gestor;
     }
 
     public void run() {
@@ -38,19 +40,20 @@ public class EchoThread extends Thread {
                     socket.close();
                     return;
                 } else {
-                	if (numeroOperacion != -1) {
+                	if (numeroOperacion == -1) {
                 		numeroOperacion = confirmarOperacion(line);
                 		if (numeroOperacion != 0) {
-                			out.write("Operacion aceptada");
+                			out.write("Operacion aceptada\n");
+                			
                 		}
                 		else {
-                			out.write("Operacion denegada");
+                			out.write("Operacion denegada\n");
                 			return;
                 		}
                 	}
                 	else {
-                		aplicarOperacion(numeroOperacion, line);
-                		out.write("Operacion realizada");
+                		gestor.addElementoACola(numeroOperacion, line);
+                		out.write("Operacion realizada\n");
                 	}
                 	
                     out.write(line + "\n\r");
@@ -70,23 +73,9 @@ public class EchoThread extends Thread {
 		case "add pedido": numeroOperacion = 1; break;
 		case "remove productos": numeroOperacion = 2; break;
 		case "new user": numeroOperacion = 3; break;
-		default: numeroOperacion = 0; break; // Sino devolvemos false.
+		default: numeroOperacion = 0; break;
 		}
 		
 		return numeroOperacion;
-	}
-	
-	public void aplicarOperacion(int operacion, String elemento) {		
-		
-		switch(operacion) {
-		case 1: 
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		default: System.out.println("Operacion no conocida.");
-			break;
-		}
 	}
 }

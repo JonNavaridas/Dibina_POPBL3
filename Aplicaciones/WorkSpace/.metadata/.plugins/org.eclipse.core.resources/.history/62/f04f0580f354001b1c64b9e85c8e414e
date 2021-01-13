@@ -1,0 +1,35 @@
+package buffer;
+
+public class BufferLimitado<T> {
+
+	Buffer<T> head;
+	int numBuffer;
+	
+	public BufferLimitado(int capacidad) {
+		head = null;
+		numBuffer = 0;
+	}
+	
+	public T push(T valor) throws BufferException {
+		Buffer<T> newNodo = new Buffer<>(valor);
+		
+		if (head != null) newNodo.setSgg(head);
+		head = newNodo;
+		numBuffer++;
+		
+		return newNodo.getValor();
+	}
+	
+	public T pop() throws BufferException {
+		T valor = null;
+		
+		if (head != null) {
+			valor = head.getValor();
+			head = head.getSgg();
+			
+			return valor;
+		}
+		else
+			throw new BufferException("No se ha podido sacar el valor porque el Buffer está vacio");
+	}
+}

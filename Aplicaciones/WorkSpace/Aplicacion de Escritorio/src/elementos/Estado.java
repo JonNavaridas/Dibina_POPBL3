@@ -20,4 +20,14 @@ public enum Estado {
 		if (this.equals(DENEGADO) || this.equals(RECOGIDO)) return true;
 		return false;
 	}
+	
+	public static Estado getEstado(String estado) {
+		switch(estado) {
+		case "procesando": return PROCESANDO;
+		case "aceptado": return ACEPTADO;
+		case "denegado": return DENEGADO;
+		case "recogido": return RECOGIDO;
+		default: return null;
+		}
+	}
 }

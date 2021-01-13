@@ -1,0 +1,28 @@
+package buffer;
+
+public class Buffer<T> {
+	
+	T valor;
+	Buffer<T> sgg;
+	
+	public Buffer(T valor) {
+		this.valor = valor;
+	}
+
+	public Buffer<T> getSgg() {
+		return sgg;
+	}
+
+	public void setSgg(Buffer<T> sgg) {
+		this.sgg = sgg;
+	}
+
+	public T getValor() {
+		return valor;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(valor);
+	}
+}
