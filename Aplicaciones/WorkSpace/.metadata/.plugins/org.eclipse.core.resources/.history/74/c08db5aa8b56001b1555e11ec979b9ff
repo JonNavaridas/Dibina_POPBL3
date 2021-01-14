@@ -36,6 +36,6 @@ public class Procedencia implements Serializable {
 	}
 
 	public String transformToString() {
-		return nombre + "/" + abreviatura;
+		return nombre + "%" + abreviatura;
 	}
 }

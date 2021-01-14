@@ -105,12 +105,12 @@ public class ElementoEnCola {
 	}
 
 	private Tipo transformToTipo(String elemento) {
-		String[] valores = elemento.split("[/]");
+		String[] valores = elemento.split("[%]");
 		return new Tipo(Integer.parseInt(valores[0]), valores[1]);
 	}
 
 	private Procedencia transformToProcedencia(String elemento) {
-		String[] valores = elemento.split("[/]");
+		String[] valores = elemento.split("[%]");
 		return new Procedencia(valores[0], valores[1]);
 	}
 }

@@ -34,6 +34,6 @@ public class Tipo implements Serializable, Comparator<Tipo> {
 	}
 
 	public String transformToString() {
-		return ID + "/" + nombre;
+		return ID + "%" + nombre;
 	}
 }
