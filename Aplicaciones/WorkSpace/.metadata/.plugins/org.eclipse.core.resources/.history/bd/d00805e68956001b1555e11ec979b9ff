@@ -176,6 +176,8 @@ public class GestorElementos extends Thread {
 	}
 	
 	private void writeLog(ElementoEnCola elemento) {
+		String tipo = "";
+		
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
 			try {
@@ -189,7 +191,7 @@ public class GestorElementos extends Thread {
 					out.write(elemento.getElemento() + ": User " + elemento.getElemento().split("$")[0]);
 					break;
 				default:
-					System.out.println("Error");
+					tipo = "error";
 					break;
 				}
 			} 

@@ -189,7 +189,7 @@ public class GestorElementos extends Thread {
 					out.write(elemento.getElemento() + ": User " + elemento.getElemento().split("$")[0]);
 					break;
 				default:
-					System.out.println("Error");
+					tipo = "error";
 					break;
 				}
 			} 

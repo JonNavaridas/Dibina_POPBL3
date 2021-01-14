@@ -21,7 +21,7 @@ public class Server {
 		
 		new KeyboardListener().start();
 		System.out.println("############################################");
-		System.out.println("               SERVER RUNNING               ");
+		System.out.println("###############SERVER RUNNING###############");
 		System.out.println("############################################");
 		
 		while (true) {

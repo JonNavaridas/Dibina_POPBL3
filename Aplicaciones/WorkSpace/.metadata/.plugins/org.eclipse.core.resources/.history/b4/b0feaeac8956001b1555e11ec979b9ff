@@ -20,9 +20,9 @@ public class Server {
 		server = new ServerSocket(port);
 		
 		new KeyboardListener().start();
-		System.out.println("############################################");
-		System.out.println("               SERVER RUNNING               ");
-		System.out.println("############################################");
+		System.out.println("##############");
+		System.out.println("SERVER RUNNING");
+		System.out.println("##############");
 		
 		while (true) {
 			socket = server.accept();

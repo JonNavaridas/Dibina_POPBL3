@@ -20,9 +20,6 @@ public class Server {
 		server = new ServerSocket(port);
 		
 		new KeyboardListener().start();
-		System.out.println("############################################");
-		System.out.println("               SERVER RUNNING               ");
-		System.out.println("############################################");
 		
 		while (true) {
 			socket = server.accept();
@@ -38,13 +35,13 @@ public class Server {
 			boolean running = true;
 			
 			do {
+				System.out.println("Running");
 				if (teclado.nextLine().toLowerCase().equals("quit")) {
-					System.out.println("Closing server...");
 					running = false;
 					teclado.close();
-					System.exit(0);
 				}
 			} while (running);
+			System.out.println("Closed");
 		}
 		
 	}
