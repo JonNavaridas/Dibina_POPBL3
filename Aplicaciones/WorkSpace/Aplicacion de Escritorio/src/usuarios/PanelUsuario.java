@@ -8,7 +8,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -27,11 +26,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 
+import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
-import gestionFicheros.EscritorDeElementos;
 import gestionPantallas.RoundedBorder;
 import gestionPedidos.PedidoException;
 import gestionUsuarios.DialogoContraseña;
@@ -199,8 +198,7 @@ public class PanelUsuario extends JScrollPane {
 					Pedido p = user.getListaPedidos().get(seleccionados[i]);
 					
 					if (p.getEstado().equals(Estado.DENEGADO)) p.setEstado(Estado.PROCESANDO);
-					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede cancelar. Pongase en contacto con el administrador"
-							+ "para mas información.");
+					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede volver a realizar.");
 				}
 			}
 			catch (PedidoException e) {
@@ -248,14 +246,12 @@ public class PanelUsuario extends JScrollPane {
 			try {
 				int newPassword = dlg.getNewPassword();
 				if (newPassword != -1) {
-					EscritorDeElementos escritor = new EscritorDeElementos();
-					escritor.cambiarContraseña(user, newPassword);
+					Cliente cliente = new Cliente(user.transformToString() + "-" + newPassword, "Cambiar contraseña", this);
+					cliente.start();
 					user.setContraseña(newPassword);
 				}
 			} catch (UserException e) {
 				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
 		});
 		boton.setToolTipText("Cambiar contraseña."); // Aplicar una descripción

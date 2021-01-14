@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -92,6 +93,7 @@ public class PantallaCarga extends JDialog {
 				listaTipos = gestor.leerTipos();
 				Thread.sleep(50);
 				barraCarga.setValue(20);
+				if (listaTipos == null) listaTipos = new ArrayList<>();
 				
 				destinos = gestor.leerDestinos();
 				Thread.sleep(50);
@@ -100,14 +102,17 @@ public class PantallaCarga extends JDialog {
 				listaPedidos = gestor.leerPedidos();
 				Thread.sleep(50);
 				barraCarga.setValue(60);
+				if (listaPedidos == null) listaPedidos = new ArrayList<>();
 				
 				listaProductos = gestor.leerProductos();
 				Thread.sleep(50);
 				barraCarga.setValue(80);
+				if (listaProductos == null) listaProductos = new ArrayList<>();
 				
 				listaProcedencias = gestor.leerProcedencias();
 				Thread.sleep(50);
 				barraCarga.setValue(100);
+				if (listaProcedencias == null) listaProcedencias = new ArrayList<>();
 				
 				PantallaCarga.this.dispose();
 			}

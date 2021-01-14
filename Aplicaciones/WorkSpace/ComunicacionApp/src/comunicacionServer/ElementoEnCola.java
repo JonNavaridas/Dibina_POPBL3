@@ -55,11 +55,19 @@ public class ElementoEnCola {
 	}
 	
 	public User transformToUser() {
-		return null;
+		String[] valores = elemento.split("[$]");
+		
+		String id = valores[0];
+		String name = valores[1];
+		String fullName = valores[2];
+		Integer password = Integer.parseInt(valores[3]);
+		Permisos permisos = Permisos.getPermiso(valores[4]);
+		
+		return new User(id, name, fullName, password, permisos);
 	}
 	
 	private User transformToUser(String parametros) {
-		String[] valores = parametros.split("[$]");
+		String[] valores = parametros.split("[-]")[0].split("[$]");
 		
 		String id = valores[0];
 		String name = valores[1];

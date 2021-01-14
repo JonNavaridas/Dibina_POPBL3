@@ -20,4 +20,37 @@ public class User {
 		this.permisos = permisos;
 		this.listaPedidos = new ArrayList<>();
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	
+	public String getID() {
+		return id;
+	}
+	
+	public Permisos getPermisos() {
+		return permisos;
+	}
+	
+	public int getContraseña() {
+		return password;
+	}
+	
+	public String createUserString() {
+		String[] values = this.fullName.split(" ");
+		String output = "";
+		
+		output += values[0] + ","; // Nombre
+		output += values[1] + ","; // Apellido
+		output += this.fullName + ","; // Nombre completo
+		output += this.fullName + ","; // Nombre de visualización
+		output += this.name + ","; // Nombre de la cuenta
+		
+		return output;
+	}
 }

@@ -1,10 +1,13 @@
 package comunicacionServer;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,8 +17,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 import elementos.Pedido;
+import elementos.User;
 
 public class GestorElementos extends Thread {
 
@@ -23,6 +28,7 @@ public class GestorElementos extends Thread {
 	private static final String FICHERO_USUARIOS = "Files/users.csv";
 	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
 	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
+	public static final String FICHERO_CREAR_USUARIOS = "Files/CreateUsers.csv";
 
 	Queue<ElementoEnCola> listaDeEspera;
 	private boolean running;
@@ -40,15 +46,17 @@ public class GestorElementos extends Thread {
 		}
 	}
 	
-	private void realizarAccion() throws ParseException {
+	private void realizarAccion() throws ParseException, IOException {
 		ElementoEnCola elemento = listaDeEspera.remove();
 		
 		switch(elemento.getOperacion()) {
 		case 1: addPedido(elemento.transformToPedido());
 			break;
-		case 2:
+		case 2: removePedido(elemento.transformToPedido());
 			break;
-		case 3:
+		case 3: añadirUsuario(elemento.transformToUser());
+			break;
+		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[-]")[1]));
 			break;
 		default:
 			System.out.println("Operacion no disponible"); 
@@ -64,6 +72,8 @@ public class GestorElementos extends Thread {
 			try {
 				realizarAccion();
 			} catch (ParseException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} while (running);
@@ -94,19 +104,96 @@ public class GestorElementos extends Thread {
 		}
 	}
 	
-	private void writeLog(ElementoEnCola elemento) {
-		String[] valores = elemento.getElemento().split("[#]");
-		String tipo = "";
+	@SuppressWarnings("unchecked")
+	private void removePedido(Pedido p) {
+		List<Pedido> listaPedidos = null;
 		
-		switch(valores.length) {
-		case 6: tipo = "Pedido"; break;
-		default: tipo = "error"; break;
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
+			listaPedidos = (List<Pedido>) in.readObject();
+			if (listaPedidos != null) {
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS));
+				listaPedidos.remove(p);
+				
+				out.writeObject(listaPedidos);
+				out.close();
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (EOFException e){
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
+	}
+	
+	public void añadirUsuario(User user) throws IOException {
+		BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_USUARIOS, true));
+		
+		String output = user.getID() + "," + user.getName() + "," + user.getFullName() + "," +
+						user.getContraseña() + "," + user.getPermisos().getInicial();
+		out.write(output + "\n");
+		out.close();
+		
+		File file = new File(FICHERO_CREAR_USUARIOS);
+		boolean ficheroVacio = !file.exists();
+		out = new BufferedWriter(new FileWriter(file, true));
+		
+		if (ficheroVacio) out.write("GivenName,Surname,Name,DisplayName,SamAccountName\n");
+		out.write(user.createUserString() + "\n");
+		out.close();
+	}
+	
+	private void cambiarContraseña(User user, int newPassword) throws IOException { // Cambia la contraseña del usuario asignado.
+        String oldLine = user.getID() + "," + user.getName() + "," + user.getContraseña();
+        String newLine = user.getID() + "," + user.getName() + "," + newPassword;
+        
+        List<String> usuarios = new ArrayList<>();
+        BufferedReader in = new BufferedReader(new FileReader(FICHERO_USUARIOS));
+		
+        System.out.println(newLine);
+        
+		String linea;
+		while ((linea = in.readLine()) != null) usuarios.add(linea);
+		in.close();
+		
+		usuarios.remove(oldLine);
+		usuarios.add(newLine);
+		
+		usuarios = usuarios.stream().sorted().collect(Collectors.toList());
+		
+		BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_USUARIOS));
+		usuarios.stream().forEach((a)->{
+			try {
+				out.write(a + "\n");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		out.close();
+	}
+	
+	private void writeLog(ElementoEnCola elemento) {
+		String tipo = "";
 		
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
 			try {
-				out.write(elemento.getOperacion() + ": " + tipo + " " + valores[0] + "\n");
+				switch(elemento.getOperacion()) {
+				case 1:
+				case 2:
+					out.write(elemento.getOperacion() + ": Pedido " + elemento.getElemento().split("#")[0] + "\n");
+					break;
+				case 3:
+				case 4:
+					out.write(elemento.getElemento() + ": User " + elemento.getElemento().split("$")[0]);
+					break;
+				default:
+					tipo = "error";
+					break;
+				}
 			} 
 			catch (IOException e) {
 				e.printStackTrace();

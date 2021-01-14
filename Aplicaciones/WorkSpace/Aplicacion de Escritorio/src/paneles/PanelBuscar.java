@@ -56,7 +56,11 @@ public class PanelBuscar extends JScrollPane {
 		listaProcedencia = this.transformToArray(listaProductos.stream().map(Producto::getProcedencia).distinct().collect(Collectors.toList()));
 		listaCantidades = listaProductos.stream().map(Producto::getCantidad).distinct().collect(Collectors.toList());
 		
-		setCantidades();
+		if (listaCantidades.size() > 0) setCantidades();
+		else {
+			listaCantidad = new String[1];
+			listaCantidad[0] = "Todo";
+		}
 		
 		tipo = new JComboBox<>(listaTipo);
 		procedencia = new JComboBox<>(listaProcedencia);

@@ -17,6 +17,7 @@ public class EchoThread extends Thread {
         this.gestor = gestor;
     }
 
+	@Override
     public void run() {
         InputStream inp = null;
         BufferedReader in = null;
@@ -68,9 +69,10 @@ public class EchoThread extends Thread {
 		int numeroOperacion;
 		
 		switch(operacion) {
-		case "add pedido": numeroOperacion = 1; break;
-		case "remove productos": numeroOperacion = 2; break;
-		case "new user": numeroOperacion = 3; break;
+		case "Añadir pedido": numeroOperacion = 1; break;
+		case "Eliminar pedido": numeroOperacion = 2; break;
+		case "Crear usuario": numeroOperacion = 3; break;
+		case "Cambiar contraseña": numeroOperacion = 4; break;
 		default: numeroOperacion = 0; break;
 		}
 		

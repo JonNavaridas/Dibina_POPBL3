@@ -1,0 +1,22 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CrearFichero {
+
+	public static void main(String[] args) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
+			try {
+				out.write(elemento.getOperacion() + ": " + tipo + " " + valores[0] + "\n");
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			out.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

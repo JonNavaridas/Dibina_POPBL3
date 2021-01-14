@@ -246,7 +246,7 @@ public class PanelHacerPedido extends JScrollPane {
 				pedido.setDestino((String)destino.getSelectedItem());
 				pedido.setEstado(Estado.PROCESANDO);
 				
-				Cliente cliente = new Cliente(pedido.transformToString(), "add pedido", this);
+				Cliente cliente = new Cliente(pedido.transformToString(), "Añadir pedido", this);
 				cliente.start();
 				
 				listaPedidos.add(pedido);

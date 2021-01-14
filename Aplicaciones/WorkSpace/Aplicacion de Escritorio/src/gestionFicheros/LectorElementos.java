@@ -8,7 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import elementos.Pedido;
 import elementos.Procedencia;
@@ -105,7 +107,8 @@ public class LectorElementos {
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
 			do {
 				listaProductos = (List<Producto>) in.readObject();
-			} while(listaPedidos != null);
+				listaProductos = listaProductos.stream().sorted(Comparator.comparing(Producto::toString)).collect(Collectors.toList());
+			} while(listaProductos != null);
 			
 		} catch (FileNotFoundException e) {
 			e.getStackTrace();
@@ -116,7 +119,7 @@ public class LectorElementos {
 			e.getStackTrace();
 			return null;
 		} catch (ClassNotFoundException e) {
-			e.getStackTrace();
+			e.printStackTrace();
 			return null;
 		}
 		return listaProductos;
