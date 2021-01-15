@@ -35,6 +35,20 @@ public class ElementoEnCola {
 	public String getElemento() {
 		return elemento;
 	}
+	
+	public String transformarOperacion() {
+		String operacion;
+		
+		switch(this.operacion) {
+		case 1: operacion = "Añadir pedido"; break;
+		case 2: operacion = "Eliminar pedido"; break;
+		case 3: operacion = "Crear usuario"; break;
+		case 4: operacion = "Cambiar contraseña"; break;
+		default: operacion = "Error"; break;
+		}
+		
+		return operacion;
+	}
 
 	public Pedido transformToPedido() throws ParseException {
 		String[] valores = elemento.split("[#]");

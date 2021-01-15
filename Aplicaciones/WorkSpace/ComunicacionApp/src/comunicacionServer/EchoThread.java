@@ -53,7 +53,10 @@ public class EchoThread extends Thread {
                 		}
                 	}
                 	else {
+                		if (gestor == null) gestor = new GestorElementos();
                 		gestor.addElementoACola(numeroOperacion, line);
+                		
+                		if (!gestor.getRunning()) gestor = null;
                 		out.write("Operacion realizada\n");
                 	}
                     out.flush();

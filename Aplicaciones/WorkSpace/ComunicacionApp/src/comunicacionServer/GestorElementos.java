@@ -31,7 +31,7 @@ public class GestorElementos extends Thread {
 	public static final String FICHERO_CREAR_USUARIOS = "Files/CreateUsers.csv";
 
 	Queue<ElementoEnCola> listaDeEspera;
-	private boolean running;
+	boolean running;
 	
 	public GestorElementos() {
 		listaDeEspera = new LinkedList<>();
@@ -40,10 +40,11 @@ public class GestorElementos extends Thread {
 	
 	public void addElementoACola(int operacion, String line) {
 		listaDeEspera.add(new ElementoEnCola(operacion, line));
-		if (!running) {
-			running = true;
-			this.start();
-		}
+		if (!running) running = true;
+	}
+	
+	public boolean getRunning() {
+		return running;
 	}
 	
 	private void realizarAccion() throws ParseException, IOException {
@@ -182,16 +183,34 @@ public class GestorElementos extends Thread {
 				switch(elemento.getOperacion()) {
 				case 1:
 				case 2:
-					out.write(elemento.getOperacion() + ": Pedido " + elemento.getElemento().split("#")[0] + "\n");
+					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("#")[0]);
+					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("#")[0] + "\n");
 					break;
 				case 3:
 				case 4:
-					out.write(elemento.getElemento() + ": User " + elemento.getElemento().split("$")[0]);
+					System.out.println(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0]);
+					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0] + "\n");
 					break;
 				default:
 					System.out.println("Error");
 					break;
 				}
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			out.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeLog(String mensaje) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
+			try {
+				out.write(mensaje);
 			} 
 			catch (IOException e) {
 				e.printStackTrace();

@@ -23,6 +23,7 @@ public class Server {
 		System.out.println("############################################");
 		System.out.println("               SERVER RUNNING               ");
 		System.out.println("############################################");
+		GestorElementos.writeLog("Server on\n");
 		
 		while (true) {
 			socket = server.accept();
@@ -40,6 +41,8 @@ public class Server {
 			do {
 				if (teclado.nextLine().toLowerCase().equals("quit")) {
 					System.out.println("Closing server...");
+					GestorElementos.writeLog("Server off\n");
+					
 					running = false;
 					teclado.close();
 					System.exit(0);
