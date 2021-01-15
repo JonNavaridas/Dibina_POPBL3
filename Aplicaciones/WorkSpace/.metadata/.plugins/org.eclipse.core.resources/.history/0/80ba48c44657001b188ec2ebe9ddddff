@@ -157,6 +157,8 @@ public class GestorElementos extends Thread {
         
         List<String> usuarios = new ArrayList<>();
         BufferedReader in = new BufferedReader(new FileReader(FICHERO_USUARIOS));
+		
+        System.out.println(newLine);
         
 		String linea;
 		while ((linea = in.readLine()) != null) usuarios.add(linea);

@@ -1,6 +1,5 @@
 package comunicacionSockets;
 
-import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 public class Cliente extends Thread {
 
@@ -17,9 +17,9 @@ public class Cliente extends Thread {
 	
 	public String mensaje;
 	public String operacion;
-	public Component panel;
+	public JScrollPane panel;
 	
-	public Cliente(String mensaje, String operacion, Component panel) {
+	public Cliente(String mensaje, String operacion, JScrollPane panel) {
 		this.mensaje = mensaje;
 		this.operacion = operacion;
 	}

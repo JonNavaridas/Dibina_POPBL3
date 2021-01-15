@@ -231,11 +231,17 @@ public class Dibina extends JFrame {
 			item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 			item.addActionListener((l)->{
 				DialogoCrearUsuario dlg = new DialogoCrearUsuario(this, "Crear usuario", true);
-				User user = dlg.getNewUsuario();
+				EscritorDeElementos escritor = new EscritorDeElementos();
 				
-				if (user != null) {
-					Cliente cliente = new Cliente(user.transformToString(), "Crear usuario", this);
-					cliente.start();
+				try {
+					User user = dlg.getNewUsuario();
+					if (user != null) {
+						Cliente cliente = new Cliente(user.transformToString(), "Crear usuario", this);
+						cliente.start();
+					}
+				}
+				catch (IOException e) {
+					e.printStackTrace();
 				}
 			});
 			item.setToolTipText("Crear un nuevo usuario."); // Aplicar una descripción
