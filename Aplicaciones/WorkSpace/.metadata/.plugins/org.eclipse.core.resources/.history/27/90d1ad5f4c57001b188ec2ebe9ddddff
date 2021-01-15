@@ -61,7 +61,7 @@ public class GestorElementos extends Thread {
 			break;
 		case 3: añadirUsuario(elemento.transformToUser());
 			break;
-		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
+		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[-]")[1]));
 			break;
 		default:
 			System.out.println("Operacion no disponible"); 

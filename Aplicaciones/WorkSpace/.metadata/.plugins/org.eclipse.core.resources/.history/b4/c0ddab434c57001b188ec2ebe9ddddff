@@ -246,7 +246,7 @@ public class PanelUsuario extends JScrollPane {
 			try {
 				int newPassword = dlg.getNewPassword();
 				if (newPassword != -1) {
-					Cliente cliente = new Cliente(user.transformToString() + "_" + newPassword, "Cambiar contraseña", this);
+					Cliente cliente = new Cliente(user.transformToString() + "-" + newPassword, "Cambiar contraseña", this);
 					cliente.start();
 					user.setContraseña(newPassword);
 				}

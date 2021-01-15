@@ -61,7 +61,7 @@ public class GestorElementos extends Thread {
 			break;
 		case 3: añadirUsuario(elemento.transformToUser());
 			break;
-		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
+		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[-]")[1]));
 			break;
 		default:
 			System.out.println("Operacion no disponible"); 
@@ -190,10 +190,8 @@ public class GestorElementos extends Thread {
 					break;
 				case 3:
 				case 4:
-					System.out.println(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("[$]")[0]
-							+ " " + elemento.getElemento().split("[$]")[2]);
-					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("[$]")[0]
-							+ " " + elemento.getElemento().split("[$]")[2] + "\n");
+					System.out.println(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0]);
+					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split(",")[0] + "\n");
 					break;
 				default:
 					System.out.println("Error");
