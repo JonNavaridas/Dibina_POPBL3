@@ -16,8 +16,8 @@ public class Server {
 		int port;
 		
 		port = Integer.valueOf(puerto).intValue();
+		gestor = new GestorElementos();
 		server = new ServerSocket(port);
-		gestor = null;
 		
 		new KeyboardListener().start();
 		System.out.println("############################################");
@@ -27,11 +27,7 @@ public class Server {
 		
 		while (true) {
 			socket = server.accept();
-			if (gestor == null) gestor = new GestorElementos();
-			
 			new EchoThread(socket, gestor).start();
-			if (gestor.elementosEnLista() == 0 && !gestor.getRunning())
-				gestor = null;
 		}
 	}
 	
@@ -53,6 +49,7 @@ public class Server {
 				}
 			} while (running);
 		}
+		
 	}
 	
 	public static void main(String[] args) throws IOException {		

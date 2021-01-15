@@ -47,10 +47,6 @@ public class GestorElementos extends Thread {
 		return running;
 	}
 	
-	public int elementosEnLista() {
-		return listaDeEspera.size();
-	}
-	
 	private void realizarAccion() throws ParseException, IOException {
 		ElementoEnCola elemento = listaDeEspera.remove();
 		

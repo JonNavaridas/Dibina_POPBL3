@@ -47,10 +47,6 @@ public class GestorElementos extends Thread {
 		return running;
 	}
 	
-	public int elementosEnLista() {
-		return listaDeEspera.size();
-	}
-	
 	private void realizarAccion() throws ParseException, IOException {
 		ElementoEnCola elemento = listaDeEspera.remove();
 		
@@ -182,7 +178,7 @@ public class GestorElementos extends Thread {
 	
 	private void writeLog(ElementoEnCola elemento) {
 		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG, true));
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
 			try {
 				switch(elemento.getOperacion()) {
 				case 1:
@@ -193,7 +189,7 @@ public class GestorElementos extends Thread {
 				case 3:
 				case 4:
 					System.out.println(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0]);
-					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split(",")[0] + "\n");
+					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0] + "\n");
 					break;
 				default:
 					System.out.println("Error");
@@ -212,7 +208,7 @@ public class GestorElementos extends Thread {
 	
 	public static void writeLog(String mensaje) {
 		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG, true));
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG));
 			try {
 				out.write(mensaje);
 			} 

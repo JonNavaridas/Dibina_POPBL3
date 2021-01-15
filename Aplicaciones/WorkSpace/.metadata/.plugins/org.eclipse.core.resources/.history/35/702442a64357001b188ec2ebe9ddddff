@@ -45,6 +45,7 @@ public class EchoThread extends Thread {
                 		numeroOperacion = confirmarOperacion(line);
                 		if (numeroOperacion != 0) {
                 			out.write("Operacion aceptada\n");
+                			
                 		}
                 		else {
                 			out.write("Operacion denegada\n");
@@ -52,8 +53,10 @@ public class EchoThread extends Thread {
                 		}
                 	}
                 	else {
-                		if (!gestor.isAlive()) gestor.start();
+                		if (gestor == null) gestor = new GestorElementos();
                 		gestor.addElementoACola(numeroOperacion, line);
+                		
+                		if (!gestor.getRunning()) gestor = null;
                 		out.write("Operacion realizada\n");
                 	}
                     out.flush();

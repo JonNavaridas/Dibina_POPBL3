@@ -40,15 +40,14 @@ public class GestorElementos extends Thread {
 	
 	public void addElementoACola(int operacion, String line) {
 		listaDeEspera.add(new ElementoEnCola(operacion, line));
-		if (!running) running = true;
+		if (!running) {
+			running = true;
+			this.start();
+		}
 	}
 	
 	public boolean getRunning() {
 		return running;
-	}
-	
-	public int elementosEnLista() {
-		return listaDeEspera.size();
 	}
 	
 	private void realizarAccion() throws ParseException, IOException {
@@ -193,7 +192,7 @@ public class GestorElementos extends Thread {
 				case 3:
 				case 4:
 					System.out.println(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0]);
-					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split(",")[0] + "\n");
+					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("$")[0] + "\n");
 					break;
 				default:
 					System.out.println("Error");
