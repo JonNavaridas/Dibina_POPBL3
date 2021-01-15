@@ -91,9 +91,9 @@ public class Lector {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static List<Pedido> leerPedidos() {
+	public static List<Pedido> leerPedidos(String path) {
 		List<Pedido> listaPedidos = new ArrayList<>();
-		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(path))) {
 			do {
 				listaPedidos = (List<Pedido>) in.readObject();
 			} while(listaPedidos != null);

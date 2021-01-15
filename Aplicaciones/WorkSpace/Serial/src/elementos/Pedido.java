@@ -130,7 +130,7 @@ public class Pedido implements Serializable{
 				+ destino + ", listaProductos=" + listaProductos + "]";
 	}	
 	
-	public boolean compareList(List<Producto> productos) {
+	public boolean compareProductList(List<Producto> productos) {
 		if(!(productos.size() == listaProductos.size())) return false;
 		for(Producto producto: productos) {
 			Producto tmp = listaProductos.stream().filter(f->f.getCantidad()==producto.getCantidad()&&

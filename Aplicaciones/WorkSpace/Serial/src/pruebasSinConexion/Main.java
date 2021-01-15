@@ -21,9 +21,9 @@ public class Main {
 		inicializar();
 		crearPedidosParaBuscar();
 		start();
-		Pedido pedido = EncontrarPedido(pedidoExiste);
+		Pedido pedido = encontrarPedido(pedidoExiste);
 		System.out.println((pedido==null)? "ERROR":"OK\n"+pedido);
-		pedido = EncontrarPedido(pedidoNoExiste);
+		pedido = encontrarPedido(pedidoNoExiste);
 		System.out.println((pedido==null)? "ERROR":"OK\n"+pedido);
 	}
 	
@@ -84,30 +84,32 @@ public class Main {
 	private void start(){
 		lista = null;
 		boolean opened = false;
-
+		int i=0;
+		
 		while(!opened) {
-			lista = Lector.leerPedidos();
+			if(i==8)lista = Lector.leerPedidos("Files/Pedidos.dat"); //PARA COMPROBAR QUE FUNCIONA EL WHILE
+			else lista = Lector.leerPedidos("Files/Pedidos2.dat");
+			
 			if(lista != null) opened = true;
 			else {
-				System.out.println("esperando");
+				System.out.println("esperando...");
 				try {
 					Thread.sleep(300);					
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
 			}
+			i++;
 		}
 		for(Pedido pedido: lista)System.out.println(pedido.toString());
 		System.out.println(pedidoExiste);
 		System.out.println(pedidoNoExiste);
 	}
 
-	private Pedido EncontrarPedido(Pedido pedido) {
-		
+	private Pedido encontrarPedido(Pedido pedido) {
 		Pedido tmp = lista.stream().filter(f->f.getDestino().equals(pedido.getDestino())&& 
-											  f.compareList(pedido.getListaProductos())&&
-											  f.getEstado()==Estado.ACEPTADO)
-								   .findFirst().orElse(null);
+					  f.compareProductList(pedido.getListaProductos())&&
+					  f.getEstado()==Estado.ACEPTADO).findFirst().orElse(null);
 		
 		return tmp;
 	}
