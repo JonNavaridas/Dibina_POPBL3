@@ -52,6 +52,7 @@ public class ElementoEnCola {
 
 	public Pedido transformToPedido() throws ParseException {
 		String[] valores = elemento.split("[#]");
+		System.out.println(elemento);
 		
 		Long id = Long.parseLong(valores[0]);
 		User user = transformToUser(valores[1]);
@@ -70,6 +71,7 @@ public class ElementoEnCola {
 	
 	public User transformToUser() {
 		String[] valores = elemento.split("[$]");
+		System.out.println(elemento);
 		
 		String id = valores[0];
 		String name = valores[1];
@@ -82,6 +84,7 @@ public class ElementoEnCola {
 	
 	private User transformToUser(String parametros) {
 		String[] valores = parametros.split("[-]")[0].split("[$]");
+		System.out.println(parametros);
 		
 		String id = valores[0];
 		String name = valores[1];
@@ -94,6 +97,7 @@ public class ElementoEnCola {
 	
 	private List<Producto> manageProductos(String productos) throws ParseException {
 		String[] elementos = productos.split("[%]");
+		System.out.println(productos);
 		List<Producto> lista = new ArrayList<>();
 		
 		for (int i = 0; i < elementos.length; i++) {
@@ -105,6 +109,8 @@ public class ElementoEnCola {
 
 	private Producto transformProducto(String elemento) throws ParseException {	
 		String[] valores = elemento.split("[$]");
+		System.out.println(elemento);
+		
 		Tipo tipo = transformToTipo(valores[0]);
 		
 		Calendar cal = Calendar.getInstance();
@@ -119,11 +125,13 @@ public class ElementoEnCola {
 
 	private Tipo transformToTipo(String elemento) {
 		String[] valores = elemento.split("[/]");
+		System.out.println(elemento);
 		return new Tipo(Integer.parseInt(valores[0]), valores[1]);
 	}
 
 	private Procedencia transformToProcedencia(String elemento) {
 		String[] valores = elemento.split("[/]");
+		System.out.println(elemento);
 		return new Procedencia(valores[0], valores[1]);
 	}
 }

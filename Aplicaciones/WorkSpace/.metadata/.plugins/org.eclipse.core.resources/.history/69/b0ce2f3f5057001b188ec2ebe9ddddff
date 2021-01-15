@@ -187,7 +187,7 @@ public class GestorElementos extends Thread {
 				case 2:
 					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0]);
 					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0] 
-							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[6]));
+							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[4));
 					break;
 				case 3:
 				case 4:

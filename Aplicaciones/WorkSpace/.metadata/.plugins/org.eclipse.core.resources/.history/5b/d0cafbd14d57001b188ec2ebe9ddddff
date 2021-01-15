@@ -185,9 +185,8 @@ public class GestorElementos extends Thread {
 				switch(elemento.getOperacion()) {
 				case 1:
 				case 2:
-					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0]);
-					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0] 
-							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[6]));
+					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("#")[0]);
+					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("#")[0] + "\n");
 					break;
 				case 3:
 				case 4:
@@ -209,25 +208,6 @@ public class GestorElementos extends Thread {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public String sacarProductos(String productoString) {
-		String[] productos = productoString.split("[&]");
-		String output = "";
-		String[] valores;
-		
-		for (int i = 0; i < productos.length; i++) {
-			valores = productos[i].split("[$]");
-			
-			output += "\t[";
-			output += "Tipo=" + valores[0] + ",";
-			output += "Fecha=" + valores[1] + ",";
-			output += "Cantidad=" + valores[2] + ",";
-			output += "Procedencia=" + valores[3];
-			output += "]\n";
-		}
-		
-		return output;
 	}
 	
 	public static void writeLog(String mensaje) {
