@@ -1,16 +1,13 @@
 package pruebasSinConexion;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import elementos.Estado;
 import elementos.Pedido;
-import elementos.Permisos;
 import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
-import elementos.User;
 
 public class MainBytes {
 
@@ -22,27 +19,20 @@ public class MainBytes {
 	
 	public MainBytes() {		
 		inicializar();
-		start();
-		
-		mensaje = crearMensajeProducto();
-		convertirMensaje(mensaje);
-		mensaje = crearMensajePedido();
-		convertirMensaje(mensaje);
+		procesarMensaje(mensaje);
 	}
-	
-	//Integer.toBinaryString((byte & 0xFF) + 0x100).substring(1)
-	
-	private void convertirMensaje(byte[] mensaje) {
+		
+	private boolean procesarMensaje(byte[] mensaje) {
 		int i=0;
 		boolean enviar = false;
 		Pedido pedido = new Pedido();
 		Producto producto;
 		
-		if((mensaje[i] & 0xFF)==129) {						//recibir = 10000001 (129)
+		if((mensaje[i] & 0xFF)==129) {			//recibir = 10000001 (129)
 			enviar = false;	
 			i++;
 		}
-		else if((mensaje[i] & 0xFF)==130) {					//enviar = 10000010 (130)
+		else if((mensaje[i] & 0xFF)==130) {		//enviar = 10000010 (130)
 			enviar = true;	
 			i++;
 			pedido.setDestino(destinos[(mensaje[i++] & 0xFF)]);
@@ -50,120 +40,72 @@ public class MainBytes {
 
 		do {
 			int valores[] = new int[3];
-			valores[0] = mensaje[i++]& 0xff; 									//Tipo
-			valores[1] = ((mensaje[i++] & 0xff) << 8) | (mensaje[i++] & 0xff);	//Cantidad
-			valores[2] = mensaje[i++]& 0xff;									//Procedencia
+			valores[0] = mensaje[i++]& 0xff; 								//Tipo
+			valores[1] = obtenerCantidad(mensaje[i++], mensaje[i++]);		//((mensaje[i++] & 0xff) << 8) | (mensaje[i++] & 0xff)	//Cantidad
+			valores[2] = mensaje[i++]& 0xff;								//Procedencia
 			
-			producto = new Producto(tipos[valores[0]], 
-					Calendar.getInstance().getTime(), 
-					valores[1], 
-					procedencias[valores[2]]);
-			if(enviar)pedido.addProducto(producto);
+			if(isProductoCorrecto(valores)) {
+				producto = new Producto(tipos[valores[0]],Calendar.getInstance().getTime(),valores[1],procedencias[valores[2]]);
+				if(enviar)pedido.addProducto(producto);
+			}
+			else return false;		
 			
 		}while((mensaje[i]& 0xFF) != 255);
 		
-		if(enviar) enviarPedido(pedido);
+		if(enviar) {
+			Pedido tmp = encontrarPedido(pedido);
+			if (tmp == null) return false;
+			else enviarPedido(tmp);
+		}
 		else recibirProducto(producto);
+		
+		return true;
 	}
-
+	
 	private void enviarPedido(Pedido pedido) {
-		//enviar el pedido por socket		
-		System.out.println(pedido.toString());
-		System.out.println((encontrarPedido(pedido)==null)? "ERROR":"OK\n"+pedido);
-
+		//COMUNICACION SOCKET
+		System.out.println(pedido);
 	}
 
 	private void recibirProducto(Producto producto) {
-		//enviar el producto por socket		
-		System.out.println(producto.toString() + " " +producto.getCantidad()+ " " +producto.getFecha());
+		//COMUNICACION SOCKET
+		System.out.println(producto);
 	}
 
-	private byte[] crearMensajeProducto() {
-		byte[] mensaje = new byte[128];
-		mensaje[0] = (byte) Integer.parseInt("10000001",2);	//Byte de inicio
-		mensaje[1] = (byte) Integer.parseInt("00000000",2);	//Producto
-		mensaje[2] = (byte) Integer.parseInt("00000000",2);	//Cantidad[0]
-		mensaje[3] = (byte) Integer.parseInt("00000011",2);	//Cantidad[1]
-		mensaje[4] = (byte) Integer.parseInt("00000001",2);	//Empresa
-		mensaje[5] = (byte) Integer.parseInt("11111111",2);	//Byte final
-		return mensaje;
+	private boolean isProductoCorrecto(int[] valores) {
+		if(valores[1] <= 0) return false;
+		if(!procedencias[valores[2]].getListTipo().contains(tipos[valores[0]])) return false;
+		return true;
 	}
 
-	private byte[] crearMensajePedido() {
-		byte[] mensaje = new byte[128];
-		mensaje[0] = (byte) Integer.parseInt("10000010",2);	//Byte de inicio
-		mensaje[1] = (byte) Integer.parseInt("00000001",2);	//Destino
+	private int obtenerCantidad(byte b, byte c) {
+		int primerByte = (b & 0xff) << 7;
+		int segundoByte = bitExtracted(c, 7, 1);
 		
-		mensaje[2] = (byte) Integer.parseInt("00000000",2);	//Producto
-		mensaje[0] = (byte) Integer.parseInt("10000010",2);	//Byte de inicio
-		mensaje[1] = (byte) Integer.parseInt("00000001",2);	//Destino
-		
-		mensaje[2] = (byte) Integer.parseInt("00000000",2);	//Producto
-		mensaje[3] = (byte) Integer.parseInt("00000000",2);	//Cantidad[0]
-		mensaje[4] = (byte) Integer.parseInt("00000011",2);	//Cantidad[1]
-		mensaje[5] = (byte) Integer.parseInt("00000001",2);	//Empresa
-		
-		mensaje[6] = (byte) Integer.parseInt("00000001",2);	//Producto
-		mensaje[7] = (byte) Integer.parseInt("00000001",2);	//Cantidad[0]
-		mensaje[8] = (byte) Integer.parseInt("00000000",2);	//Cantidad[1]
-		mensaje[9] = (byte) Integer.parseInt("00000010",2);	//Empresa
-		
-		mensaje[10] = (byte) Integer.parseInt("11111111",2);//Byte final
-		return mensaje;						
+		return primerByte+segundoByte;
 	}
+
+	public int bitExtracted(int number, int k, int p) { 
+        return (((1 << k) - 1) & (number >> (p - 1))); 
+    } 
 
 	private void inicializar() {
-		lista = new ArrayList<>();
+		lista = leerListadoPedidos();
 		destinos = Lector.leerDestinos();
 		procedencias = Lector.leerProcedencias().toArray(new Procedencia[0]);
 		tipos = Lector.leerTipos().toArray(new Tipo[0]);
-		
-		for(int i  = 0; i < 4; i++) {
-			Pedido pedido = null;
-			pedido = crearPedido(i);
-			lista.add(pedido);
-		}
-		Lector.escribirPedidos(lista);
 	}
 
-	private Pedido crearPedido(int i) {
-		Pedido pedido = new Pedido();
-		List<User> users = crearUsers();
-		
-		pedido.setDestino(destinos[(int)(Math.random()*destinos.length)]);
-		pedido.setEstado(Estado.ACEPTADO);
-		pedido.setFecha(Calendar.getInstance().getTime());
-		pedido.setId((long) 11111);
-		pedido.setUser(users.get(i));
-		for(int j = 0; j < 3; j++) {
-			pedido.addProducto(new Producto(
-					tipos[(int)(Math.random()*tipos.length)], 
-					Calendar.getInstance().getTime(), 
-					(int)(Math.random()*100), 
-					procedencias[(int)(Math.random()*procedencias.length)]));
-		}
-		return pedido;
-	}
-
-	private List<User> crearUsers() {
-		List<User> users = new ArrayList<>();
-		users.add(new User("11111", "1", "11", 1, Permisos.TOTAL));
-		users.add(new User("22222", "2", "22", 2, Permisos.TOTAL));
-		users.add(new User("33333", "3", "33", 3, Permisos.TOTAL));
-		users.add(new User("44444", "4", "44", 4, Permisos.TOTAL));		
-		return users;
-	}
-
-	private void start(){
-		lista = null;
+	private List<Pedido> leerListadoPedidos(){
+		List<Pedido> list = null;
 		boolean opened = false;
 		int i=0;
 		
 		while(!opened) {
-			if(i==3)lista = Lector.leerPedidos("Files/Pedidos.dat"); //PARA COMPROBAR QUE FUNCIONA EL WHILE
-			else lista = Lector.leerPedidos("Files/Pedidos2.dat");
+			if(i==3)list = Lector.leerPedidos("Files/Pedidos.dat"); //PARA COMPROBAR QUE FUNCIONA EL WHILE
+			else list = Lector.leerPedidos("Files/Pedidos2.dat");
 			
-			if(lista != null) opened = true;
+			if(list != null) opened = true;
 			else {
 				System.out.println("esperando...");
 				try {
@@ -175,6 +117,7 @@ public class MainBytes {
 			i++;
 		}
 		for(Pedido pedido: lista)System.out.println(pedido.toString());
+		return list;
 	}
 
 	private Pedido encontrarPedido(Pedido pedido) {

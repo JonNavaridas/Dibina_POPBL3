@@ -1,16 +1,19 @@
-import com.fazecast.jSerialComm.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fazecast.jSerialComm.SerialPort;
+import com.fazecast.jSerialComm.SerialPortDataListener;
+import com.fazecast.jSerialComm.SerialPortEvent;
 
 public class Recibir  implements SerialPortDataListener {
 	
 	SerialPort serialport;
 	String textoRecibido =null;
-	byte[] bufferDeMensaje;
-	int puntero;
+	List<Byte> bufferDeMensaje;
 	
 	public Recibir (SerialPort serialport) {
 		this.serialport = serialport;	
-		bufferDeMensaje= new byte[256];
-		puntero=0;
+		bufferDeMensaje= new ArrayList<>();
 	}
 	  
       
@@ -28,20 +31,15 @@ public class Recibir  implements SerialPortDataListener {
 		switch(Integer.toBinaryString((bufferDeLectura[0] & 0xFF) + 0x100).substring(1)) {
 		case "10000001":
 		case "10000010":
-			bufferDeMensaje=null;
-			bufferDeMensaje= new byte[256];
-			puntero=0;
-			bufferDeMensaje[puntero++]=bufferDeLectura[0];
+			bufferDeMensaje= new ArrayList<>();
+			bufferDeMensaje.add(bufferDeLectura[0]);
 			break;
 		case "11111111":
-			bufferDeMensaje[puntero++]=bufferDeLectura[0];
-			for(int i=0;i<puntero;i++) {
-				System.out.println(Integer.toBinaryString((bufferDeMensaje[i] & 0xFF) + 0x100).substring(1));
-			}
+			bufferDeMensaje.add(bufferDeLectura[0]);
 			serialport.writeBytes(bufferDeEnvio,1);
 			break;
 		default:
-			bufferDeMensaje[puntero++]=bufferDeLectura[0];
+			bufferDeMensaje.add(bufferDeLectura[0]);
 			break;
 			
 		}
