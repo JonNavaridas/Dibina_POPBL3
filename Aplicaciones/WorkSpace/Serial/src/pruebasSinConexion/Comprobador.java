@@ -9,20 +9,21 @@ import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
 
-public class MainBytes {
+public class Comprobador {
 
 	List<Pedido> lista;
 	String[] destinos;
 	Procedencia[] procedencias;
 	Tipo[] tipos;
-	byte[] mensaje;
 	
-	public MainBytes() {		
-		inicializar();
-		procesarMensaje(mensaje);
+	public Comprobador() {		
+		lista = leerListadoPedidos();
+		destinos = Lector.leerDestinos();
+		procedencias = Lector.leerProcedencias().toArray(new Procedencia[0]);
+		tipos = Lector.leerTipos().toArray(new Tipo[0]);
 	}
 		
-	private boolean procesarMensaje(byte[] mensaje) {
+	public boolean procesarMensaje(Byte[] mensaje) {
 		int i=0;
 		boolean enviar = false;
 		Pedido pedido = new Pedido();
@@ -87,23 +88,14 @@ public class MainBytes {
 
 	public int bitExtracted(int number, int k, int p) { 
         return (((1 << k) - 1) & (number >> (p - 1))); 
-    } 
-
-	private void inicializar() {
-		lista = leerListadoPedidos();
-		destinos = Lector.leerDestinos();
-		procedencias = Lector.leerProcedencias().toArray(new Procedencia[0]);
-		tipos = Lector.leerTipos().toArray(new Tipo[0]);
-	}
+    }
 
 	private List<Pedido> leerListadoPedidos(){
 		List<Pedido> list = null;
 		boolean opened = false;
-		int i=0;
 		
 		while(!opened) {
-			if(i==3)list = Lector.leerPedidos("Files/Pedidos.dat"); //PARA COMPROBAR QUE FUNCIONA EL WHILE
-			else list = Lector.leerPedidos("Files/Pedidos2.dat");
+			list = Lector.leerPedidos("Files/Pedidos.dat");
 			
 			if(list != null) opened = true;
 			else {
@@ -114,9 +106,8 @@ public class MainBytes {
 					e.printStackTrace();
 				}
 			}
-			i++;
 		}
-		for(Pedido pedido: lista)System.out.println(pedido.toString());
+		//for(Pedido pedido: lista)System.out.println(pedido.toString());
 		return list;
 	}
 
@@ -126,10 +117,6 @@ public class MainBytes {
 					  f.getEstado()==Estado.ACEPTADO).findFirst().orElse(null);
 		
 		return tmp;
-	}
-	
-	public static void main(String[] args) {
-		MainBytes programa = new MainBytes();
 	}
 
 }

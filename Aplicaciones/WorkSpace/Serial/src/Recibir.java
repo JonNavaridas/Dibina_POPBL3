@@ -5,12 +5,15 @@ import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
 
+import pruebasSinConexion.Comprobador;
+
 public class Recibir  implements SerialPortDataListener {
 	
 	SerialPort serialport;
 	String textoRecibido =null;
 	List<Byte> bufferDeMensaje;
-	
+	Comprobador comprobador;
+	boolean bien;
 	public Recibir (SerialPort serialport) {
 		this.serialport = serialport;	
 		bufferDeMensaje= new ArrayList<>();
@@ -22,8 +25,8 @@ public class Recibir  implements SerialPortDataListener {
 	   		
    		if (event.getEventType() != SerialPort.LISTENING_EVENT_DATA_AVAILABLE)
           return;
+   		
    		byte[] bufferDeEnvio = new byte[1];
-   		bufferDeEnvio[0]=0;
    		byte[] bufferDeLectura = new byte[1];//preparamos el buffer de lectura
 		int numeroDeBytesLeidos = serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
 		System.out.println(Integer.toBinaryString((bufferDeLectura[0] & 0xFF) + 0x100).substring(1));   
@@ -36,6 +39,15 @@ public class Recibir  implements SerialPortDataListener {
 			break;
 		case "11111111":
 			bufferDeMensaje.add(bufferDeLectura[0]);
+			comprobador=new Comprobador();
+			
+			if(comprobador.procesarMensaje(bufferDeMensaje.toArray(new Byte[0]))) {
+				bufferDeEnvio[0]=1;
+				System.out.println("bien");
+			}else {
+				bufferDeEnvio[0]=0;
+				System.out.println("nope");
+			}
 			serialport.writeBytes(bufferDeEnvio,1);
 			break;
 		default:
