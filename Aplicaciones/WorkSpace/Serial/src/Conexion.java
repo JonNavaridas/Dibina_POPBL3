@@ -41,7 +41,7 @@ public class Conexion {
   	
      private void configurarPuerto() {
  		serialport.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING, 5000, 0);
-		serialport.setBaudRate(115200);
+		serialport.setBaudRate(9800);
 		serialport.setNumDataBits(8);
 		serialport.setParity(SerialPort.NO_PARITY);
 		serialport.setNumStopBits(SerialPort.ONE_STOP_BIT);
