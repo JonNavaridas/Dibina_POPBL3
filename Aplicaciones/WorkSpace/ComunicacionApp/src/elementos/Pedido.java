@@ -23,4 +23,16 @@ public class Pedido implements Serializable {
 		this.destino = destino;
 		this.listaProductos = listaProductos;
 	}
+	
+	public List<Producto> getProducto() {
+		return listaProductos;
+	}
+	
+	public Long getID() {
+		return id;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 }

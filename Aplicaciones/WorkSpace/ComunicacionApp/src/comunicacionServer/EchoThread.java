@@ -69,10 +69,14 @@ public class EchoThread extends Thread {
 		int numeroOperacion;
 		
 		switch(operacion) {
-		case "Añadir pedido": numeroOperacion = 1; break;
-		case "Eliminar pedido": numeroOperacion = 2; break;
-		case "Crear usuario": numeroOperacion = 3; break;
-		case "Cambiar contraseña": numeroOperacion = 4; break;
+		case "Añadir pedido": numeroOperacion = 1; break; // Añadir un pedido a la lista de pedidos
+		case "Eliminar pedido": numeroOperacion = 2; break; // Retirar n numero de pedidos (entregados o denegados)
+		case "Crear usuario": numeroOperacion = 3; break; // Añadir un nuevo usuario
+		case "Cambiar contraseña": numeroOperacion = 4; break; // Cambiar la contraseña de un usuario ya existente
+		case "Aceptar pedido": numeroOperacion = 5; break; // Marcar un pedido procesado como aceptado
+		case "Denegar pedido": numeroOperacion = 6; break; // Marcar un pedido procesando com denegado
+		case "Entregar pedido": numeroOperacion = 7; break; // Marcar un pedido aceptado como entregado
+		case "Rehacer pedido": numeroOperacion = 8; break; // Marcar un pedido denegado como procesando
 		default: numeroOperacion = 0; break;
 		}
 		

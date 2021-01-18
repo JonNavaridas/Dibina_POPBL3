@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -24,6 +25,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 
+import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
 import gestionElementosVisuales.FontFactory;
@@ -101,6 +103,7 @@ public class PanelListaPedidos extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CONFIRMAR));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			try {
 				if (tabla.getSelectedRows().length > 0 && JOptionPane.showConfirmDialog(this,
 						"Una vez se acepte un pedido no podra denegarlo. ¿Esta seguro de que quiere continuar?") == JOptionPane.YES_OPTION) {
@@ -108,6 +111,7 @@ public class PanelListaPedidos extends JScrollPane {
 					int[] seleccionados = tabla.getSelectedRows();
 					for (int i = 0; i < seleccionados.length; i++) {
 						listaDisplay.get(seleccionados[i]).setEstado(Estado.aceptar());
+						pedidosRealizados.add(listaDisplay.get(seleccionados[i]));
 					}
 					this.repaint();
 				}
@@ -115,22 +119,39 @@ public class PanelListaPedidos extends JScrollPane {
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
+			finally {
+				String idPedidos = "";
+				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+				
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Aceptar pedido", this);
+				cliente.start();
+			}
 		});
 		boton.setToolTipText("Confirmar un pedido que se está procesando."); // Aplicar una descripción
 		toolBar.add(boton);
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_DENEGAR));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
 				for (int i = 0; i < seleccionados.length; i++) {
-					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.PROCESANDO))
+					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.PROCESANDO)) {
 						listaDisplay.get(seleccionados[i]).setEstado(Estado.denegar());
+						pedidosRealizados.add(listaDisplay.get(seleccionados[i]));
+					}
 				}
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+			}
+			finally {
+				String idPedidos = "";
+				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+				
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
+				cliente.start();
 			}
 		});
 		boton.setToolTipText("Denegar un pedido que se está procesando."); // Aplicar una descripción
@@ -138,16 +159,26 @@ public class PanelListaPedidos extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_ENTREGADO));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
 				for (int i = 0; i < seleccionados.length; i++) {
-					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.ACEPTADO))
+					if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.ACEPTADO)) {
 						listaDisplay.get(seleccionados[i]).setEstado(Estado.marcarRecogido());
+						pedidosRealizados.add(listaDisplay.get(seleccionados[i]));
+					}
 				}
 				this.repaint();
 			}
 			catch (IndexOutOfBoundsException e) {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
+			}
+			finally {
+				String idPedidos = "";
+				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+				
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Entregar pedido", this);
+				cliente.start();
 			}
 		});
 		boton.setToolTipText("Marcar un pedido aceptado como entregado."); // Aplicar una descripción

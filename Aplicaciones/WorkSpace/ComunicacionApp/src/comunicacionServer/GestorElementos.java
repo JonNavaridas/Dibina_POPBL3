@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+import elementos.Estado;
 import elementos.Pedido;
+import elementos.Producto;
 import elementos.User;
 
 public class GestorElementos extends Thread {
@@ -57,11 +59,19 @@ public class GestorElementos extends Thread {
 		switch(elemento.getOperacion()) {
 		case 1: addPedido(elemento.transformToPedido());
 			break;
-		case 2: removePedido(elemento.transformToPedido());
+		case 2: removePedido(elemento.transformToPedidos());
 			break;
 		case 3: añadirUsuario(elemento.transformToUser());
 			break;
 		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
+			break;
+		case 5: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
+			break;
+		case 6: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.DENEGADO);
+			break;
+		case 7: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.RECOGIDO);
+			break;
+		case 8: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
 			break;
 		default:
 			System.out.println("Operacion no disponible"); 
@@ -110,18 +120,118 @@ public class GestorElementos extends Thread {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void removePedido(Pedido p) {
+	private void removePedido(List<Long> listID) {
+		List<Pedido> listaEliminar = getPedidosByID(listID);
 		List<Pedido> listaPedidos = null;
 		
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			listaPedidos = (List<Pedido>) in.readObject();
 			if (listaPedidos != null) {
 				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS));
-				listaPedidos.remove(p);
+				for (Pedido p : listaEliminar) {
+					listaPedidos.remove(p);
+				}
+				out.writeObject(listaPedidos);
+				out.close();
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (EOFException e){
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void cambiarEstadoPedido(List<Long> listaID, Estado estado) {
+		List<Pedido> listaPedidos = null;
+		
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
+			listaPedidos = (List<Pedido>) in.readObject();
+			if (listaPedidos != null) {
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS));
+				for (Pedido p : listaPedidos) {
+					if (listaID.contains(p.getID())) p.setEstado(estado);
+				}
 				
 				out.writeObject(listaPedidos);
 				out.close();
 			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (EOFException e){
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (estado == Estado.ACEPTADO) reducirStock(listaPedidos);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Pedido> getPedidosByID(List<Long> listID) {
+		List<Pedido> listaPedidos = null;
+		
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
+			listaPedidos = (List<Pedido>) in.readObject();
+			in.close();
+			return listaPedidos;
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (EOFException e){
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return listaPedidos;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void reducirStock(List<Pedido> listaPedidos) {
+		List<Producto> listaReducir = new ArrayList<>();
+		List<Producto> listaProductos = null;
+		
+		for (Pedido p : listaPedidos) {
+			List<Producto> list = p.getProducto();
+			for (int i = 0; i < list.size(); i++) {
+				if (listaReducir.contains(list.get(i))) {
+					int index = listaReducir.indexOf(list.get(i));
+					listaReducir.get(index).addElements(list.get(i).getCantidad());
+				}
+				else {
+					listaReducir.add(list.get(i));
+				}
+			}
+		}
+		
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
+			listaProductos = (List<Producto>) in.readObject();
+			
+			for (Producto p : listaProductos) {
+				if (listaReducir.contains(p)) {
+					if (p.getCantidad() == listaProductos.get(listaProductos.indexOf(p)).getCantidad()) {
+						listaProductos.remove(p);
+					}
+					else {
+						listaProductos.get(listaProductos.indexOf(p)).addElements(-p.getCantidad());
+					}
+				}
+			}
+			in.close();
+			
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PRODUCTOS));
+			out.writeObject(listaProductos);
+			out.close();
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -187,7 +297,7 @@ public class GestorElementos extends Thread {
 				case 2:
 					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0]);
 					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0] 
-							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[6]));
+							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[5]));
 					break;
 				case 3:
 				case 4:

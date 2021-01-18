@@ -9,7 +9,7 @@ public class Producto implements Serializable {
 
 	Tipo tipo; // Que clase de producto es.
 	Date fecha; // Fecha en la que entro el ultimo producto de este tipo.
-	int cantidad; // Numero de unidades.
+	Integer cantidad; // Numero de unidades.
 	Procedencia procedencia; // Enpresa que proporciono el producto.
 	
 	public Producto(Tipo tipo, Date fecha, int cantidad, Procedencia procedencia) {
@@ -18,4 +18,20 @@ public class Producto implements Serializable {
 		this.cantidad = cantidad;
 		this.procedencia = procedencia;
 	}
+	
+	public int getCantidad() {
+		return cantidad;
+	}
+	
+	public void addElements(int cantidad) {
+		this.cantidad += cantidad;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Producto p = (Producto)obj;
+		if (p.tipo == tipo && p.procedencia == procedencia) return true;
+		return false;
+	}
+	
 }

@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -192,12 +193,17 @@ public class PanelUsuario extends JScrollPane {
 		// Volver a realizar un pedido.
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_REHACER));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
+				
 				for (int i = 0; i < seleccionados.length; i++) {
 					Pedido p = user.getListaPedidos().get(seleccionados[i]);
 					
-					if (p.getEstado().equals(Estado.DENEGADO)) p.setEstado(Estado.PROCESANDO);
+					if (p.getEstado().equals(Estado.DENEGADO)) {
+						p.setEstado(Estado.PROCESANDO);
+						pedidosRealizados.add(p);
+					}
 					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede volver a realizar.");
 				}
 			}
@@ -208,6 +214,11 @@ public class PanelUsuario extends JScrollPane {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
 			finally {
+				String idPedidos = "";
+				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+				
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Rehacer pedido", this);
+				cliente.start();
 				this.repaint();
 			}
 		});
@@ -217,10 +228,12 @@ public class PanelUsuario extends JScrollPane {
 		// Cancelar los pedidos seleccionados.
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_CANCELAR));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			try {
 				int[] seleccionados = tabla.getSelectedRows();
 				for (int i = 0; i < seleccionados.length; i++) {
 					Pedido p = user.getListaPedidos().get(seleccionados[i]);
+					pedidosRealizados.add(p);
 					
 					if (!p.getEstado().equals(Estado.RECOGIDO) || !p.getEstado().equals(Estado.ACEPTADO)) p.setEstado(Estado.DENEGADO);
 					else throw new PedidoException("El pedido Nº" + (i+1) + " no se puede cancelar. Pongase en contacto con el administrador"
@@ -234,6 +247,11 @@ public class PanelUsuario extends JScrollPane {
 				JOptionPane.showMessageDialog(this, "Selecciona una fila", "Fila no encontrada", JOptionPane.WARNING_MESSAGE);
 			}
 			finally {
+				String idPedidos = "";
+				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+				
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
+				cliente.start();
 				this.repaint();
 			}
 		});
@@ -268,14 +286,25 @@ public class PanelUsuario extends JScrollPane {
 		
 		boton = new JButton(ImageFactory.createImageIcon(ImageFactory.ICONO_LIMPIAR));
 		boton.addActionListener((l)->{
+			List<Pedido> pedidosRealizados = new ArrayList<>();
 			Iterator<Pedido> it = listaPedidos.iterator();
 			
-			while(it.hasNext())
-				if (it.next().getEstado().comprobar()) it.remove();
-			
+			while(it.hasNext()) {
+				Pedido p = it.next();
+				if (p.getEstado().comprobar()) {
+					pedidosRealizados.add(p);
+					it.remove();
+				}
+			}
 			modeloTabla.setLista(listaPedidos);
 			listaDisplay = listaPedidos;
 			
+
+			String idPedidos = "";
+			for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
+			
+			Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Eliminar pedido", this);
+			cliente.start();
 			this.repaint();
 		});
 		boton.setToolTipText("Quitar pedidos entregados y denegados de la lista."); // Aplicar una descripción

@@ -68,6 +68,17 @@ public class ElementoEnCola {
 		return new Pedido(id, user, fecha, estado, destino, listaProductos);
 	}
 	
+	public List<Long> transformToPedidos() {
+		String[] valores = elemento.split("[$]");
+		List<Long> listaID = new ArrayList<>();
+		
+		for (int i = 0; i < valores.length; i++) {
+			listaID.add(Long.parseLong(valores[i]));
+		}
+		
+		return listaID;
+	}
+	
 	public User transformToUser() {
 		String[] valores = elemento.split("[$]");
 		
