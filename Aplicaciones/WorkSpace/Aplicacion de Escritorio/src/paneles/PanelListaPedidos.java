@@ -125,8 +125,10 @@ public class PanelListaPedidos extends JScrollPane {
 				String idPedidos = "";
 				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 				
-				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Aceptar pedido", this);
-				cliente.start();
+				if (pedidosRealizados.size() > 0) {
+					Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Aceptar pedido", this);
+					cliente.start();
+				}
 			}
 		});
 		boton.setToolTipText("Confirmar un pedido que se está procesando."); // Aplicar una descripción
@@ -152,8 +154,10 @@ public class PanelListaPedidos extends JScrollPane {
 				String idPedidos = "";
 				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 				
-				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
-				cliente.start();
+				if (pedidosRealizados.size() > 0) {
+					Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
+					cliente.start();
+				}
 			}
 		});
 		boton.setToolTipText("Denegar un pedido que se está procesando."); // Aplicar una descripción
@@ -179,8 +183,10 @@ public class PanelListaPedidos extends JScrollPane {
 				String idPedidos = "";
 				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 				
-				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Entregar pedido", this);
-				cliente.start();
+				if (pedidosRealizados.size() > 0) {
+					Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Entregar pedido", this);
+					cliente.start();
+				}
 			}
 		});
 		boton.setToolTipText("Marcar un pedido aceptado como entregado."); // Aplicar una descripción

@@ -217,8 +217,10 @@ public class PanelUsuario extends JScrollPane {
 				String idPedidos = "";
 				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 				
-				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Rehacer pedido", this);
-				cliente.start();
+				if (pedidosRealizados.size() > 0) {
+					Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Rehacer pedido", this);
+					cliente.start();
+				}
 				this.repaint();
 			}
 		});
@@ -250,8 +252,10 @@ public class PanelUsuario extends JScrollPane {
 				String idPedidos = "";
 				for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 				
-				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
-				cliente.start();
+				if (pedidosRealizados.size() > 0) {
+					Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Denegar pedido", this);
+					cliente.start();
+				}
 				this.repaint();
 			}
 		});
@@ -298,13 +302,14 @@ public class PanelUsuario extends JScrollPane {
 			}
 			modeloTabla.setLista(listaPedidos);
 			listaDisplay = listaPedidos;
-			
 
 			String idPedidos = "";
 			for (Pedido p : pedidosRealizados) idPedidos += String.valueOf(p.getId()) + "$";
 			
-			Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Eliminar pedido", this);
-			cliente.start();
+			if (pedidosRealizados.size() > 0) {
+				Cliente cliente = new Cliente(idPedidos.substring(0, idPedidos.length() - 1), "Eliminar pedido", this);
+				cliente.start();
+			}
 			this.repaint();
 		});
 		boton.setToolTipText("Quitar pedidos entregados y denegados de la lista."); // Aplicar una descripción
