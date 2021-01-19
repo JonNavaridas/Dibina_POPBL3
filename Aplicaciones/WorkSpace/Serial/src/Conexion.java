@@ -4,11 +4,12 @@ import com.fazecast.jSerialComm.SerialPort;
 
 public class Conexion {
     // El nombre del puerto puede variar dependiendo de la entrada USB del PC
-  //inicializamos y declaramos variables	
-   SerialPort serialport;
-   Recibir reader;
-   Enviar writer;
-   Scanner teclado;
+	//inicializamos y declaramos variables	
+	private static int RATIO_SERIAL = 9800, RATIO_BLUETOOTH = 115200;
+    SerialPort serialport;
+    Recibir reader;
+    Enviar writer;
+    Scanner teclado;
 	
   	public Conexion() {
 		int puerto;
@@ -30,18 +31,18 @@ public class Conexion {
                 		serialport=puertosDisponibles[puerto];               	
                 		reader = new Recibir(serialport);
                 		writer = new Enviar(serialport);
-                		configurarPuerto();//configuramos el puerto que nos interesa              
+                		System.out.println("Conexion mediante serial[0] o bluetooth[1]");
+                		configurarPuerto(teclado.nextInt());//configuramos el puerto que nos interesa              
                 	}
-
                 	catch (Exception e) {
                 		System.out.println(e.getMessage());
         			} 
                 }
             }
   	
-     private void configurarPuerto() {
+     private void configurarPuerto(int ratio) {
  		serialport.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING, 5000, 0);
-		serialport.setBaudRate(9800);
+		serialport.setBaudRate((ratio==1)?RATIO_BLUETOOTH:RATIO_SERIAL);
 		serialport.setNumDataBits(8);
 		serialport.setParity(SerialPort.NO_PARITY);
 		serialport.setNumStopBits(SerialPort.ONE_STOP_BIT);
