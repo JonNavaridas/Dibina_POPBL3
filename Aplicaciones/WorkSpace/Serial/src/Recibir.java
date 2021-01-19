@@ -5,8 +5,6 @@ import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
 
-import pruebasSinConexion.Comprobador;
-
 public class Recibir  implements SerialPortDataListener {
 	
 	SerialPort serialport;
