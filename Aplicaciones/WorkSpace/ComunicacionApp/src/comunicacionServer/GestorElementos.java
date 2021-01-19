@@ -171,7 +171,9 @@ public class GestorElementos extends Thread {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} finally {
-			if (estado == Estado.ACEPTADO) reducirStock(listaPedidos);
+			if (estado == Estado.ACEPTADO && listaPedidos != null) {
+				reducirStock(listaPedidos);
+			}
 		}
 	}
 
@@ -315,7 +317,7 @@ public class GestorElementos extends Thread {
 					for(Long l : valores) output += "\n\tPedido " + String.valueOf(l);
 					
 					System.out.println(elemento.transformarOperacion() + output);
-					out.write(elemento.transformarOperacion() + output);
+					out.write(elemento.transformarOperacion() + output + "\n");
 					break;
 				default:
 					System.out.println("Error");

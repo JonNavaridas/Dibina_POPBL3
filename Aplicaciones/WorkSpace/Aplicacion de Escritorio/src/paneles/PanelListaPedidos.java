@@ -110,8 +110,10 @@ public class PanelListaPedidos extends JScrollPane {
 					
 					int[] seleccionados = tabla.getSelectedRows();
 					for (int i = 0; i < seleccionados.length; i++) {
-						listaDisplay.get(seleccionados[i]).setEstado(Estado.aceptar());
-						pedidosRealizados.add(listaDisplay.get(seleccionados[i]));
+						if (listaDisplay.get(seleccionados[i]).getEstado().equals(Estado.PROCESANDO)) {
+							listaDisplay.get(seleccionados[i]).setEstado(Estado.aceptar());
+							pedidosRealizados.add(listaDisplay.get(seleccionados[i]));
+						}
 					}
 					this.repaint();
 				}
