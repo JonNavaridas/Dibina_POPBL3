@@ -44,6 +44,10 @@ public class ElementoEnCola {
 		case 2: operacion = "Eliminar pedido"; break;
 		case 3: operacion = "Crear usuario"; break;
 		case 4: operacion = "Cambiar contraseña"; break;
+		case 5: operacion = "Aceptar pedido"; break;
+		case 6: operacion = "Denegar pedido"; break;
+		case 7: operacion = "Entregar pedido"; break;
+		case 8: operacion = "Rehacer pedido"; break;
 		default: operacion = "Error"; break;
 		}
 		
