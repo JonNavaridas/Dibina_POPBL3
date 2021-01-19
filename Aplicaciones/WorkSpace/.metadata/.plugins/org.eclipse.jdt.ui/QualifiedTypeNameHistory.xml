@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="elementos.Producto"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="javax.swing.event.ListSelectionListener"/>
     <fullyQualifiedTypeName name="javax.swing.event.ListSelectionEvent"/>
@@ -32,7 +31,6 @@
     <fullyQualifiedTypeName name="javax.swing.Box"/>
     <fullyQualifiedTypeName name="gestionElementosVisuales.ImageFactory"/>
     <fullyQualifiedTypeName name="interfazVisual.Dibina"/>
-    <fullyQualifiedTypeName name="elementos.Estado"/>
     <fullyQualifiedTypeName name="gestionPaquetes.PedidoException"/>
     <fullyQualifiedTypeName name="usuarios.UserException"/>
     <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="elementos.Estado"/>
+    <fullyQualifiedTypeName name="elementos.Producto"/>
 </qualifiedTypeNameHistroy>

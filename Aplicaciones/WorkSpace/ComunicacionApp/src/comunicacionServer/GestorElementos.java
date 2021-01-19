@@ -306,6 +306,17 @@ public class GestorElementos extends Thread {
 					out.write(elemento.transformarOperacion() + ": User " + elemento.getElemento().split("[$]")[0]
 							+ " " + elemento.getElemento().split("[$]")[2] + "\n");
 					break;
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+					String output = "";
+					List<Long> valores = elemento.transformToPedidos();
+					for(Long l : valores) output += "\n\tPedido " + String.valueOf(l);
+					
+					System.out.println(elemento.transformarOperacion() + output);
+					out.write(elemento.transformarOperacion() + output);
+					break;
 				default:
 					System.out.println("Error");
 					break;
