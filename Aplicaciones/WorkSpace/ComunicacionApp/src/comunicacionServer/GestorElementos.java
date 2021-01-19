@@ -316,8 +316,8 @@ public class GestorElementos extends Thread {
 					List<Long> valores = elemento.transformToPedidos();
 					for(Long l : valores) output += "\n\tPedido " + String.valueOf(l);
 					
-					System.out.println(elemento.transformarOperacion() + output);
-					out.write(elemento.transformarOperacion() + output + "\n");
+					System.out.println(elemento.transformarOperacion() + ":" + output);
+					out.write(elemento.transformarOperacion() + ":" + output + "\n");
 					break;
 				default:
 					System.out.println("Error");
