@@ -75,7 +75,9 @@ public class Comprobador {
 
 	private boolean isProductoCorrecto(int[] valores) {
 		if(valores[1] <= 0) return false;
-		if(!procedencias[valores[2]].getListTipo().contains(tipos[valores[0]])) return false;
+		if(valores[2]>=procedencias.length || 
+				valores[0]>= tipos.length||
+				!procedencias[valores[2]].getListTipo().contains(tipos[valores[0]])) return false;
 		return true;
 	}
 
