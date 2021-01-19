@@ -37,7 +37,7 @@ public class Recibir  implements SerialPortDataListener {
 			bufferDeMensaje= new ArrayList<>();
 			bufferDeMensaje.add(bufferDeLectura[0]);
 			break;
-		case "11111111"://ihoih
+		case "11111111":
 			bufferDeMensaje.add(bufferDeLectura[0]);
 			comprobador=new Comprobador();
 			
