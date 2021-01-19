@@ -5,14 +5,14 @@ import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
 
-public class Recibir  implements SerialPortDataListener {
+public class ComunicacionPlaca  implements SerialPortDataListener {
 	
 	SerialPort serialport;
 	String textoRecibido =null;
 	List<Byte> bufferDeMensaje;
 	Comprobador comprobador;
 	boolean bien;
-	public Recibir (SerialPort serialport) {
+	public ComunicacionPlaca (SerialPort serialport) {
 		this.serialport = serialport;	
 		bufferDeMensaje= new ArrayList<>();
 	}

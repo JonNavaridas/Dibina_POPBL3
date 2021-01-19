@@ -3,12 +3,11 @@ import java.util.Scanner;
 import com.fazecast.jSerialComm.SerialPort;
 
 public class Conexion {
-    // El nombre del puerto puede variar dependiendo de la entrada USB del PC
+    //El nombre del puerto puede variar dependiendo de la entrada USB del PC
 	//inicializamos y declaramos variables	
 	private static int RATIO_SERIAL = 9800, RATIO_BLUETOOTH = 115200;
     SerialPort serialport;
-    Recibir reader;
-    Enviar writer;
+    ComunicacionPlaca reader;
     Scanner teclado;
 	
   	public Conexion() {
@@ -27,11 +26,11 @@ public class Conexion {
             }
             System.out.println("Que puerto desea utilizar?");
             puerto = teclado.nextInt();
+            if(puerto >=puertosDisponibles.length)return;
                 	try {
                 		serialport=puertosDisponibles[puerto];               	
-                		reader = new Recibir(serialport);
-                		writer = new Enviar(serialport);
-                		System.out.println("Conexion mediante serial[0] o bluetooth[1]");
+                		reader = new ComunicacionPlaca(serialport);
+                		System.out.println("Tipo de conexión:\n-[0] Serial (9800 byte/s)\n-[1] Bluetooth (115200 byte/s)");
                 		configurarPuerto(teclado.nextInt());//configuramos el puerto que nos interesa              
                 	}
                 	catch (Exception e) {
@@ -53,6 +52,5 @@ public class Conexion {
      
      public static void main(String[] args) {
     	 Conexion conexion = new Conexion();
-		 conexion.writer.accion();
 	  }
 }
