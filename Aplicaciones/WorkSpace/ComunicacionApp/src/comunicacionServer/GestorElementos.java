@@ -296,10 +296,17 @@ public class GestorElementos extends Thread {
 			try {
 				switch(elemento.getOperacion()) {
 				case 1:
-				case 2:
 					System.out.println(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0]);
 					out.write(elemento.transformarOperacion() + ": Pedido " + elemento.getElemento().split("[#]")[0] 
 							+ " --> " + elemento.getElemento().split("[#]")[3] + "\n" + sacarProductos(elemento.getElemento().split("[#]")[5]));
+					break;
+				case 2:
+					String output = "";
+					List<Long> valores = elemento.transformToPedidos();
+					for(Long l : valores) output += "\n\t->Pedido " + String.valueOf(l);
+					
+					System.out.println(elemento.transformarOperacion() + ":" + output);
+					out.write(elemento.transformarOperacion() + ":" + output + "\n");
 					break;
 				case 3:
 				case 4:
@@ -314,7 +321,7 @@ public class GestorElementos extends Thread {
 				case 8:
 					String output = "";
 					List<Long> valores = elemento.transformToPedidos();
-					for(Long l : valores) output += "\n\tPedido " + String.valueOf(l);
+					for(Long l : valores) output += "\n\t->Pedido " + String.valueOf(l);
 					
 					System.out.println(elemento.transformarOperacion() + ":" + output);
 					out.write(elemento.transformarOperacion() + ":" + output + "\n");
