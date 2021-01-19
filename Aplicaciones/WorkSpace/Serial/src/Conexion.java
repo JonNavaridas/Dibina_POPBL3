@@ -12,7 +12,7 @@ public class Conexion {
     Scanner teclado;
 	
   	public Conexion() {
-		int puerto;
+		int puerto;//kk
   		teclado = new Scanner(System.in);
 		SerialPort puertosDisponibles[] = SerialPort.getCommPorts();
        
