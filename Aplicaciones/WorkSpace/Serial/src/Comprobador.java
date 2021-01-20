@@ -109,7 +109,6 @@ public class Comprobador {
 				}
 			}
 		}
-		//for(Pedido pedido: lista)System.out.println(pedido.toString());
 		return list;
 	}
 

@@ -1,4 +1,7 @@
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+
+import javax.sound.sampled.AudioFormat.Encoding;
 
 import com.fazecast.jSerialComm.SerialPort;
 
@@ -31,7 +34,7 @@ public class Conexion {
                 		serialport=puertosDisponibles[puerto];               	
                 		reader = new ComunicacionPlaca(serialport);
                 		System.out.println("Tipo de conexión:\n-[0] Serial (9800 byte/s)\n-[1] Bluetooth (115200 byte/s)");
-                		configurarPuerto(teclado.nextInt());//configuramos el puerto que nos interesa              
+                		configurarPuerto(teclado.nextInt());//configuramos el puerto que nos interesa 
                 	}
                 	catch (Exception e) {
                 		System.out.println(e.getMessage());
@@ -47,10 +50,46 @@ public class Conexion {
 		serialport.setNumStopBits(SerialPort.ONE_STOP_BIT);
 		serialport.setFlowControl(SerialPort.FLOW_CONTROL_DISABLED);
 		serialport.addDataListener(reader);
-		serialport.openPort();				
+		serialport.openPort();
+		if(ratio == 1) sincronizarBluetooth();
 	}
      
-     public static void main(String[] args) {
+     private void sincronizarBluetooth() {
+    	byte[] sincro = "$$$".getBytes();
+    	System.out.println("Entrando a modo comandos");
+    	serialport.writeBytes(sincro, sincro.length);	 
+    	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	sincro = "K,1".getBytes();
+    	System.out.println("Reiniciando conectividad");
+    	serialport.writeBytes(sincro, sincro.length);
+    	
+    	sincro[0] = 13;		//Tecla enter
+    	serialport.writeBytes(sincro, 1);
+    	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	System.out.print("Eliga la MAC del dispositivo [default D88039F898FE]: ");
+    	teclado.nextLine();
+    	String mac = teclado.nextLine();
+    	
+    	if(mac.length() == 0) sincro = "C,0,D88039F898FE".getBytes();
+    	else sincro = ("C,0,"+mac).getBytes();
+    	
+    	System.out.println("Sincronizando bluetooth");
+    	serialport.writeBytes(sincro, sincro.length);
+    	
+    	sincro[0] = 13;		//Tecla enter
+    	serialport.writeBytes(sincro, 1);
+    	System.out.println("Sincronización completada");
+     }
+
+	public static void main(String[] args) {
     	 Conexion conexion = new Conexion();
 	  }
 }
