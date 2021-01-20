@@ -34,8 +34,7 @@ import renderizadoTablaPedidos.ModeloColumnas;
 import renderizadoTablaPedidos.ModeloTablaPedidos;
 import renderizadoTablaPedidos.RendererTabla;
 
-
-public class PanelHistorial extends JScrollPane implements ActionListener, ChangeListener{
+public class PanelHistorial extends JScrollPane implements ActionListener, ChangeListener {
 	
 	private static final long serialVersionUID = 1L;
 	final static int ALTO = 300;
@@ -92,6 +91,7 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		
 		JPanel panel = new JPanel();
 		panel.add(datePicker);
+		panel.setBackground(Color.white);
 		panel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
 		return panel;
 	}
@@ -193,5 +193,4 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 			dateModel.setSelected(false);
 		}
 	}
-
 }

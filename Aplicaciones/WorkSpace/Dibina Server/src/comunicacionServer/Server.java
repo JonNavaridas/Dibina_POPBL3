@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class Server {
 	
+	public static final int PUERTO = 8888;
 	GestorElementos gestor;
 	
 	@SuppressWarnings("resource")
-	public void administrarConecsiones(String puerto) throws IOException {
+	public void administrarConexiones() throws IOException {
 		ServerSocket server;
 		Socket socket;
 		int port;
 		
-		port = Integer.valueOf(puerto).intValue();
+		port = Integer.valueOf(PUERTO).intValue();
 		server = new ServerSocket(port);
 		gestor = null;
 		
@@ -56,13 +57,7 @@ public class Server {
 	}
 	
 	public static void main(String[] args) throws IOException {		
-		if (args.length < 1) {
-			System.out.println("Sintaxis de llamada: java EcoServ <puerto>");
-			System.exit(-1);
-		}
-		else {
-			Server server = new Server();
-			server.administrarConecsiones(args[0]);
-		}
+		Server server = new Server();
+		server.administrarConexiones();
 	}
 }
