@@ -1,0 +1,7 @@
+2112&Boligrafo
+3952&Rotulador
+6881&Tornillo
+7756&Tuerca
+2812&Adaptador
+8592&Grapadora
+1678&Ladron
