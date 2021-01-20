@@ -1,6 +1,7 @@
 package gestionUsuarios;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -47,6 +48,7 @@ public class DialogoIdentificar extends JDialog {
 
 	private Container crearPanelVentana() {
 		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBackground(Color.white);
 		
 		panel.add(crearPanelInfo(), BorderLayout.CENTER);
 		panel.add(crearPanelBotones(), BorderLayout.SOUTH);
@@ -56,6 +58,7 @@ public class DialogoIdentificar extends JDialog {
 	
 	private Container crearPanelInfo() {
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.white);
 		
 		id = new JTextField();
 		id.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5),
@@ -70,6 +73,7 @@ public class DialogoIdentificar extends JDialog {
 	
 	private Container crearPanelBotones() {
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.white);
 		
 		JButton boton = new JButton(words[2]);
 		boton.setFont(FontFactory.createFont(FontFactory.BASE_FONT, 12));
@@ -80,6 +84,7 @@ public class DialogoIdentificar extends JDialog {
 		
 		JPanel pBoton = new JPanel(new FlowLayout(10));
 		pBoton.setAlignmentY(JPanel.CENTER_ALIGNMENT);
+		pBoton.setBackground(Color.white);
 		pBoton.add(boton);
 		panel.add(pBoton);
 		

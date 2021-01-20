@@ -45,25 +45,27 @@ public class Cliente extends Thread {
 		}
 		
 		try {
-			out.println(operacion);
-			String respuesta = in.readLine();
-			
-			if (respuesta.equals("Operacion aceptada")) {
-				out.println(mensaje);
-				respuesta = in.readLine();
+			if (out != null && in != null) {
+				out.println(operacion);
+				String respuesta = in.readLine();
 				
-				if (!respuesta.equals("Operacion realizada"))
+				if (respuesta.equals("Operacion aceptada")) {
+					out.println(mensaje);
+					respuesta = in.readLine();
+					
+					if (!respuesta.equals("Operacion realizada"))
+						throw new ComunicationException("Ha ocurrido un error con la conexion.");
+				}
+				else {
 					throw new ComunicationException("Ha ocurrido un error con la conexion.");
+				}
+				// Terminar la conexion
+				out.println("QUIT");
+				
+				out.close();
+				in.close();
+				sock.close();
 			}
-			else {
-				throw new ComunicationException("Ha ocurrido un error con la conexion.");
-			}
-			// Terminar la conexion
-			out.println("QUIT");
-			
-			out.close();
-			in.close();
-			sock.close();
 		}
 		catch (ComunicationException e) {
 			JOptionPane.showMessageDialog(panel, e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);

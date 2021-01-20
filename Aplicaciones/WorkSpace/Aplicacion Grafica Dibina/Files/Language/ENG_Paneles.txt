@@ -35,7 +35,7 @@ Error
 Change language
 Remove delivered and turned away orders from list
 See order
-Order
+Print
 User
 Date
 Delivery point

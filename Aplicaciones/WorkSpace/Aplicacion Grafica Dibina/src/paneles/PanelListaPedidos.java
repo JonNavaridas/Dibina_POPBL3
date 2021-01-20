@@ -72,7 +72,7 @@ public class PanelListaPedidos extends JScrollPane {
 		if (listaCantidades.size() > 0) setCantidades();
 		else {
 			listaCantidad = new String[1];
-			listaCantidad[0] = "Todo";
+			listaCantidad[0] = words[0];
 		}
 		
 		fecha = new JComboBox<>(listaFecha);
@@ -353,7 +353,7 @@ public class PanelListaPedidos extends JScrollPane {
 			array[i + 1] = elementos.get(i).toString();
 		}
 		Arrays.sort(array);
-		array[0] = "Todo";
+		array[0] = words[0];
 		
 		return array;
 	}

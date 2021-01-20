@@ -177,7 +177,7 @@ public class PanelBuscar extends JScrollPane {
 			array[i + 1] = elementos.get(i).toString();
 		}
 		Arrays.sort(array);
-		array[0] = "Todo";
+		array[0] = words[0];
 		
 		return array;
 	}
@@ -189,7 +189,7 @@ public class PanelBuscar extends JScrollPane {
 		Integer length = (max/divisor) + 1;
 		
 		listaCantidad = new String[length + 1];
-		listaCantidad[0] = "Todo";
+		listaCantidad[0] = words[0];
 		
 		for (int i = 0; i < length; i++)
 			listaCantidad[i + 1] = "+" + String.valueOf((i) * divisor);	

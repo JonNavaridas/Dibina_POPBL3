@@ -35,7 +35,7 @@ Errorea
 Hizkuntza aldatu
 Ukatutako eta jasotako eskariak kendu listatik
 Eskaria ikusi
-Eskaria
+Inprimatu
 Erabiltzailea
 Data
 Entrega tokia

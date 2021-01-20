@@ -35,7 +35,7 @@ Error
 Cambiar idioma
 Quitar pedidos entregados y denegados de la lista
 Visualizar pedido
-Pedido	
+Imprimir	
 Usuario
 Fecha
 Punto de entrega

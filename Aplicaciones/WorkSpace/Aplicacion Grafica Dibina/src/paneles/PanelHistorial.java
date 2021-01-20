@@ -72,9 +72,9 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBackground(Color.white);
 		
-		this.add(crearCalendario(), BorderLayout.NORTH);
-		this.add(crearTabla(), BorderLayout.CENTER);
-		this.add(crearBotones(), BorderLayout.SOUTH);
+		panel.add(crearCalendario(), BorderLayout.NORTH);
+		panel.add(crearTabla(), BorderLayout.CENTER);
+		panel.add(crearBotones(), BorderLayout.SOUTH);
 		
 		return panel;
 	}
