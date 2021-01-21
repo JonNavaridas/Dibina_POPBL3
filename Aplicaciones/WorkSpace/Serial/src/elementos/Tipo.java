@@ -38,4 +38,7 @@ public class Tipo implements Serializable, Comparator<Tipo> {
 		return ((Tipo)obj).getNombre().equals(this.nombre);
 	}
 	
+	public String transformToString() {
+		return ID + "/" + nombre;
+	}
 }

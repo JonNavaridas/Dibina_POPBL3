@@ -142,4 +142,19 @@ public class Pedido implements Serializable{
 		return true;
 	}
 	
+	public String transformToString() {
+		String output = "";
+
+		output += id + "#";
+		output += user.transformToString() + "#";
+		output += fecha.toString() + "#";
+		output += estado.toString().toLowerCase() + "#";
+		output += destino + "#";
+
+		for (Producto p : listaProductos) {
+			output += p.transformToString() + "&";
+		}
+
+		return output.substring(0, output.length() - 1);
+	}
 }

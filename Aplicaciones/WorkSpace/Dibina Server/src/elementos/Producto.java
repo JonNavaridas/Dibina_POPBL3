@@ -26,6 +26,18 @@ public class Producto implements Serializable {
 	public void addElements(int cantidad) {
 		this.cantidad += cantidad;
 	}
+	
+	public String getTipo() {
+		return tipo.nombre;
+	}
+	
+	public String getTime() {
+		return fecha.toString();
+	}
+	
+	public String getProcedencia() {
+		return procedencia.nombre;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

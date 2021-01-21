@@ -141,4 +141,14 @@ public class ElementoEnCola {
 		String[] valores = elemento.split("[/]");
 		return new Procedencia(valores[0], valores[1]);
 	}
+
+	public Producto transformToProducto() throws ParseException {
+		String[] valores = elemento.split("[$]");
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(SDF.parse(valores[1]));
+		Date fecha = cal.getTime();
+		
+		return new Producto(transformToTipo(valores[0]), fecha, Integer.parseInt(valores[2]), transformToProcedencia(valores[3]));
+	}
 }

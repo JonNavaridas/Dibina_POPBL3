@@ -73,6 +73,10 @@ public class GestorElementos extends Thread {
 			break;
 		case 8: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
 			break;
+		case 9: informarSalidaPedido(elemento.transformToPedido());
+			break;
+		case 10: añadirStock(elemento.transformToProducto());
+			break;
 		default:
 			System.out.println("Operacion no disponible"); 
 			return;
@@ -290,7 +294,57 @@ public class GestorElementos extends Thread {
 		out.close();
 	}
 	
-	private void writeLog(ElementoEnCola elemento) {
+	private void informarSalidaPedido(Pedido pedido) {
+		try {
+			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG, true));
+			String output = "";
+			
+			for (Producto p : pedido.getProducto()) {				
+				output += "\t[";
+				output += "Tipo=" + p.getTipo() + ",";
+				output += "Fecha=" + p.getTime() + ",";
+				output += "Cantidad=" + p.getCantidad() + ",";
+				output += "Procedencia=" + p.getProcedencia();
+				output += "]\n";
+			}
+			
+			out.write("Pedido retirado: " + pedido.getID() + output);
+			out.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void añadirStock(Producto producto) {
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
+			List<Producto> listaProductos = (List<Producto>) in.readObject();
+			in.close();
+			
+			if (listaProductos.contains(producto)) {
+				listaProductos.get(listaProductos.indexOf(producto)).addElements(producto.getCantidad());
+			}
+			else {
+				listaProductos.add(producto);
+			}
+			
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PRODUCTOS));
+			out.writeObject(listaProductos);
+			out.close();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (EOFException e){
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void writeLog(ElementoEnCola elemento) throws ParseException {
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG, true));
 			try {
@@ -318,6 +372,11 @@ public class GestorElementos extends Thread {
 					
 					System.out.println(elemento.transformarOperacion() + ":" + output);
 					out.write(elemento.transformarOperacion() + ":" + output + "\n");
+					break;
+				case 9: break;
+				case 10:
+					System.out.println("Producto añadido: Unidades añadidas" + elemento.transformToProducto().getCantidad());
+					out.write("Producto añadido: Unidades añadidas" + elemento.transformToProducto().getCantidad());
 					break;
 				default:
 					System.out.println("Error");
