@@ -1,0 +1,1564 @@
+/*
+
+Vivado v2017.2 (64-bit)
+SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+
+Process ID: 13260
+License: Customer
+
+Current time: 	1/15/21 1:29:42 PM CET
+Time zone: 	Central European Time (Europe/Paris)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 310 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/java.exe
+Java library paths: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o;C:/WINDOWS/Sun/Java/bin;C:/WINDOWS/system32;C:/WINDOWS;C:/Xilinx/Vivado/2017.2/bin;C:/Xilinx/Vivado/2017.2/lib/win64.o;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/server;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin;C:/Xilinx/SDK/2017.2/bin;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/lib/nt64;C:/Xilinx/Vivado_HLS/2017.2/bin;C:/Program Files (x86)/Common Files/Oracle/Java/javapath;C:/WINDOWS/system32;C:/WINDOWS;C:/WINDOWS/System32/Wbem;C:/WINDOWS/System32/WindowsPowerShell/v1.0/;C:/WINDOWS/System32/OpenSSH/;C:/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/;C:/Program Files/MATLAB/R2020a/runtime/win64;C:/Program Files/MATLAB/R2020a/bin;C:/Program Files/PuTTY/;C:/Users/aitor/AppData/Local/Microsoft/WindowsApps;C:/Users/aitor/AppData/Local/GitHubDesktop/bin;;C:/SysGCC/raspberry/bin;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/bin;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/libexec/gcc/x86_64-w64-mingw32/6.2.0;.
+
+User name: 	aitor
+User home directory: C:/Users/aitor
+User working directory: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA
+User country: 	ES
+User language: 	es
+User locale: 	es_ES
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.2
+RDI_DATADIR: C:/Xilinx/Vivado/2017.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.2/bin
+
+User preferences location: C:/Users/aitor/AppData/Roaming/Xilinx/Vivado
+Vivado preferences directory: C:/Users/aitor/AppData/Roaming/Xilinx/Vivado/2017.2/vivado.xml
+Vivado layouts directory: C:/Users/aitor/AppData/Roaming/Xilinx/Vivado/2017.2/layouts
+PlanAhead jar location: 	C:/Xilinx/Vivado/2017.2/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/.Xil/Vivado-13260-DESKTOP-IVI4094
+
+GUI allocated memory:	176 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 514 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 59 MB (+59466kb) [00:00:10]
+// [Engine Memory]: 472 MB (+343198kb) [00:00:10]
+// bs:g (cg:JFrame):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\aitor\OneDrive\Escritorio\Mondragon\Maila2\POPBL3\SLP_Vivado\TOP_DIBINA\TOP_DIBINA\TOP_DIBINA.xpr. Version: Vivado v2017.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.xpr 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA' 
+// TclEventType: MSGMGR_MOVEMSG
+// [Engine Memory]: 518 MB (+24052kb) [00:00:13]
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.xpr 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA' 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 569 MB (+26162kb) [00:00:17]
+// [GUI Memory]: 62 MB (+373kb) [00:00:18]
+// [Engine Memory]: 605 MB (+7667kb) [00:00:19]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 606 MB. GUI used memory: 39 MB. Current time: 1/15/21 1:29:50 PM CET
+// Tcl Message: open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 812.242 ; gain = 83.449 
+// Project name: TOP_DIBINA; location: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (TOP_DIBINA.vhd) elapsed time: 0.3s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), me_princ : TOP_Principal(Behavioral) (TOP_Principal.vhd)]", 2, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_DIBINA.vhd", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_DIBINA.vhd", 1, false, true); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // M:a (Workspace:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u:M (JViewport:JComponent, cg:JFrame) - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// x:aN (cg:JFrame): Elaborate Design: addNotify
+// [GUI Memory]: 67 MB (+1977kb) [00:00:39]
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Open Elaborated Design : addNotify
+dismissDialog("Elaborate Design"); // x:aN (cg:JFrame)
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -name rtl_1 Starting synth_design Using part: xc7a35tcpg236-1 Top: TOP_DIBINA 
+// [Engine Memory]: 706 MB (+74668kb) [00:00:44]
+// HMemoryUtils.trashcanNow. Engine heap size: 710 MB. GUI used memory: 40 MB. Current time: 1/15/21 1:30:15 PM CET
+// TclEventType: ELABORATE_FINISH
+// [Engine Memory]: 753 MB (+12044kb) [00:00:49]
+// [Engine Memory]: 890 MB (+103420kb) [00:00:54]
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 892 MB. GUI used memory: 40 MB. Current time: 1/15/21 1:30:24 PM CET
+// [GUI Memory]: 74 MB (+2942kb) [00:00:55]
+// [Engine Memory]: 936 MB (+1807kb) [00:00:55]
+// TclEventType: DESIGN_NEW
+// Xgd.load filename: C:/Xilinx/Vivado/2017.2/data/parts/xilinx/artix7/devint/artix7/xc7a35t/xc7a35t.xgd; ZipEntry: xc7a35t_detail.xgd elapsed time: 0.7s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// RouteApi::loadEngineXgd elapsed time: 1s
+// [Engine Memory]: 1,007 MB (+25241kb) [00:00:56]
+// [GUI Memory]: 80 MB (+2657kb) [00:00:57]
+// Schematic: addNotify
+// TclEventType: CURR_DESIGN_SET
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 912.129 ; gain = 68.121 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: 	Parameter INIT bound to: 16'b1110010011111111  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'mux1_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:84] 
+// Tcl Message: 	Parameter INIT bound to: 16'b1110010011111111  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'mux2_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:94] 
+// Tcl Message: 	Parameter INIT bound to: 16'b1110010011111111  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'mux3_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:104] 
+// Tcl Message: 	Parameter INIT bound to: 16'b1110010011111111  
+// Tcl Message: 	Parameter INIT bound to: 1'b0  	Parameter IS_C_INVERTED bound to: 1'b0  	Parameter IS_D_INVERTED bound to: 1'b0  	Parameter IS_R_INVERTED bound to: 1'b0  	Parameter IS_S_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'pipeline_serial' to cell 'FDRS' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:144] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  	Parameter IS_C_INVERTED bound to: 1'b0  	Parameter IS_D_INVERTED bound to: 1'b0  	Parameter IS_R_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165] 
+// Tcl Message: 	Parameter INIT bound to: 4'b1000  
+// Tcl Message: 	Parameter INIT bound to: 1'b0  	Parameter IS_C_INVERTED bound to: 1'b0  	Parameter IS_D_INVERTED bound to: 1'b0  	Parameter IS_R_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165] 
+// Tcl Message: 	Parameter INIT bound to: 4'b1000  
+// Tcl Message: 	Parameter INIT bound to: 1'b0  	Parameter IS_C_INVERTED bound to: 1'b0  	Parameter IS_D_INVERTED bound to: 1'b0  	Parameter IS_R_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165] 
+// Tcl Message: 	Parameter INIT bound to: 4'b1000  
+// Tcl Message: 	Parameter INIT bound to: 8'b00010000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'ready_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:221] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000110010000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'start_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:232] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'Tx_start_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:242] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0001010101000000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'run_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:251] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'Tx_run_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:261] 
+// Tcl Message: 	Parameter INIT bound to: 8'b10010100  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'hot_state_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:269] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'hot_state_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:278] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay14_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:284] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'Tx_bit_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:297] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000110000000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'stop_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:305] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'Tx_stop_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:315] 
+// Tcl Message: 	Parameter INIT bound to: 4'b1000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'complete_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:323] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'Tx_complete_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:331] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'sync_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:67] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'stop_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:72] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:113] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'start_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:142] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'start_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:155] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'edge_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:165] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'edge_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:178] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000001000000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'valid_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:186] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'valid_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:196] 
+// Tcl Message: 	Parameter INIT bound to: 8'b01010100  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'purge_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:204] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'purge_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:213] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:234] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 16'b0000000000000000  	Parameter IS_CLK_INVERTED bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271] 
+// Tcl Message: 	Parameter INIT bound to: 4'b1000  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'strobe_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:281] 
+// Tcl Message: 	Parameter INIT bound to: 1'b0  
+// Tcl Message: INFO: [Synth 8-113] binding component instance 'strobe_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:289] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 912.129 ; gain = 68.121 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message:  Report Check Netlist:  +------+------------------+-------+---------+-------+------------------+ |      |Item              |Errors |Warnings |Status |Description       | +------+------------------+-------+---------+-------+------------------+ |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets | +------+------------------+-------+---------+-------+------------------+ 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 912.129 ; gain = 68.121 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 43 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Device 21-403] Loading part xc7a35tcpg236-1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Parsing XDC File [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc] Finished Parsing XDC File [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc] Completed Processing XDC Constraints  
+// Tcl Message: INFO: [Opt 31-140] Inserted 2 IBUFs to IO ports without IO buffers. INFO: [Opt 31-141] Inserted 1 OBUFs to IO ports without IO buffers. INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary:   A total of 38 instances were transformed.   (MUXCY,XORCY) => CARRY4: 1 instances   FD => FDRE: 4 instances   FDE => FDRE: 26 instances   FDRS => FDRS (FDRE, LUT2, VCC): 1 instances   MULT_AND => LUT2: 3 instances   MUXF5 => LUT3: 2 instances   MUXF6 => LUT3: 1 instances  
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1193.680 ; gain = 349.672 
+// Tcl Message: 159 Infos, 53 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1193.680 ; gain = 349.672 
+// 'dH' command handler elapsed time: 21 seconds
+// Elapsed time: 20 seconds
+dismissDialog("Open Elaborated Design"); // bs:g (cg:JFrame)
+// [GUI Memory]: 86 MB (+2249kb) [00:01:06]
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // y:aJ
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 0); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 0, false, true); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // G:M (Workspace:JPanel, cg:JFrame)
+// PAPropertyPanels.initPanels (covertidor (top_convertidor)) elapsed time: 0.3s
+// [GUI Memory]: 93 MB (+2366kb) [00:01:25]
+// PAPropertyPanels.initPanels (clk) elapsed time: 0.9s
+// [GUI Memory]: 99 MB (+1304kb) [00:02:08]
+// [GUI Memory]: 107 MB (+3282kb) [00:02:31]
+// PAPropertyPanels.initPanels (<const0>) elapsed time: 0.3s
+// Elapsed time: 103 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // ax:DockableFrame
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), covertidor : top_convertidor(Behavioral) (top_convertidor.vhd)]", 3, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), covertidor : top_convertidor(Behavioral) (top_convertidor.vhd), trad_empr : traductor_empresa(Behavioral) (traductor_empresa.vhd)]", 6, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 407, 334); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 113 MB (+1563kb) [00:03:07]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("top_convertidor.vhd", 513, 331); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 511, 275); // bI:J (JPanel:JComponent, cg:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), covertidor : top_convertidor(Behavioral) (top_convertidor.vhd)]", 3); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), me_princ : TOP_Principal(Behavioral) (TOP_Principal.vhd)]", 2, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TOP_DIBINA(Behavioral) (TOP_DIBINA.vhd), me_princ : TOP_Principal(Behavioral) (TOP_Principal.vhd)]", 2, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+// [GUI Memory]: 122 MB (+2808kb) [00:03:16]
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 3); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 3, false, true); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame) - Double Click
+unmaximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // G:M (Workspace:JPanel, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 3); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 3, false, true); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // G:M (Workspace:JPanel, cg:JFrame)
+// Elapsed time: 12 seconds
+selectCodeEditor("TOP_Principal.vhd", 102, 133); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 102, 133, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 80, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 80, 264, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 213, 127); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 213, 127); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 213, 127, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 205, 265); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 205, 265, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 204, 205); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 204, 205, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 13 seconds
+selectCodeEditor("TOP_Principal.vhd", 201, 323); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 201, 323, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 348, 193); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 310, 240); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 107, 189); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 104, 190, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 72, 51); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 71, 39); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 23 seconds
+selectCodeEditor("TOP_Principal.vhd", 115, 66); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 87, 51); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 85, 59); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 85, 59, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 103, 110); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 103, 110, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 91, 209); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 91, 209, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 182, 277); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 182, 277, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 207, 213); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 207, 213, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 296, 240); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 296, 240, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 31 seconds
+selectCodeEditor("TOP_Principal.vhd", 111, 174); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 111, 174, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 22 seconds
+selectCodeEditor("TOP_Principal.vhd", 88, 174); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 88, 174, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 11 seconds
+selectCodeEditor("TOP_Principal.vhd", 187, 237); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 196, 250); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 196, 250, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("TOP_Principal.vhd", 76, 196); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 196, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 193, 211); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 193, 211, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 177, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 177, 247, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 210, 243); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 210, 243, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 197, 194); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 197, 194, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 172, 162); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 172, 162, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 295, 176); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 295, 176, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 221, 194); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 221, 194, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 249, 128); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 249, 128, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 24, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 6); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 13:36:25 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 13:36:25 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// [GUI Memory]: 128 MB (+424kb) [00:07:27]
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 153 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a:JRadioButton (JPanel:JComponent, ah:x)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, ah:x)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl Command: 'rdi::info_commands get_hw_probes'
+// Tcl Command: 'load_features labtools'
+// TclEventType: LOAD_FEATURE
+// TclEventType: HW_SESSION_OPEN
+// Tcl Message: open_hw 
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// bs:g (cg:JFrame):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: INFO: [Labtools 27-2222] Launching hw_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2017.2   **** Build date : Jun 15 2017-18:53:26     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0). 
+// [Engine Memory]: 1,175 MB (+123789kb) [00:09:39]
+dismissDialog("Auto Connect"); // bs:g (cg:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,185 MB. GUI used memory: 78 MB. Current time: 1/15/21 1:39:10 PM CET
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 61 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_DIBINA.vhd", 0); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab((HResource) null, "PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_DIBINA.vhd", 0, false, true); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame) - Double Click
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // I:M (Workspace:JPanel, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 2); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+// Elapsed time: 74 seconds
+selectCodeEditor("TOP_Principal.vhd", 84, 135); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 164); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 164, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 98, 165); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 98, 165, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 209, 160); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 100, 294); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 91, 166); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 116, 162); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 24 seconds
+selectCodeEditor("TOP_Principal.vhd", 261, 147); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 27 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_DIBINA.vhd", 0); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectCodeEditor("TOP_DIBINA.vhd", 628, 246); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_DIBINA.vhd", 628, 246, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_DIBINA.vhd", 258, 94); // bI:J (JPanel:JComponent, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top_convertidor.vhd", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 229, 130); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 229, 126); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "top_convertidor.vhd", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 185, 128); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 217, 129); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "top_convertidor.vhd", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 97, 143); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 155, 143); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 155, 143, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 21, 145); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("top_convertidor.vhd", 104, 138); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 127, 144); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 162, 144); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 126, 145); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 103, 145); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 94, 144); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 194, 142); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 194, 142, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("top_convertidor.vhd", 249, 192); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 218, 148); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 218, 148, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 11 seconds
+selectCodeEditor("top_convertidor.vhd", 294, 194); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 53, 292); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 53, 292, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 98, 36); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 98, 36, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 168, 39); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 168, 39, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 67, 37); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 65, 38, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 190, 40); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 190, 42, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 104, 43); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 101, 42, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 183, 41); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 183, 41, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 2); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 112, 125); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 109, 126); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Elapsed time: 10 seconds
+selectCodeEditor("TOP_Principal.vhd", 377, 218); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 22 seconds
+selectCodeEditor("TOP_Principal.vhd", 186, 167); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 186, 167, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 86, 144); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 86, 144, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 11 seconds
+selectCodeEditor("TOP_Principal.vhd", 163, 110); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 163, 110, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("TOP_Principal.vhd", 168, 125); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 168, 125, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 168, 125); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 168, 125, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 168, 125); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 168, 125); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 168, 127, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 169, 127); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 187, 121); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 441, 214); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 192, 166); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 192, 166, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 186, 253); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 188, 267); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 188, 267, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 201, 226); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 201, 226, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 394, 286); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 198, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 198, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 198, 264, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 213, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 213, 264, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 20 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug]", 6); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// ak:q (cg:JFrame): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a:JButton (JPanel:JComponent, ak:q)
+// bs:g (cg:JFrame):  Save Constraints : addNotify
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+dismissDialog("Save Project"); // ak:q (cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Fri Jan 15 13:46:38 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 13:46:38 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 134 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 36 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top_convertidor.vhd", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 372, 226); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 371, 206); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 371, 206, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 11 seconds
+selectCodeEditor("top_convertidor.vhd", 311, 294); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 311, 294, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 564, 248); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 564, 248, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 563, 187); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 563, 187, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("top_convertidor.vhd", 812, 318); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("top_convertidor.vhd", 813, 354); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 2); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u:M (JViewport:JComponent, cg:JFrame)
+// Elapsed time: 27 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top_convertidor.vhd", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 2); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+// Elapsed time: 62 seconds
+selectCodeEditor("TOP_Principal.vhd", 95, 259); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 95, 259, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 186, 237); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 186, 237, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("TOP_Principal.vhd", 317, 246); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 330, 281); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 344, 280); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 10 seconds
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager]", 0); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 13:52:20 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 13:52:20 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// [GUI Memory]: 136 MB (+1505kb) [00:24:47]
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 173 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// n:a (cg:JFrame): Close Hardware Target: addNotify
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, n:a)
+dismissDialog("Close Hardware Target"); // n:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server. 
+// a:a (cg:JFrame): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// bs:g (cg:JFrame):  Auto Connect : addNotify
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server. 
+// a:a (cg:JFrame): Critical Messages: addNotify
+dismissDialog("Auto Connect"); // bs:g (cg:JFrame)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server. 
+// bs:g (cg:JFrame):  Auto Connect : addNotify
+// a:a (cg:JFrame): Critical Messages: addNotify
+dismissDialog("Auto Connect"); // bs:g (cg:JFrame)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+// 'I' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 87 seconds
+selectCodeEditor("TOP_Principal.vhd", 118, 198); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 118, 198, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 187, 292); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 187, 292, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 339, 309); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 339, 309, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 296, 326); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 296, 321); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 296, 321, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 207, 160); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 207, 160, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 161 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top_convertidor.vhd", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TOP_Principal.vhd", 2); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+// Elapsed time: 27 seconds
+selectCodeEditor("TOP_Principal.vhd", 99, 92); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 99, 92, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 133 seconds
+selectCodeEditor("TOP_Principal.vhd", 174, 228); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 174, 228, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,228 MB. GUI used memory: 80 MB. Current time: 1/15/21 2:09:10 PM CET
+// Elapsed time: 817 seconds
+selectCodeEditor("TOP_Principal.vhd", 165, 254); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 14 seconds
+selectCodeEditor("TOP_Principal.vhd", 288, 328); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 288, 328, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("TOP_Principal.vhd", 329, 276); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 322, 282); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 345, 313); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 14:17:22 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 14:17:22 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 158 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 21 seconds
+selectCodeEditor("TOP_Principal.vhd", 197, 318); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 197, 318, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 86, 214); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 86, 214, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 173, 220); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 173, 230); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 173, 230, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// n:a (cg:JFrame): Close Hardware Target: addNotify
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// Elapsed time: 16 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, n:a)
+dismissDialog("Close Hardware Target"); // n:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// bs:g (cg:JFrame):  Auto Connect : addNotify
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: current_hw_device [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0). 
+dismissDialog("Auto Connect"); // bs:g (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 52 seconds
+selectCodeEditor("TOP_Principal.vhd", 75, 230); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 75, 229, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 99, 280); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 183, 329); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 183, 329, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 195, 286); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 195, 286, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 198, 313); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 198, 313, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 201, 280); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 201, 280, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 204, 313); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 204, 313, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 137, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 137, 264, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 142, 296); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 142, 296, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 136, 260); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 136, 260, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 153, 295); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 153, 295, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 163, 267); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 11 seconds
+selectCodeEditor("TOP_Principal.vhd", 85, 316); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 85, 316, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 25 seconds
+selectCodeEditor("TOP_Principal.vhd", 100, 299); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 103, 311); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("TOP_Principal.vhd", 117, 311); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 98, 312); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 111, 312); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 84, 315); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 84, 315, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Fri Jan 15 14:23:34 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 14:23:34 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,233 MB. GUI used memory: 79 MB. Current time: 1/15/21 2:24:25 PM CET
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 127 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+// Elapsed time: 20 seconds
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 63 seconds
+selectCodeEditor("TOP_Principal.vhd", 92, 296); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis]", 4); // u:M (JViewport:JComponent, cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 14:27:17 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 14:27:17 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 113 seconds
+selectCodeEditor("TOP_Principal.vhd", 100, 152); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 100, 152, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 171, 98); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 171, 98, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// TclEventType: RUN_COMPLETED
+// [Engine Memory]: 1,242 MB (+8517kb) [00:59:47]
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 78 seconds
+selectCodeEditor("TOP_Principal.vhd", 70, 142); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 73, 142); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 78, 142); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 78, 142, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 158, 249); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 31 seconds
+selectCodeEditor("TOP_Principal.vhd", 119, 230); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 22, 192); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 27, 193); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 29, 193); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "TOP_Principal.vhd", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 22 seconds
+selectCodeEditor("TOP_Principal.vhd", 106, 341); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 109, 349); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 55, 311); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 28, 312); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "TOP_Principal.vhd", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 14 seconds
+selectCodeEditor("TOP_Principal.vhd", 122, 259); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 54, 230); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 26, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 26, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "TOP_Principal.vhd", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 25, 191); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "TOP_Principal.vhd", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 99, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 109, 246); // bI:J (JPanel:JComponent, cg:JFrame)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("TOP_Principal.vhd", 82, 198); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("TOP_Principal.vhd", 89, 183); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 89, 183, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 10 seconds
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// Elapsed time: 128 seconds
+selectCodeEditor("TOP_Principal.vhd", 186, 277); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 76, 229, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 26 seconds
+selectCodeEditor("TOP_Principal.vhd", 303, 302); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 342, 310); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator]", 1); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 14:35:49 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 14:35:49 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking too long to process. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking too long to process. Increasing delay to 3000 ms.
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 647 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+// TclEventType: HW_DEVICE_CHANGE
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// n:a (cg:JFrame): Close Hardware Target: addNotify
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// Elapsed time: 18 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, n:a)
+dismissDialog("Close Hardware Target"); // n:a (cg:JFrame)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+selectCodeEditor("TOP_Principal.vhd", 98, 249); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 98, 249, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 97, 166); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 97, 166, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 83, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 83, 247, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 10 seconds
+selectCodeEditor("TOP_Principal.vhd", 167, 282); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 74, 278); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 74, 278, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 153, 179); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 15 seconds
+selectCodeEditor("TOP_Principal.vhd", 183, 177); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 87, 229); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 87, 229, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 92, 274); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 92, 274, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 181, 279); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 181, 279, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("TOP_Principal.vhd", 187, 168); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 187, 168, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 169, 302); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 169, 302, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("TOP_Principal.vhd", 150, 255); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 150, 255, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 84, 143); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 84, 143, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 268, 156); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("TOP_Principal.vhd", 192, 199); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 192, 199, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 5, 302); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 89, 237); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 89, 237, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 161, 322); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 161, 322, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 161, 322); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 161, 322); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 161, 322, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 18 seconds
+selectCodeEditor("TOP_Principal.vhd", 203, 215); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 203, 215, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 24 seconds
+selectCodeEditor("TOP_Principal.vhd", 302, 312); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 305, 314, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 316, 318); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 316, 318, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("TOP_Principal.vhd", 227, 336); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 227, 336, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B:JideButton (f:CommandBar, cg:JFrame)
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 23, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Jan 15 14:50:25 2021] Launched synth_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log [Fri Jan 15 14:50:25 2021] Launched impl_1... Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log 
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// n:a (cg:JFrame): Close Hardware Target: addNotify
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// Elapsed time: 70 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, n:a)
+dismissDialog("Close Hardware Target"); // n:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server. 
+// a:a (cg:JFrame): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// Tcl Message: ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.  Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server. 
+// a:a (cg:JFrame): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // h:k (JPanel:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// Tcl Message: connect_hw_server 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 
+// bs:g (cg:JFrame):  Auto Connect : addNotify
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A 
+// Tcl Message: current_hw_device [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0). 
+dismissDialog("Auto Connect"); // bs:g (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, bz:aD)
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// Elapsed time: 43 seconds
+selectCodeEditor("TOP_Principal.vhd", 1004, 325); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 453, 301); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, ah:x)
+dismissDialog("Bitstream Generation Completed"); // ah:x (cg:JFrame)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+// bz:aD (cg:JFrame): Program Device: addNotify
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a:JButton (JPanel:JComponent, bz:aD)
+// bs:g (cg:JFrame):  Program Device : addNotify
+dismissDialog("Program Device"); // bz:aD (cg:JFrame)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7a35t_0] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Program Device"); // bs:g (cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 504, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 56 seconds
+selectCodeEditor("TOP_Principal.vhd", 504, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("TOP_Principal.vhd", 503, 248); // bI:J (JPanel:JComponent, cg:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,242 MB. GUI used memory: 79 MB. Current time: 1/15/21 2:54:26 PM CET
+// Elapsed time: 29 seconds
+selectCodeEditor("TOP_Principal.vhd", 509, 280); // bI:J (JPanel:JComponent, cg:JFrame)

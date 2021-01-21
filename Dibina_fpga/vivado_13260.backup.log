@@ -1,0 +1,639 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Fri Jan 15 13:29:17 2021
+# Process ID: 13260
+# Current directory: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13592 C:\Users\aitor\OneDrive\Escritorio\Mondragon\Maila2\POPBL3\SLP_Vivado\TOP_DIBINA\TOP_DIBINA\TOP_DIBINA.xpr
+# Log file: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/vivado.log
+# Journal file: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA'
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 812.242 ; gain = 83.449
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: TOP_DIBINA
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 912.129 ; gain = 68.121
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP_DIBINA' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:49]
+INFO: [Synth 8-3491] module 'TOP_Principal' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:34' bound to instance 'me_princ' of component 'TOP_Principal' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:114]
+INFO: [Synth 8-638] synthesizing module 'TOP_Principal' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:54]
+WARNING: [Synth 8-614] signal 'tiempo' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:75]
+WARNING: [Synth 8-614] signal 'envio_completado' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:75]
+WARNING: [Synth 8-614] signal 'rec_sac' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:75]
+WARNING: [Synth 8-614] signal 'datos_correctos' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:75]
+WARNING: [Synth 8-614] signal 'recibido' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:75]
+INFO: [Synth 8-256] done synthesizing module 'TOP_Principal' (1#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:54]
+INFO: [Synth 8-3491] module 'top_convertidor' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:34' bound to instance 'covertidor' of component 'top_convertidor' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'top_convertidor' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:44]
+INFO: [Synth 8-3491] module 'bin_decimal' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:35' bound to instance 'bin_dec0' of component 'bin_decimal' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'bin_decimal' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:43]
+WARNING: [Synth 8-6014] Unused sequential element v_Upper_reg was removed.  [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:108]
+WARNING: [Synth 8-6014] Unused sequential element v_Lower_reg was removed.  [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:109]
+INFO: [Synth 8-256] done synthesizing module 'bin_decimal' (2#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:43]
+INFO: [Synth 8-3491] module 'bin_decimal' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:35' bound to instance 'bin_dec1' of component 'bin_decimal' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:97]
+INFO: [Synth 8-3491] module 'traductor_empresa' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:34' bound to instance 'trad_empr' of component 'traductor_empresa' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:99]
+INFO: [Synth 8-638] synthesizing module 'traductor_empresa' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'traductor_empresa' (3#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:39]
+INFO: [Synth 8-3491] module 'traductor_producto' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:34' bound to instance 'trad_produc' of component 'traductor_producto' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'traductor_producto' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'traductor_producto' (4#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:39]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp0' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'abecedario' (5#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:39]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp1' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:103]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp2' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:104]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc0' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:106]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc1' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:107]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc2' of component 'abecedario' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:108]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp0' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:110]
+INFO: [Synth 8-638] synthesizing module 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'cantidad_display' (6#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:39]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp1' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:111]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp2' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:112]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp3' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:114]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp4' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:115]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp5' of component 'cantidad_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:116]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux0' of component 'mux' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:118]
+INFO: [Synth 8-638] synthesizing module 'mux' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:47]
+INFO: [Synth 8-226] default block is never used [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'mux' (7#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:47]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux1' of component 'mux' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:119]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux2' of component 'mux' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux3' of component 'mux' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:121]
+WARNING: [Synth 8-3848] Net almac2 in module/entity top_convertidor does not have driver. [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:91]
+WARNING: [Synth 8-3848] Net s_almacen in module/entity top_convertidor does not have driver. [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:87]
+INFO: [Synth 8-256] done synthesizing module 'top_convertidor' (8#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:44]
+INFO: [Synth 8-3491] module 'ME_display' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:34' bound to instance 'display' of component 'ME_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'ME_display' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:46]
+INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:34' bound to instance 'egoera' of component 'FSM' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'FSM' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:46]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat4' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat1' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat2' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat3' is read in the process but is not in the sensitivity list [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'FSM' (9#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:46]
+INFO: [Synth 8-3491] module 'f_zati' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:35' bound to instance 'swaper' of component 'f_zati' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'f_zati' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'f_zati' (10#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'ME_display' (11#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:46]
+INFO: [Synth 8-3491] module 'top_serial' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:34' bound to instance 'linea_serie' of component 'top_serial' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'top_serial' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:45]
+INFO: [Synth 8-3491] module 'serial_tx' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:34' bound to instance 'transmisor' of component 'serial_tx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'serial_tx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:42]
+INFO: [Synth 8-3491] module 'kcuart_tx' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:13' bound to instance 'transmisor' of component 'kcuart_tx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'kcuart_tx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:25]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux1_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:84]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux2_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:94]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux3_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:104]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux4_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:114]
+INFO: [Synth 8-113] binding component instance 'mux5_muxf5' to cell 'MUXF5' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:124]
+INFO: [Synth 8-113] binding component instance 'mux6_muxf5' to cell 'MUXF5' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:130]
+INFO: [Synth 8-113] binding component instance 'mux7_muxf6' to cell 'MUXF6' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:136]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+	Parameter IS_S_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'pipeline_serial' to cell 'FDRS' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:144]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:188]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:194]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:204]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:210]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:204]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:210]
+	Parameter INIT bound to: 8'b00010000 
+INFO: [Synth 8-113] binding component instance 'ready_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:221]
+	Parameter INIT bound to: 16'b0000000110010000 
+INFO: [Synth 8-113] binding component instance 'start_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:232]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_start_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:242]
+	Parameter INIT bound to: 16'b0001010101000000 
+INFO: [Synth 8-113] binding component instance 'run_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:251]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_run_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:261]
+	Parameter INIT bound to: 8'b10010100 
+INFO: [Synth 8-113] binding component instance 'hot_state_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:269]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'hot_state_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:278]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay14_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:284]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_bit_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:297]
+	Parameter INIT bound to: 16'b0000000110000000 
+INFO: [Synth 8-113] binding component instance 'stop_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:305]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_stop_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:315]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'complete_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:323]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_complete_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:331]
+WARNING: [Synth 8-2887] Directive 'init' on 'mux1_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux2_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux3_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux4_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'ready_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'start_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'run_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'hot_state_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'stop_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'complete_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[0].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[1].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[2].count_lut ' is unsupported and ignored
+INFO: [Synth 8-256] done synthesizing module 'kcuart_tx' (12#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:25]
+INFO: [Synth 8-3491] module 'baud' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:34' bound to instance 'baud_comp' of component 'baud' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'baud' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'baud' (13#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'serial_tx' (14#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:42]
+INFO: [Synth 8-3491] module 'serial_rx' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:34' bound to instance 'receptor' of component 'serial_rx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:66]
+INFO: [Synth 8-638] synthesizing module 'serial_rx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:41]
+INFO: [Synth 8-3491] module 'kcuart_rx' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:12' bound to instance 'receptor' of component 'kcuart_rx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:55]
+INFO: [Synth 8-638] synthesizing module 'kcuart_rx' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:23]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'sync_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:67]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'stop_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:72]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:113]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'start_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:142]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'start_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:155]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'edge_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:165]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'edge_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:178]
+	Parameter INIT bound to: 16'b0000000001000000 
+INFO: [Synth 8-113] binding component instance 'valid_lut' to cell 'LUT4' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:186]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'valid_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:196]
+	Parameter INIT bound to: 8'b01010100 
+INFO: [Synth 8-113] binding component instance 'purge_lut' to cell 'LUT3' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:204]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'purge_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:213]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:234]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'strobe_lut' to cell 'LUT2' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:281]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'strobe_reg' to cell 'FD' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:289]
+WARNING: [Synth 8-2887] Directive 'init' on 'valid_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'purge_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'strobe_lut' is unsupported and ignored
+INFO: [Synth 8-256] done synthesizing module 'kcuart_rx' (15#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:23]
+INFO: [Synth 8-3491] module 'baud' declared at 'C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:34' bound to instance 'baud_comp' of component 'baud' [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'serial_rx' (16#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'top_serial' (17#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'TOP_DIBINA' (18#1) [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:49]
+WARNING: [Synth 8-3331] design top_convertidor has unconnected port almacen[3]
+WARNING: [Synth 8-3331] design top_convertidor has unconnected port almacen[2]
+WARNING: [Synth 8-3331] design top_convertidor has unconnected port almacen[1]
+WARNING: [Synth 8-3331] design top_convertidor has unconnected port almacen[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 912.129 ; gain = 68.121
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[11] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[10] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[9] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[8] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[7] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[6] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[5] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[4] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[3] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[2] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[1] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin bin_dec0:bin[0] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:96]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[6] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[5] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[4] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[3] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[2] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[1] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+WARNING: [Synth 8-3295] tying undriven pin mux2:almacen[0] to constant 0 [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 912.129 ; gain = 68.121
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 43 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc]
+Finished Parsing XDC File [C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-140] Inserted 2 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 1 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 38 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 1 instances
+  FD => FDRE: 4 instances
+  FDE => FDRE: 26 instances
+  FDRS => FDRS (FDRE, LUT2, VCC): 1 instances
+  MULT_AND => LUT2: 3 instances
+  MUXF5 => LUT3: 2 instances
+  MUXF6 => LUT3: 1 instances
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1193.680 ; gain = 349.672
+159 Infos, 53 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 1193.680 ; gain = 349.672
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 13:36:25 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 13:36:25 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.2
+  **** Build date : Jun 15 2017-18:53:26
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 13:46:38 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 13:46:38 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 13:52:20 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 13:52:20 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server.
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 14:17:22 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 14:17:22 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 14:23:34 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 14:23:34 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 14:27:17 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 14:27:17 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 14:35:49 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 14:35:49 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Jan 15 14:50:25 2021] Launched synth_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/synth_1/runme.log
+[Fri Jan 15 14:50:25 2021] Launched impl_1...
+Run output will be captured here: C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+ERROR: [Labtoolstcl 44-494] There is no active target available for server at localhost.
+ Targets(s) ", jsn-Basys3-210183AF2D47A" may be locked by another hw_server.
+disconnect_hw_server localhost:3121
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183AF2D47A
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/aitor/OneDrive/Escritorio/Mondragon/Maila2/POPBL3/SLP_Vivado/TOP_DIBINA/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).

@@ -1,0 +1,362 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Jan 17 18:32:10 2021
+# Process ID: 16308
+# Current directory: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9848 C:\Users\andoi\Documents\Unibersidad\PBL\Serial\TOP_DIBINA150121\TOP_DIBINA\TOP_DIBINA.xpr
+# Log file: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/vivado.log
+# Journal file: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.xpr
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+close_project
+open_project {C:/Users/andoi/Documents/Unibersidad/bigarren_maila/sistema logi/serial_proba/serial_proba.xpr}
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/bigarren_maila/sistema logi/serial_proba/serial_proba.runs/impl_1/top_prueba.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/bigarren_maila/sistema logi/serial_proba/serial_proba.runs/impl_1/top_prueba.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/bigarren_maila/sistema logi/serial_proba/serial_proba.runs/impl_1/top_prueba.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_project C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.xpr
+update_compile_order -fileset sources_1
+close_hw
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+current_project serial_proba
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+current_project TOP_DIBINA
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+current_project serial_proba
+close_project
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+disconnect_hw_server localhost:3121
+connect_hw_server
+connect_hw_server
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/impl_1/TOP_DIBINA.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
