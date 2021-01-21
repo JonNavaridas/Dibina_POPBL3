@@ -11,7 +11,6 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 	SerialPort serialport;
 	List<Byte> bufferDeMensaje;
 	Comprobador comprobador;
-   	boolean bufferLimpio = false, byteResidual = false;
    	
 	public ComunicacionPlaca (SerialPort serialport) {
 		this.serialport = serialport;	
@@ -20,17 +19,7 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 	
 	@Override
 	public void serialEvent(SerialPortEvent event) {
-		
-		if(!bufferLimpio && event.getEventType() == SerialPort.LISTENING_EVENT_DATA_AVAILABLE) {
-	   		while (!bufferLimpio && event.getEventType() == SerialPort.LISTENING_EVENT_DATA_AVAILABLE) {
-	   	   		if (leerBasura()) return;
-	   		}
-   		}
-		if(event.getEventType() != SerialPort.LISTENING_EVENT_DATA_AVAILABLE) return;
-		if(!byteResidual) {
-			byteResidual = true;
-		}
-		else {
+		if(event.getEventType() == SerialPort.LISTENING_EVENT_DATA_AVAILABLE) {
 	   		byte[] bufferDeEnvio = new byte[1];
 	   		byte[] bufferDeLectura = new byte[1];//preparamos el buffer de lectura
 			serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
@@ -62,27 +51,6 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 			}
 		}
 	}
-	
-   	private boolean leerBasura() {
-   		byte[] bufferDeLectura = new byte[10];//preparamos el buffer de lectura
-		serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
-		
-		int i = 0;
-		while(!bufferLimpio && i <10) {
-   			switch(Integer.toBinaryString((bufferDeLectura[i] & 0xFF) + 0x100).substring(1)) {
-   			case "10000001":
-   			case "10000010":
-   				bufferLimpio = true;
-   				bufferDeMensaje= new ArrayList<>();
-   				bufferDeMensaje.add(bufferDeLectura[i]);
-   				System.out.println(Integer.toBinaryString((bufferDeLectura[i] & 0xFF) + 0x100).substring(1));
-   				return true;
-   			default: i++; break;
-   			}
-		}
-		return false;
-	}
-
 
 	@Override
    	public int getListeningEvents() {
