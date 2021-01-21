@@ -49,7 +49,7 @@ public class Conexion {
         puerto = teclado.nextInt();
   	}
   	
-    private void configurarPuerto(int ratio) {
+     private void configurarPuerto(int ratio) {
  		serialport.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING, 5000, 0);
 		serialport.setBaudRate((ratio==1)?RATIO_BLUETOOTH:RATIO_SERIAL);
 		serialport.setNumDataBits(8);
@@ -61,7 +61,7 @@ public class Conexion {
 		if(ratio == 1) sincronizarBluetooth();
 	}
      
-    private void sincronizarBluetooth() {
+     private void sincronizarBluetooth() {
     	byte[] sincro = "$$$".getBytes();
     	System.out.println("Entrando a modo comandos...");
     	
@@ -83,7 +83,6 @@ public class Conexion {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-    	
     	System.out.print("Eliga la MAC del dispositivo [default D88039F898FE]: ");
     	teclado.nextLine();
     	String mac = teclado.nextLine();
@@ -97,10 +96,9 @@ public class Conexion {
     	sincro[0] = 13;		//Tecla enter
     	serialport.writeBytes(sincro, 1);
     	System.out.println("Sincronización completada");
-    }
+     }
 
 	public static void main(String[] args) {
     	 Conexion conexion = new Conexion();
-    	 conexion.conectar();
-	}
+	  }
 }

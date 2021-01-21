@@ -53,7 +53,7 @@ public class Comprobador {
 			}
 			else return false;		
 			
-		} while((mensaje[i]& 0xFF) != 255);
+		}while((mensaje[i]& 0xFF) != 255);
 		
 		if(enviar) {
 			Pedido tmp = encontrarPedido(pedido);

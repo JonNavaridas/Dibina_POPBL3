@@ -44,7 +44,7 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 				break;
 			case "11111111":
 				bufferDeMensaje.add(bufferDeLectura[0]);
-				comprobador = new Comprobador();
+				comprobador=new Comprobador();
 				
 				if(comprobador.procesarMensaje(bufferDeMensaje.toArray(new Byte[0]))) {
 					bufferDeEnvio[0] = 1;
