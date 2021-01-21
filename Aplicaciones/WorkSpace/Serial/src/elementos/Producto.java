@@ -70,6 +70,17 @@ public class Producto implements Serializable {
 	public String getNombreProcedencia() {
 		return (procedencia.getNombre() + " " + procedencia.getAbreviatura()).toLowerCase();
 	}
+	
+	public String transformToString() {
+		String output = "";
+		
+		output += tipo.transformToString() + "$";
+		output += fecha.toString() + "$";
+		output += cantidad + "$";
+		output += procedencia.transformToString();
+		
+		return output;
+	}
 
 	@Override
 	public String toString() {

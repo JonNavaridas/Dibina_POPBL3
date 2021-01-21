@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Language&apos; to &apos;Files&apos;&#x0D;&#x0A;- Original project: &apos;App_Idiomas&apos;&#x0D;&#x0A;- Destination element: &apos;Files&apos;&#x0D;&#x0A;- Original element: &apos;Language&apos;" description="Copy folder" element1="Files/Language" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1611150961917" target="/App_Sockets/Files" units="0" version="1.0"/>
+</session>

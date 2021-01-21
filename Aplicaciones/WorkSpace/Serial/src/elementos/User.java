@@ -77,4 +77,16 @@ public class User implements Serializable{
 		
 		return output;
 	}
+	
+	public String transformToString() {
+		String output = "";
+		
+		output += id + "$";
+		output += name + "$";
+		output += fullName + "$";
+		output += password + "$";
+		output += permisos.toString().toLowerCase();
+		
+		return output;
+	}
 }

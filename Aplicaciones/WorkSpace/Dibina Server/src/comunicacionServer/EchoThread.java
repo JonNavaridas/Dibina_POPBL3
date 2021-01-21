@@ -77,6 +77,8 @@ public class EchoThread extends Thread {
 		case "Denegar pedido": numeroOperacion = 6; break; // Marcar un pedido procesando com denegado
 		case "Entregar pedido": numeroOperacion = 7; break; // Marcar un pedido aceptado como entregado
 		case "Rehacer pedido": numeroOperacion = 8; break; // Marcar un pedido denegado como procesando
+		case "Sacar pedido de almacen": numeroOperacion = 9; break; // Informar de que un operario ha retirado stock del almacen
+		case "Añadir stock": numeroOperacion = 10; break; // El operario ha registrado la entrada de productos en el almacen
 		default: numeroOperacion = 0; break;
 		}
 		
