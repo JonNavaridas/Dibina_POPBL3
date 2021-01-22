@@ -117,7 +117,7 @@ public class PanelUsuario extends JScrollPane {
 		Font font = FontFactory.createFont(FontFactory.BASE_FONT, 14);
 		Dimension dimension = new Dimension(300, 40);
 		
-		JLabel label = new JLabel(words[3] + ": " + user.getFullName() + " " + user.getID());
+		JLabel label = new JLabel(words[4] + ": " + user.getFullName() + " " + user.getID());
 		label.setBorder(BorderFactory.createCompoundBorder(new RoundedBorder(5), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		label.setPreferredSize(dimension);
 		label.setFont(font);

@@ -127,18 +127,15 @@ public class Pedido {
 			listaProductos.add(producto);
 	}
 
-	public void removeProducto(Tipo tipo, Procedencia procedencia, int cantidad) throws PedidoException {
-		Producto producto = new Producto(tipo, null, cantidad, procedencia);
-
-		for (Producto p : listaProductos) {
-			if (p.equals(producto)) { // Eliminamos el elemento de la lista
-				listaProductos.remove(p);
-				return;
+	public void removeProducto(int[] indices) throws PedidoException {
+		for (int i = 0; i < indices.length; i++) {
+			if (listaProductos.size() > indices[i] && indices[i] >= 0) {
+				listaProductos.remove(indices[i]);
+			}
+			else {
+				throw new PedidoException("No se ha podido encontrar ese producto.");
 			}
 		}
-		// Si no hemos encontrado el elemento a eliminar significa que un error ha
-		// ocurrido en el programa.
-		throw new PedidoException("No se ha podido encontrar ese producto.");
 	}
 
 	public String transformToString() {

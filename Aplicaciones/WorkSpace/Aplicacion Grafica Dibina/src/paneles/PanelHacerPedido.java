@@ -270,12 +270,17 @@ public class PanelHacerPedido extends JScrollPane {
 		boton.addActionListener((l)->{
 			if (!elementosPedido.isSelectionEmpty()) {
 				try {
-					String[] valores = elementosPedido.getSelectedValue().split("[.]");
-					String[] parametros = valores[0].split("[ ]");
-
-					modeloPedido.remove(elementosPedido.getSelectedIndex());
-					pedido.removeProducto(controlador.getTipo(parametros[1]), controlador.getProcedencia(parametros[2]),
-							Integer.parseInt(valores[1].split(": ")[1]));
+					int[] indices = elementosPedido.getSelectedIndices();
+					
+					for (int i = 0; i < indices.length; i++) {
+						displayPedido.remove(pedido.getListaProductos().get(indices[i]).toString(),
+								pedido.getListaProductos().get(indices[i]).getCantidad());
+					}
+					pedido.removeProducto(indices);
+					
+					for (int i = 0; i < indices.length; i++) {
+						modeloPedido.remove(indices[i]);
+					}
 				} catch (PedidoException e) {
 					JOptionPane.showMessageDialog(this, e.getMessage(), words[7], JOptionPane.ERROR_MESSAGE);
 				}
