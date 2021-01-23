@@ -1,0 +1,27 @@
+Stock
+Ver stock
+Ver elementos disponibles en el almacen
+Hacer pedido
+Realizar un pedido a los almacenes
+Buscar Elementos
+Buscar diversos elementos en el almacén, con la posibilidad de aplicar filtros
+Gestión
+Ver lista pedidos
+Visualizar los pedidos en proceso y aceptados
+Historial del almacén
+Buscar todos los pedidos realizados eligiendo una fecha
+Actualizar
+Actualizar todos los elementos utilizando los datos mas recientes
+Area Personal
+Mi usuario
+Ver distintos parametros sobre mi usuario
+Cambiar idioma
+Crear usuario
+Crear un nuevo usuario
+Salir
+Pantalla inicio
+Stock disponible
+Hacer un pedido
+Buscar en stock
+Lista de pedidos
+Historial de pedidos

@@ -10,7 +10,7 @@ import usuarios.User;
 
 public class Identificador {
 
-	private static final String FICHERO_USUARIOS = "Files/Users.csv";
+	private static final String FICHERO_USUARIOS = "../Files/Users.csv";
 	
 	List<User> listaUsuarios;
 	User usuario;

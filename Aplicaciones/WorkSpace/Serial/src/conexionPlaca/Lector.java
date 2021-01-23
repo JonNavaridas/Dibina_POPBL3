@@ -20,11 +20,11 @@ import elementos.Tipo;
 
 public class Lector {
 	
-	public static final String FICHERO_PEDIDOS = "Files/Pedidos.dat";
-	public static final String FICHERO_DESTINOS = "Files/Destinos.txt";
-	public static final String FICHERO_TIPOS = "Files/Tipos.txt";
-	public static final String FICHERO_PRODUCTOS = "Files/Productos.dat";
-	public static final String FICHERO_PROCEDENCIAS = "Files/Procedencias.txt";
+	public static final String FICHERO_PEDIDOS = "../Files/Pedidos.dat";
+	public static final String FICHERO_DESTINOS = "../Files/Destinos.txt";
+	public static final String FICHERO_TIPOS = "../Files/Tipos.txt";
+	public static final String FICHERO_PRODUCTOS = "../Files/Productos.dat";
+	public static final String FICHERO_PROCEDENCIAS = "../Files/Procedencias.txt";
 
 	
 	public static List<Tipo> leerTipos() { // Leer via texto los distintos tipos disponibles.

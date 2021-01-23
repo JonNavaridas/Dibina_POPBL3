@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class Cliente extends Thread {
 
 	private static final String PUERTO = "8888";
-	private static final String IP = "10.0.2.5";
+	private static final String IP = "127.0.0.1";
 	
 	public String mensaje;
 	public String operacion;

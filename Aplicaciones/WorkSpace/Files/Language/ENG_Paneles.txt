@@ -1,0 +1,43 @@
+Stock available
+Amount
+Type
+Origin
+Both
+Element list
+Amount
+Add
+Make order
+Remove
+Selected amount of elements not available
+Element
+Error
+Given data is not correct
+All
+Aply filter
+Select a row
+Row not found
+Mark a confirmed order as delivered
+Remove delivered and turned away orders from list
+Confirm an order in process
+Turn away an order in process
+See order
+Select a row
+Row not found
+All
+User
+Order Nº
+cannot be canceled. Contact with an administrator for more info
+Error in order
+Remeake an order
+Cancel order
+Change password
+Error
+Change language
+Remove delivered and turned away orders from list
+See order
+Print
+User
+Date
+Delivery point
+Element
+Amount

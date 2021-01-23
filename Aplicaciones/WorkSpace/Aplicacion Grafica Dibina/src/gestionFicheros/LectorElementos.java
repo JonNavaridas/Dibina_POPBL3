@@ -21,26 +21,26 @@ import elementos.Tipo;
 
 public class LectorElementos {
 
-	public static final String FICHERO_TIPOS = "Files/Tipos.txt";
-	public static final String FICHERO_LOGIN_ESP = "Files/Language/ESP_Login.txt";
-	public static final String FICHERO_LOGIN_EUS = "Files/Language/EUS_Login.txt";
-	public static final String FICHERO_LOGIN_ENG = "Files/Language/ENG_Login.txt";
-	public static final String FICHERO_DIBINA_ESP = "Files/Language/ESP_Dibina.txt";
-	public static final String FICHERO_DIBINA_EUS = "Files/Language/EUS_Dibina.txt";
-	public static final String FICHERO_DIBINA_ENG = "Files/Language/ENG_Dibina.txt";
-	public static final String FICHERO_PANELES_ESP = "Files/Language/ESP_Paneles.txt";
-	public static final String FICHERO_PANELES_EUS = "Files/Language/EUS_Paneles.txt";
-	public static final String FICHERO_PANELES_ENG = "Files/Language/ENG_Paneles.txt";
-	public static final String FICHERO_TABLAS_ESP = "Files/Language/ESP_Tablas.txt";
-	public static final String FICHERO_TABLAS_EUS = "Files/Language/EUS_Tablas.txt";
-	public static final String FICHERO_TABLAS_ENG = "Files/Language/ENG_Tablas.txt";
-	public static final String FICHERO_PASSUSER_ESP = "Files/Language/ESP_PasswordUser.txt";
-	public static final String FICHERO_PASSUSER_EUS = "Files/Language/EUS_PasswordUser.txt";
-	public static final String FICHERO_PASSUSER_ENG = "Files/Language/ENG_PasswordUser.txt";
-	public static final String FICHERO_PEDIDOS = "Files/Pedidos.dat";
-	public static final String FICHERO_DESTINOS = "Files/Destinos.txt";
-	public static final String FICHERO_PRODUCTOS = "Files/Productos.dat";
-	public static final String FICHERO_PROCEDENCIAS = "Files/Procedencias.txt";
+	public static final String FICHERO_TIPOS = "../Files/Tipos.txt";
+	public static final String FICHERO_LOGIN_ESP = "../Files/Language/ESP_Login.txt";
+	public static final String FICHERO_LOGIN_EUS = "../Files/Language/EUS_Login.txt";
+	public static final String FICHERO_LOGIN_ENG = "../Files/Language/ENG_Login.txt";
+	public static final String FICHERO_DIBINA_ESP = "../Files/Language/ESP_Dibina.txt";
+	public static final String FICHERO_DIBINA_EUS = "../Files/Language/EUS_Dibina.txt";
+	public static final String FICHERO_DIBINA_ENG = "../Files/Language/ENG_Dibina.txt";
+	public static final String FICHERO_PANELES_ESP = "../Files/Language/ESP_Paneles.txt";
+	public static final String FICHERO_PANELES_EUS = "../Files/Language/EUS_Paneles.txt";
+	public static final String FICHERO_PANELES_ENG = "../Files/Language/ENG_Paneles.txt";
+	public static final String FICHERO_TABLAS_ESP = "../Files/Language/ESP_Tablas.txt";
+	public static final String FICHERO_TABLAS_EUS = "../Files/Language/EUS_Tablas.txt";
+	public static final String FICHERO_TABLAS_ENG = "../Files/Language/ENG_Tablas.txt";
+	public static final String FICHERO_PASSUSER_ESP = "../Files/Language/ESP_PasswordUser.txt";
+	public static final String FICHERO_PASSUSER_EUS = "../Files/Language/EUS_PasswordUser.txt";
+	public static final String FICHERO_PASSUSER_ENG = "../Files/Language/ENG_PasswordUser.txt";
+	public static final String FICHERO_PEDIDOS = "../Files/Pedidos.dat";
+	public static final String FICHERO_DESTINOS = "../Files/Destinos.txt";
+	public static final String FICHERO_PRODUCTOS = "../Files/Productos.dat";
+	public static final String FICHERO_PROCEDENCIAS = "../Files/Procedencias.txt";
 	
 	public static List<Tipo> leerTipos() { // Leer via texto los distintos tipos disponibles.
 		try {

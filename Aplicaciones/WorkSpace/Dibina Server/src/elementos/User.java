@@ -1,9 +1,12 @@
 package elementos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -6662751635722310099L;
 
 	String id;
 	String name;

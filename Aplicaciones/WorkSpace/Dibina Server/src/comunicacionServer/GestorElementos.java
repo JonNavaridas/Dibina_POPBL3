@@ -26,11 +26,11 @@ import elementos.User;
 
 public class GestorElementos extends Thread {
 
-	private static final String FICHERO_LOG = "Files/log.txt";
-	private static final String FICHERO_USUARIOS = "Files/users.csv";
-	private static final String FICHERO_PEDIDOS = "Files/pedidos.dat";
-	private static final String FICHERO_PRODUCTOS = "Files/productos.dat";
-	public static final String FICHERO_CREAR_USUARIOS = "Files/CreateUsers.csv";
+	private static final String FICHERO_LOG = "../Files/log.txt";
+	private static final String FICHERO_USUARIOS = "../Files/users.csv";
+	private static final String FICHERO_PEDIDOS = "../Files/pedidos.dat";
+	private static final String FICHERO_PRODUCTOS = "../Files/productos.dat";
+	public static final String FICHERO_CREAR_USUARIOS = "../Files/CreateUsers.csv";
 
 	Queue<ElementoEnCola> listaDeEspera;
 	boolean running;
@@ -54,35 +54,37 @@ public class GestorElementos extends Thread {
 	}
 	
 	private void realizarAccion() throws ParseException, IOException {
-		ElementoEnCola elemento = listaDeEspera.remove();
-		
-		switch(elemento.getOperacion()) {
-		case 1: addPedido(elemento.transformToPedido());
-			break;
-		case 2: removePedido(elemento.transformToPedidos());
-			break;
-		case 3: añadirUsuario(elemento.transformToUser());
-			break;
-		case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
-			break;
-		case 5: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
-			break;
-		case 6: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.DENEGADO);
-			break;
-		case 7: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.RECOGIDO);
-			break;
-		case 8: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
-			break;
-		case 9: informarSalidaPedido(elemento.transformToPedido());
-			break;
-		case 10: añadirStock(elemento.transformToProducto());
-			break;
-		default:
-			System.out.println("Operacion no disponible"); 
-			return;
+		if (!listaDeEspera.isEmpty()) {
+			ElementoEnCola elemento = listaDeEspera.remove();
+			
+			switch(elemento.getOperacion()) {
+			case 1: addPedido(elemento.transformToPedido());
+				break;
+			case 2: removePedido(elemento.transformToPedidos());
+				break;
+			case 3: añadirUsuario(elemento.transformToUser());
+				break;
+			case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
+				break;
+			case 5: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
+				break;
+			case 6: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.DENEGADO);
+				break;
+			case 7: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.RECOGIDO);
+				break;
+			case 8: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
+				break;
+			case 9: informarSalidaPedido(elemento.transformToPedido());
+				break;
+			case 10: añadirStock(elemento.transformToProducto());
+				break;
+			default:
+				System.out.println("Operacion no disponible"); 
+				return;
+			}
+			if (listaDeEspera.size() == 0) running = false;
+			writeLog(elemento);
 		}
-		if (listaDeEspera.size() == 0) running = false;
-		writeLog(elemento);
 	}
 
 	@Override
@@ -112,10 +114,19 @@ public class GestorElementos extends Thread {
 			out.writeObject(listaPedidos);
 			out.close();
 			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}catch (EOFException e){
+		} catch (FileNotFoundException | EOFException e){
+			if (listaPedidos == null) listaPedidos = new ArrayList<>();
 			
+			ObjectOutputStream out;
+			try {
+				out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS));
+				listaPedidos.add(p);
+				
+				out.writeObject(listaPedidos);
+				out.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -346,6 +357,7 @@ public class GestorElementos extends Thread {
 	
 	private void writeLog(ElementoEnCola elemento) throws ParseException {
 		try {
+			Thread.sleep(1000);
 			BufferedWriter out = new BufferedWriter(new FileWriter(FICHERO_LOG, true));
 			try {
 				switch(elemento.getOperacion()) {
@@ -390,6 +402,8 @@ public class GestorElementos extends Thread {
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
+		} catch (InterruptedException e1) {	
+			e1.printStackTrace();
 		}
 	}
 	

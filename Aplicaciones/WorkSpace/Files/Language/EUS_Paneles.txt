@@ -1,0 +1,43 @@
+Stock erabilgarria
+Kopurua
+Mota
+Jatorria
+Biak
+Elementuen lista
+Kopurua
+Gehitu
+Eskaria egin
+Kendu
+Aukeratutako elementu kopurua ez dago erabilgarri biltegian
+Elementu
+Error
+Hemandako datuak okerrak dira
+Guztia
+Filtratu
+Ilara bat aukeratu
+Ez da aurkitu ilara
+Berretsitako eskari bat jasota bezala markatu
+Ukatutako eta jasotako eskariak kendu listatik
+Prozesuan dagoen eskari bat berretsi
+Prozesuan dagoen eskari bat ukatu
+Eskaria ikusi
+Ilara bat aukeratu
+Ez da aurkitu ilara
+Guztia
+Erabiltzailea
+Eskaria (Nº
+)ezin da ukatu. Administratzaile batekin kontaktuan jarri informazio geihago lortzeko
+Errorea eskarian
+Eskaria berregin
+Ukatu eskaria
+Pasahitza aldatu
+Errorea
+Hizkuntza aldatu
+Ukatutako eta jasotako eskariak kendu listatik
+Eskaria ikusi
+Inprimatu
+Erabiltzailea
+Data
+Entrega tokia
+Elementua
+Kopurua

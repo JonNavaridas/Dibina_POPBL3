@@ -1,0 +1,7 @@
+Usuario
+Destino
+Estado
+Cantidad
+Fecha
+Tipo
+Procedencia

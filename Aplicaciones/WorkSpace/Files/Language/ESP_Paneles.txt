@@ -1,0 +1,43 @@
+Stock disponible
+Cantidad
+Tipo
+Procedencia
+Ambos
+Lista de Elementos
+Cantidad
+Insertar
+Hacer pedido
+Eliminar
+Esa cantidad de elementos no esta disponible en el almacen
+Elemento
+Error
+Los datos proporcionados no son correctos
+Todo
+Filtrar
+Selecciona una fila
+Fila no encontrada
+Marcar un pedido aceptado como entregado
+Quitar pedidos entregados y denegados de la lista	
+Confirmar un pedido que se está procesando
+Denegar un pedido que se está procesando
+Ver Pedido
+Selecciona una fila
+Fila no encontrada
+Todo
+Usuario
+El pedido Nº
+no se puede cancelar. Pongase en contacto con el administrador para mas información
+Error en pedido
+Rehacer pedido
+Cancelar pedido
+Cambiar contraseña
+Error
+Cambiar idioma
+Quitar pedidos entregados y denegados de la lista
+Visualizar pedido
+Imprimir	
+Usuario
+Fecha
+Punto de entrega
+Elemento
+Cantidad

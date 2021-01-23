@@ -1,0 +1,27 @@
+Stock
+Stocka ikusi
+Biltegian dauden elementu guztiak ikusi
+Eskaria egin
+Biltegiari eskari berria egin
+Elementuak bilatu
+Biltegian dauden elementu ezberdinen bilaketa, filtroak erabiltzeko aukerarekin
+Kudeaketa
+Eskari lista ikusi
+Onartu beharreko eta onartutako eskariak ikusi
+Biltegiaren historiala
+Egindako eskari guztiak ikusi, data bat aukeratuz
+Eguneratu
+Eguneratu elementu guztiak data berrienarekin
+Area Pertsonala
+Nire erabiltzailea
+Nire erabiltzailearen parametro ezberdinak ikusi
+Aldatu hizkuntza
+Erabiltzailea sortu
+Erabiltzaile berri bat sortu
+Irten
+Sarrera
+Stock erabilgarria
+Eskaria egin
+Stockan bilatu
+Eskari lista
+Eskaria historiala
