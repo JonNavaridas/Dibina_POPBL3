@@ -17,10 +17,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
+import elementos.User;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
 import gestionPantallas.RoundedBorder;
-import usuarios.User;
 import usuarios.UserException;
 
 public class DialogoContraseña extends JDialog {

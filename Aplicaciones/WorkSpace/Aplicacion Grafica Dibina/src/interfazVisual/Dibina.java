@@ -22,9 +22,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import comunicacionSockets.Cliente;
 import elementos.Pedido;
+import elementos.Permisos;
 import elementos.Procedencia;
 import elementos.Producto;
 import elementos.Tipo;
+import elementos.User;
 import gestionElementosVisuales.ImageFactory;
 import gestionFicheros.LectorElementos;
 import gestionPedidos.ControladorPedidos;
@@ -39,8 +41,6 @@ import paneles.PanelStockDisponible;
 import renderizadoTablaPedidos.ModeloTablaPedidos;
 import renderizadoTablaTipos.ModeloTablaTipos;
 import usuarios.PanelUsuario;
-import usuarios.Permisos;
-import usuarios.User;
 
 public class Dibina extends JFrame {
 
@@ -71,19 +71,8 @@ public class Dibina extends JFrame {
 		pDisplay = new JScrollPane();
 		
 		// Pantalla que se mostrara mientras los elementos cargan.
-		PantallaCarga carga = new PantallaCarga(this, null, true);
-		listaTipos = carga.getTipos();
-		destinos = carga.getDestinos();
-		listaPedidos = carga.getPedidos();
-		listaProductos = carga.getProductos();
-		listaProcedencias = carga.getProcedencias();
-		
-		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
-		modeloPedidos = new ModeloTablaPedidos(listaPedidos);
-		modeloTipos = new ModeloTablaTipos(listaProductos);
-		
+		actualizarDatosAplicacion();
 		pDisplay.setBorder(null);
-		pDisplay.setViewportView(new PanelPrincipal());
 		
 		// Determinar el tamaño de la pantalla.
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -114,9 +103,15 @@ public class Dibina extends JFrame {
 			pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
 			pVentana.setBorder(null);
 	
+			listaPedidos.stream().forEach((p)->{
+				if (p.getUser().equals(user)) {
+					user.addPedido(p);
+				}
+			});
+			
 			this.setContentPane(pVentana);
 			this.setJMenuBar(crearBarraMenu());
-
+			
 			this.setVisible(true);
 			this.setBackground(Color.white);
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH); // La pantalla ocupa toda la ventana
@@ -240,6 +235,14 @@ public class Dibina extends JFrame {
 		listaProductos = carga.getProductos();
 		listaProcedencias = carga.getProcedencias();
 		
+		if (user != null) {
+			listaPedidos.stream().forEach((p)->{
+				if (p.getUser().equals(user)) {
+					user.addPedido(p);
+				}
+			});
+		}
+		
 		controlador = new ControladorPedidos(listaProcedencias, listaTipos, listaProductos);
 		modeloPedidos = new ModeloTablaPedidos(listaPedidos);
 		modeloTipos = new ModeloTablaTipos(listaProductos);
@@ -254,6 +257,7 @@ public class Dibina extends JFrame {
 		item = menuPersonal.add(menus[15]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 		item.addActionListener((e)->{
+			modeloPedidos.setLista(user.getListaPedidos());
 			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user, Arrays.copyOfRange(paneles, 22, 36), Arrays.copyOfRange(paneles, 36, 43), Arrays.copyOfRange(passwordUser,0,5)));
 			this.repaint();
 		});

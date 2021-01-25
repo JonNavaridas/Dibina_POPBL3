@@ -15,9 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import elementos.User;
 import gestionElementosVisuales.FontFactory;
 import gestionPantallas.RoundedBorder;
-import usuarios.User;
 
 public class DialogoIdentificar extends JDialog {
 

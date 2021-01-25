@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -6662751635722310099L;
 
 	String id;
 	String name;
@@ -15,7 +15,7 @@ public class User implements Serializable{
 	Permisos permisos;
 	List<Pedido> listaPedidos;
 	
-	public User(String id, String name, String fullName, int password, Permisos permisos) {
+	public User(String id, String name, String fullName, Integer password, Permisos permisos) {
 		this.id = id;
 		this.name = name;
 		this.fullName = fullName;

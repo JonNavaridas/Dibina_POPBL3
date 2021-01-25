@@ -37,7 +37,7 @@ public class LectorElementos {
 	public static final String FICHERO_PASSUSER_ESP = "../Files/Language/ESP_PasswordUser.txt";
 	public static final String FICHERO_PASSUSER_EUS = "../Files/Language/EUS_PasswordUser.txt";
 	public static final String FICHERO_PASSUSER_ENG = "../Files/Language/ENG_PasswordUser.txt";
-	public static final String FICHERO_PEDIDOS = "../Files/Pedidos.dat";
+	public static final String FICHERO_PEDIDOS = "../Files/pedidos.dat";
 	public static final String FICHERO_DESTINOS = "../Files/Destinos.txt";
 	public static final String FICHERO_PRODUCTOS = "../Files/Productos.dat";
 	public static final String FICHERO_PROCEDENCIAS = "../Files/Procedencias.txt";
@@ -91,18 +91,22 @@ public class LectorElementos {
 	@SuppressWarnings("unchecked")
 	public static List<Pedido> leerPedidos() { // Leer todo los pedidos sin resolver
 		List<Pedido> listaPedidos = new ArrayList<>();
+		
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			do {
 				listaPedidos = (List<Pedido>) in.readObject();
 			} while(listaPedidos != null);
 			
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 			return null;
 		}catch (EOFException e){
 			return listaPedidos;
 		}catch (IOException e) {
+			e.printStackTrace();
 			return null;
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 			return null;
 		}
 		return listaPedidos;

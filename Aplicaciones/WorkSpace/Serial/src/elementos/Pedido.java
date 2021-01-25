@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import exceptions.PedidoException;
-
-public class Pedido implements Serializable{
+public class Pedido implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2176420357777145249L;
+	
 	Long id; // Numero determinado por la fecha en la que se hizo el pedido
 	User user; // La persona que ha hecho el pedido
 	Date fecha; // Fecha en la que se hizo el pedido
@@ -109,19 +108,6 @@ public class Pedido implements Serializable{
 		}
 		// Si no encontramos el elemnto en la lista significa que es la primera vez que introducimos ese elemento.
 		if (!encontrado) listaProductos.add(producto);
-	}
-	
-	public void removeProducto(Tipo tipo, Procedencia procedencia, int cantidad) throws PedidoException {
-		Producto producto = new Producto(tipo, null, cantidad, procedencia);
-		
-		for (Producto p : listaProductos) {
-			if (p.equals(producto)) { // Eliminamos el elemento de la lista
-				listaProductos.remove(p);
-				return;
-			}
-		}
-		// Si no hemos encontrado el elemento a eliminar significa que un error ha ocurrido en el programa.
-		throw new PedidoException("No se ha podido encontrar ese producto.");
 	}
 
 	@Override

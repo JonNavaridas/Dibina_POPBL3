@@ -35,9 +35,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import elementos.User;
 import gestionElementosVisuales.ImageFactory;
 import gestionFicheros.LectorElementos;
-import usuarios.User;
 
 public class DialogoLogin extends JDialog implements ActionListener {
 	

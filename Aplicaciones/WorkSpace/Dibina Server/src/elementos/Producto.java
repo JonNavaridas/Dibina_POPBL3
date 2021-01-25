@@ -12,7 +12,7 @@ public class Producto implements Serializable {
 	Integer cantidad; // Numero de unidades.
 	Procedencia procedencia; // Enpresa que proporciono el producto.
 	
-	public Producto(Tipo tipo, Date fecha, int cantidad, Procedencia procedencia) {
+	public Producto(Tipo tipo, Date fecha, Integer cantidad, Procedencia procedencia) {
 		this.tipo = tipo;
 		this.fecha = fecha;
 		this.cantidad = cantidad;
@@ -42,7 +42,7 @@ public class Producto implements Serializable {
 	@Override
 	public boolean equals(Object obj) {
 		Producto p = (Producto)obj;
-		if (p.tipo == tipo && p.procedencia == procedencia) return true;
+		if (p.tipo.getNombre().equals(tipo.nombre) && p.procedencia.getNombre().equals(procedencia.getNombre())) return true;
 		return false;
 	}
 	

@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import usuarios.Permisos;
-import usuarios.User;
+import elementos.Permisos;
+import elementos.User;
 
 public class Identificador {
 

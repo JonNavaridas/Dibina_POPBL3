@@ -37,7 +37,6 @@ public class EchoThread extends Thread {
         while (true) {
             try {
                 line = in.readLine();
-                System.out.println(line);
                 if ((line == null) || line.equalsIgnoreCase("QUIT")) {
                     socket.close();
                     return;
@@ -53,8 +52,8 @@ public class EchoThread extends Thread {
                 		}
                 	}
                 	else {
-                		if (!gestor.isAlive()) gestor.start();
                 		gestor.addElementoACola(numeroOperacion, line);
+                		if (!gestor.isAlive()) gestor.start();
                 		out.write("Operacion realizada\n");
                 	}
                     out.flush();

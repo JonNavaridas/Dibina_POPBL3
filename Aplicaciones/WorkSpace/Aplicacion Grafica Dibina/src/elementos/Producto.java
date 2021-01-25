@@ -15,7 +15,7 @@ public class Producto implements Serializable {
 	Integer cantidad; // Numero de unidades.
 	Procedencia procedencia; // Enpresa que proporciono el producto.
 	
-	public Producto(Tipo tipo, Date fecha, int cantidad, Procedencia procedencia) {
+	public Producto(Tipo tipo, Date fecha, Integer cantidad, Procedencia procedencia) {
 		this.tipo = tipo;
 		this.fecha = fecha;
 		this.cantidad = cantidad;

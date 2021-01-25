@@ -21,11 +21,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import elementos.Permisos;
+import elementos.User;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
 import gestionPantallas.RoundedBorder;
-import usuarios.Permisos;
-import usuarios.User;
 
 public class DialogoCrearUsuario extends JDialog {
 

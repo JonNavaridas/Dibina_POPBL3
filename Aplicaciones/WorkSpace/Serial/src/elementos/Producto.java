@@ -12,10 +12,10 @@ public class Producto implements Serializable {
 
 	Tipo tipo; // Que clase de producto es.
 	Date fecha; // Fecha en la que entro el ultimo producto de este tipo.
-	int cantidad; // Numero de unidades.
+	Integer cantidad; // Numero de unidades.
 	Procedencia procedencia; // Enpresa que proporciono el producto.
 	
-	public Producto(Tipo tipo, Date fecha, int cantidad, Procedencia procedencia) {
+	public Producto(Tipo tipo, Date fecha, Integer cantidad, Procedencia procedencia) {
 		this.tipo = tipo;
 		this.fecha = fecha;
 		this.cantidad = cantidad;

@@ -26,12 +26,12 @@ import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
 import elementos.Producto;
+import elementos.User;
 import gestionElementosVisuales.FontFactory;
 import gestionPantallas.RoundedBorder;
 import gestionPedidos.ControladorPedidos;
 import gestionPedidos.PedidoException;
 import renderizadoLista.ListTipoRenderer;
-import usuarios.User;
 
 public class PanelHacerPedido extends JScrollPane {
 

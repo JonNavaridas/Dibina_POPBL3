@@ -17,4 +17,8 @@ public class Procedencia implements Serializable {
 		this.abreviatura = abreviatura;
 		this.listaProductos = new ArrayList<>();
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
 }

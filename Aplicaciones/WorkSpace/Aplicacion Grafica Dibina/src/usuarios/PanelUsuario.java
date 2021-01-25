@@ -29,6 +29,7 @@ import javax.swing.JToolBar;
 import comunicacionSockets.Cliente;
 import elementos.Estado;
 import elementos.Pedido;
+import elementos.User;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
 import gestionPantallas.RoundedBorder;

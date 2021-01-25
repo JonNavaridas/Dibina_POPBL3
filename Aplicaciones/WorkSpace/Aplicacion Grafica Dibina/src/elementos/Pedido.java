@@ -3,6 +3,7 @@ package elementos;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,9 +13,10 @@ import javax.swing.ImageIcon;
 import gestionElementosVisuales.FontFactory;
 import gestionElementosVisuales.ImageFactory;
 import gestionPedidos.PedidoException;
-import usuarios.User;
 
-public class Pedido {
+public class Pedido implements Serializable {
+	
+	private static final long serialVersionUID = 2176420357777145249L;
 
 	Long id; // Numero determinado por la fecha en la que se hizo el pedido
 	User user; // La persona que ha hecho el pedido

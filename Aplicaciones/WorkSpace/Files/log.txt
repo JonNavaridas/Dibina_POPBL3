@@ -1,5 +1,59 @@
-
-Añadir pedido: Pedido 2021123111535 --> procesando
-	[Tipo=2112/Boligrafo,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Componentes mugit/MUG]
+Server on
+Añadir pedido: Pedido 2021125135438 --> procesando
+	[Tipo=2112/Boligrafo,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Ferreteria hermanos gonzalez/FHG]
+Añadir pedido: Pedido 2021125140326 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Ferreteria hermanos gonzalez/FHG]
+Añadir pedido: Pedido 2021125140508 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Papercat/PPC]
+Añadir pedido: Pedido 2021125141153 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Ferreteria hermanos gonzalez/FHG]
 Server on
 Server on
+Añadir pedido: Pedido 2021125141627 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125141627
+Añadir pedido: Pedido 2021125141750 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125141750
+Server on
+Añadir pedido: Pedido 2021125142359 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Server on
+Añadir pedido: Pedido 2021125143041 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125143041
+Server on
+Añadir pedido: Pedido 2021125143403 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125143403
+Server on
+Añadir pedido: Pedido 2021125143527 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125143527
+Server on
+Añadir pedido: Pedido 2021125143707 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125143707
+Server on
+Añadir pedido: Pedido 2021125143853 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125143853
+Server on
+Añadir pedido: Pedido 2021125144206 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Server on
+Añadir pedido: Pedido 2021125144948 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=300,Procedencia=Aki/AKI]
+Aceptar pedido:
+	->Pedido 2021125144948
+Añadir pedido: Pedido 2021125145250 --> procesando
+	[Tipo=2812/Adaptador,Fecha=Thu Jan 14 15:44:06 CET 2021,Cantidad=1,Procedencia=Brico depot/BDP]
+Aceptar pedido:
+	->Pedido 2021125145250

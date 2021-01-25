@@ -14,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -29,7 +30,7 @@ public class GestorElementos extends Thread {
 	private static final String FICHERO_LOG = "../Files/log.txt";
 	private static final String FICHERO_USUARIOS = "../Files/users.csv";
 	private static final String FICHERO_PEDIDOS = "../Files/pedidos.dat";
-	private static final String FICHERO_PRODUCTOS = "../Files/productos.dat";
+	private static final String FICHERO_PRODUCTOS = "../Files/Productos.dat";
 	public static final String FICHERO_CREAR_USUARIOS = "../Files/CreateUsers.csv";
 
 	Queue<ElementoEnCola> listaDeEspera;
@@ -164,13 +165,17 @@ public class GestorElementos extends Thread {
 	@SuppressWarnings("unchecked")
 	public void cambiarEstadoPedido(List<Long> listaID, Estado estado) {
 		List<Pedido> listaPedidos = null;
+		List<Pedido> listaPedidosCambiar = new ArrayList<>();
 		
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			listaPedidos = (List<Pedido>) in.readObject();
 			if (listaPedidos != null) {
 				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FICHERO_PEDIDOS));
 				for (Pedido p : listaPedidos) {
-					if (listaID.contains(p.getID())) p.setEstado(estado);
+					if (listaID.contains(p.getID())) {
+						p.setEstado(estado);
+						listaPedidosCambiar.add(p);
+					}
 				}
 				
 				out.writeObject(listaPedidos);
@@ -186,8 +191,8 @@ public class GestorElementos extends Thread {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} finally {
-			if (estado == Estado.ACEPTADO && listaPedidos != null) {
-				reducirStock(listaPedidos);
+			if (estado == Estado.ACEPTADO && listaPedidosCambiar.size() > 0) {
+				reducirStock(listaPedidosCambiar);
 			}
 		}
 	}
@@ -218,29 +223,35 @@ public class GestorElementos extends Thread {
 		List<Producto> listaReducir = new ArrayList<>();
 		List<Producto> listaProductos = null;
 		
+		// Mirar cada pedido que productos contiene y meterlos en una lista
 		for (Pedido p : listaPedidos) {
 			List<Producto> list = p.getProducto();
-			for (int i = 0; i < list.size(); i++) {
+			for (int i = 0; i < list.size(); i++) { // Si contiene suma
 				if (listaReducir.contains(list.get(i))) {
 					int index = listaReducir.indexOf(list.get(i));
 					listaReducir.get(index).addElements(list.get(i).getCantidad());
 				}
-				else {
+				else { // Si no contiene resta
 					listaReducir.add(list.get(i));
 				}
 			}
 		}
 		
+		// Leer todos los productos
 		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PRODUCTOS))) {
 			listaProductos = (List<Producto>) in.readObject();
+			Iterator<Producto> it = listaProductos.iterator();
 			
-			for (Producto p : listaProductos) {
+			while(it.hasNext()) {
+				Producto p = it.next();
 				if (listaReducir.contains(p)) {
-					if (p.getCantidad() == listaProductos.get(listaProductos.indexOf(p)).getCantidad()) {
-						listaProductos.remove(p);
+					// Si la cantidad es la misma borramos todo
+					if (p.getCantidad() == listaReducir.get(listaReducir.indexOf(p)).getCantidad()) {
+						it.remove();
 					}
-					else {
-						listaProductos.get(listaProductos.indexOf(p)).addElements(-p.getCantidad());
+					// Si es distinta reducimos
+					else if (p.getCantidad() > listaReducir.get(listaReducir.indexOf(p)).getCantidad()) {
+						listaProductos.get(listaProductos.indexOf(p)).addElements(-listaReducir.get(listaReducir.indexOf(p)).getCantidad());
 					}
 				}
 			}
