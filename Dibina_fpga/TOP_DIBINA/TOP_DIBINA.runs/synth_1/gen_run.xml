@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1611523601">
+  <File Type="RDS-PROPCONSTRS" Name="TOP_DIBINA_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="TOP_DIBINA.tcl"/>
+  <File Type="RDS-RDS" Name="TOP_DIBINA.vds"/>
+  <File Type="RDS-UTIL" Name="TOP_DIBINA_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="TOP_DIBINA_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="TOP_DIBINA.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="TOP_DIBINA_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="TOP_DIBINA_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/me_display/FSM.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/me_display/FSM.vhd"/>
+        <Attr Name="ImportTime" Val="1609243782"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/me_display/ME_display.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/me_display/ME_display.vhd"/>
+        <Attr Name="ImportTime" Val="1609243782"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/TOP_Principal.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/TOP_Principal.vhd"/>
+        <Attr Name="ImportTime" Val="1609242914"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/abecedario.vhd"/>
+        <Attr Name="ImportTime" Val="1609238127"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/baud.vhd"/>
+        <Attr Name="ImportTime" Val="1609243396"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/bin_decimal.vhd"/>
+        <Attr Name="ImportTime" Val="1609239423"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/cantidad_display.vhd"/>
+        <Attr Name="ImportTime" Val="1609239048"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/me_display/f_zati.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/me_display/f_zati.vhd"/>
+        <Attr Name="ImportTime" Val="1609243790"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/kcuart_rx.vhd"/>
+        <Attr Name="ImportTime" Val="1609243179"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/kcuart_tx.vhd"/>
+        <Attr Name="ImportTime" Val="1609243196"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/mux.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/mux.vhd"/>
+        <Attr Name="ImportTime" Val="1609240746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/serial_rx.vhd"/>
+        <Attr Name="ImportTime" Val="1609243396"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/serial_tx.vhd"/>
+        <Attr Name="ImportTime" Val="1609243398"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/top_convertidor.vhd"/>
+        <Attr Name="ImportTime" Val="1609240902"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/linea_serie_vhd/top_serial.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/linea_serie_vhd/top_serial.vhd"/>
+        <Attr Name="ImportTime" Val="1609436050"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/traductor_empresa.vhd"/>
+        <Attr Name="ImportTime" Val="1609182001"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../COMPONENTES/convertidor/traductor_producto.vhd"/>
+        <Attr Name="ImportTime" Val="1609180511"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TOP_DIBINA.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="TOP_DIBINA"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Basys3_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1605959912"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,817 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Jan 24 22:26:44 2021
+# Process ID: 13920
+# Current directory: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/synth_1
+# Command line: vivado.exe -log TOP_DIBINA.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_DIBINA.tcl
+# Log file: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/synth_1/TOP_DIBINA.vds
+# Journal file: C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source TOP_DIBINA.tcl -notrace
+Command: synth_design -top TOP_DIBINA -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t-cpg236'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t-cpg236'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8924 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 350.430 ; gain = 81.164
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP_DIBINA' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:52]
+INFO: [Synth 8-3491] module 'TOP_Principal' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:34' bound to instance 'me_princ' of component 'TOP_Principal' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'TOP_Principal' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:54]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:63]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:63]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:64]
+WARNING: [Synth 8-614] signal 'envio_completado' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:78]
+WARNING: [Synth 8-614] signal 'datos_correctos' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:78]
+WARNING: [Synth 8-614] signal 'recibido' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:78]
+INFO: [Synth 8-256] done synthesizing module 'TOP_Principal' (1#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:54]
+INFO: [Synth 8-3491] module 'top_convertidor' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:34' bound to instance 'covertidor' of component 'top_convertidor' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'top_convertidor' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:44]
+INFO: [Synth 8-3491] module 'bin_decimal' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:35' bound to instance 'bin_dec0' of component 'bin_decimal' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'bin_decimal' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:43]
+WARNING: [Synth 8-6014] Unused sequential element v_Upper_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:108]
+WARNING: [Synth 8-6014] Unused sequential element v_Lower_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:109]
+INFO: [Synth 8-256] done synthesizing module 'bin_decimal' (2#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:43]
+INFO: [Synth 8-3491] module 'bin_decimal' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/bin_decimal.vhd:35' bound to instance 'bin_dec1' of component 'bin_decimal' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:98]
+INFO: [Synth 8-3491] module 'traductor_empresa' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:34' bound to instance 'trad_empr' of component 'traductor_empresa' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'traductor_empresa' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'traductor_empresa' (3#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_empresa.vhd:39]
+INFO: [Synth 8-3491] module 'traductor_producto' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:34' bound to instance 'trad_produc' of component 'traductor_producto' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'traductor_producto' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'traductor_producto' (4#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/traductor_producto.vhd:39]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp0' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'abecedario' (5#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:39]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp1' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:104]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_emp2' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:105]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc0' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:107]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc1' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:108]
+INFO: [Synth 8-3491] module 'abecedario' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/abecedario.vhd:34' bound to instance 'abc_produc2' of component 'abecedario' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:109]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp0' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'cantidad_display' (6#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:39]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp1' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:112]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp2' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:113]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp3' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:115]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp4' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:116]
+INFO: [Synth 8-3491] module 'cantidad_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/cantidad_display.vhd:34' bound to instance 'cant_disp5' of component 'cantidad_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:117]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux0' of component 'mux' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'mux' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:47]
+INFO: [Synth 8-226] default block is never used [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'mux' (7#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:47]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux1' of component 'mux' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:120]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'mux2' of component 'mux' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:121]
+INFO: [Synth 8-3491] module 'mux' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/mux.vhd:34' bound to instance 'muxEsp' of component 'mux' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:122]
+INFO: [Synth 8-256] done synthesizing module 'top_convertidor' (8#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/convertidor/top_convertidor.vhd:44]
+INFO: [Synth 8-3491] module 'ME_display' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:34' bound to instance 'display' of component 'ME_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'ME_display' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:46]
+INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:34' bound to instance 'egoera' of component 'FSM' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'FSM' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:46]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat0' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat1' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat2' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+WARNING: [Synth 8-614] signal 'kat3' is read in the process but is not in the sensitivity list [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'FSM' (9#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:46]
+INFO: [Synth 8-3491] module 'f_zati' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:35' bound to instance 'swaper' of component 'f_zati' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'f_zati' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'f_zati' (10#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'ME_display' (11#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/ME_display.vhd:46]
+INFO: [Synth 8-3491] module 'top_serial' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:34' bound to instance 'linea_serie' of component 'top_serial' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:133]
+INFO: [Synth 8-638] synthesizing module 'top_serial' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:45]
+INFO: [Synth 8-3491] module 'serial_tx' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:34' bound to instance 'transmisor' of component 'serial_tx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'serial_tx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:42]
+INFO: [Synth 8-3491] module 'kcuart_tx' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:13' bound to instance 'transmisor' of component 'kcuart_tx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'kcuart_tx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:25]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux1_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:84]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux2_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:94]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux3_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:104]
+	Parameter INIT bound to: 16'b1110010011111111 
+INFO: [Synth 8-113] binding component instance 'mux4_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:114]
+INFO: [Synth 8-113] binding component instance 'mux5_muxf5' to cell 'MUXF5' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:124]
+INFO: [Synth 8-113] binding component instance 'mux6_muxf5' to cell 'MUXF5' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:130]
+INFO: [Synth 8-113] binding component instance 'mux7_muxf6' to cell 'MUXF6' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:136]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+	Parameter IS_S_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'pipeline_serial' to cell 'FDRS' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:144]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:188]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:194]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:204]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:210]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'register_bit' to cell 'FDRE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:165]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'count_lut' to cell 'LUT2' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:172]
+INFO: [Synth 8-113] binding component instance 'mask_and' to cell 'MULT_AND' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:180]
+INFO: [Synth 8-113] binding component instance 'count_muxcy' to cell 'MUXCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:204]
+INFO: [Synth 8-113] binding component instance 'count_xor' to cell 'XORCY' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:210]
+	Parameter INIT bound to: 8'b00010000 
+INFO: [Synth 8-113] binding component instance 'ready_lut' to cell 'LUT3' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:221]
+	Parameter INIT bound to: 16'b0000000110010000 
+INFO: [Synth 8-113] binding component instance 'start_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:232]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_start_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:242]
+	Parameter INIT bound to: 16'b0001010101000000 
+INFO: [Synth 8-113] binding component instance 'run_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:251]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_run_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:261]
+	Parameter INIT bound to: 8'b10010100 
+INFO: [Synth 8-113] binding component instance 'hot_state_lut' to cell 'LUT3' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:269]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'hot_state_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:278]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay14_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:284]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_bit_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:297]
+	Parameter INIT bound to: 16'b0000000110000000 
+INFO: [Synth 8-113] binding component instance 'stop_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:305]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_stop_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:315]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'complete_lut' to cell 'LUT2' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:323]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'Tx_complete_reg' to cell 'FD' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:331]
+WARNING: [Synth 8-2887] Directive 'init' on 'mux1_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux2_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux3_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux4_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'ready_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'start_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'run_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'hot_state_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'stop_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'complete_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[0].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[1].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[2].count_lut ' is unsupported and ignored
+INFO: [Synth 8-256] done synthesizing module 'kcuart_tx' (12#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_tx.vhd:25]
+INFO: [Synth 8-3491] module 'baud' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:34' bound to instance 'baud_comp' of component 'baud' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'baud' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'baud' (13#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'serial_tx' (14#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_tx.vhd:42]
+INFO: [Synth 8-3491] module 'serial_rx' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:34' bound to instance 'receptor' of component 'serial_rx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:66]
+INFO: [Synth 8-638] synthesizing module 'serial_rx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:41]
+INFO: [Synth 8-3491] module 'kcuart_rx' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:12' bound to instance 'receptor' of component 'kcuart_rx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:55]
+INFO: [Synth 8-638] synthesizing module 'kcuart_rx' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:23]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'sync_reg' to cell 'FD' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:67]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'stop_reg' to cell 'FD' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:72]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:91]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:113]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:128]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'start_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:142]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'start_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:155]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'edge_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:165]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'edge_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:178]
+	Parameter INIT bound to: 16'b0000000001000000 
+INFO: [Synth 8-113] binding component instance 'valid_lut' to cell 'LUT4' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:186]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'valid_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:196]
+	Parameter INIT bound to: 8'b01010100 
+INFO: [Synth 8-113] binding component instance 'purge_lut' to cell 'LUT3' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:204]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'purge_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:213]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay15_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:234]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'delay16_srl' to cell 'SRL16E' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:256]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'data_reg' to cell 'FDE' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:271]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-113] binding component instance 'strobe_lut' to cell 'LUT2' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:281]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'strobe_reg' to cell 'FD' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:289]
+WARNING: [Synth 8-2887] Directive 'init' on 'valid_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'purge_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'strobe_lut' is unsupported and ignored
+INFO: [Synth 8-256] done synthesizing module 'kcuart_rx' (15#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/kcuart_rx.vhd:23]
+INFO: [Synth 8-3491] module 'baud' declared at 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:34' bound to instance 'baud_comp' of component 'baud' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'serial_rx' (16#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/serial_rx.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'top_serial' (17#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/linea_serie_vhd/top_serial.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'TOP_DIBINA' (18#1) [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/new/TOP_DIBINA.vhd:52]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[3]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[2]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[1]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 390.508 ; gain = 121.242
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 390.508 ; gain = 121.242
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 43 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc]
+Finished Parsing XDC File [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/constrs_1/imports/SLP_Vivado/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_DIBINA_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_DIBINA_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 37 instances were transformed.
+  FD => FDRE: 4 instances
+  FDE => FDRE: 26 instances
+  FDRS => FDRS (FDRE, LUT2, VCC): 1 instances
+  MULT_AND => LUT2: 3 instances
+  MUXF5 => LUT3: 2 instances
+  MUXF6 => LUT3: 1 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 684.449 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'actual_reg' in module 'TOP_Principal'
+WARNING: [Synth 8-6014] Unused sequential element actual_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:72]
+INFO: [Synth 8-5545] ROM "siguiente" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "siguiente" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "rst_temp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "data_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "producto" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cantidad" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "empresa" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "almacen" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "siguiente" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "siguiente" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "siguiente" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element tiempo_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:361]
+INFO: [Synth 8-5545] ROM "r_BCD" won't be mapped to RAM because address size (31) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "r_SM_Main" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_SM_Main" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'ACTUAL_reg' in module 'FSM'
+WARNING: [Synth 8-6014] Unused sequential element ACTUAL_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:54]
+WARNING: [Synth 8-6014] Unused sequential element SIG_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:56]
+INFO: [Synth 8-5544] ROM "anodo" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "punto" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element kontador_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:50]
+WARNING: [Synth 8-6014] Unused sequential element baud_count_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:46]
+WARNING: [Synth 8-327] inferring latch for variable 'bidali_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:84]
+WARNING: [Synth 8-6014] Unused sequential element actual_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:72]
+WARNING: [Synth 8-6014] Unused sequential element actual_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:72]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               esperando |                            00000 |                            10100
+              rec_avisar |                            00001 |                            00000
+            rec_producto |                            00010 |                            00010
+     rec_enviar_producto |                            00011 |                            00101
+            rec_cantidad |                            00100 |                            00011
+     rec_enviar_cantidad |                            00101 |                            00110
+           rec_pausa_can |                            00110 |                            00111
+    rec_enviar_cantidad2 |                            00111 |                            01000
+             rec_empresa |                            01000 |                            00100
+      rec_enviar_empresa |                            01001 |                            01001
+               pausa_fin |                            01010 |                            10101
+              sac_avisar |                            01011 |                            00001
+             sac_almacen |                            01100 |                            10000
+          enviar_almacen |                            01101 |                            01010
+            sac_producto |                            01110 |                            10001
+     sac_enviar_producto |                            01111 |                            01011
+            sac_cantidad |                            10000 |                            10010
+     sac_enviar_cantidad |                            10001 |                            01100
+           sac_pausa_can |                            10010 |                            01101
+    sac_enviar_cantidad2 |                            10011 |                            01110
+             sac_empresa |                            10100 |                            10011
+      sac_enviar_empresa |                            10101 |                            01111
+          introducir_mas |                            10110 |                            11000
+            enviar_final |                            10111 |                            10110
+                esp_resp |                            11000 |                            10111
+                correcto |                            11001 |                            11010
+              incorrecto |                            11010 |                            11011
+               reset_mas |                            11011 |                            11001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'actual_reg' using encoding 'sequential' in module 'TOP_Principal'
+WARNING: [Synth 8-6014] Unused sequential element actual_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:72]
+WARNING: [Synth 8-327] inferring latch for variable 'almacen_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:196]
+WARNING: [Synth 8-327] inferring latch for variable 'cantidad_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:137]
+WARNING: [Synth 8-327] inferring latch for variable 'empresa_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:174]
+WARNING: [Synth 8-327] inferring latch for variable 'producto_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:116]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:83]
+WARNING: [Synth 8-327] inferring latch for variable 'data_out_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:95]
+WARNING: [Synth 8-327] inferring latch for variable 'rst_temp_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:82]
+WARNING: [Synth 8-6014] Unused sequential element ACTUAL_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:54]
+WARNING: [Synth 8-327] inferring latch for variable 'SIG_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:56]
+WARNING: [Synth 8-6014] Unused sequential element ACTUAL_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:54]
+WARNING: [Synth 8-327] inferring latch for variable 'SIG_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:56]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   geldi |                              000 |                              100
+                  iSTATE |                              001 |                              111
+                    zen0 |                              010 |                              000
+                    zen1 |                              011 |                              001
+                    zen2 |                              100 |                              010
+                    zen3 |                              101 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'ACTUAL_reg' using encoding 'sequential' in module 'FSM'
+WARNING: [Synth 8-6014] Unused sequential element SIG_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:56]
+WARNING: [Synth 8-6014] Unused sequential element ACTUAL_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:54]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_SIG_reg' [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/FSM.vhd:56]
+WARNING: [Synth 8-2887] Directive 'init' on 'mux1_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux2_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux3_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'mux4_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'ready_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'start_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'run_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'hot_state_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'stop_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'complete_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[0].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[1].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on '\count_width_loop[2].count_lut ' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'valid_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'purge_lut' is unsupported and ignored
+WARNING: [Synth 8-2887] Directive 'init' on 'strobe_lut' is unsupported and ignored
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               12 Bit    Registers := 4     
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 10    
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  10 Input     12 Bit        Muxes := 2     
+	   7 Input     12 Bit        Muxes := 4     
+	   2 Input     12 Bit        Muxes := 4     
+	  28 Input      8 Bit        Muxes := 1     
+	   6 Input      7 Bit        Muxes := 1     
+	  32 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 12    
+	   4 Input      4 Bit        Muxes := 2     
+	   7 Input      4 Bit        Muxes := 6     
+	   6 Input      4 Bit        Muxes := 1     
+	  28 Input      3 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 6     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 8     
+	  28 Input      1 Bit        Muxes := 10    
+	   7 Input      1 Bit        Muxes := 10    
+	   6 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module TOP_Principal 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  28 Input      8 Bit        Muxes := 1     
+	  32 Input      5 Bit        Muxes := 1     
+	  28 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	  28 Input      1 Bit        Muxes := 10    
+Module bin_decimal 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               12 Bit    Registers := 2     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	  10 Input     12 Bit        Muxes := 1     
+	   7 Input     12 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 6     
+	   4 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 3     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 5     
+Module FSM 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input      7 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 2     
+Module f_zati 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module baud 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "me_princ/siguiente" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "me_princ/siguiente" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-6014] Unused sequential element me_princ/tiempo_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/TOP_Principal.vhd:361]
+WARNING: [Synth 8-6014] Unused sequential element display/swaper/kontador_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/me_display/f_zati.vhd:50]
+WARNING: [Synth 8-6014] Unused sequential element linea_serie/transmisor/baud_comp/baud_count_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:46]
+WARNING: [Synth 8-6014] Unused sequential element linea_serie/receptor/baud_comp/baud_count_reg was removed.  [C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.srcs/sources_1/imports/COMPONENTES/linea_serie_vhd/baud.vhd:46]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[3]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[2]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[1]
+WARNING: [Synth 8-3331] design TOP_DIBINA has unconnected port JA[0]
+INFO: [Synth 8-3886] merging instance 'covertidor/bin_dec0/r_Digit_Index_reg[0]__0' (FDE) to 'covertidor/bin_dec0/r_Digit_Index_reg[0]'
+INFO: [Synth 8-3886] merging instance 'covertidor/bin_dec0/r_Digit_Index_reg[1]__0' (FDE) to 'covertidor/bin_dec0/r_Digit_Index_reg[1]'
+INFO: [Synth 8-3886] merging instance 'covertidor/bin_dec1/r_Digit_Index_reg[0]__0' (FDE) to 'covertidor/bin_dec1/r_Digit_Index_reg[0]'
+INFO: [Synth 8-3886] merging instance 'covertidor/bin_dec1/r_Digit_Index_reg[1]__0' (FDE) to 'covertidor/bin_dec1/r_Digit_Index_reg[1]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------+------------------------------+---------------+----------------+
+|Module Name        | RTL Object                   | Depth x Width | Implemented As | 
++-------------------+------------------------------+---------------+----------------+
+|traductor_empresa  | emp0                         | 32x5          | LUT            | 
+|traductor_empresa  | emp1                         | 32x5          | LUT            | 
+|traductor_empresa  | emp2                         | 32x5          | LUT            | 
+|traductor_producto | prod0                        | 32x5          | LUT            | 
+|traductor_producto | prod1                        | 32x5          | LUT            | 
+|traductor_producto | prod2                        | 32x5          | LUT            | 
+|abecedario         | letra                        | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_produc/prod0 | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_produc0/letra | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_empr/emp0    | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_emp0/letra    | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_produc/prod1 | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_produc1/letra | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_empr/emp1    | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_emp1/letra    | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_produc/prod2 | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_produc2/letra | 32x7          | LUT            | 
+|TOP_DIBINA         | covertidor/trad_empr/emp2    | 32x5          | LUT            | 
+|TOP_DIBINA         | covertidor/abc_emp2/letra    | 32x7          | LUT            | 
++-------------------+------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    37|
+|3     |LUT1     |    47|
+|4     |LUT2     |   177|
+|5     |LUT3     |    60|
+|6     |LUT4     |    54|
+|7     |LUT5     |   115|
+|8     |LUT6     |   120|
+|9     |MULT_AND |     3|
+|10    |MUXCY    |     3|
+|11    |MUXF5    |     2|
+|12    |MUXF6    |     1|
+|13    |MUXF7    |     3|
+|14    |SRL16E   |    20|
+|15    |XORCY    |     3|
+|16    |FD       |     4|
+|17    |FDCE     |    89|
+|18    |FDE      |    26|
+|19    |FDRE     |   117|
+|20    |LD       |    40|
+|21    |IBUF     |    17|
+|22    |OBUF     |    13|
+|23    |OBUFT    |     6|
++------+---------+------+
+
+Report Instance Areas: 
++------+-----------------+----------------+------+
+|      |Instance         |Module          |Cells |
++------+-----------------+----------------+------+
+|1     |top              |                |   958|
+|2     |  covertidor     |top_convertidor |   224|
+|3     |    bin_dec0     |bin_decimal     |   112|
+|4     |    bin_dec1     |bin_decimal_1   |   112|
+|5     |  display        |ME_display      |    63|
+|6     |    egoera       |FSM             |    15|
+|7     |    swaper       |f_zati          |    48|
+|8     |  linea_serie    |top_serial      |   114|
+|9     |    receptor     |serial_rx       |    63|
+|10    |      baud_comp  |baud_0          |    14|
+|11    |      receptor   |kcuart_rx       |    49|
+|12    |    transmisor   |serial_tx       |    51|
+|13    |      baud_comp  |baud            |    14|
+|14    |      transmisor |kcuart_tx       |    37|
+|15    |  me_princ       |TOP_Principal   |   518|
++------+-----------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 48 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 684.449 ; gain = 121.242
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 684.449 ; gain = 415.184
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 136 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 77 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 1 instances
+  FD => FDRE: 4 instances
+  FDE => FDRE: 26 instances
+  LD => LDCE: 40 instances
+  MULT_AND => LUT2: 3 instances
+  MUXF5 => LUT3: 2 instances
+  MUXF6 => LUT3: 1 instances
+
+191 Infos, 81 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 684.449 ; gain = 422.949
+INFO: [Common 17-1381] The checkpoint 'C:/Users/andoi/Documents/Unibersidad/PBL/Serial/TOP_DIBINA150121/TOP_DIBINA/TOP_DIBINA.runs/synth_1/TOP_DIBINA.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.016 . Memory (MB): peak = 684.449 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 24 22:27:17 2021...

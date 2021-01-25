@@ -1,0 +1,103 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
+| Date         : Sun Jan 24 22:27:46 2021
+| Host         : LAPTOP-GH6Q5S8T running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file TOP_DIBINA_control_sets_placed.rpt
+| Design       : TOP_DIBINA
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    34 |
+| Unused register locations in slices containing registers |   132 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              57 |           26 |
+| No           | No                    | Yes                    |              52 |           13 |
+| No           | Yes                   | No                     |              13 |            5 |
+| Yes          | No                    | No                     |              82 |           27 |
+| Yes          | No                    | Yes                    |              37 |           10 |
+| Yes          | Yes                   | No                     |              35 |           10 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------------------------+------------------------------------------------+--------------------------------------------------------+------------------+----------------+
+|                    Clock Signal                   |                  Enable Signal                 |                    Set/Reset Signal                    | Slice Load Count | Bel Load Count |
++---------------------------------------------------+------------------------------------------------+--------------------------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG                                    |                                                | linea_serie/transmisor/transmisor/R                    |                1 |              1 |
+|  me_princ/bidali_reg_i_2_n_0                      |                                                |                                                        |                1 |              2 |
+|  me_princ/sel_reg[2]_i_2_n_0                      |                                                |                                                        |                2 |              3 |
+|  clk_IBUF_BUFG                                    | linea_serie/transmisor/baud_comp/baud_seinalea | linea_serie/transmisor/transmisor/R                    |                1 |              3 |
+|  display/swaper/FSM_sequential_ACTUAL_reg[0]      |                                                | rst_IBUF                                               |                1 |              3 |
+|  display/egoera/FSM_sequential_SIG_reg[2]_i_2_n_0 |                                                |                                                        |                1 |              3 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/r_BCD[3]_i_1__0_n_0        |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_BCD[11]_i_1_n_0          |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_BCD[3]_i_1_n_0           |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_BCD[7]_i_1_n_0           |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/v_BCD_Digit[3]_i_1_n_0     |                                                        |                1 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/r_BCD[11]_i_1__0_n_0       |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/r_BCD[7]_i_1__0_n_0        |                                                        |                2 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_Binary[3]_i_1_n_0        |                                                        |                1 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_Loop_Count[3]_i_1_n_0    |                                                        |                1 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/r_Loop_Count[3]_i_1__0_n_0 |                                                        |                1 |              4 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/v_BCD_Digit[3]_i_1__0_n_0  |                                                        |                1 |              4 |
+|  me_princ/almacen_reg[3]_i_1_n_0                  |                                                |                                                        |                1 |              4 |
+|  clk_IBUF_BUFG                                    | me_princ/FSM_sequential_actual[4]_i_1_n_0      | rst_IBUF                                               |                2 |              5 |
+|  me_princ/empresa_reg[4]_i_1_n_0                  |                                                |                                                        |                2 |              5 |
+|  me_princ/producto_reg[4]_i_1_n_0                 |                                                |                                                        |                2 |              5 |
+|  clk_IBUF_BUFG                                    |                                                | linea_serie/receptor/baud_comp/en_16_x_baud_i_1__0_n_0 |                2 |              6 |
+|  clk_IBUF_BUFG                                    |                                                | linea_serie/transmisor/baud_comp/clear                 |                2 |              6 |
+|  clk_IBUF_BUFG                                    | linea_serie/transmisor/baud_comp/baud_seinalea |                                                        |                3 |              6 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/r_Binary[3]_i_1_n_0        | covertidor/bin_dec0/r_Binary[11]_i_1__0_n_0            |                2 |              8 |
+|  me_princ/bidali_reg_i_1_n_0                      |                                                |                                                        |                3 |              8 |
+|  me_princ/cantidad_reg[9]_i_1_n_0                 |                                                |                                                        |                5 |             10 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec0/dec_0[3]_i_2_n_0           | covertidor/bin_dec0/dec_0[3]_i_1_n_0                   |                4 |             12 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/dec_0[3]_i_2__0_n_0        | covertidor/bin_dec1/dec_0[3]_i_1_n_0                   |                3 |             12 |
+|  clk_IBUF_BUFG                                    | covertidor/bin_dec1/r_Binary[11]_i_1_n_0       |                                                        |                3 |             12 |
+|  clk_IBUF_BUFG                                    |                                                |                                                        |                9 |             17 |
+|  clk_IBUF_BUFG                                    | me_princ/tiempo[0]_i_1_n_0                     | rst_IBUF                                               |                8 |             32 |
+|  clk_IBUF_BUFG                                    | linea_serie/receptor/baud_comp/baud_seinalea   |                                                        |                9 |             40 |
+|  clk_IBUF_BUFG                                    |                                                | rst_IBUF                                               |               12 |             49 |
++---------------------------------------------------+------------------------------------------------+--------------------------------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 1      |                     1 |
+| 2      |                     1 |
+| 3      |                     4 |
+| 4      |                    12 |
+| 5      |                     3 |
+| 6      |                     3 |
+| 8      |                     2 |
+| 10     |                     1 |
+| 12     |                     3 |
+| 16+    |                     4 |
++--------+-----------------------+
+
+
