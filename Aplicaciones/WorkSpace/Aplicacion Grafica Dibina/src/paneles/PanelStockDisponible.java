@@ -20,6 +20,8 @@ import javax.swing.JRadioButton;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.ItemLabelAnchor;
@@ -42,8 +44,8 @@ import gestionPedidos.ControladorPedidos;
 public class PanelStockDisponible extends JPanel implements ItemListener{
 
 	private static final long serialVersionUID = 1L;
-	final static int ALTO = 1000;
-	final static int ANCHO  = 270;
+	final static int ALTO = 500;
+	final static int ANCHO  = 1000;
 	
 	private CategoryDataset dataset;
 	private JFreeChart chart;
@@ -63,7 +65,7 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		dataset = createDataset();
 		chart = createChart(dataset, true, words[2] + ", " + words[3]);
 		chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new java.awt.Dimension(ALTO, ANCHO));
+		chartPanel.setPreferredSize(new java.awt.Dimension(ANCHO, ALTO));
 		chartPanel.setMaximumDrawWidth(2000);
 		
 		setMinimumTickUnits();
@@ -74,9 +76,14 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		this.add(crearBotones(), BorderLayout.SOUTH);
 	  }
 	
+	
 	  public void setMinimumTickUnits() {
 		ValueAxis axis = chart.getCategoryPlot().getRangeAxis();
-		axis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());			
+		axis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		
+		CategoryPlot catPlot = chart.getCategoryPlot();
+        CategoryAxis domainAxis = catPlot.getDomainAxis();
+        domainAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
 	  }	
 	
 	  private void crearRenderer() {
@@ -174,12 +181,12 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		final JFreeChart chart;
 		 if(stacked) {
 			  chart = ChartFactory.createStackedBarChart3D(words[0], filtro, words[1],
-					  								dataset, PlotOrientation.HORIZONTAL, true, true, false);
+					  								dataset, PlotOrientation.VERTICAL, true, true, false);
 			  generarColores(chart);
 		  }
 		  else {
 			  chart = ChartFactory.createBarChart3D(words[0], filtro, words[1],
-					  								dataset, PlotOrientation.HORIZONTAL, true, true, false);
+					  								dataset, PlotOrientation.VERTICAL, true, true, false);
 		  }
 		  return chart;
 	  }

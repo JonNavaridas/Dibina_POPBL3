@@ -1,10 +1,29 @@
-Aki&AKI&1678#Ladron$2112#Boligrafo$2812#Adaptador$3952#Rotulador$7756#Tuerca$
-Bic&BIC&1678#Ladron$2812#Adaptador$3952#Rotulador$8592#Grapadora$
-Brico depot&BDP&1678#Ladron$3952#Rotulador$6881#Tornillo$7756#Tuerca$8592#Grapadora$
-Bruneau&BRU&2812#Adaptador$7756#Tuerca$8592#Grapadora$
-Componentes mugit&MUG&1678#Ladron$2812#Adaptador$6881#Tornillo$7756#Tuerca$8592#Grapadora$
-Electromecanica liup&EML&1678#Ladron$2112#Boligrafo$3952#Rotulador$6881#Tornillo$8592#Grapadora$
-Electronic system controlles&ESC&1678#Ladron$2112#Boligrafo$3952#Rotulador$6881#Tornillo$7756#Tuerca$8592#Grapadora$
-Ferreteria hermanos gonzalez&FHG&1678#Ladron$3952#Rotulador$6881#Tornillo$7756#Tuerca$
-Iberpapel&IBP&1678#Ladron$6881#Tornillo$7756#Tuerca$8592#Grapadora$
-Papercat&PPC&1678#Ladron$2112#Boligrafo$2812#Adaptador$6881#Tornillo$7756#Tuerca$
+Ferreteria Hermanos Gonzalez&FHG&4831#Rotulador Pizarra$4858#Pila$8764#Portatil$3487#Tippex$3778#Clips$5478#Cable
+Bruneau&BRU&3754#Monitor$3754#Monitor$8756#Arduino$3784#Adaptador VGA-HDMI$3452#Metro$4858#Pila
+ElectroMecanica Liup&EML&9785#Resistencia$2345#Adaptador$6758#Tornillo$9778#Tuerca$5431#Post-it
+PaperCat&PPC&6758#Tornillo$2345#Adaptador$3487#Auriculares$4563#VGA$3778#Clips$6567#Condensador
+Electronic System Controllers&ESC&6785#HDMI$6788#Raspberry PI$4858#Pila$6786#Teclado$3784#Adaptador VGA-HDMI$8764#Portatil
+Componentes MUgit&MUG&3754#Monitor$6786#Teclado$4858#Pila$4858#Pila$6788#Voltímetro$6788#Raspberry PI
+BIC&BIC&4858#Pila$6786#Cuaderno$3778#Clips$3784#Adaptador VGA-HDMI$6758#Tornillo$6758#Tornillo
+RS Componentes&RSC&9785#Resistencia$3452#Metro$4831#Rotulador Pizarra$3742#Papel$3784#Adaptador VGA-HDMI
+Leroy Merlín&LMR&9785#Resistencia$6874#Subrayador$3742#Papel$3487#Auriculares$4563#VGA
+AHI&AHI&6874#Subrayador$8764#Portatil$3784#Adaptador VGA-HDMI$3742#Papel$3578#Transistor$6786#Teclado
+Brico Depot&BDP&3578#Transistor$3789#Arandela$8756#Arduino$9778#Tuerca$4672#Boligrafo$8888#Bateria
+Iberpapel&IBP&6785#HDMI$4567#LED$8764#Portatil$6567#Condensador$6788#Raspberry PI$5478#Cable
+Lenabo&LEN&1357#Borragoma$3754#Monitor$6788#Raspberry PI$6758#Tornillo$3487#Auriculares$6874#Subrayador
+Fénix Electronica&FEN&8764#Portatil$9785#Resistencia$3452#Metro$3487#Tippex$6785#HDMI$3784#Adaptador VGA-HDMI
+MicroCenter&MIC&6785#HDMI$3487#Tippex$4567#LED$9778#Tuerca$3452#Metro$8888#Bateria
+Facon&FCN&9778#Tuerca$3778#Clips$4567#LED$6788#Voltímetro$4831#Rotulador Pizarra
+Efaití&EFA&1357#Borragoma$6567#Condensador$4567#LED$2345#Adaptador
+EFE Productos&EFE&2345#Adaptador$4672#Boligrafo$3578#Transistor$3778#Clips$4858#Pila$6567#Condensador
+Elkar&ELR&9778#Tuerca$4672#Boligrafo$6788#Voltímetro$3784#Adaptador VGA-HDMI$3778#Clips$6874#Subrayador
+Ayala Papeleria&AYA&1357#Borragoma$4672#Boligrafo$6874#Subrayador$3578#Transistor$6786#Cuaderno$3778#Clips
+PC Componentes&PCC&8888#Bateria$3789#Arandela$3742#Papel$6786#Teclado$4672#Boligrafo$4563#VGA
+Media Markt&MDM&5478#Cable$8756#Arduino$5478#Cable$8764#Portatil$4831#Rotulador Pizarra$4563#VGA
+PC BOX&PCB&3487#Auriculares$2345#Adaptador$5478#Cable$3754#Monitor$6874#Subrayador$4858#Pila
+Reaz&REZ&3487#Auriculares$4563#VGA$6788#Raspberry PI$3487#Auriculares$6788#Raspberry PI$8888#Bateria
+Berdin Norte&BNN&4858#Pila$3487#Tippex$6567#Condensador$5431#Post-it$3578#Transistor$6567#Condensador
+Mecalux&MCL&4563#VGA$8756#Arduino$3784#Adaptador VGA-HDMI$5478#Cable$3487#Auriculares
+Lineapelle SA&LNP&2345#Adaptador$6758#Tornillo$3452#Metro$6786#Cuaderno$3784#Adaptador VGA-HDMI$2345#Adaptador
+DMP Aero&DMP&3784#Adaptador VGA-HDMI$3578#Transistor$4858#Pila$6786#Teclado$5431#Post-it$3784#Adaptador VGA-HDMI
+Rotulos Gomez&RTG&4858#Pila$3754#Monitor$1357#Borragoma$6758#Tornillo$3487#Tippex
