@@ -65,7 +65,7 @@ public class GestorElementos extends Thread {
 				break;
 			case 3: añadirUsuario(elemento.transformToUser());
 				break;
-			case 4: cambiarContraseña(elemento.transformToUser(), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
+			case 4: cambiarContraseña(elemento.transformToUser(elemento.getElemento().split("[_]")[0]), Integer.parseInt(elemento.getElemento().split("[_]")[1]));
 				break;
 			case 5: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
 				break;
@@ -294,8 +294,8 @@ public class GestorElementos extends Thread {
 	}
 	
 	private void cambiarContraseña(User user, int newPassword) throws IOException { // Cambia la contraseña del usuario asignado.
-        String oldLine = user.getID() + "," + user.getName() + "," + user.getContraseña();
-        String newLine = user.getID() + "," + user.getName() + "," + newPassword;
+        String oldLine = user.getID() + "," + user.getName() + "," + user.getFullName() + "," + user.getContraseña() + "," + user.getPermisos().getInicial();
+        String newLine = user.getID() + "," + user.getName() + "," + user.getFullName() + "," + newPassword + "," + user.getPermisos().getInicial();
         
         List<String> usuarios = new ArrayList<>();
         BufferedReader in = new BufferedReader(new FileReader(FICHERO_USUARIOS));

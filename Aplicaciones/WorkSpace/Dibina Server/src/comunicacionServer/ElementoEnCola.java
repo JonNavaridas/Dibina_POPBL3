@@ -95,7 +95,7 @@ public class ElementoEnCola {
 		return new User(id, name, fullName, password, permisos);
 	}
 	
-	private User transformToUser(String parametros) {
+	public User transformToUser(String parametros) {
 		String[] valores = parametros.split("[$]");
 		
 		String id = valores[0];
