@@ -32,6 +32,12 @@ public class Tipo implements Serializable, Comparator<Tipo> {
 	public int compare(Tipo o1, Tipo o2) {
 		return o1.getNombre().compareTo(o2.getNombre());
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Tipo t = (Tipo) obj;
+		return t.getNombre().equals(this.getNombre());
+	}
 
 	public String transformToString() {
 		return ID + "/" + nombre;

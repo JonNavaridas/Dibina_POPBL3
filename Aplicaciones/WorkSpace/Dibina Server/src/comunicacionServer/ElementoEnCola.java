@@ -96,7 +96,7 @@ public class ElementoEnCola {
 	}
 	
 	private User transformToUser(String parametros) {
-		String[] valores = parametros.split("[-]")[0].split("[$]");
+		String[] valores = parametros.split("[$]");
 		
 		String id = valores[0];
 		String name = valores[1];

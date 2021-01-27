@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
@@ -20,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import elementos.Producto;
+import elementos.Tipo;
 import gestionElementosVisuales.FontFactory;
 import renderizadoTablaTipos.HeaderRenderer;
 import renderizadoTablaTipos.ModeloColumnas;
@@ -53,7 +55,8 @@ public class PanelBuscar extends JScrollPane {
 		this.modeloTabla.setLista(listaDisplay);
 		
 		// Pasar los datos a arrays para poder añadirlos a los combo boxes.
-		listaTipo = this.transformToArray(listaProductos.stream().map(Producto::getTipo).distinct().collect(Collectors.toList()));
+		List<Tipo> todosTipos = listaProductos.stream().map(Producto::getTipo).collect(Collectors.toList());
+		listaTipo = this.transformToArray(todosTipos.stream().map(Tipo::getNombre).distinct().collect(Collectors.toList()));
 		listaProcedencia = this.transformToArray(listaProductos.stream().map(Producto::getProcedencia).distinct().collect(Collectors.toList()));
 		listaCantidades = listaProductos.stream().map(Producto::getCantidad).distinct().collect(Collectors.toList());
 		

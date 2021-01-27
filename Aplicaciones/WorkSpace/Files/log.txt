@@ -46,3 +46,22 @@ Aceptar pedido:
 	->Pedido 2021127164845
 Pedido retirado: 2021127164845	[Tipo=Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=3,Procedencia=Bruneau]
 Server off
+Server on
+Server on
+Aceptar pedido:
+	->Pedido 2021127180305
+Server on
+Aceptar pedido:
+	->Pedido 2021127180947
+Server on
+Server on
+Añadir pedido: Pedido 2021127182142 --> procesando
+	[Tipo=2345/Adaptador,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=PC BOX/PCB]
+Server on
+Cambiar contraseña: User 71794090R Jon Navaridas
+Server on
+Añadir pedido: Pedido 2021127182514 --> procesando
+	[Tipo=3784/Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=3,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127182514
+Pedido retirado: 2021127182514	[Tipo=Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=3,Procedencia=Bruneau]
