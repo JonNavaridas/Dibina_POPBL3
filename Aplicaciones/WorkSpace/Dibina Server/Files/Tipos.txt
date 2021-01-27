@@ -1,7 +1,0 @@
-2812&Adaptador
-2112&Boligrafo
-8592&Grapadora
-1678&Ladron
-3952&Rotulador
-6881&Tornillo
-7756&Tuerca
