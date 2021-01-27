@@ -24,8 +24,6 @@ import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
@@ -34,7 +32,6 @@ import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DatasetUtilities;
-import org.jfree.ui.TextAnchor;
 
 import elementos.Procedencia;
 import elementos.Producto;
@@ -45,7 +42,7 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 
 	private static final long serialVersionUID = 1L;
 	final static int ALTO = 500;
-	final static int ANCHO  = 1000;
+	final static int ANCHO  = 1300;
 	
 	private CategoryDataset dataset;
 	private JFreeChart chart;
@@ -91,9 +88,6 @@ public class PanelStockDisponible extends JPanel implements ItemListener{
 		
 	      renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
 	      renderer.setBaseItemLabelsVisible(true);
-	      ItemLabelPosition position = new ItemLabelPosition(ItemLabelAnchor.CENTER, 
-	                TextAnchor.TOP_CENTER);
-	      renderer.setBasePositiveItemLabelPosition(position);
 	}
 
 

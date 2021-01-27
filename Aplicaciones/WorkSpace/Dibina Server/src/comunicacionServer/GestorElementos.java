@@ -75,7 +75,11 @@ public class GestorElementos extends Thread {
 				break;
 			case 8: cambiarEstadoPedido(elemento.transformToPedidos(), Estado.ACEPTADO);
 				break;
-			case 9: informarSalidaPedido(elemento.transformToPedido());
+			case 9:
+				List<Long> ids = new ArrayList<>();
+				ids.add(elemento.transformToPedido().getID());
+				cambiarEstadoPedido(ids, Estado.RECOGIDO);
+				informarSalidaPedido(elemento.transformToPedido());
 				break;
 			case 10: añadirStock(elemento.transformToProducto());
 				break;

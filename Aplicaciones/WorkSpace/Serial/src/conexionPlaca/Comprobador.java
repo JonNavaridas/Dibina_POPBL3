@@ -38,7 +38,7 @@ public class Comprobador {
 		else if((mensaje[i] & 0xFF)==130) { // enviar = 10000010 (130)
 			enviar = true;	
 			i++;
-			pedido.setDestino(destinos[(mensaje[i++] & 0xFF)]);
+			pedido.setDestino(destinos[(mensaje[i++] & 0xFF)-1]);
 		}
 
 		do {
@@ -47,9 +47,12 @@ public class Comprobador {
 			valores[1] = obtenerCantidad(mensaje[i++], mensaje[i++]);		//((mensaje[i++] & 0xff) << 8) | (mensaje[i++] & 0xff)	//Cantidad
 			valores[2] = mensaje[i++]& 0xff;								//Procedencia
 			
-			if(isProductoCorrecto(valores)) {
+			if(enviar) {
 				producto = new Producto(tipos[valores[0]],Calendar.getInstance().getTime(),valores[1],procedencias[valores[2]]);
-				if(enviar)pedido.addProducto(producto);
+				pedido.addProducto(producto);
+			}
+			else if(isProductoCorrecto(valores)) {
+				producto = new Producto(tipos[valores[0]],Calendar.getInstance().getTime(),valores[1],procedencias[valores[2]]);
 			}
 			else return false;		
 			
@@ -66,12 +69,12 @@ public class Comprobador {
 	}
 	
 	private void enviarPedido(Pedido pedido) {
-		Cliente cl = new Cliente("Sacar pedido de almacen", pedido.transformToString());
+		Cliente cl = new Cliente(pedido.transformToString(), "Sacar pedido de almacen");
 		cl.start();
 	}
 
 	private void recibirProducto(Producto producto) {
-		Cliente cl = new Cliente("Añadir stock", producto.transformToString());
+		Cliente cl = new Cliente(producto.transformToString(), "Añadir stock");
 		cl.start();
 	}
 
@@ -99,7 +102,7 @@ public class Comprobador {
 		boolean opened = false;
 		
 		while(!opened) {
-			list = Lector.leerPedidos("Files/Pedidos.dat");
+			list = Lector.leerPedidos();
 			
 			if(list != null) opened = true;
 			else {

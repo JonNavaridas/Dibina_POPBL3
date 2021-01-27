@@ -20,7 +20,7 @@ import elementos.Tipo;
 
 public class Lector {
 	
-	public static final String FICHERO_PEDIDOS = "../Files/Pedidos.dat";
+	public static final String FICHERO_PEDIDOS = "../Files/pedidos.dat";
 	public static final String FICHERO_DESTINOS = "../Files/Destinos.txt";
 	public static final String FICHERO_TIPOS = "../Files/Tipos.txt";
 	public static final String FICHERO_PRODUCTOS = "../Files/Productos.dat";
@@ -92,9 +92,9 @@ public class Lector {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static List<Pedido> leerPedidos(String path) {
+	public static List<Pedido> leerPedidos() {
 		List<Pedido> listaPedidos = new ArrayList<>();
-		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(path))) {
+		try(ObjectInputStream in  = new ObjectInputStream(new FileInputStream(FICHERO_PEDIDOS))) {
 			do {
 				listaPedidos = (List<Pedido>) in.readObject();
 			} while(listaPedidos != null);

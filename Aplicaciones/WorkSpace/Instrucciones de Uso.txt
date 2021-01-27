@@ -1,0 +1,3 @@
+Tanto la aplicación DibinaServer y la aplicación DibinaSerial tienen que ser ejecutadas mediante la constola.
+Para ejecutar desde consola se debe escribir el siguiente comando:
+java -jar "ruta del archivo".jar

@@ -158,7 +158,6 @@ public class PanelHistorial extends JScrollPane implements ActionListener, Chang
 		return panel;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {

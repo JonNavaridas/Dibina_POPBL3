@@ -103,6 +103,7 @@ public class Dibina extends JFrame {
 			pVentana.setDividerLocation(width/15); // Colocar la división teniendo en cuenta el tamaño de la pantalla.
 			pVentana.setBorder(null);
 	
+			user.emptyPedidos();
 			listaPedidos.stream().forEach((p)->{
 				if (p.getUser().equals(user)) {
 					user.addPedido(p);
@@ -234,8 +235,9 @@ public class Dibina extends JFrame {
 		listaPedidos = carga.getPedidos();
 		listaProductos = carga.getProductos();
 		listaProcedencias = carga.getProcedencias();
-		
+
 		if (user != null) {
+			user.emptyPedidos();
 			listaPedidos.stream().forEach((p)->{
 				if (p.getUser().equals(user)) {
 					user.addPedido(p);
@@ -257,6 +259,8 @@ public class Dibina extends JFrame {
 		item = menuPersonal.add(menus[15]);
 		item.setIcon(ImageFactory.createImageIcon(ImageFactory.ICONO_USUARIO));
 		item.addActionListener((e)->{
+			
+			
 			modeloPedidos.setLista(user.getListaPedidos());
 			pDisplay.setViewportView(new PanelUsuario(this, modeloPedidos, user, Arrays.copyOfRange(paneles, 22, 36), Arrays.copyOfRange(paneles, 36, 43), Arrays.copyOfRange(passwordUser,0,5)));
 			this.repaint();

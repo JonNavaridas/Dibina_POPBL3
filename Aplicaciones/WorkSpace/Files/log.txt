@@ -1,0 +1,48 @@
+Server on
+Añadir pedido: Pedido 2021127150602 --> procesando
+	[Tipo=2345/Adaptador,Fecha=Tue Jan 26 14:01:45 CET 2021,Cantidad=3,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127150602
+Server on
+Server on
+Añadir pedido: Pedido 2021127154704 --> procesando
+	[Tipo=4672/Boligrafo,Fecha=Tue Jan 26 14:01:45 CET 2021,Cantidad=5,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127154704
+Añadir pedido: Pedido 2021127160642 --> procesando
+	[Tipo=3784/Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=6,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127160642
+Server on
+Server on
+Server on
+Server on
+Pedido retirado: 2021127160642	[Tipo=Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=6,Procedencia=Bruneau]
+Server on
+Añadir pedido: Pedido 2021127162356 --> procesando
+	[Tipo=3784/Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127162356
+Pedido retirado: 2021127162356	[Tipo=Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=Bruneau]
+Añadir pedido: Pedido 2021127162452 --> procesando
+	[Tipo=2345/Adaptador,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=PC BOX/PCB]
+Denegar pedido:
+	->Pedido 2021127162452
+Server on
+Añadir pedido: Pedido 2021127163015 --> procesando
+	[Tipo=2345/Adaptador,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=PC BOX/PCB]
+Denegar pedido:
+	->Pedido 2021127163015
+Server on
+Server off
+Server on
+Añadir pedido: Pedido 2021127164819 --> procesando
+	[Tipo=2345/Adaptador,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=1,Procedencia=Efaití/EFA]
+Aceptar pedido:
+	->Pedido 2021127164819
+Añadir pedido: Pedido 2021127164845 --> procesando
+	[Tipo=3784/Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=3,Procedencia=Bruneau/BRU]
+Aceptar pedido:
+	->Pedido 2021127164845
+Pedido retirado: 2021127164845	[Tipo=Adaptador VGA-HDMI,Fecha=Wed Jan 27 16:00:32 CET 2021,Cantidad=3,Procedencia=Bruneau]
+Server off

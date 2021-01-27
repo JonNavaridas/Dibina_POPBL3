@@ -56,9 +56,11 @@ public class Conexion {
 		serialport.setParity(SerialPort.NO_PARITY);
 		serialport.setNumStopBits(SerialPort.ONE_STOP_BIT);
 		serialport.setFlowControl(SerialPort.FLOW_CONTROL_DISABLED);
-		serialport.addDataListener(reader);
 		serialport.openPort();
 		if(ratio == 1) sincronizarBluetooth();
+		serialport.addDataListener(reader);
+		serialport.closePort();
+		serialport.openPort();
 	}
      
     private void sincronizarBluetooth() {

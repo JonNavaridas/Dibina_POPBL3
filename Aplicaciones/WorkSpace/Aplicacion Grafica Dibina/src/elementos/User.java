@@ -59,6 +59,10 @@ public class User implements Serializable {
 	public List<Pedido> getListaPedidos() {
 		return this.listaPedidos;
 	}
+	
+	public void emptyPedidos() {
+		listaPedidos = new ArrayList<>();
+	}
 
 	@Override
 	public String toString() {
