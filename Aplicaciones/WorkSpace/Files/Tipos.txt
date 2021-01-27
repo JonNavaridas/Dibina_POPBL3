@@ -1,7 +1,31 @@
-2812&Adaptador
-2112&Boligrafo
-8592&Grapadora
-1678&Ladron
-3952&Rotulador
-6881&Tornillo
-7756&Tuerca
+4672&Boligrafo
+4831&Rotulador Pizarra
+4858&Pila
+1357&Borragoma
+6758&Tornillo
+4567&LED
+3578&Transistor
+9785&Resistencia
+5478&Cable
+6567&Condensador
+9778&Tuerca
+2345&Adaptador
+6788&Voltímetro
+3789&Arandela
+3742&Papel
+8764&Portatil
+6785&HDMI
+4563&VGA
+3784&Adaptador VGA-HDMI
+3487&Tippex
+6786&Cuaderno
+3754&Monitor
+6786&Teclado
+3487&Auriculares
+6874&Subrayador
+3452&Metro
+3778&Clips
+5431&Post-it
+8756&Arduino
+6788&Raspberry PI
+8888&Bateria
